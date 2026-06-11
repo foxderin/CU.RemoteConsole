@@ -14,7 +14,7 @@ CU.RemoteConsole 为 Casualties: Unknown 提供本地浏览器命令面板。它
 ## 安装
 
 1. 把 BepInEx 5.4.x 安装到游戏目录。
-2. 解压 `CU.RemoteConsole-v0.0.14.zip`。
+2. 解压 `CU.RemoteConsole-v1.0.0.zip`。
 3. 把解压后的 `BepInEx` 文件夹复制到游戏目录。
 4. 启动一次游戏。
 5. 打开 `http://127.0.0.1:8848/`。

@@ -49,7 +49,7 @@ Casualties: Unknown may support some custom content, but CU.RemoteConsole is a C
 ## Installation
 
 1. Install BepInEx 5.4.x for the game.
-2. Download `CU.RemoteConsole-v0.0.14.zip` from the release page.
+2. Download `CU.RemoteConsole-v1.0.0.zip` from the release page.
 3. Copy the whole `BepInEx` folder from the release package into the game install directory.
 4. Confirm the final plugin path looks like:
 

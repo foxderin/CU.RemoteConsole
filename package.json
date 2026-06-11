@@ -1,6 +1,6 @@
 {
   "name": "cu.remoteconsole",
-  "version": "0.0.14",
+  "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "scripts": {

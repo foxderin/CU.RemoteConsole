@@ -49,7 +49,7 @@ Casualties: Unknown 可能支持部分自定义内容，但 CU.RemoteConsole 是
 ## 安装
 
 1. 为游戏安装 BepInEx 5.4.x。
-2. 从 Release 页面下载 `CU.RemoteConsole-v0.0.14.zip`。
+2. 从 Release 页面下载 `CU.RemoteConsole-v1.0.0.zip`。
 3. 把发布包里的整个 `BepInEx` 文件夹复制到游戏安装目录。
 4. 确认最终插件路径类似：
 
