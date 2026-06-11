@@ -199,4 +199,6 @@ CHECKSUMS.txt
 
 ## 许可证
 
-本项目尚未选择许可证。除非相关许可证明确允许，不要复制、修改、打包或二次分发第三方 Casualties: Unknown mod、Dev Menu 代码、资源、UI、游戏文件或 BepInEx 二进制文件。
+CU.RemoteConsole 使用 [MIT License](./LICENSE) 授权。
+
+依赖和第三方内容说明见 [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md)。除非相关许可证明确允许，不要复制、修改、打包或二次分发第三方 Casualties: Unknown mod、Dev Menu 代码、资源、UI、游戏文件或 BepInEx 二进制文件。

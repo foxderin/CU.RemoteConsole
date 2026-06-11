@@ -1,6 +1,7 @@
 {
   "name": "cu.remoteconsole",
   "version": "0.0.12",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "build:web": "tailwindcss -i ./web/src/input.css -o ./web/dist/output.css --minify && node ./scripts/embed-web-console.mjs"

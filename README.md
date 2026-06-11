@@ -201,4 +201,6 @@ The release package does not include BepInEx, game files, third-party mods, toke
 
 ## License
 
-No project license has been selected yet. Do not copy, modify, bundle, or redistribute third-party Casualties: Unknown mods, Dev Menu code, resources, UI, game files, or BepInEx binaries unless the relevant license explicitly permits it.
+CU.RemoteConsole is licensed under the [MIT License](./LICENSE).
+
+See [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md) for dependency and third-party content notes. Do not copy, modify, bundle, or redistribute third-party Casualties: Unknown mods, Dev Menu code, resources, UI, game files, or BepInEx binaries unless the relevant license explicitly permits it.
