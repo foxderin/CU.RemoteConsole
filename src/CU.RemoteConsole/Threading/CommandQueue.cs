@@ -6,7 +6,7 @@ namespace CU.RemoteConsole.Threading;
 public sealed class CommandQueue
 {
     private readonly ConcurrentQueue<CommandRequest> queue = new ConcurrentQueue<CommandRequest>();
-    private readonly int maxDepth;
+    private int maxDepth;
 
     public CommandQueue(int maxDepth)
     {
@@ -14,6 +14,11 @@ public sealed class CommandQueue
     }
 
     public int Count => queue.Count;
+
+    public void UpdateMaxDepth(int maxDepth)
+    {
+        this.maxDepth = maxDepth < 1 ? 1 : maxDepth;
+    }
 
     public bool TryEnqueue(CommandRequest request)
     {
@@ -28,6 +33,13 @@ public sealed class CommandQueue
 
     public bool TryDequeue(out CommandRequest request)
     {
-        return queue.TryDequeue(out request);
+        if (queue.TryDequeue(out var item))
+        {
+            request = item;
+            return true;
+        }
+
+        request = null!;
+        return false;
     }
 }

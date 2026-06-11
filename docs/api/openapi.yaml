@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: CU.RemoteConsole Local API
-  version: 0.0.12
+  version: 0.0.13
   summary: "Local authenticated API for the Casualties: Unknown remote command panel."
   description: |
     Static contract for CU.RemoteConsole. This file is documentation only:
@@ -216,7 +216,7 @@ components:
           const: CU.RemoteConsole
         pluginVersion:
           type: string
-          examples: ["0.0.12"]
+          examples: ["0.0.13"]
         httpListening:
           type: boolean
         patchApplied:

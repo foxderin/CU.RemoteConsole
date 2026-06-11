@@ -7,9 +7,14 @@ public sealed class RateLimiter
 {
     private readonly object gate = new object();
     private readonly Dictionary<string, Window> windows = new Dictionary<string, Window>();
-    private readonly int maxPerSecond;
+    private int maxPerSecond;
 
     public RateLimiter(int maxPerSecond)
+    {
+        UpdateLimit(maxPerSecond);
+    }
+
+    public void UpdateLimit(int maxPerSecond)
     {
         this.maxPerSecond = Math.Max(1, maxPerSecond);
     }

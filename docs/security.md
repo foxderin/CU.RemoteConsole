@@ -1,6 +1,6 @@
 # Security Design
 
-Status: current security design for release `0.0.12`.
+Status: current security design for release `0.0.13`.
 
 ## Security Posture
 

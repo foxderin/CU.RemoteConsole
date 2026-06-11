@@ -7,6 +7,7 @@ using CU.RemoteConsole.Console;
 using CU.RemoteConsole.Diagnostics;
 using CU.RemoteConsole.Security;
 using CU.RemoteConsole.Threading;
+using CU.RemoteConsole.UI;
 using CU.RemoteConsole.Web;
 using HarmonyLib;
 using UnityEngine;
@@ -24,8 +25,11 @@ public sealed class RemoteConsoleHost
     private readonly ConsoleBridge consoleBridge;
     private readonly AuditLogger auditLogger;
     private readonly CommandPolicy policy;
-    private readonly LocalHttpServer httpServer;
+    private readonly Authenticator authenticator;
+    private readonly RateLimiter rateLimiter;
+    private LocalHttpServer httpServer;
     private readonly Harmony harmony;
+    private InGameConfigOverlay? configOverlay;
     private bool patchApplied;
     private string bridgeLastStatus = "not_started";
     private DateTimeOffset? lastExecutionAt;
@@ -41,19 +45,23 @@ public sealed class RemoteConsoleHost
         commandHistory = new CommandHistory(100);
         consoleBridge = new ConsoleBridge();
 
-        var authenticator = new Authenticator(remoteConfig.Token);
+        authenticator = new Authenticator(remoteConfig.Token);
         policy = new CommandPolicy(remoteConfig);
-        var rateLimiter = new RateLimiter(remoteConfig.MaxCommandsPerSecond.Value);
-        httpServer = new LocalHttpServer(remoteConfig, authenticator, policy, rateLimiter, commandQueue, commandHistory, auditLogger, CreateHealthSnapshot, CreateStatusSnapshot);
+        rateLimiter = new RateLimiter(remoteConfig.MaxCommandsPerSecond.Value);
+        httpServer = CreateHttpServer();
         httpServer.Start();
 
         harmony = new Harmony(RemoteConsolePlugin.PluginGuid);
         PatchConsoleUpdate();
+        EnsureConfigOverlay();
 
         Application.quitting += Shutdown;
         logger.LogInfo($"CU.RemoteConsole listening on {httpServer.Prefix}");
         logger.LogInfo("Authentication token is stored in the BepInEx config file and is not printed to logs.");
+        logger.LogInfo($"Press {remoteConfig.ConfigWindowKey.Value} in game to open CU.RemoteConsole config.");
     }
+
+    internal RemoteConsoleConfig Config => remoteConfig;
 
     public static bool EnsureCreated(RemoteConsolePlugin plugin)
     {
@@ -79,7 +87,13 @@ public sealed class RemoteConsoleHost
 
     public static void DrainFromConsoleUpdate()
     {
-        instance?.DrainCommands();
+        if (instance == null)
+        {
+            return;
+        }
+
+        instance.EnsureConfigOverlay();
+        instance.DrainCommands();
     }
 
     private void DrainCommands()
@@ -114,8 +128,54 @@ public sealed class RemoteConsoleHost
         Application.quitting -= Shutdown;
         harmony.UnpatchSelf();
         httpServer.Dispose();
+        if (configOverlay != null)
+        {
+            UnityEngine.Object.Destroy(configOverlay.gameObject);
+            configOverlay = null;
+        }
+
         logger.LogInfo("CU.RemoteConsole host unloaded.");
         instance = null;
+    }
+
+    internal string ApplyInGameConfigChanges(bool restartHttp)
+    {
+        try
+        {
+            remoteConfig.Save();
+            authenticator.UpdateToken(remoteConfig.Token);
+            policy.Update(remoteConfig.MaxCommandLength.Value, remoteConfig.DenyDangerousCommands.Value);
+            rateLimiter.UpdateLimit(remoteConfig.MaxCommandsPerSecond.Value);
+            commandQueue.UpdateMaxDepth(remoteConfig.MaxQueueDepth.Value);
+            auditLogger.SetEnabled(remoteConfig.AuditLogEnabled.Value);
+
+            if (restartHttp)
+            {
+                RestartHttpServer();
+            }
+
+            auditLogger.ConfigUpdate("local-ui", "local-ui", restartHttp ? "config,http_restart" : "config");
+            logger.LogInfo("CU.RemoteConsole config updated from in-game UI.");
+            return restartHttp ? "Saved. HTTP listener restarted." : "Saved.";
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning($"Failed to apply in-game config: {ex.GetType().Name}: {ex.Message}");
+            return "Save failed: " + ex.Message;
+        }
+    }
+
+    private LocalHttpServer CreateHttpServer()
+    {
+        return new LocalHttpServer(remoteConfig, authenticator, policy, rateLimiter, commandQueue, commandHistory, auditLogger, CreateHealthSnapshot, CreateStatusSnapshot);
+    }
+
+    private void RestartHttpServer()
+    {
+        httpServer.Dispose();
+        httpServer = CreateHttpServer();
+        httpServer.Start();
+        logger.LogInfo($"CU.RemoteConsole listening on {httpServer.Prefix}");
     }
 
     private void PatchConsoleUpdate()
@@ -131,6 +191,16 @@ public sealed class RemoteConsoleHost
         harmony.Patch(update, postfix: new HarmonyMethod(postfix));
         patchApplied = true;
         logger.LogInfo("CU.RemoteConsole patched ConsoleScript.Update for main-thread queue drain.");
+    }
+
+    private void EnsureConfigOverlay()
+    {
+        if (configOverlay != null)
+        {
+            return;
+        }
+
+        configOverlay = InGameConfigOverlay.Create(this);
     }
 
     private static void ConsoleUpdatePostfix()

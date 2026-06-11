@@ -16,6 +16,7 @@
 - 线程安全命令队列，由 Unity 主线程消费。
 - 命令回执查询、最近历史和命令输出渲染。
 - 只读状态、配置和策略面板。
+- 按 `F8` 打开的游戏内配置窗口。
 - 按风险分组的命令目录。
 - 中英文网页 UI。
 - 静态 OpenAPI 契约：[`docs/api/openapi.yaml`](./docs/api/openapi.yaml)。
@@ -48,7 +49,7 @@ Casualties: Unknown 可能支持部分自定义内容，但 CU.RemoteConsole 是
 ## 安装
 
 1. 为游戏安装 BepInEx 5.4.x。
-2. 从 Release 页面下载 `CU.RemoteConsole-v0.0.12.zip`。
+2. 从 Release 页面下载 `CU.RemoteConsole-v0.0.13.zip`。
 3. 把发布包里的整个 `BepInEx` 文件夹复制到游戏安装目录。
 4. 确认最终插件路径类似：
 
@@ -138,6 +139,10 @@ docs/api/openapi.yaml
 ## 配置
 
 BepInEx 会在首次启动后自动生成配置文件。
+
+在游戏内按 `F8` 可以打开 CU.RemoteConsole 配置窗口。本地玩家可以在这个窗口修改网络、鉴权、命令策略、限制和审计设置。公网/局域网暴露、关闭鉴权、允许危险命令等高风险修改需要再次点击确认保存。
+
+远程 API 用户不能通过 HTTP 修改配置。
 
 | 文件 | 用途 |
 | --- | --- |

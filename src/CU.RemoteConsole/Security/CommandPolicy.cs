@@ -70,8 +70,8 @@ public sealed class CommandPolicy
 
     private static readonly HashSet<string> DangerousCommands = new HashSet<string>(DangerousCommandNames, StringComparer.OrdinalIgnoreCase);
 
-    private readonly int maxCommandLength;
-    private readonly bool denyDangerousCommands;
+    private int maxCommandLength;
+    private bool denyDangerousCommands;
 
 #if !CU_REMOTE_CONSOLE_PURE_TESTS
     public CommandPolicy(RemoteConsoleConfig config)
@@ -82,7 +82,12 @@ public sealed class CommandPolicy
 
     public CommandPolicy(int maxCommandLength, bool denyDangerousCommands)
     {
-        this.maxCommandLength = maxCommandLength;
+        Update(maxCommandLength, denyDangerousCommands);
+    }
+
+    public void Update(int maxCommandLength, bool denyDangerousCommands)
+    {
+        this.maxCommandLength = Math.Max(1, Math.Min(2048, maxCommandLength));
         this.denyDangerousCommands = denyDangerousCommands;
     }
 

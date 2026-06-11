@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using System.Security.Cryptography;
 using BepInEx.Configuration;
+using UnityEngine;
 
 namespace CU.RemoteConsole.Config;
 
@@ -23,7 +24,8 @@ public sealed class RemoteConsoleConfig
         ConfigEntry<int> maxQueueDepth,
         ConfigEntry<int> maxCommandsPerSecond,
         ConfigEntry<int> maxCommandsPerFrame,
-        ConfigEntry<bool> auditLogEnabled)
+        ConfigEntry<bool> auditLogEnabled,
+        ConfigEntry<KeyCode> configWindowKey)
     {
         this.configFile = configFile;
         BindAddress = bindAddress;
@@ -38,6 +40,7 @@ public sealed class RemoteConsoleConfig
         MaxCommandsPerSecond = maxCommandsPerSecond;
         MaxCommandsPerFrame = maxCommandsPerFrame;
         AuditLogEnabled = auditLogEnabled;
+        ConfigWindowKey = configWindowKey;
     }
 
     public ConfigEntry<string> BindAddress { get; }
@@ -62,7 +65,21 @@ public sealed class RemoteConsoleConfig
 
     public ConfigEntry<bool> AuditLogEnabled { get; }
 
+    public ConfigEntry<KeyCode> ConfigWindowKey { get; }
+
     public string Token => tokenEntry.Value;
+
+    public void RegenerateToken()
+    {
+        tokenEntry.Value = GenerateToken();
+    }
+
+    public void Save()
+    {
+        ClampLimits();
+        ValidateNetworkPolicy();
+        configFile.Save();
+    }
 
     public static RemoteConsoleConfig Load(ConfigFile configFile)
     {
@@ -79,7 +96,8 @@ public sealed class RemoteConsoleConfig
             configFile.Bind("Limits", "MaxQueueDepth", 64, "Maximum queued command count."),
             configFile.Bind("Limits", "MaxCommandsPerSecond", 2, "Maximum accepted command submissions per token/source per second."),
             configFile.Bind("Limits", "MaxCommandsPerFrame", 1, "Maximum commands executed by Unity Update per frame."),
-            configFile.Bind("Audit", "AuditLogEnabled", true, "Enable audit log file output."));
+            configFile.Bind("Audit", "AuditLogEnabled", true, "Enable audit log file output."),
+            configFile.Bind("UI", "ConfigWindowKey", KeyCode.F8, "Hotkey for the in-game CU.RemoteConsole config window."));
 
         loaded.EnsureToken();
         loaded.ClampLimits();
@@ -128,24 +146,19 @@ public sealed class RemoteConsoleConfig
 
     private void ValidateNetworkPolicy()
     {
-        if (AllowPublic.Value)
-        {
-            throw new InvalidOperationException("AllowPublic=true is not allowed in the MVP implementation.");
-        }
-
         if (IsLoopback(BindAddress.Value))
         {
             return;
         }
 
-        if (!AllowLan.Value)
+        if (!AllowLan.Value && !AllowPublic.Value)
         {
-            throw new InvalidOperationException("Non-loopback bind address requires AllowLan=true.");
+            throw new InvalidOperationException("Non-loopback bind address requires AllowLan=true or AllowPublic=true.");
         }
 
-        if (BindAddress.Value == "0.0.0.0" || BindAddress.Value == "::")
+        if ((BindAddress.Value == "0.0.0.0" || BindAddress.Value == "::") && !AllowPublic.Value)
         {
-            throw new InvalidOperationException("Wildcard bind addresses are not allowed in the MVP implementation.");
+            throw new InvalidOperationException("Wildcard bind addresses require AllowPublic=true.");
         }
     }
 
