@@ -1,0 +1,12 @@
+{
+  "name": "cu.remoteconsole",
+  "version": "0.0.12",
+  "private": true,
+  "scripts": {
+    "build:web": "tailwindcss -i ./web/src/input.css -o ./web/dist/output.css --minify && node ./scripts/embed-web-console.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.0",
+    "tailwindcss": "4.3.0"
+  }
+}

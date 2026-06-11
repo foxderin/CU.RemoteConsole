@@ -1,0 +1,469 @@
+openapi: 3.1.0
+info:
+  title: CU.RemoteConsole Local API
+  version: 0.0.12
+  summary: "Local authenticated API for the Casualties: Unknown remote command panel."
+  description: |
+    Static contract for CU.RemoteConsole. This file is documentation only:
+    the BepInEx plugin does not host Swagger UI and does not dynamically
+    generate OpenAPI at runtime.
+
+    The service is intended to bind to localhost by default. Do not expose it
+    directly to the public internet.
+servers:
+  - url: http://127.0.0.1:8848
+    description: Default local service
+security:
+  - bearerAuth: []
+tags:
+  - name: health
+    description: Lightweight unauthenticated operational health.
+  - name: status
+    description: Authenticated read-only status/config/policy summary.
+  - name: commands
+    description: Authenticated command submission, receipts, history, and catalog.
+
+paths:
+  /health:
+    get:
+      tags: [health]
+      summary: Get lightweight health
+      description: Returns basic listener, patch, queue, and bridge state. This endpoint is intentionally unauthenticated.
+      security: []
+      responses:
+        "200":
+          description: Health response.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+
+  /api/status:
+    get:
+      tags: [status]
+      summary: Get read-only status
+      description: Returns read-only runtime, network, security, limits, and policy metadata. Does not expose bearer tokens.
+      responses:
+        "200":
+          description: Status response.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StatusResponse"
+        "401":
+          $ref: "#/components/responses/InvalidAuth"
+
+  /api/commands:
+    post:
+      tags: [commands]
+      summary: Submit a command
+      description: Authenticates, validates, policy-checks, audits, and queues a command. Game-facing execution happens later on the Unity main thread.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommandSubmitRequest"
+      responses:
+        "202":
+          description: Command accepted and queued.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommandSubmitResponse"
+        "401":
+          $ref: "#/components/responses/InvalidAuth"
+        "403":
+          description: Invalid origin or command denied by policy.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "413":
+          description: Request body too large.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "415":
+          description: Unsupported content type.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: Rate limited.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "503":
+          description: Queue full.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    get:
+      tags: [commands]
+      summary: Get recent command records
+      description: Returns recent in-memory command records.
+      responses:
+        "200":
+          description: Recent command records.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommandRecordsResponse"
+        "401":
+          $ref: "#/components/responses/InvalidAuth"
+
+  /api/commands/catalog:
+    get:
+      tags: [commands]
+      summary: Get command catalog
+      description: Returns command policy metadata used by the web console.
+      responses:
+        "200":
+          description: Command catalog.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommandCatalogResponse"
+        "401":
+          $ref: "#/components/responses/InvalidAuth"
+
+  /api/commands/{queueId}:
+    get:
+      tags: [commands]
+      summary: Get command receipt
+      description: Returns the current or final receipt for a queued command.
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: "^[0-9a-f]{32}$"
+          description: 32-character lowercase hex queue id.
+      responses:
+        "200":
+          description: Command record.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommandRecord"
+        "401":
+          $ref: "#/components/responses/InvalidAuth"
+        "404":
+          description: Command receipt not found.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token generated in the BepInEx config file.
+
+  responses:
+    InvalidAuth:
+      description: Missing or invalid bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            invalidAuth:
+              value:
+                error: invalid_auth
+
+  schemas:
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [error]
+      properties:
+        error:
+          type: string
+          examples: [invalid_auth, command_not_allowlisted, dangerous_command_denied]
+        classification:
+          $ref: "#/components/schemas/CommandClassification"
+
+    HealthResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - service
+        - pluginVersion
+        - httpListening
+        - patchApplied
+        - authRequired
+        - bindAddress
+        - port
+        - queueDepth
+        - bridgeLastStatus
+        - lastExecutionAt
+      properties:
+        ok:
+          type: boolean
+        service:
+          type: string
+          const: CU.RemoteConsole
+        pluginVersion:
+          type: string
+          examples: ["0.0.12"]
+        httpListening:
+          type: boolean
+        patchApplied:
+          type: boolean
+        authRequired:
+          type: boolean
+        bindAddress:
+          type: string
+          examples: ["127.0.0.1"]
+        port:
+          type: integer
+          minimum: 1
+          maximum: 65535
+          examples: [8848]
+        queueDepth:
+          type: integer
+          minimum: 0
+        bridgeLastStatus:
+          type: string
+          examples: [not_started, executed]
+        lastExecutionAt:
+          anyOf:
+            - type: string
+              format: date-time
+            - type: "null"
+
+    StatusResponse:
+      type: object
+      additionalProperties: false
+      required: [generatedAt, pluginVersion, network, security, limits, runtime, policy]
+      properties:
+        generatedAt:
+          type: string
+          format: date-time
+        pluginVersion:
+          type: string
+        network:
+          $ref: "#/components/schemas/NetworkStatus"
+        security:
+          $ref: "#/components/schemas/SecurityStatus"
+        limits:
+          $ref: "#/components/schemas/LimitStatus"
+        runtime:
+          $ref: "#/components/schemas/RuntimeStatus"
+        policy:
+          $ref: "#/components/schemas/PolicyStatus"
+
+    NetworkStatus:
+      type: object
+      additionalProperties: false
+      required: [bindAddress, port, httpListening, allowLan, allowPublic]
+      properties:
+        bindAddress:
+          type: string
+        port:
+          type: integer
+        httpListening:
+          type: boolean
+        allowLan:
+          type: boolean
+        allowPublic:
+          type: boolean
+
+    SecurityStatus:
+      type: object
+      additionalProperties: false
+      required: [authRequired, denyDangerousCommands, auditLogEnabled]
+      properties:
+        authRequired:
+          type: boolean
+        denyDangerousCommands:
+          type: boolean
+        auditLogEnabled:
+          type: boolean
+
+    LimitStatus:
+      type: object
+      additionalProperties: false
+      required: [maxCommandLength, maxQueueDepth, maxCommandsPerSecond, maxCommandsPerFrame]
+      properties:
+        maxCommandLength:
+          type: integer
+          minimum: 1
+        maxQueueDepth:
+          type: integer
+          minimum: 1
+        maxCommandsPerSecond:
+          type: integer
+          minimum: 1
+        maxCommandsPerFrame:
+          type: integer
+          minimum: 1
+
+    RuntimeStatus:
+      type: object
+      additionalProperties: false
+      required: [queueDepth, patchApplied, bridgeLastStatus, lastExecutionAt]
+      properties:
+        queueDepth:
+          type: integer
+          minimum: 0
+        patchApplied:
+          type: boolean
+        bridgeLastStatus:
+          type: string
+        lastExecutionAt:
+          anyOf:
+            - type: string
+              format: date-time
+            - type: "null"
+
+    PolicyStatus:
+      type: object
+      additionalProperties: false
+      required: [safeCount, stateChangingCount, dangerousCount, unknownCount, allowedCount]
+      properties:
+        safeCount:
+          type: integer
+          minimum: 0
+        stateChangingCount:
+          type: integer
+          minimum: 0
+        dangerousCount:
+          type: integer
+          minimum: 0
+        unknownCount:
+          type: integer
+          minimum: 0
+        allowedCount:
+          type: integer
+          minimum: 0
+
+    CommandSubmitRequest:
+      type: object
+      additionalProperties: false
+      required: [command]
+      properties:
+        command:
+          type: string
+          minLength: 1
+          maxLength: 256
+          examples: [help]
+
+    CommandSubmitResponse:
+      type: object
+      additionalProperties: false
+      required: [accepted, queueId, classification]
+      properties:
+        accepted:
+          type: boolean
+          const: true
+        queueId:
+          type: string
+          pattern: "^[0-9a-f]{32}$"
+        classification:
+          $ref: "#/components/schemas/CommandClassification"
+
+    CommandRecordsResponse:
+      type: object
+      additionalProperties: false
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/CommandRecord"
+
+    CommandRecord:
+      type: object
+      additionalProperties: false
+      required:
+        - queueId
+        - state
+        - commandName
+        - classification
+        - bridgeStatus
+        - submittedAt
+        - completedAt
+        - queueLatencyMs
+        - outputLineCount
+        - outputTruncated
+        - output
+      properties:
+        queueId:
+          type: string
+          pattern: "^[0-9a-f]{32}$"
+        state:
+          $ref: "#/components/schemas/CommandExecutionState"
+        commandName:
+          type: string
+        classification:
+          $ref: "#/components/schemas/CommandClassification"
+        bridgeStatus:
+          type: string
+          examples: [queued, executed]
+        submittedAt:
+          type: string
+          format: date-time
+        completedAt:
+          anyOf:
+            - type: string
+              format: date-time
+            - type: "null"
+        queueLatencyMs:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: "null"
+        outputLineCount:
+          type: integer
+          minimum: 0
+        outputTruncated:
+          type: boolean
+        output:
+          type: array
+          items:
+            type: string
+
+    CommandCatalogResponse:
+      type: object
+      additionalProperties: false
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/CommandCatalogEntry"
+
+    CommandCatalogEntry:
+      type: object
+      additionalProperties: false
+      required: [name, classification, allowed, policyReason]
+      properties:
+        name:
+          type: string
+        classification:
+          $ref: "#/components/schemas/CommandClassification"
+        allowed:
+          type: boolean
+        policyReason:
+          type: string
+          examples: [allowed, state_changing_not_enabled, dangerous_command_denied, command_not_allowlisted]
+
+    CommandClassification:
+      type: string
+      enum: [Safe, StateChanging, Dangerous, Unknown]
+
+    CommandExecutionState:
+      type: string
+      enum: [Queued, Executed, Failed]

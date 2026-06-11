@@ -1,0 +1,48 @@
+# Build outputs
+bin/
+obj/
+dist/
+build/
+out/
+node_modules/
+web/dist/
+
+# Local scratch files
+temp/
+tmp/
+scratch/
+playground/
+.tmp/
+.cache/
+
+# IDE/editor files
+.idea/
+.vscode/
+*.user
+*.suo
+*.swp
+*.orig
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and local secrets
+*.log
+*.token
+*.secret
+.env
+.env.*
+!.env.example
+
+# Generated or local release artifacts belong on the Release page, not in source.
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Game/mod local drops
+BepInEx/
+MelonLoader/
+Mods/
+plugins/

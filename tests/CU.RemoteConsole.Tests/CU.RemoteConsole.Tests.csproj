@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <DefineConstants>$(DefineConstants);CU_REMOTE_CONSOLE_PURE_TESTS</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../../src/CU.RemoteConsole/Console/CommandClassification.cs" Link="Source/Console/CommandClassification.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Console/CommandRequest.cs" Link="Source/Console/CommandRequest.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Security/Authenticator.cs" Link="Source/Security/Authenticator.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Security/CommandCatalogEntry.cs" Link="Source/Security/CommandCatalogEntry.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Security/CommandPolicy.cs" Link="Source/Security/CommandPolicy.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Security/CommandPolicySummary.cs" Link="Source/Security/CommandPolicySummary.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Security/PolicyDecision.cs" Link="Source/Security/PolicyDecision.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Security/RateLimiter.cs" Link="Source/Security/RateLimiter.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Threading/CommandQueue.cs" Link="Source/Threading/CommandQueue.cs" />
+  </ItemGroup>
+</Project>

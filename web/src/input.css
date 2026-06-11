@@ -1,0 +1,13 @@
+@import "tailwindcss" source(none);
+@source "./index.html";
+
+@theme {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}
+
+@layer base {
+  body {
+    letter-spacing: 0;
+  }
+}
