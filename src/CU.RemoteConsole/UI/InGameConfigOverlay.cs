@@ -19,7 +19,9 @@ public sealed class InGameConfigOverlay : MonoBehaviour
     private bool requireAuth = true;
     private bool allowLan;
     private bool allowPublic;
+    private bool allowStateChangingCommands;
     private bool denyDangerousCommands = true;
+    private string extraAllowedCommands = string.Empty;
     private string maxCommandLength = "256";
     private string maxQueueDepth = "64";
     private string maxCommandsPerSecond = "2";
@@ -86,7 +88,9 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         GUILayout.Space(8);
         GUILayout.Label("Security");
         requireAuth = ToggleRow("Require bearer auth", requireAuth);
+        allowStateChangingCommands = ToggleRow("Allow state-changing commands", allowStateChangingCommands);
         denyDangerousCommands = ToggleRow("Deny dangerous commands", denyDangerousCommands);
+        extraAllowedCommands = TextRow("Extra allowed commands", extraAllowedCommands);
         regenerateToken = ToggleRow("Regenerate token on save", regenerateToken);
 
         GUILayout.Space(8);
@@ -162,7 +166,9 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         requireAuth = config.RequireAuth.Value;
         allowLan = config.AllowLan.Value;
         allowPublic = config.AllowPublic.Value;
+        allowStateChangingCommands = config.AllowStateChangingCommands.Value;
         denyDangerousCommands = config.DenyDangerousCommands.Value;
+        extraAllowedCommands = config.ExtraAllowedCommands.Value;
         maxCommandLength = config.MaxCommandLength.Value.ToString();
         maxQueueDepth = config.MaxQueueDepth.Value.ToString();
         maxCommandsPerSecond = config.MaxCommandsPerSecond.Value.ToString();
@@ -208,7 +214,9 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         config.RequireAuth.Value = requireAuth;
         config.AllowLan.Value = allowLan;
         config.AllowPublic.Value = allowPublic;
+        config.AllowStateChangingCommands.Value = allowStateChangingCommands;
         config.DenyDangerousCommands.Value = denyDangerousCommands;
+        config.ExtraAllowedCommands.Value = extraAllowedCommands.Trim();
         config.MaxCommandLength.Value = parsedMaxCommandLength;
         config.MaxQueueDepth.Value = parsedMaxQueueDepth;
         config.MaxCommandsPerSecond.Value = parsedMaxCommandsPerSecond;
@@ -229,7 +237,7 @@ public sealed class InGameConfigOverlay : MonoBehaviour
 
     private bool IsDangerous()
     {
-        return !requireAuth || allowLan || allowPublic || !denyDangerousCommands;
+        return !requireAuth || allowLan || allowPublic || allowStateChangingCommands || !denyDangerousCommands || !string.IsNullOrWhiteSpace(extraAllowedCommands);
     }
 
     private static bool TryParsePositiveInt(string value, int min, int max, out int parsed)

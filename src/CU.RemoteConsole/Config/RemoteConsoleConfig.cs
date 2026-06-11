@@ -19,7 +19,9 @@ public sealed class RemoteConsoleConfig
         ConfigEntry<string> token,
         ConfigEntry<bool> allowLan,
         ConfigEntry<bool> allowPublic,
+        ConfigEntry<bool> allowStateChangingCommands,
         ConfigEntry<bool> denyDangerousCommands,
+        ConfigEntry<string> extraAllowedCommands,
         ConfigEntry<int> maxCommandLength,
         ConfigEntry<int> maxQueueDepth,
         ConfigEntry<int> maxCommandsPerSecond,
@@ -34,7 +36,9 @@ public sealed class RemoteConsoleConfig
         tokenEntry = token;
         AllowLan = allowLan;
         AllowPublic = allowPublic;
+        AllowStateChangingCommands = allowStateChangingCommands;
         DenyDangerousCommands = denyDangerousCommands;
+        ExtraAllowedCommands = extraAllowedCommands;
         MaxCommandLength = maxCommandLength;
         MaxQueueDepth = maxQueueDepth;
         MaxCommandsPerSecond = maxCommandsPerSecond;
@@ -53,7 +57,11 @@ public sealed class RemoteConsoleConfig
 
     public ConfigEntry<bool> AllowPublic { get; }
 
+    public ConfigEntry<bool> AllowStateChangingCommands { get; }
+
     public ConfigEntry<bool> DenyDangerousCommands { get; }
+
+    public ConfigEntry<string> ExtraAllowedCommands { get; }
 
     public ConfigEntry<int> MaxCommandLength { get; }
 
@@ -91,7 +99,9 @@ public sealed class RemoteConsoleConfig
             configFile.Bind("Security", "Token", "", "Bearer token. Generated automatically when empty. Do not share this value."),
             configFile.Bind("Security", "AllowLan", false, "Allow non-loopback LAN bind addresses. Not recommended for MVP."),
             configFile.Bind("Security", "AllowPublic", false, "Allow public bind addresses. Must remain false for MVP."),
+            configFile.Bind("Security", "AllowStateChangingCommands", false, "Allow known state-changing commands through the remote command policy."),
             configFile.Bind("Security", "DenyDangerousCommands", true, "Deny dangerous commands regardless of other policy."),
+            configFile.Bind("Security", "ExtraAllowedCommands", "", "Comma/space separated additional command names allowed by policy."),
             configFile.Bind("Limits", "MaxCommandLength", 256, "Maximum command length in characters."),
             configFile.Bind("Limits", "MaxQueueDepth", 64, "Maximum queued command count."),
             configFile.Bind("Limits", "MaxCommandsPerSecond", 2, "Maximum accepted command submissions per token/source per second."),

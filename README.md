@@ -49,7 +49,7 @@ Casualties: Unknown may support some custom content, but CU.RemoteConsole is a C
 ## Installation
 
 1. Install BepInEx 5.4.x for the game.
-2. Download `CU.RemoteConsole-v0.0.13.zip` from the release page.
+2. Download `CU.RemoteConsole-v0.0.14.zip` from the release page.
 3. Copy the whole `BepInEx` folder from the release package into the game install directory.
 4. Confirm the final plugin path looks like:
 
@@ -142,7 +142,7 @@ docs/api/openapi.yaml
 
 BepInEx generates the config file automatically after the first launch.
 
-Press `F8` in game to open the CU.RemoteConsole config window. A local player using this window can edit network, authentication, command-policy, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, or allowing dangerous commands require a second confirmation click.
+Press `F8` in game to open the CU.RemoteConsole config window. A local player using this window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
 
 Remote API users cannot change config through HTTP.
 
@@ -160,7 +160,9 @@ Important defaults:
 | `Security/RequireAuth` | `true` |
 | `Security/AllowLan` | `false` |
 | `Security/AllowPublic` | `false` |
+| `Security/AllowStateChangingCommands` | `false` |
 | `Security/DenyDangerousCommands` | `true` |
+| `Security/ExtraAllowedCommands` | empty |
 
 ## Build From Source
 

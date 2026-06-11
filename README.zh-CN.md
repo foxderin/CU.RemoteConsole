@@ -49,7 +49,7 @@ Casualties: Unknown 可能支持部分自定义内容，但 CU.RemoteConsole 是
 ## 安装
 
 1. 为游戏安装 BepInEx 5.4.x。
-2. 从 Release 页面下载 `CU.RemoteConsole-v0.0.13.zip`。
+2. 从 Release 页面下载 `CU.RemoteConsole-v0.0.14.zip`。
 3. 把发布包里的整个 `BepInEx` 文件夹复制到游戏安装目录。
 4. 确认最终插件路径类似：
 
@@ -140,7 +140,7 @@ docs/api/openapi.yaml
 
 BepInEx 会在首次启动后自动生成配置文件。
 
-在游戏内按 `F8` 可以打开 CU.RemoteConsole 配置窗口。本地玩家可以在这个窗口修改网络、鉴权、命令策略、限制和审计设置。公网/局域网暴露、关闭鉴权、允许危险命令等高风险修改需要再次点击确认保存。
+在游戏内按 `F8` 可以打开 CU.RemoteConsole 配置窗口。本地玩家可以在这个窗口修改网络、鉴权、命令策略、命令允许列表、限制和审计设置。公网/局域网暴露、关闭鉴权、允许状态修改/危险命令、添加额外允许命令等高风险修改需要再次点击确认保存。
 
 远程 API 用户不能通过 HTTP 修改配置。
 
@@ -158,7 +158,9 @@ BepInEx 会在首次启动后自动生成配置文件。
 | `Security/RequireAuth` | `true` |
 | `Security/AllowLan` | `false` |
 | `Security/AllowPublic` | `false` |
+| `Security/AllowStateChangingCommands` | `false` |
 | `Security/DenyDangerousCommands` | `true` |
+| `Security/ExtraAllowedCommands` | 空 |
 
 ## 从源码构建
 

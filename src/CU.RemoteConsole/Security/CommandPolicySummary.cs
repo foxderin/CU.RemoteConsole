@@ -9,6 +9,7 @@ public sealed class CommandPolicySummary
         int unknownCount,
         int allowedCount,
         int maxCommandLength,
+        bool allowStateChangingCommands,
         bool denyDangerousCommands)
     {
         SafeCount = safeCount;
@@ -17,6 +18,7 @@ public sealed class CommandPolicySummary
         UnknownCount = unknownCount;
         AllowedCount = allowedCount;
         MaxCommandLength = maxCommandLength;
+        AllowStateChangingCommands = allowStateChangingCommands;
         DenyDangerousCommands = denyDangerousCommands;
     }
 
@@ -31,6 +33,8 @@ public sealed class CommandPolicySummary
     public int AllowedCount { get; }
 
     public int MaxCommandLength { get; }
+
+    public bool AllowStateChangingCommands { get; }
 
     public bool DenyDangerousCommands { get; }
 }

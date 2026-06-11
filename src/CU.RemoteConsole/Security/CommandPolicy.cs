@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 #if !CU_REMOTE_CONSOLE_PURE_TESTS
 using CU.RemoteConsole.Config;
 #endif
@@ -71,24 +72,42 @@ public sealed class CommandPolicy
     private static readonly HashSet<string> DangerousCommands = new HashSet<string>(DangerousCommandNames, StringComparer.OrdinalIgnoreCase);
 
     private int maxCommandLength;
+    private bool allowStateChangingCommands;
     private bool denyDangerousCommands;
+    private HashSet<string> extraAllowedCommands = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
 #if !CU_REMOTE_CONSOLE_PURE_TESTS
     public CommandPolicy(RemoteConsoleConfig config)
-        : this(config.MaxCommandLength.Value, config.DenyDangerousCommands.Value)
+        : this(
+            config.MaxCommandLength.Value,
+            config.AllowStateChangingCommands.Value,
+            config.DenyDangerousCommands.Value,
+            config.ExtraAllowedCommands.Value)
     {
     }
 #endif
 
     public CommandPolicy(int maxCommandLength, bool denyDangerousCommands)
+        : this(maxCommandLength, false, denyDangerousCommands, string.Empty)
     {
-        Update(maxCommandLength, denyDangerousCommands);
+    }
+
+    public CommandPolicy(int maxCommandLength, bool allowStateChangingCommands, bool denyDangerousCommands, string extraAllowedCommands)
+    {
+        Update(maxCommandLength, allowStateChangingCommands, denyDangerousCommands, extraAllowedCommands);
     }
 
     public void Update(int maxCommandLength, bool denyDangerousCommands)
     {
+        Update(maxCommandLength, allowStateChangingCommands, denyDangerousCommands, string.Join(",", extraAllowedCommands));
+    }
+
+    public void Update(int maxCommandLength, bool allowStateChangingCommands, bool denyDangerousCommands, string extraAllowedCommands)
+    {
         this.maxCommandLength = Math.Max(1, Math.Min(2048, maxCommandLength));
+        this.allowStateChangingCommands = allowStateChangingCommands;
         this.denyDangerousCommands = denyDangerousCommands;
+        this.extraAllowedCommands = ParseExtraAllowedCommands(extraAllowedCommands);
     }
 
     public PolicyDecision Evaluate(string? command)
@@ -117,9 +136,24 @@ public sealed class CommandPolicy
             return PolicyDecision.Accept(normalized, classification);
         }
 
+        if (classification == CommandClassification.StateChanging && allowStateChangingCommands)
+        {
+            return PolicyDecision.Accept(normalized, classification);
+        }
+
         if (classification == CommandClassification.Dangerous && denyDangerousCommands)
         {
             return PolicyDecision.Reject("dangerous_command_denied", classification, name);
+        }
+
+        if (classification == CommandClassification.Dangerous && !denyDangerousCommands)
+        {
+            return PolicyDecision.Accept(normalized, classification);
+        }
+
+        if (extraAllowedCommands.Contains(name))
+        {
+            return PolicyDecision.Accept(normalized, classification);
         }
 
         return PolicyDecision.Reject("command_not_allowlisted", classification, name);
@@ -129,8 +163,26 @@ public sealed class CommandPolicy
     {
         var entries = new List<CommandCatalogEntry>();
         AddCatalogEntries(entries, SafeCommandNames, CommandClassification.Safe, true, "allowed");
-        AddCatalogEntries(entries, StateChangingCommandNames, CommandClassification.StateChanging, false, "state_changing_not_enabled");
-        AddCatalogEntries(entries, DangerousCommandNames, CommandClassification.Dangerous, false, denyDangerousCommands ? "dangerous_command_denied" : "command_not_allowlisted");
+
+        foreach (var name in StateChangingCommandNames)
+        {
+            var extraAllowed = extraAllowedCommands.Contains(name);
+            entries.Add(new CommandCatalogEntry(
+                name,
+                CommandClassification.StateChanging,
+                allowStateChangingCommands || extraAllowed,
+                allowStateChangingCommands ? "allowed" : extraAllowed ? "extra_allowlisted" : "state_changing_not_enabled"));
+        }
+
+        AddCatalogEntries(entries, DangerousCommandNames, CommandClassification.Dangerous, !denyDangerousCommands, denyDangerousCommands ? "dangerous_command_denied" : "allowed");
+        AddCatalogEntries(
+            entries,
+            extraAllowedCommands
+                .Where(name => !SafeCommands.Contains(name) && !StateChangingCommands.Contains(name) && !DangerousCommands.Contains(name))
+                .OrderBy(name => name, StringComparer.OrdinalIgnoreCase),
+            CommandClassification.Unknown,
+            true,
+            "extra_allowlisted");
         return entries;
     }
 
@@ -140,9 +192,10 @@ public sealed class CommandPolicy
             SafeCommandNames.Length,
             StateChangingCommandNames.Length,
             DangerousCommandNames.Length,
-            0,
-            SafeCommandNames.Length,
+            extraAllowedCommands.Count(name => !SafeCommands.Contains(name) && !StateChangingCommands.Contains(name) && !DangerousCommands.Contains(name)),
+            CountAllowedCommands(),
             maxCommandLength,
+            allowStateChangingCommands,
             denyDangerousCommands);
     }
 
@@ -178,5 +231,37 @@ public sealed class CommandPolicy
         }
 
         return CommandClassification.Unknown;
+    }
+
+    private static HashSet<string> ParseExtraAllowedCommands(string? value)
+    {
+        var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return set;
+        }
+
+        var parts = value.Split(new[] { ',', ';', '\r', '\n', '\t', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var part in parts)
+        {
+            var name = part.Trim();
+            if (name.Length > 0)
+            {
+                set.Add(name);
+            }
+        }
+
+        return set;
+    }
+
+    private int CountAllowedCommands()
+    {
+        var count = SafeCommandNames.Length;
+        count += allowStateChangingCommands
+            ? StateChangingCommandNames.Length
+            : extraAllowedCommands.Count(name => StateChangingCommands.Contains(name));
+        count += denyDangerousCommands ? 0 : DangerousCommandNames.Length;
+        count += extraAllowedCommands.Count(name => !SafeCommands.Contains(name) && !StateChangingCommands.Contains(name) && !DangerousCommands.Contains(name));
+        return count;
     }
 }

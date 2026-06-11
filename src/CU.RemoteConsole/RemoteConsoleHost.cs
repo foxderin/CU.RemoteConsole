@@ -144,7 +144,11 @@ public sealed class RemoteConsoleHost
         {
             remoteConfig.Save();
             authenticator.UpdateToken(remoteConfig.Token);
-            policy.Update(remoteConfig.MaxCommandLength.Value, remoteConfig.DenyDangerousCommands.Value);
+            policy.Update(
+                remoteConfig.MaxCommandLength.Value,
+                remoteConfig.AllowStateChangingCommands.Value,
+                remoteConfig.DenyDangerousCommands.Value,
+                remoteConfig.ExtraAllowedCommands.Value);
             rateLimiter.UpdateLimit(remoteConfig.MaxCommandsPerSecond.Value);
             commandQueue.UpdateMaxDepth(remoteConfig.MaxQueueDepth.Value);
             auditLogger.SetEnabled(remoteConfig.AuditLogEnabled.Value);
@@ -240,6 +244,7 @@ public sealed class RemoteConsoleHost
             remoteConfig.MaxCommandsPerFrame.Value,
             remoteConfig.AllowLan.Value,
             remoteConfig.AllowPublic.Value,
+            remoteConfig.AllowStateChangingCommands.Value,
             remoteConfig.AuditLogEnabled.Value,
             policy.GetSummary());
     }

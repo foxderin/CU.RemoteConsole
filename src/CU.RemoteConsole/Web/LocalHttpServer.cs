@@ -474,6 +474,7 @@ public sealed class LocalHttpServer : IDisposable
             + "},"
             + "\"security\":{"
                 + "\"authRequired\":" + Bool(snapshot.Health.AuthRequired) + ","
+                + "\"allowStateChangingCommands\":" + Bool(snapshot.AllowStateChangingCommands) + ","
                 + "\"denyDangerousCommands\":" + Bool(snapshot.Policy.DenyDangerousCommands) + ","
                 + "\"auditLogEnabled\":" + Bool(snapshot.AuditLogEnabled)
             + "},"
@@ -494,7 +495,9 @@ public sealed class LocalHttpServer : IDisposable
                 + "\"stateChangingCount\":" + snapshot.Policy.StateChangingCount + ","
                 + "\"dangerousCount\":" + snapshot.Policy.DangerousCount + ","
                 + "\"unknownCount\":" + snapshot.Policy.UnknownCount + ","
-                + "\"allowedCount\":" + snapshot.Policy.AllowedCount
+                + "\"allowedCount\":" + snapshot.Policy.AllowedCount + ","
+                + "\"allowStateChangingCommands\":" + Bool(snapshot.Policy.AllowStateChangingCommands) + ","
+                + "\"denyDangerousCommands\":" + Bool(snapshot.Policy.DenyDangerousCommands)
             + "}"
             + "}";
     }

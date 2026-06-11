@@ -130,6 +130,7 @@ internal static class EmbeddedWebConsole
         stateChangingReason: 'Requires explicit future opt-in',
         dangerousReason: 'Denied by default',
         commandNotAllowlistedReason: 'Not allowlisted',
+        extraAllowlistedReason: 'Allowed by local config',
         statusPanel: 'Status',
         network: 'Network',
         security: 'Security',
@@ -182,6 +183,7 @@ internal static class EmbeddedWebConsole
         stateChangingReason: '需要后续显式启用',
         dangerousReason: '默认禁止',
         commandNotAllowlistedReason: '未在白名单中',
+        extraAllowlistedReason: '本地配置允许',
         statusPanel: '状态',
         network: '网络',
         security: '安全',
@@ -276,6 +278,7 @@ internal static class EmbeddedWebConsole
       if (reason === 'state_changing_not_enabled') return t('stateChangingReason');
       if (reason === 'dangerous_command_denied') return t('dangerousReason');
       if (reason === 'command_not_allowlisted') return t('commandNotAllowlistedReason');
+      if (reason === 'extra_allowlisted') return t('extraAllowlistedReason');
       return reason;
     }
     function classificationTitle(classification) {
@@ -328,6 +331,7 @@ internal static class EmbeddedWebConsole
       ]));
       statusPanel.appendChild(renderStatusGroup(t('security'), [
         ['auth', data.security.authRequired ? t('enabled') : t('disabled')],
+        ['allow state', boolText(data.security.allowStateChangingCommands)],
         ['deny dangerous', boolText(data.security.denyDangerousCommands)],
         ['audit', data.security.auditLogEnabled ? t('enabled') : t('disabled')]
       ]));

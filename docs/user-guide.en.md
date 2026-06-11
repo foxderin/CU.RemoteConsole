@@ -14,7 +14,7 @@ CU.RemoteConsole provides a local browser command panel for Casualties: Unknown.
 ## Install
 
 1. Install BepInEx 5.4.x into the game folder.
-2. Extract `CU.RemoteConsole-v0.0.13.zip`.
+2. Extract `CU.RemoteConsole-v0.0.14.zip`.
 3. Copy the extracted `BepInEx` folder into the game folder.
 4. Start the game once.
 5. Open `http://127.0.0.1:8848/`.
@@ -38,9 +38,11 @@ The web console includes:
 
 Press `F8` in game to open the CU.RemoteConsole config window.
 
-The local in-game window can edit network, authentication, command-policy, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, or allowing dangerous commands require a second confirmation click.
+The local in-game window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
 
 Remote API users cannot change config through HTTP.
+
+The web command catalog reflects the current policy after reloading the catalog or pressing Refresh.
 
 Safe commands can be clicked from the command catalog. State-changing and dangerous commands are visible but disabled by default.
 

@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: CU.RemoteConsole Local API
-  version: 0.0.13
+  version: 0.0.14
   summary: "Local authenticated API for the Casualties: Unknown remote command panel."
   description: |
     Static contract for CU.RemoteConsole. This file is documentation only:
@@ -216,7 +216,7 @@ components:
           const: CU.RemoteConsole
         pluginVersion:
           type: string
-          examples: ["0.0.13"]
+          examples: ["0.0.14"]
         httpListening:
           type: boolean
         patchApplied:
@@ -283,9 +283,11 @@ components:
     SecurityStatus:
       type: object
       additionalProperties: false
-      required: [authRequired, denyDangerousCommands, auditLogEnabled]
+      required: [authRequired, allowStateChangingCommands, denyDangerousCommands, auditLogEnabled]
       properties:
         authRequired:
+          type: boolean
+        allowStateChangingCommands:
           type: boolean
         denyDangerousCommands:
           type: boolean
@@ -331,7 +333,7 @@ components:
     PolicyStatus:
       type: object
       additionalProperties: false
-      required: [safeCount, stateChangingCount, dangerousCount, unknownCount, allowedCount]
+      required: [safeCount, stateChangingCount, dangerousCount, unknownCount, allowedCount, allowStateChangingCommands, denyDangerousCommands]
       properties:
         safeCount:
           type: integer
@@ -348,6 +350,10 @@ components:
         allowedCount:
           type: integer
           minimum: 0
+        allowStateChangingCommands:
+          type: boolean
+        denyDangerousCommands:
+          type: boolean
 
     CommandSubmitRequest:
       type: object

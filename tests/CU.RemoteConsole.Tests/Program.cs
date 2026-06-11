@@ -9,6 +9,9 @@ var tests = new (string Name, Action Test)[]
     ("CommandPolicy rejects unknown command", CommandPolicyRejectsUnknownCommand),
     ("CommandPolicy rejects invalid input", CommandPolicyRejectsInvalidInput),
     ("CommandPolicy rejects state-changing command by default", CommandPolicyRejectsStateChangingCommand),
+    ("CommandPolicy can allow state-changing command", CommandPolicyCanAllowStateChangingCommand),
+    ("CommandPolicy can allow dangerous command", CommandPolicyCanAllowDangerousCommand),
+    ("CommandPolicy can allow extra command", CommandPolicyCanAllowExtraCommand),
     ("CommandPolicy catalog mirrors policy", CommandPolicyCatalogMirrorsPolicy),
     ("CommandPolicy summary mirrors policy", CommandPolicySummaryMirrorsPolicy),
     ("Authenticator validates bearer token", AuthenticatorValidatesBearerToken),
@@ -91,6 +94,33 @@ static void CommandPolicyRejectsStateChangingCommand()
     Assert.Equal(CommandClassification.StateChanging, decision.Classification, "classification");
 }
 
+static void CommandPolicyCanAllowStateChangingCommand()
+{
+    var policy = new CommandPolicy(256, allowStateChangingCommands: true, denyDangerousCommands: true, extraAllowedCommands: "");
+    var decision = policy.Evaluate("heal");
+
+    Assert.True(decision.Allowed, "state-changing should be allowed when enabled");
+    Assert.Equal(CommandClassification.StateChanging, decision.Classification, "classification");
+}
+
+static void CommandPolicyCanAllowDangerousCommand()
+{
+    var policy = new CommandPolicy(256, allowStateChangingCommands: false, denyDangerousCommands: false, extraAllowedCommands: "");
+    var decision = policy.Evaluate("kill");
+
+    Assert.True(decision.Allowed, "dangerous should be allowed when deny is disabled");
+    Assert.Equal(CommandClassification.Dangerous, decision.Classification, "classification");
+}
+
+static void CommandPolicyCanAllowExtraCommand()
+{
+    var policy = new CommandPolicy(256, allowStateChangingCommands: false, denyDangerousCommands: true, extraAllowedCommands: "customone, customtwo");
+    var decision = policy.Evaluate("customone arg");
+
+    Assert.True(decision.Allowed, "extra command should be allowed");
+    Assert.Equal(CommandClassification.Unknown, decision.Classification, "classification");
+}
+
 static void CommandPolicyCatalogMirrorsPolicy()
 {
     var policy = NewPolicy();
@@ -105,6 +135,13 @@ static void CommandPolicyCatalogMirrorsPolicy()
     Assert.Equal(CommandClassification.StateChanging, heal.Classification, "heal classification");
     Assert.False(kill.Allowed, "kill catalog denied");
     Assert.Equal(CommandClassification.Dangerous, kill.Classification, "kill classification");
+
+    var permissivePolicy = new CommandPolicy(256, allowStateChangingCommands: false, denyDangerousCommands: false, extraAllowedCommands: "heal customone");
+    var permissiveCatalog = permissivePolicy.GetCatalog();
+    Assert.True(permissiveCatalog.Single(item => item.Name == "kill").Allowed, "kill catalog allowed when dangerous deny is off");
+    Assert.True(permissiveCatalog.Single(item => item.Name == "heal").Allowed, "heal catalog allowed when extra allowlisted");
+    Assert.True(permissiveCatalog.Single(item => item.Name == "customone").Allowed, "custom catalog allowed");
+    Assert.Equal(CommandClassification.Unknown, permissiveCatalog.Single(item => item.Name == "customone").Classification, "custom classification");
 }
 
 static void CommandPolicySummaryMirrorsPolicy()

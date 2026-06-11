@@ -12,6 +12,7 @@ public sealed class StatusSnapshot
         int maxCommandsPerFrame,
         bool allowLan,
         bool allowPublic,
+        bool allowStateChangingCommands,
         bool auditLogEnabled,
         CommandPolicySummary policy)
     {
@@ -21,6 +22,7 @@ public sealed class StatusSnapshot
         MaxCommandsPerFrame = maxCommandsPerFrame;
         AllowLan = allowLan;
         AllowPublic = allowPublic;
+        AllowStateChangingCommands = allowStateChangingCommands;
         AuditLogEnabled = auditLogEnabled;
         Policy = policy;
         GeneratedAt = DateTimeOffset.UtcNow;
@@ -37,6 +39,8 @@ public sealed class StatusSnapshot
     public bool AllowLan { get; }
 
     public bool AllowPublic { get; }
+
+    public bool AllowStateChangingCommands { get; }
 
     public bool AuditLogEnabled { get; }
 
