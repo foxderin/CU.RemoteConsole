@@ -10,6 +10,7 @@ public sealed class InGameConfigOverlay : MonoBehaviour
     private Rect windowRect = new Rect(80, 80, 520, 690);
     private Vector2 scroll;
     private bool visible;
+    private bool? forceChinese;
     private bool confirmDangerousSave;
     private bool regenerateToken;
     private string status = "Ready";
@@ -75,58 +76,64 @@ public sealed class InGameConfigOverlay : MonoBehaviour
 
         scroll = GUILayout.BeginScrollView(scroll, GUILayout.Width(500), GUILayout.Height(610));
 
-        GUILayout.Label("Local in-game configuration");
-        GUILayout.Label("Remote API remains authenticated and policy-gated. This window is for the local player.");
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(T("Local in-game configuration", "本地游戏内配置"));
+        if (GUILayout.Button(IsChinese() ? "English" : "中文", GUILayout.Width(90)))
+        {
+            forceChinese = !IsChinese();
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.Label(T("Remote API remains authenticated and policy-gated. This window is for the local player.", "远程 API 仍然需要鉴权并受策略限制。这个窗口面向本地玩家。"));
         GUILayout.Space(8);
 
-        GUILayout.Label("Network");
-        bindAddress = TextRow("Bind address", bindAddress);
-        port = TextRow("Port", port);
-        allowLan = ToggleRow("Allow LAN bind", allowLan);
-        allowPublic = ToggleRow("Allow public/wildcard bind", allowPublic);
+        GUILayout.Label(T("Network", "网络"));
+        bindAddress = TextRow(T("Bind address", "监听地址"), bindAddress);
+        port = TextRow(T("Port", "端口"), port);
+        allowLan = ToggleRow(T("Allow LAN bind", "允许局域网监听"), allowLan);
+        allowPublic = ToggleRow(T("Allow public/wildcard bind", "允许公网/通配监听"), allowPublic);
 
         GUILayout.Space(8);
-        GUILayout.Label("Security");
-        requireAuth = ToggleRow("Require bearer auth", requireAuth);
-        allowStateChangingCommands = ToggleRow("Allow state-changing commands", allowStateChangingCommands);
-        denyDangerousCommands = ToggleRow("Deny dangerous commands", denyDangerousCommands);
-        extraAllowedCommands = TextRow("Extra allowed commands", extraAllowedCommands);
-        regenerateToken = ToggleRow("Regenerate token on save", regenerateToken);
+        GUILayout.Label(T("Security", "安全"));
+        requireAuth = ToggleRow(T("Require bearer auth", "需要 Bearer 鉴权"), requireAuth);
+        allowStateChangingCommands = ToggleRow(T("Allow state-changing commands", "允许状态修改命令"), allowStateChangingCommands);
+        denyDangerousCommands = ToggleRow(T("Deny dangerous commands", "拒绝危险命令"), denyDangerousCommands);
+        extraAllowedCommands = TextRow(T("Extra allowed commands", "额外允许命令"), extraAllowedCommands);
+        regenerateToken = ToggleRow(T("Regenerate token on save", "保存时重新生成 token"), regenerateToken);
 
         GUILayout.Space(8);
-        GUILayout.Label("Limits");
-        maxCommandLength = TextRow("Max command length", maxCommandLength);
-        maxQueueDepth = TextRow("Max queue depth", maxQueueDepth);
-        maxCommandsPerSecond = TextRow("Max commands / second", maxCommandsPerSecond);
-        maxCommandsPerFrame = TextRow("Max commands / frame", maxCommandsPerFrame);
+        GUILayout.Label(T("Limits", "限制"));
+        maxCommandLength = TextRow(T("Max command length", "最大命令长度"), maxCommandLength);
+        maxQueueDepth = TextRow(T("Max queue depth", "最大队列深度"), maxQueueDepth);
+        maxCommandsPerSecond = TextRow(T("Max commands / second", "每秒最大命令数"), maxCommandsPerSecond);
+        maxCommandsPerFrame = TextRow(T("Max commands / frame", "每帧最大执行数"), maxCommandsPerFrame);
 
         GUILayout.Space(8);
-        GUILayout.Label("Audit");
-        auditLogEnabled = ToggleRow("Audit log enabled", auditLogEnabled);
+        GUILayout.Label(T("Audit", "审计"));
+        auditLogEnabled = ToggleRow(T("Audit log enabled", "启用审计日志"), auditLogEnabled);
 
         GUILayout.Space(8);
-        GUILayout.Label("Hotkey: " + host.Config.ConfigWindowKey.Value);
+        GUILayout.Label(T("Hotkey: ", "快捷键：") + host.Config.ConfigWindowKey.Value);
         GUILayout.Label(status);
 
         if (IsDangerous())
         {
-            GUILayout.Label("Warning: this save changes auth, public/LAN exposure, or dangerous-command policy.");
+            GUILayout.Label(T("Warning: this save changes auth, public/LAN exposure, or command policy.", "警告：本次保存会修改鉴权、公网/局域网暴露或命令策略。"));
         }
 
         GUILayout.EndScrollView();
 
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button(confirmDangerousSave ? "Confirm Save" : "Save"))
+        if (GUILayout.Button(confirmDangerousSave ? T("Confirm Save", "确认保存") : T("Save", "保存")))
         {
             Save();
         }
 
-        if (GUILayout.Button("Reload"))
+        if (GUILayout.Button(T("Reload", "重新加载")))
         {
             ResetFromConfig();
         }
 
-        if (GUILayout.Button("Close"))
+        if (GUILayout.Button(T("Close", "关闭")))
         {
             visible = false;
         }
@@ -148,7 +155,7 @@ public sealed class InGameConfigOverlay : MonoBehaviour
     {
         GUILayout.BeginHorizontal();
         GUILayout.Label(label, GUILayout.Width(190));
-        var next = GUILayout.Toggle(value, value ? "Enabled" : "Disabled", GUILayout.Width(260));
+        var next = GUILayout.Toggle(value, value ? T("Enabled", "已启用") : T("Disabled", "已禁用"), GUILayout.Width(260));
         GUILayout.EndHorizontal();
         return next;
     }
@@ -176,7 +183,7 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         auditLogEnabled = config.AuditLogEnabled.Value;
         regenerateToken = false;
         confirmDangerousSave = false;
-        status = "Loaded current config.";
+        status = T("Loaded current config.", "已加载当前配置。");
     }
 
     private void Save()
@@ -189,7 +196,7 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         if (IsDangerous() && !confirmDangerousSave)
         {
             confirmDangerousSave = true;
-            status = "Dangerous config change pending. Press Confirm Save to apply.";
+            status = T("Dangerous config change pending. Press Confirm Save to apply.", "危险配置修改待确认。再次点击确认保存以应用。");
             return;
         }
 
@@ -199,7 +206,7 @@ public sealed class InGameConfigOverlay : MonoBehaviour
             || !TryParsePositiveInt(maxCommandsPerSecond, 1, 30, out var parsedMaxCommandsPerSecond)
             || !TryParsePositiveInt(maxCommandsPerFrame, 1, 16, out var parsedMaxCommandsPerFrame))
         {
-            status = "Invalid numeric value.";
+            status = T("Invalid numeric value.", "数值无效。");
             return;
         }
 
@@ -232,12 +239,49 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         regenerateToken = false;
         confirmDangerousSave = false;
         ResetFromConfig();
-        status = result;
+        status = TranslateResult(result);
     }
 
     private bool IsDangerous()
     {
         return !requireAuth || allowLan || allowPublic || allowStateChangingCommands || !denyDangerousCommands || !string.IsNullOrWhiteSpace(extraAllowedCommands);
+    }
+
+    private bool IsChinese()
+    {
+        if (forceChinese.HasValue)
+        {
+            return forceChinese.Value;
+        }
+
+        return Application.systemLanguage == SystemLanguage.Chinese
+            || Application.systemLanguage == SystemLanguage.ChineseSimplified
+            || Application.systemLanguage == SystemLanguage.ChineseTraditional;
+    }
+
+    private string T(string en, string zh)
+    {
+        return IsChinese() ? zh : en;
+    }
+
+    private string TranslateResult(string result)
+    {
+        if (result == "Saved.")
+        {
+            return T("Saved.", "已保存。");
+        }
+
+        if (result == "Saved. HTTP listener restarted.")
+        {
+            return T("Saved. HTTP listener restarted.", "已保存，HTTP 监听器已重启。");
+        }
+
+        if (result.StartsWith("Save failed: ", StringComparison.Ordinal))
+        {
+            return T(result, "保存失败：" + result.Substring("Save failed: ".Length));
+        }
+
+        return result;
     }
 
     private static bool TryParsePositiveInt(string value, int min, int max, out int parsed)
