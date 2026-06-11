@@ -36,7 +36,7 @@ The web console includes:
 
 ## In-Game Config
 
-Press `F8` in game to open the CU.RemoteConsole config window.
+Press `F8` in game to open the CU.RemoteConsole config window. The window defaults to the system language and includes an English/Chinese toggle.
 
 The local in-game window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
 

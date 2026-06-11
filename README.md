@@ -16,7 +16,7 @@ A BepInEx 5 mod for [Casualties: Unknown](https://store.steampowered.com/app/457
 - Thread-safe command queue consumed from the Unity main thread.
 - Command receipt lookup, recent history, and captured output rendering.
 - Read-only status/config/policy panel.
-- In-game config overlay opened with `F8`.
+- In-game config overlay opened with `F8`, with English/Chinese toggle.
 - Command catalog grouped by risk.
 - English/Chinese web UI.
 - Static OpenAPI contract in [`docs/api/openapi.yaml`](./docs/api/openapi.yaml).
@@ -142,7 +142,7 @@ docs/api/openapi.yaml
 
 BepInEx generates the config file automatically after the first launch.
 
-Press `F8` in game to open the CU.RemoteConsole config window. A local player using this window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
+Press `F8` in game to open the CU.RemoteConsole config window. The window defaults to the system language and includes an English/Chinese toggle. A local player using this window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
 
 Remote API users cannot change config through HTTP.
 
