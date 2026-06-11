@@ -10,17 +10,17 @@ internal static class EmbeddedWebConsole
   <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
   <title>CU.RemoteConsole</title>
   <style>/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */
-@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-border-style:solid;--tw-leading:initial;--tw-font-weight:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000}}}@layer theme{:root,:host{--font-sans:system-ui, -apple-system, BlinkMacSystemFont, ""Segoe UI"", sans-serif;--font-mono:ui-monospace, SFMono-Regular, Consolas, ""Liberation Mono"", monospace;--color-red-50:oklch(97.1% .013 17.38);--color-red-200:oklch(88.5% .062 18.334);--color-red-300:oklch(80.8% .114 19.571);--color-red-700:oklch(50.5% .213 27.518);--color-red-800:oklch(44.4% .177 26.899);--color-amber-50:oklch(98.7% .022 95.277);--color-amber-200:oklch(92.4% .12 95.746);--color-amber-700:oklch(55.5% .163 48.998);--color-amber-800:oklch(47.3% .137 46.201);--color-emerald-50:oklch(97.9% .021 166.113);--color-emerald-200:oklch(90.5% .093 164.15);--color-emerald-300:oklch(84.5% .143 164.978);--color-emerald-700:oklch(50.8% .118 165.612);--color-emerald-800:oklch(43.2% .095 166.913);--color-blue-200:oklch(88.2% .059 254.128);--color-blue-300:oklch(80.9% .105 251.813);--color-blue-400:oklch(70.7% .165 254.624);--color-blue-500:oklch(62.3% .214 259.815);--color-blue-600:oklch(54.6% .245 262.881);--color-blue-700:oklch(48.8% .243 264.376);--color-slate-50:oklch(98.4% .003 247.858);--color-slate-100:oklch(96.8% .007 247.896);--color-slate-200:oklch(92.9% .013 255.508);--color-slate-300:oklch(86.9% .022 252.894);--color-slate-400:oklch(70.4% .04 256.788);--color-slate-500:oklch(55.4% .046 257.417);--color-slate-700:oklch(37.2% .044 257.287);--color-slate-800:oklch(27.9% .041 260.031);--color-slate-900:oklch(20.8% .042 265.755);--color-slate-950:oklch(12.9% .042 264.695);--color-white:#fff;--spacing:.25rem;--container-7xl:80rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--text-lg:1.125rem;--text-lg--line-height:calc(1.75 / 1.125);--font-weight-semibold:600;--leading-relaxed:1.625;--radius-md:.375rem;--radius-lg:.5rem;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif, system-ui, sans-serif, ""Apple Color Emoji"", ""Segoe UI Emoji"", ""Segoe UI Symbol"", ""Noto Color Emoji"");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, ""Liberation Mono"", ""Courier New"", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}body{letter-spacing:0}}@layer components;@layer utilities{.mx-auto{margin-inline:auto}.mt-1{margin-top:calc(var(--spacing) * 1)}.mb-1{margin-bottom:calc(var(--spacing) * 1)}.block{display:block}.flex{display:flex}.grid{display:grid}.inline-flex{display:inline-flex}.h-8{height:calc(var(--spacing) * 8)}.h-9{height:calc(var(--spacing) * 9)}.h-10{height:calc(var(--spacing) * 10)}.max-h-72{max-height:calc(var(--spacing) * 72)}.max-h-80{max-height:calc(var(--spacing) * 80)}.max-h-\[430px\]{max-height:430px}.max-h-\[560px\]{max-height:560px}.min-h-7{min-height:calc(var(--spacing) * 7)}.min-h-24{min-height:calc(var(--spacing) * 24)}.min-h-80{min-height:calc(var(--spacing) * 80)}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-7xl{max-width:var(--container-7xl)}.min-w-0{min-width:calc(var(--spacing) * 0)}.cursor-not-allowed{cursor:not-allowed}.resize-y{resize:vertical}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.content-start{align-content:flex-start}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.gap-1{gap:calc(var(--spacing) * 1)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-y-1{row-gap:calc(var(--spacing) * 1)}.truncate{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.overflow-auto{overflow:auto}.rounded-full{border-radius:3.40282e38px}.rounded-lg{border-radius:var(--radius-lg)}.rounded-md{border-radius:var(--radius-md)}.border{border-style:var(--tw-border-style);border-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-amber-200{border-color:var(--color-amber-200)}.border-emerald-200{border-color:var(--color-emerald-200)}.border-red-200{border-color:var(--color-red-200)}.border-slate-200{border-color:var(--color-slate-200)}.border-slate-300{border-color:var(--color-slate-300)}.border-slate-400{border-color:var(--color-slate-400)}.border-slate-800{border-color:var(--color-slate-800)}.bg-amber-50{background-color:var(--color-amber-50)}.bg-blue-600{background-color:var(--color-blue-600)}.bg-emerald-50{background-color:var(--color-emerald-50)}.bg-red-50{background-color:var(--color-red-50)}.bg-slate-50{background-color:var(--color-slate-50)}.bg-slate-100{background-color:var(--color-slate-100)}.bg-slate-200{background-color:var(--color-slate-200)}.bg-slate-800{background-color:var(--color-slate-800)}.bg-slate-900{background-color:var(--color-slate-900)}.bg-slate-950{background-color:var(--color-slate-950)}.bg-white{background-color:var(--color-white)}.p-2{padding:calc(var(--spacing) * 2)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.px-1{padding-inline:calc(var(--spacing) * 1)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-4{padding-block:calc(var(--spacing) * 4)}.pt-1{padding-top:calc(var(--spacing) * 1)}.pr-1{padding-right:calc(var(--spacing) * 1)}.text-left{text-align:left}.font-mono{font-family:var(--font-mono)}.text-lg{font-size:var(--text-lg);line-height:var(--tw-leading,var(--text-lg--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.text-\[11px\]{font-size:11px}.leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.whitespace-pre-wrap{white-space:pre-wrap}.text-amber-700{color:var(--color-amber-700)}.text-amber-800{color:var(--color-amber-800)}.text-emerald-300{color:var(--color-emerald-300)}.text-emerald-700{color:var(--color-emerald-700)}.text-emerald-800{color:var(--color-emerald-800)}.text-red-300{color:var(--color-red-300)}.text-red-700{color:var(--color-red-700)}.text-red-800{color:var(--color-red-800)}.text-slate-100{color:var(--color-slate-100)}.text-slate-200{color:var(--color-slate-200)}.text-slate-400{color:var(--color-slate-400)}.text-slate-500{color:var(--color-slate-500)}.text-slate-700{color:var(--color-slate-700)}.text-slate-800{color:var(--color-slate-800)}.text-slate-900{color:var(--color-slate-900)}.text-slate-950{color:var(--color-slate-950)}.text-white{color:var(--color-white)}.uppercase{text-transform:uppercase}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-65{opacity:.65}.outline-none{--tw-outline-style:none;outline-style:none}@media (hover:hover){.hover\:border-blue-300:hover{border-color:var(--color-blue-300)}.hover\:border-blue-400:hover{border-color:var(--color-blue-400)}.hover\:bg-blue-700:hover{background-color:var(--color-blue-700)}.hover\:bg-slate-300:hover{background-color:var(--color-slate-300)}.hover\:bg-slate-700:hover{background-color:var(--color-slate-700)}}.focus\:border-blue-500:focus{border-color:var(--color-blue-500)}.focus\:ring-2:focus{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.focus\:ring-blue-200:focus{--tw-ring-color:var(--color-blue-200)}@media (min-width:48rem){.md\:grid-cols-\[minmax\(0\,1fr\)_auto\]{grid-template-columns:minmax(0,1fr) auto}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:items-end{align-items:flex-end}.md\:justify-between{justify-content:space-between}}@media (min-width:64rem){.lg\:grid-cols-\[minmax\(0\,1fr\)_360px\]{grid-template-columns:minmax(0,1fr) 360px}}}@property --tw-border-style{syntax:""*"";inherits:false;initial-value:solid}@property --tw-leading{syntax:""*"";inherits:false}@property --tw-font-weight{syntax:""*"";inherits:false}@property --tw-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:""*"";inherits:false}@property --tw-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:""*"";inherits:false}@property --tw-inset-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:""*"";inherits:false}@property --tw-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:""*"";inherits:false}@property --tw-inset-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:""*"";inherits:false}@property --tw-ring-offset-width{syntax:""<length>"";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:""*"";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}</style>
+@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-border-style:solid;--tw-leading:initial;--tw-font-weight:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000}}}@layer theme{:root,:host{--font-sans:system-ui, -apple-system, BlinkMacSystemFont, ""Segoe UI"", sans-serif;--font-mono:ui-monospace, SFMono-Regular, Consolas, ""Liberation Mono"", monospace;--color-red-200:oklch(88.5% .062 18.334);--color-red-300:oklch(80.8% .114 19.571);--color-red-500:oklch(63.7% .237 25.331);--color-amber-200:oklch(92.4% .12 95.746);--color-amber-300:oklch(87.9% .169 91.605);--color-amber-500:oklch(76.9% .188 70.08);--color-emerald-200:oklch(90.5% .093 164.15);--color-emerald-300:oklch(84.5% .143 164.978);--color-emerald-500:oklch(69.6% .17 162.48);--color-teal-300:oklch(85.5% .138 181.071);--color-teal-400:oklch(77.7% .152 181.912);--color-teal-500:oklch(70.4% .14 182.503);--color-slate-100:oklch(96.8% .007 247.896);--color-slate-200:oklch(92.9% .013 255.508);--color-slate-300:oklch(86.9% .022 252.894);--color-slate-400:oklch(70.4% .04 256.788);--color-slate-500:oklch(55.4% .046 257.417);--color-slate-600:oklch(44.6% .043 257.281);--color-slate-700:oklch(37.2% .044 257.287);--color-slate-800:oklch(27.9% .041 260.031);--color-slate-900:oklch(20.8% .042 265.755);--color-slate-950:oklch(12.9% .042 264.695);--color-black:#000;--spacing:.25rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--text-xl:1.25rem;--text-xl--line-height:calc(1.75 / 1.25);--font-weight-semibold:600;--leading-relaxed:1.625;--radius-md:.375rem;--radius-lg:.5rem;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif, system-ui, sans-serif, ""Apple Color Emoji"", ""Segoe UI Emoji"", ""Segoe UI Symbol"", ""Noto Color Emoji"");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, ""Liberation Mono"", ""Courier New"", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}body{letter-spacing:0}}@layer components;@layer utilities{.mx-auto{margin-inline:auto}.mt-1{margin-top:calc(var(--spacing) * 1)}.mb-1{margin-bottom:calc(var(--spacing) * 1)}.block{display:block}.flex{display:flex}.grid{display:grid}.inline-flex{display:inline-flex}.h-8{height:calc(var(--spacing) * 8)}.h-9{height:calc(var(--spacing) * 9)}.h-10{height:calc(var(--spacing) * 10)}.max-h-72{max-height:calc(var(--spacing) * 72)}.max-h-80{max-height:calc(var(--spacing) * 80)}.max-h-\[430px\]{max-height:430px}.max-h-\[640px\]{max-height:640px}.min-h-7{min-height:calc(var(--spacing) * 7)}.min-h-24{min-height:calc(var(--spacing) * 24)}.min-h-\[420px\]{min-height:420px}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-\[1600px\]{max-width:1600px}.min-w-0{min-width:calc(var(--spacing) * 0)}.cursor-not-allowed{cursor:not-allowed}.resize-y{resize:vertical}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.content-start{align-content:flex-start}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.gap-1{gap:calc(var(--spacing) * 1)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-y-1{row-gap:calc(var(--spacing) * 1)}.truncate{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.overflow-auto{overflow:auto}.rounded-lg{border-radius:var(--radius-lg)}.rounded-md{border-radius:var(--radius-md)}.border{border-style:var(--tw-border-style);border-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-amber-500\/30{border-color:#f99c004d}@supports (color:color-mix(in lab, red, red)){.border-amber-500\/30{border-color:color-mix(in oklab, var(--color-amber-500) 30%, transparent)}}.border-emerald-500\/30{border-color:#00bb7f4d}@supports (color:color-mix(in lab, red, red)){.border-emerald-500\/30{border-color:color-mix(in oklab, var(--color-emerald-500) 30%, transparent)}}.border-red-500\/30{border-color:#fb2c364d}@supports (color:color-mix(in lab, red, red)){.border-red-500\/30{border-color:color-mix(in oklab, var(--color-red-500) 30%, transparent)}}.border-slate-700{border-color:var(--color-slate-700)}.border-slate-800{border-color:var(--color-slate-800)}.bg-\[\#0b1118\]{background-color:#0b1118}.bg-\[\#0d141d\]{background-color:#0d141d}.bg-\[\#070b10\]{background-color:#070b10}.bg-\[\#121b25\]{background-color:#121b25}.bg-\[\#111922\]{background-color:#111922}.bg-amber-500\/10{background-color:#f99c001a}@supports (color:color-mix(in lab, red, red)){.bg-amber-500\/10{background-color:color-mix(in oklab, var(--color-amber-500) 10%, transparent)}}.bg-emerald-500\/10{background-color:#00bb7f1a}@supports (color:color-mix(in lab, red, red)){.bg-emerald-500\/10{background-color:color-mix(in oklab, var(--color-emerald-500) 10%, transparent)}}.bg-red-500\/10{background-color:#fb2c361a}@supports (color:color-mix(in lab, red, red)){.bg-red-500\/10{background-color:color-mix(in oklab, var(--color-red-500) 10%, transparent)}}.bg-slate-900{background-color:var(--color-slate-900)}.bg-slate-950{background-color:var(--color-slate-950)}.bg-slate-950\/70{background-color:#020618b3}@supports (color:color-mix(in lab, red, red)){.bg-slate-950\/70{background-color:color-mix(in oklab, var(--color-slate-950) 70%, transparent)}}.bg-teal-500{background-color:var(--color-teal-500)}.p-2{padding:calc(var(--spacing) * 2)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.px-1{padding-inline:calc(var(--spacing) * 1)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-4{padding-block:calc(var(--spacing) * 4)}.pt-1{padding-top:calc(var(--spacing) * 1)}.pr-1{padding-right:calc(var(--spacing) * 1)}.text-left{text-align:left}.font-mono{font-family:var(--font-mono)}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xl{font-size:var(--text-xl);line-height:var(--tw-leading,var(--text-xl--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.text-\[11px\]{font-size:11px}.leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.whitespace-pre-wrap{white-space:pre-wrap}.text-amber-200{color:var(--color-amber-200)}.text-amber-300{color:var(--color-amber-300)}.text-emerald-200{color:var(--color-emerald-200)}.text-emerald-300{color:var(--color-emerald-300)}.text-red-200{color:var(--color-red-200)}.text-red-300{color:var(--color-red-300)}.text-slate-100{color:var(--color-slate-100)}.text-slate-200{color:var(--color-slate-200)}.text-slate-300{color:var(--color-slate-300)}.text-slate-400{color:var(--color-slate-400)}.text-slate-500{color:var(--color-slate-500)}.text-slate-950{color:var(--color-slate-950)}.text-teal-300{color:var(--color-teal-300)}.uppercase{text-transform:uppercase}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-60{opacity:.6}.shadow-2xl{--tw-shadow:0 25px 50px -12px var(--tw-shadow-color,#00000040);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px var(--tw-shadow-color,#0000001a), 0 8px 10px -6px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.shadow-black\/20{--tw-shadow-color:#0003}@supports (color:color-mix(in lab, red, red)){.shadow-black\/20{--tw-shadow-color:color-mix(in oklab, color-mix(in oklab, var(--color-black) 20%, transparent) var(--tw-shadow-alpha), transparent)}}.outline-none{--tw-outline-style:none;outline-style:none}.placeholder\:text-slate-600::placeholder{color:var(--color-slate-600)}@media (hover:hover){.hover\:border-teal-400:hover{border-color:var(--color-teal-400)}.hover\:border-teal-500:hover{border-color:var(--color-teal-500)}.hover\:bg-slate-800:hover{background-color:var(--color-slate-800)}.hover\:bg-teal-400:hover{background-color:var(--color-teal-400)}}.focus\:border-teal-400:focus{border-color:var(--color-teal-400)}.focus\:ring-2:focus{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.focus\:ring-teal-500\/20:focus{--tw-ring-color:#00baa733}@supports (color:color-mix(in lab, red, red)){.focus\:ring-teal-500\/20:focus{--tw-ring-color:color-mix(in oklab, var(--color-teal-500) 20%, transparent)}}@media (min-width:48rem){.md\:grid-cols-\[minmax\(0\,1fr\)_auto\]{grid-template-columns:minmax(0,1fr) auto}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:items-end{align-items:flex-end}.md\:justify-between{justify-content:space-between}}@media (min-width:64rem){.lg\:grid-cols-\[minmax\(0\,1fr\)_420px\]{grid-template-columns:minmax(0,1fr) 420px}}}@property --tw-border-style{syntax:""*"";inherits:false;initial-value:solid}@property --tw-leading{syntax:""*"";inherits:false}@property --tw-font-weight{syntax:""*"";inherits:false}@property --tw-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:""*"";inherits:false}@property --tw-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:""*"";inherits:false}@property --tw-inset-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:""*"";inherits:false}@property --tw-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:""*"";inherits:false}@property --tw-inset-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:""*"";inherits:false}@property --tw-ring-offset-width{syntax:""<length>"";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:""*"";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}</style>
 </head>
-<body class=""min-h-screen bg-slate-100 text-slate-950 antialiased"">
-  <header class=""border-b border-slate-300 bg-white"">
-    <div class=""mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between"">
+<body class=""min-h-screen bg-[#0b1118] text-slate-100 antialiased"">
+  <header class=""border-b border-slate-800 bg-[#111922]"">
+    <div class=""mx-auto flex max-w-[1600px] flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between"">
       <div>
-        <h1 class=""text-lg font-semibold"">CU.RemoteConsole</h1>
-        <p class=""text-sm text-slate-500"" data-i18n=""subtitle"">Local command panel for Casualties: Unknown</p>
+        <h1 class=""text-xl font-semibold text-teal-300"">CU.RemoteConsole</h1>
+        <p class=""text-sm text-slate-400"" data-i18n=""subtitle"">Local command panel for Casualties: Unknown</p>
       </div>
       <div class=""flex flex-wrap items-center gap-2"">
-        <select id=""language"" class=""h-9 rounded-md border border-slate-300 bg-white px-2 text-sm"">
+        <select id=""language"" class=""h-9 rounded-md border border-slate-700 bg-slate-950 px-2 text-sm text-slate-100 outline-none focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">
           <option value=""auto"">Auto</option>
           <option value=""en"">English</option>
           <option value=""zh"">中文</option>
@@ -30,63 +30,67 @@ internal static class EmbeddedWebConsole
     </div>
   </header>
 
-  <main class=""mx-auto grid max-w-7xl grid-cols-1 items-start gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_360px]"">
+  <main class=""mx-auto grid max-w-[1600px] grid-cols-1 items-start gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_420px]"">
     <div class=""grid content-start gap-4"">
-      <section class=""grid gap-4 rounded-lg border border-slate-300 bg-white p-4"">
+      <section class=""grid gap-4 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-2xl shadow-black/20"">
         <div class=""grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-end"">
           <div>
-            <label class=""mb-1 block text-sm font-semibold text-slate-700"" for=""token"" data-i18n=""token"">Token</label>
-            <input id=""token"" type=""password"" autocomplete=""off"" data-i18n-placeholder=""tokenPlaceholder"" class=""h-10 w-full rounded-md border border-slate-400 bg-white px-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"">
+            <label class=""mb-1 block text-sm font-semibold text-slate-300"" for=""token"" data-i18n=""token"">Token</label>
+            <input id=""token"" type=""password"" autocomplete=""off"" data-i18n-placeholder=""tokenPlaceholder"" class=""h-10 w-full rounded-md border border-slate-700 bg-slate-950 px-3 text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">
           </div>
-          <button id=""refresh"" class=""h-10 rounded-md bg-slate-200 px-4 text-sm font-semibold text-slate-900 hover:bg-slate-300"" data-i18n=""refresh"">Refresh</button>
+          <button id=""refresh"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""refresh"">Refresh</button>
         </div>
         <div>
-          <label class=""mb-1 block text-sm font-semibold text-slate-700"" for=""command"" data-i18n=""command"">Command</label>
-          <textarea id=""command"" spellcheck=""false"" data-i18n-placeholder=""commandPlaceholder"" class=""min-h-24 w-full resize-y rounded-md border border-slate-400 bg-white px-3 py-2 font-mono text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"">help</textarea>
+          <label class=""mb-1 block text-sm font-semibold text-slate-300"" for=""endpoint"" data-i18n=""endpoint"">Connection endpoint</label>
+          <input id=""endpoint"" autocomplete=""off"" inputmode=""url"" data-i18n-placeholder=""endpointPlaceholder"" class=""h-10 w-full rounded-md border border-slate-700 bg-slate-950 px-3 font-mono text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">
+        </div>
+        <div>
+          <label class=""mb-1 block text-sm font-semibold text-slate-300"" for=""command"" data-i18n=""command"">Command</label>
+          <textarea id=""command"" spellcheck=""false"" data-i18n-placeholder=""commandPlaceholder"" class=""min-h-24 w-full resize-y rounded-md border border-slate-700 bg-slate-950 px-3 py-2 font-mono text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">help</textarea>
         </div>
         <div class=""grid grid-cols-2 gap-2"">
-          <button id=""send"" class=""h-10 rounded-md bg-blue-600 px-4 text-sm font-semibold text-white hover:bg-blue-700"" data-i18n=""submit"">Submit</button>
-          <button id=""clear"" class=""h-10 rounded-md bg-slate-200 px-4 text-sm font-semibold text-slate-900 hover:bg-slate-300"" data-i18n=""clearOutput"">Clear Output</button>
+          <button id=""send"" class=""h-10 rounded-md bg-teal-500 px-4 text-sm font-semibold text-slate-950 hover:bg-teal-400"" data-i18n=""submit"">Submit</button>
+          <button id=""clear"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:bg-slate-800"" data-i18n=""clearOutput"">Clear Output</button>
         </div>
       </section>
 
-      <section class=""grid gap-2 rounded-lg border border-slate-300 bg-white p-3"">
+      <section class=""grid gap-2 rounded-lg border border-slate-800 bg-[#121b25] p-3 shadow-2xl shadow-black/20"">
         <div class=""flex flex-wrap items-center justify-between gap-2 px-1"">
-          <h2 class=""text-sm font-semibold text-slate-700"" data-i18n=""outputTitle"">Command Output</h2>
+          <h2 class=""text-sm font-semibold text-slate-300"" data-i18n=""outputTitle"">Command Output</h2>
           <div id=""lastResult"" class=""text-xs text-slate-500""></div>
         </div>
-        <div id=""output"" class=""grid min-h-80 max-h-[560px] gap-3 overflow-auto rounded-md bg-slate-950 p-3 text-sm text-slate-200""></div>
+        <div id=""output"" class=""grid min-h-[420px] max-h-[640px] content-start gap-3 overflow-auto rounded-md border border-slate-800 bg-[#070b10] p-3 text-sm text-slate-200""></div>
       </section>
     </div>
 
     <aside class=""grid content-start gap-4"">
-      <section class=""grid gap-3 rounded-lg border border-slate-300 bg-white p-4"">
+      <section class=""grid gap-3 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-xl shadow-black/20"">
         <div class=""flex items-center justify-between gap-2"">
-          <h2 class=""text-sm font-semibold text-slate-700"" data-i18n=""statusPanel"">Status</h2>
-          <button id=""status"" class=""h-8 rounded-md bg-slate-200 px-3 text-xs font-semibold text-slate-900 hover:bg-slate-300"" data-i18n=""reload"">Reload</button>
+          <h2 class=""text-sm font-semibold text-slate-300"" data-i18n=""statusPanel"">Status</h2>
+          <button id=""status"" class=""h-8 rounded-md border border-slate-700 bg-slate-900 px-3 text-xs font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""reload"">Reload</button>
         </div>
         <div id=""statusPanel"" class=""grid max-h-80 gap-2 overflow-auto pr-1 text-sm""></div>
       </section>
 
-      <section class=""grid gap-3 rounded-lg border border-slate-300 bg-white p-4"">
-        <label class=""block text-sm font-semibold text-slate-700"" for=""queueId"" data-i18n=""queueId"">Queue ID</label>
-        <input id=""queueId"" autocomplete=""off"" data-i18n-placeholder=""queuePlaceholder"" class=""h-10 w-full rounded-md border border-slate-400 bg-white px-3 font-mono text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"">
-        <button id=""lookup"" class=""h-10 rounded-md bg-slate-200 px-4 text-sm font-semibold text-slate-900 hover:bg-slate-300"" data-i18n=""lookup"">Lookup</button>
+      <section class=""grid gap-3 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-xl shadow-black/20"">
+        <label class=""block text-sm font-semibold text-slate-300"" for=""queueId"" data-i18n=""queueId"">Queue ID</label>
+        <input id=""queueId"" autocomplete=""off"" data-i18n-placeholder=""queuePlaceholder"" class=""h-10 w-full rounded-md border border-slate-700 bg-slate-950 px-3 font-mono text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">
+        <button id=""lookup"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""lookup"">Lookup</button>
       </section>
 
-      <section class=""grid gap-3 rounded-lg border border-slate-300 bg-white p-4"">
+      <section class=""grid gap-3 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-xl shadow-black/20"">
         <div class=""flex items-center justify-between gap-2"">
-          <h2 class=""text-sm font-semibold text-slate-700"" data-i18n=""commandCatalog"">Commands</h2>
-          <button id=""catalog"" class=""h-8 rounded-md bg-slate-200 px-3 text-xs font-semibold text-slate-900 hover:bg-slate-300"" data-i18n=""reload"">Reload</button>
+          <h2 class=""text-sm font-semibold text-slate-300"" data-i18n=""commandCatalog"">Commands</h2>
+          <button id=""catalog"" class=""h-8 rounded-md border border-slate-700 bg-slate-900 px-3 text-xs font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""reload"">Reload</button>
         </div>
         <div id=""catalogList"" class=""grid max-h-[430px] gap-3 overflow-auto""></div>
       </section>
 
-      <section class=""grid gap-3 rounded-lg border border-slate-300 bg-white p-4"">
-        <h2 class=""text-sm font-semibold text-slate-700"" data-i18n=""apiTools"">API Tools</h2>
+      <section class=""grid gap-3 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-xl shadow-black/20"">
+        <h2 class=""text-sm font-semibold text-slate-300"" data-i18n=""apiTools"">API Tools</h2>
         <div class=""grid grid-cols-2 gap-2"">
-          <button id=""history"" class=""h-10 rounded-md bg-slate-200 px-4 text-sm font-semibold text-slate-900 hover:bg-slate-300"" data-i18n=""recent"">Recent</button>
-          <button id=""health"" class=""h-10 rounded-md bg-slate-200 px-4 text-sm font-semibold text-slate-900 hover:bg-slate-300"" data-i18n=""health"">Health</button>
+          <button id=""history"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""recent"">Recent</button>
+          <button id=""health"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""health"">Health</button>
         </div>
         <div id=""recent"" class=""grid max-h-[430px] gap-2 overflow-auto""></div>
       </section>
@@ -98,6 +102,7 @@ internal static class EmbeddedWebConsole
       en: {
         subtitle: 'Local command panel for Casualties: Unknown',
         token: 'Token',
+        endpoint: 'Connection endpoint',
         refresh: 'Refresh',
         command: 'Command',
         submit: 'Submit',
@@ -111,6 +116,7 @@ internal static class EmbeddedWebConsole
         outputTitle: 'Command Output',
         apiTools: 'API Tools',
         tokenPlaceholder: 'Paste bearer token for this browser session',
+        endpointPlaceholder: 'Same origin, or http://127.0.0.1:8848',
         commandPlaceholder: 'Type a console command',
         queuePlaceholder: 'Queue id from POST /api/commands',
         bridge: 'bridge',
@@ -151,6 +157,7 @@ internal static class EmbeddedWebConsole
       zh: {
         subtitle: 'Casualties: Unknown 本地命令面板',
         token: '令牌',
+        endpoint: '连接端点',
         refresh: '刷新',
         command: '命令',
         submit: '提交',
@@ -164,6 +171,7 @@ internal static class EmbeddedWebConsole
         outputTitle: '命令输出',
         apiTools: 'API 工具',
         tokenPlaceholder: '粘贴本浏览器会话使用的 Bearer token',
+        endpointPlaceholder: '默认同源，或 http://127.0.0.1:8848',
         commandPlaceholder: '输入控制台命令',
         queuePlaceholder: 'POST /api/commands 返回的队列 ID',
         bridge: '桥接',
@@ -204,6 +212,7 @@ internal static class EmbeddedWebConsole
     };
     const el = id => document.getElementById(id);
     const token = el('token');
+    const endpoint = el('endpoint');
     const command = el('command');
     const queueId = el('queueId');
     const output = el('output');
@@ -216,8 +225,10 @@ internal static class EmbeddedWebConsole
     let lastCatalogItems = null;
     let lastStatus = null;
     token.value = sessionStorage.getItem('cu.remoteconsole.token') || '';
+    endpoint.value = localStorage.getItem('cu.remoteconsole.endpoint') || '';
     language.value = localStorage.getItem('cu.remoteconsole.language') || 'auto';
     token.addEventListener('input', () => sessionStorage.setItem('cu.remoteconsole.token', token.value));
+    endpoint.addEventListener('input', () => localStorage.setItem('cu.remoteconsole.endpoint', endpoint.value.trim()));
     language.addEventListener('change', () => {
       localStorage.setItem('cu.remoteconsole.language', language.value);
       applyLanguage();
@@ -248,12 +259,21 @@ internal static class EmbeddedWebConsole
     function authHeaders(extra = {}) {
       return Object.assign({ 'Authorization': 'Bearer ' + token.value }, extra);
     }
+    function endpointBase() {
+      const raw = endpoint.value.trim().replace(/\/+$/, '');
+      if (!raw) return '';
+      if (/^https?:\/\//i.test(raw)) return raw;
+      return 'http://' + raw;
+    }
+    function apiUrl(path) {
+      return endpointBase() + path;
+    }
     function clean(text) {
       return String(text || '').replace(/<[^>]*>/g, '');
     }
     function logLine(line, tone = '') {
       const node = document.createElement('div');
-      node.className = 'rounded-md border border-slate-800 bg-slate-900 px-3 py-2 font-mono text-xs ' + (tone === 'ok' ? 'text-emerald-300' : tone === 'err' ? 'text-red-300' : 'text-slate-400');
+      node.className = 'rounded-md border border-slate-800 bg-slate-950 px-3 py-2 font-mono text-xs ' + (tone === 'ok' ? 'text-emerald-300' : tone === 'err' ? 'text-red-300' : 'text-slate-400');
       node.textContent = line;
       output.prepend(node);
       output.scrollTop = output.scrollHeight;
@@ -264,12 +284,12 @@ internal static class EmbeddedWebConsole
     }
     function pill(text, tone) {
       const classes = {
-        ok: 'border-emerald-200 bg-emerald-50 text-emerald-700',
-        warn: 'border-amber-200 bg-amber-50 text-amber-700',
-        err: 'border-red-200 bg-red-50 text-red-700'
+        ok: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
+        warn: 'border-amber-500/30 bg-amber-500/10 text-amber-300',
+        err: 'border-red-500/30 bg-red-500/10 text-red-300'
       };
       const node = document.createElement('span');
-      node.className = 'inline-flex min-h-7 items-center rounded-full border px-2 text-xs font-semibold ' + classes[tone];
+      node.className = 'inline-flex min-h-7 items-center rounded-md border px-2 text-xs font-semibold ' + classes[tone];
       node.textContent = text;
       return node;
     }
@@ -288,17 +308,17 @@ internal static class EmbeddedWebConsole
       return t('unknownCommands');
     }
     function classificationTone(classification) {
-      if (classification === 'Safe') return 'border-emerald-200 bg-emerald-50 text-emerald-800';
-      if (classification === 'StateChanging') return 'border-amber-200 bg-amber-50 text-amber-800';
-      if (classification === 'Dangerous') return 'border-red-200 bg-red-50 text-red-800';
-      return 'border-slate-200 bg-slate-50 text-slate-700';
+      if (classification === 'Safe') return 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200';
+      if (classification === 'StateChanging') return 'border-amber-500/30 bg-amber-500/10 text-amber-200';
+      if (classification === 'Dangerous') return 'border-red-500/30 bg-red-500/10 text-red-200';
+      return 'border-slate-700 bg-slate-900 text-slate-300';
     }
     function boolText(value) {
       return value ? t('yes') : t('no');
     }
     function renderStatusGroup(title, rows) {
       const wrapper = document.createElement('div');
-      wrapper.className = 'rounded-md border border-slate-200 bg-slate-50 p-2';
+      wrapper.className = 'rounded-md border border-slate-800 bg-slate-950/70 p-2';
       const heading = document.createElement('h3');
       heading.className = 'mb-1 text-[11px] font-semibold uppercase text-slate-500';
       heading.textContent = title;
@@ -312,7 +332,7 @@ internal static class EmbeddedWebConsole
         key.className = 'block truncate text-[11px] text-slate-500';
         key.textContent = rowData[0];
         const val = document.createElement('span');
-        val.className = 'block truncate font-mono text-xs text-slate-800';
+        val.className = 'block truncate font-mono text-xs text-slate-200';
         val.textContent = String(rowData[1]);
         row.appendChild(key);
         row.appendChild(val);
@@ -366,7 +386,7 @@ internal static class EmbeddedWebConsole
       queueId.value = record.queueId;
       lastResult.textContent = record.state + ' · ' + record.bridgeStatus + ' · ' + record.queueLatencyMs + 'ms';
       const block = document.createElement('article');
-      block.className = 'grid gap-2 rounded-md border border-slate-800 bg-slate-900 p-3';
+      block.className = 'grid gap-2 rounded-md border border-slate-800 bg-[#0d141d] p-3';
       const header = document.createElement('div');
       header.className = 'flex flex-wrap items-start justify-between gap-2';
       const titleWrap = document.createElement('div');
@@ -384,7 +404,7 @@ internal static class EmbeddedWebConsole
 
       const copy = document.createElement('button');
       copy.type = 'button';
-      copy.className = 'h-8 rounded-md bg-slate-800 px-3 text-xs font-semibold text-slate-200 hover:bg-slate-700';
+      copy.className = 'h-8 rounded-md border border-slate-700 bg-slate-900 px-3 text-xs font-semibold text-slate-200 hover:border-teal-500 hover:bg-slate-800';
       copy.disabled = !record.output || !record.output.length;
       copy.textContent = t('copyOutput');
       copy.addEventListener('click', async () => {
@@ -401,7 +421,7 @@ internal static class EmbeddedWebConsole
       block.appendChild(header);
 
       const body = document.createElement('pre');
-      body.className = 'max-h-72 overflow-auto rounded-md bg-slate-950 p-3 font-mono text-xs leading-relaxed whitespace-pre-wrap text-slate-200';
+      body.className = 'max-h-72 overflow-auto rounded-md border border-slate-800 bg-[#070b10] p-3 font-mono text-xs leading-relaxed whitespace-pre-wrap text-slate-200';
       if (record.output && record.output.length) {
         body.textContent = record.output.map(clean).join('\n');
       } else {
@@ -412,7 +432,7 @@ internal static class EmbeddedWebConsole
       output.scrollTop = 0;
     }
     async function refreshHealth() {
-      const response = await fetch('/health');
+      const response = await fetch(apiUrl('/health'));
       const result = await readJson(response);
       if (response.ok && result.json) {
         renderHealth(result.json);
@@ -422,13 +442,13 @@ internal static class EmbeddedWebConsole
     }
     async function loadStatus() {
       if (!token.value) return;
-      const response = await fetch('/api/status', { headers: authHeaders() });
+      const response = await fetch(apiUrl('/api/status'), { headers: authHeaders() });
       const result = await readJson(response);
       if (!response.ok || !result.json) {
         lastStatus = null;
         statusPanel.textContent = '';
         const node = document.createElement('div');
-        node.className = 'rounded-md border border-slate-200 bg-slate-50 p-3 text-sm text-slate-500';
+        node.className = 'rounded-md border border-slate-800 bg-slate-950/70 p-3 text-sm text-slate-500';
         node.textContent = t('noStatus');
         statusPanel.appendChild(node);
         return;
@@ -438,7 +458,7 @@ internal static class EmbeddedWebConsole
     }
     async function submitCommand() {
       logLine('> ' + command.value, 'muted');
-      const response = await fetch('/api/commands', {
+      const response = await fetch(apiUrl('/api/commands'), {
         method: 'POST',
         headers: authHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ command: command.value })
@@ -455,7 +475,7 @@ internal static class EmbeddedWebConsole
       await refreshHealth();
     }
     async function fetchStatus(id) {
-      const response = await fetch('/api/commands/' + encodeURIComponent(id), { headers: authHeaders() });
+      const response = await fetch(apiUrl('/api/commands/' + encodeURIComponent(id)), { headers: authHeaders() });
       const result = await readJson(response);
       if (!response.ok) throw new Error(response.status + ' ' + result.text);
       return result.json;
@@ -478,13 +498,13 @@ internal static class EmbeddedWebConsole
     }
     async function loadRecent() {
       if (!token.value) return;
-      const response = await fetch('/api/commands', { headers: authHeaders() });
+      const response = await fetch(apiUrl('/api/commands'), { headers: authHeaders() });
       const result = await readJson(response);
       if (!response.ok || !result.json) return;
       recent.textContent = '';
       if (!result.json.items || !result.json.items.length) {
         const node = document.createElement('div');
-        node.className = 'rounded-md border border-slate-200 bg-slate-50 p-3 text-sm text-slate-500';
+        node.className = 'rounded-md border border-slate-800 bg-slate-950/70 p-3 text-sm text-slate-500';
         node.textContent = t('noHistory');
         recent.appendChild(node);
         return;
@@ -492,9 +512,9 @@ internal static class EmbeddedWebConsole
       for (const item of result.json.items) {
         const node = document.createElement('button');
         node.type = 'button';
-        node.className = 'grid gap-1 rounded-md border border-slate-300 bg-slate-50 p-2 text-left hover:border-blue-300';
+        node.className = 'grid gap-1 rounded-md border border-slate-800 bg-slate-950/70 p-2 text-left hover:border-teal-500';
         const title = document.createElement('strong');
-        title.className = 'text-sm';
+        title.className = 'text-sm text-slate-200';
         title.textContent = item.commandName + ' · ' + item.state;
         const meta = document.createElement('span');
         meta.className = 'text-xs text-slate-500';
@@ -532,7 +552,7 @@ internal static class EmbeddedWebConsole
           const node = document.createElement('button');
           node.type = 'button';
           node.disabled = !item.allowed;
-          node.className = 'rounded-md border px-2 py-2 text-left text-xs ' + classificationTone(item.classification) + (item.allowed ? ' hover:border-blue-400' : ' cursor-not-allowed opacity-65');
+          node.className = 'rounded-md border px-2 py-2 text-left text-xs ' + classificationTone(item.classification) + (item.allowed ? ' hover:border-teal-400' : ' cursor-not-allowed opacity-60');
           const name = document.createElement('strong');
           name.className = 'block font-mono text-sm';
           name.textContent = item.name;
@@ -555,13 +575,13 @@ internal static class EmbeddedWebConsole
     }
     async function loadCatalog() {
       if (!token.value) return;
-      const response = await fetch('/api/commands/catalog', { headers: authHeaders() });
+      const response = await fetch(apiUrl('/api/commands/catalog'), { headers: authHeaders() });
       const result = await readJson(response);
       if (!response.ok || !result.json || !Array.isArray(result.json.items)) {
         lastCatalogItems = null;
         catalogList.textContent = '';
         const node = document.createElement('div');
-        node.className = 'rounded-md border border-slate-200 bg-slate-50 p-3 text-sm text-slate-500';
+        node.className = 'rounded-md border border-slate-800 bg-slate-950/70 p-3 text-sm text-slate-500';
         node.textContent = t('noCatalog');
         catalogList.appendChild(node);
         return;

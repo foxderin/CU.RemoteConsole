@@ -14,7 +14,7 @@ CU.RemoteConsole provides a local browser command panel for Casualties: Unknown.
 ## Install
 
 1. Install BepInEx 5.4.x into the game folder.
-2. Extract `CU.RemoteConsole-v1.0.0.zip`.
+2. Extract `CU.RemoteConsole-v1.1.0.zip`.
 3. Copy the extracted `BepInEx` folder into the game folder.
 4. Start the game once.
 5. Open `http://127.0.0.1:8848/`.
@@ -27,12 +27,15 @@ Do not share the token.
 The web console includes:
 
 - token input stored in browser session storage
+- connection endpoint override stored in browser local storage
 - command input
 - command output blocks
 - recent command history
 - command catalog grouped by risk
 - read-only status panel
 - language selector
+
+Leave the connection endpoint empty to use the same origin as the web page. Set it to a full address such as `http://127.0.0.1:8848` only when the page should connect to a different local, LAN, or private tunnel endpoint.
 
 ## In-Game Config
 

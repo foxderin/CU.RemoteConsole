@@ -16,6 +16,7 @@ A BepInEx 5 mod for [Casualties: Unknown](https://store.steampowered.com/app/457
 - Thread-safe command queue consumed from the Unity main thread.
 - Command receipt lookup, recent history, and captured output rendering.
 - Read-only status/config/policy panel.
+- Browser-side connection endpoint override for custom local/LAN/tunnel addresses.
 - In-game config overlay opened with `F8`, with English/Chinese toggle.
 - Command catalog grouped by risk.
 - English/Chinese web UI.
@@ -49,7 +50,7 @@ Casualties: Unknown may support some custom content, but CU.RemoteConsole is a C
 ## Installation
 
 1. Install BepInEx 5.4.x for the game.
-2. Download `CU.RemoteConsole-v1.0.0.zip` from the release page.
+2. Download `CU.RemoteConsole-v1.1.0.zip` from the release page.
 3. Copy the whole `BepInEx` folder from the release package into the game install directory.
 4. Confirm the final plugin path looks like:
 
@@ -97,12 +98,15 @@ The browser console includes:
 | Area | Purpose |
 | --- | --- |
 | Command | Submit a command and render its output block |
+| Connection endpoint | Override the API base URL when the browser should connect to another local/LAN/tunnel address |
 | Receipt lookup | Query one queued/executed command by id |
 | Recent history | Review recent command receipts |
 | Catalog | Show safe, state-changing, dangerous, and unknown command policy |
 | Status | Show read-only listener, auth, queue, rate limit, patch, and policy metadata |
 
 State-changing and dangerous commands are visible for transparency but denied by default.
+
+The connection endpoint field is stored in browser local storage. Leave it empty to use the same origin as the page. Set it to a full endpoint such as `http://127.0.0.1:8848` only when the web page needs to talk to a different allowed address.
 
 ## API
 

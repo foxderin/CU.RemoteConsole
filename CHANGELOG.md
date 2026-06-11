@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.0 - 2026-06-12
+
+### Added
+
+- Added a browser-side connection endpoint field for connecting the web console to a custom local, LAN, or private tunnel API address.
+- Added restricted CORS preflight support for accepted localhost browser origins.
+
+### Changed
+
+- Restyled the web console with a darker, denser command-panel layout.
+
 ## 1.0.0 - 2026-06-12
 
 Initial stable source release for CU.RemoteConsole.

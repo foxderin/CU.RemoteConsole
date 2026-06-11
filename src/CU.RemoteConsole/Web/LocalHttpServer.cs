@@ -129,9 +129,17 @@ public sealed class LocalHttpServer : IDisposable
         var request = context.Request;
         var response = context.Response;
         response.Headers["Cache-Control"] = "no-store";
+        ApplyCorsHeaders(request, response);
 
         try
         {
+            if (request.HttpMethod == "OPTIONS")
+            {
+                response.StatusCode = IsAllowedOrigin(request.Headers["Origin"]) ? 204 : 403;
+                response.ContentLength64 = 0;
+                return;
+            }
+
             if (request.HttpMethod == "GET" && request.Url != null && request.Url.AbsolutePath == "/health")
             {
                 WriteJson(response, 200, SerializeHealth(healthSnapshot()));
@@ -373,6 +381,19 @@ public sealed class LocalHttpServer : IDisposable
 
         return origin.StartsWith("http://127.0.0.1:", StringComparison.OrdinalIgnoreCase)
             || origin.StartsWith("http://localhost:", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static void ApplyCorsHeaders(HttpListenerRequest request, HttpListenerResponse response)
+    {
+        var origin = request.Headers["Origin"];
+        if (!string.IsNullOrWhiteSpace(origin) && IsAllowedOrigin(origin))
+        {
+            response.Headers["Access-Control-Allow-Origin"] = origin;
+            response.Headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS";
+            response.Headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type";
+            response.Headers["Access-Control-Max-Age"] = "600";
+            response.Headers["Vary"] = "Origin";
+        }
     }
 
     private static void WriteJson(HttpListenerResponse response, int statusCode, string json)

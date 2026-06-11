@@ -1,6 +1,6 @@
 # Security Design
 
-Status: current security design for release `1.0.0`.
+Status: current security design for release `1.1.0`.
 
 ## Security Posture
 
@@ -34,6 +34,7 @@ Current implementation generates the bearer token into `BepInEx/config/cu.remote
 - Reject state-changing requests without valid auth.
 - Reject unexpected `Origin` for browser endpoints.
 - Do not enable wildcard CORS.
+- CORS preflight is allowed only for accepted localhost browser origins and only for `GET`, `POST`, and `OPTIONS` with `Authorization`/`Content-Type` headers.
 - Require JSON content type for command submissions.
 - Do not use cookies as the only auth mechanism.
 - Do not make state-changing endpoints available via `GET`.
