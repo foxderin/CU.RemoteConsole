@@ -21,4 +21,3 @@ Initial stable source release for CU.RemoteConsole.
 ### Notes
 
 - BepInEx is not bundled and must be installed separately.
-- Release archives should be generated with `scripts/package-release.sh` and uploaded as release assets, not committed to source control.
