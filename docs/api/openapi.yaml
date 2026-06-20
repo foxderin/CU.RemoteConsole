@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: CU.RemoteConsole Local API
-  version: 1.1.0
+  version: 1.2.0
   summary: "Local authenticated API for the Casualties: Unknown remote command panel."
   description: |
     Static contract for CU.RemoteConsole. This file is documentation only:
@@ -200,14 +200,8 @@ components:
         - ok
         - service
         - pluginVersion
-        - httpListening
-        - patchApplied
-        - authRequired
-        - bindAddress
         - port
         - queueDepth
-        - bridgeLastStatus
-        - lastExecutionAt
       properties:
         ok:
           type: boolean
@@ -216,16 +210,9 @@ components:
           const: CU.RemoteConsole
         pluginVersion:
           type: string
-          examples: ["1.1.0"]
+          examples: ["1.2.0"]
         httpListening:
           type: boolean
-        patchApplied:
-          type: boolean
-        authRequired:
-          type: boolean
-        bindAddress:
-          type: string
-          examples: ["127.0.0.1"]
         port:
           type: integer
           minimum: 1
@@ -234,14 +221,6 @@ components:
         queueDepth:
           type: integer
           minimum: 0
-        bridgeLastStatus:
-          type: string
-          examples: [not_started, executed]
-        lastExecutionAt:
-          anyOf:
-            - type: string
-              format: date-time
-            - type: "null"
 
     StatusResponse:
       type: object
@@ -465,6 +444,10 @@ components:
         policyReason:
           type: string
           examples: [allowed, state_changing_not_enabled, dangerous_command_denied, command_not_allowlisted]
+        description:
+          type: string
+          description: Brief command description in English. Empty string if not available.
+          examples: ["Spawn items, enemies, or objects at a position."]
 
     CommandClassification:
       type: string

@@ -6,14 +6,17 @@ namespace CU.RemoteConsole.Console;
 
 public sealed class ConsoleBridge
 {
+    private const int MaxOutputLines = 500;
+
     private Type? consoleScriptType;
     private FieldInfo? instanceField;
     private FieldInfo? logsField;
-    private MethodInfo? executeCommandMethod;
-    private bool lookupAttempted;
+   private MethodInfo? executeCommandMethod;
+   private bool lookupAttempted;
+    private DateTime nextRetryAt;
 
-    public ConsoleExecutionResult Execute(string command)
-    {
+   public ConsoleExecutionResult Execute(string command)
+   {
         if (!EnsureResolved(out var status))
         {
             return new ConsoleExecutionResult(false, status, Array.Empty<string>());
@@ -32,34 +35,46 @@ public sealed class ConsoleBridge
         return new ConsoleExecutionResult(true, "executed", output);
     }
 
-    private bool EnsureResolved(out string status)
-    {
-        if (!lookupAttempted)
+   private bool EnsureResolved(out string status)
+   {
+        if (lookupAttempted && DateTime.UtcNow < nextRetryAt)
         {
-            lookupAttempted = true;
+            status = "bridge_retry_pending";
+            return false;
+        }
+
+       if (!lookupAttempted)
+       {
+           lookupAttempted = true;
             consoleScriptType = Type.GetType("ConsoleScript, Assembly-CSharp");
             instanceField = consoleScriptType?.GetField("instance", BindingFlags.Public | BindingFlags.Static);
             logsField = consoleScriptType?.GetField("logs", BindingFlags.Public | BindingFlags.Instance);
             executeCommandMethod = consoleScriptType?.GetMethod("ExecuteCommand", BindingFlags.Public | BindingFlags.Instance, null, new[] { typeof(string) }, null);
         }
 
-        if (consoleScriptType == null)
-        {
+       if (consoleScriptType == null)
+       {
+            lookupAttempted = false;
+            nextRetryAt = DateTime.UtcNow.AddSeconds(30);
             status = "console_type_unavailable";
             return false;
-        }
+       }
 
-        if (instanceField == null)
-        {
+       if (instanceField == null)
+       {
+            lookupAttempted = false;
+            nextRetryAt = DateTime.UtcNow.AddSeconds(30);
             status = "console_instance_field_unavailable";
             return false;
-        }
+       }
 
-        if (executeCommandMethod == null)
-        {
+       if (executeCommandMethod == null)
+       {
+            lookupAttempted = false;
+            nextRetryAt = DateTime.UtcNow.AddSeconds(30);
             status = "console_execute_method_unavailable";
             return false;
-        }
+       }
 
         status = "bridge_ready";
         return true;
@@ -75,6 +90,11 @@ public sealed class ConsoleBridge
         var output = new List<string>();
         for (var i = beforeCount; i < logs.Count; i++)
         {
+            if (output.Count >= MaxOutputLines)
+            {
+                break;
+            }
+
             output.Add(logs[i]);
         }
 

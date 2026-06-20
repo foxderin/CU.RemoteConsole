@@ -59,6 +59,16 @@ public sealed class RemoteConsoleHost
         logger.LogInfo($"CU.RemoteConsole listening on {httpServer.Prefix}");
         logger.LogInfo("Authentication token is stored in the BepInEx config file and is not printed to logs.");
         logger.LogInfo($"Press {remoteConfig.ConfigWindowKey.Value} in game to open CU.RemoteConsole config.");
+
+        if (remoteConfig.AllowLan.Value)
+        {
+            logger.LogWarning("CU.RemoteConsole is configured to allow LAN bind addresses. Consider using HTTPS via netsh or a tunnel (Tailscale/WireGuard) for encryption.");
+        }
+
+        if (remoteConfig.AllowPublic.Value)
+        {
+            logger.LogWarning("CU.RemoteConsole is configured to allow public bind addresses. HTTPS is strongly recommended; do not expose this service directly to the internet without additional security measures.");
+        }
     }
 
     internal RemoteConsoleConfig Config => remoteConfig;

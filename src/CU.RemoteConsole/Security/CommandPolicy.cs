@@ -70,6 +70,57 @@ public sealed class CommandPolicy
     private static readonly HashSet<string> StateChangingCommands = new HashSet<string>(StateChangingCommandNames, StringComparer.OrdinalIgnoreCase);
 
     private static readonly HashSet<string> DangerousCommands = new HashSet<string>(DangerousCommandNames, StringComparer.OrdinalIgnoreCase);
+    private static readonly Dictionary<string, string> CommandDescriptions = new(StringComparer.OrdinalIgnoreCase)
+    {
+        ["addliquid"] = "Add a dose of liquid to the held container (mL).",
+        ["addxp"] = "Grant experience to a skill (Strength, Resilience, or Intelligence).",
+        ["alert"] = "Show a notification box on screen.",
+        ["amputate"] = "Instantly remove a specified limb.",
+        ["bind"] = "Bind a console command to a key.",
+        ["clear"] = "Clear all text from the console log.",
+        ["coagulate"] = "Set all limb bleed rates to 0.",
+        ["copylog"] = "Copy all console log text to the clipboard.",
+        ["echo"] = "Toggle printing command echo in the console.",
+        ["errorlogging"] = "Toggle real-time error log printing.",
+        ["explode"] = "Generate a fully customizable explosion.",
+        ["framerate"] = "Cap the game's maximum frame rate (FPS).",
+        ["freecam"] = "Toggle free camera mode.",
+        ["fullbright"] = "Toggle debug fullbright lighting mode.",
+        ["heal"] = "Fully reset player health, medical state, and limbs.",
+        ["help"] = "Display available console commands.",
+        ["kill"] = "Instantly kill the player by zeroing brain integrity.",
+        ["locate"] = "Teleport the player to a specified object in the current level.",
+        ["log"] = "Add a custom log event to the console.",
+        ["loglocale"] = "Return the localized display name of an object.",
+        ["music"] = "Control background music playback.",
+        ["noclip"] = "Toggle collision-free flight mode.",
+        ["nukeplayerprefs"] = "Reset all player preferences to defaults.",
+        ["openfolder"] = "Open a game folder in the system file manager.",
+        ["playsound"] = "Play a game sound effect by ID.",
+        ["plushies"] = "Spawn all 15 plushie types in a horizontal line.",
+        ["repeat"] = "Repeatedly execute a command with a delay between runs.",
+        ["resetskills"] = "Reset all skill levels and experience to zero.",
+        ["saveandquit"] = "Save player data and exit to the main menu.",
+        ["setbodyfield"] = "Modify player-wide body state data field.",
+        ["setconsolecolor"] = "Change console UI text or background color.",
+        ["setconsoleheight"] = "Change the console height ratio on screen.",
+        ["setlimbfield"] = "Modify a specific limb health state field.",
+        ["skiplayer"] = "Switch to a different level index.",
+        ["spawn"] = "Spawn items, enemies, or objects at a position.",
+        ["spawncategory"] = "Spawn all items from a category drop pool.",
+        ["starterkit"] = "Add a semi-random basic survival kit to the inventory.",
+        ["talk"] = "Make the player character speak specified text.",
+        ["timescale"] = "Control the in-game time passage speed.",
+        ["tp"] = "Teleport the player to a specified position.",
+        ["ui"] = "Toggle or interact with UI elements.",
+        ["unchipped"] = "Toggle Unchipped mode on or off.",
+        ["volume"] = "Set the game music and SFX volume (0 to 1).",
+        ["pixelate"] = "Toggle the pixelation visual filter.",
+        ["fucklore"] = "Skip the opening story sequence.",
+        ["addcustomcommand"] = "Create a custom macro command from existing commands.",
+        ["removecustomcommand"] = "Remove a previously created custom command.",
+    };
+
 
     private int maxCommandLength;
     private bool allowStateChangingCommands;
@@ -95,11 +146,6 @@ public sealed class CommandPolicy
     public CommandPolicy(int maxCommandLength, bool allowStateChangingCommands, bool denyDangerousCommands, string extraAllowedCommands)
     {
         Update(maxCommandLength, allowStateChangingCommands, denyDangerousCommands, extraAllowedCommands);
-    }
-
-    public void Update(int maxCommandLength, bool denyDangerousCommands)
-    {
-        Update(maxCommandLength, allowStateChangingCommands, denyDangerousCommands, string.Join(",", extraAllowedCommands));
     }
 
     public void Update(int maxCommandLength, bool allowStateChangingCommands, bool denyDangerousCommands, string extraAllowedCommands)
@@ -167,11 +213,13 @@ public sealed class CommandPolicy
         foreach (var name in StateChangingCommandNames)
         {
             var extraAllowed = extraAllowedCommands.Contains(name);
+            CommandDescriptions.TryGetValue(name, out var desc);
             entries.Add(new CommandCatalogEntry(
                 name,
                 CommandClassification.StateChanging,
                 allowStateChangingCommands || extraAllowed,
-                allowStateChangingCommands ? "allowed" : extraAllowed ? "extra_allowlisted" : "state_changing_not_enabled"));
+                allowStateChangingCommands ? "allowed" : extraAllowed ? "extra_allowlisted" : "state_changing_not_enabled",
+                desc));
         }
 
         AddCatalogEntries(entries, DangerousCommandNames, CommandClassification.Dangerous, !denyDangerousCommands, denyDangerousCommands ? "dangerous_command_denied" : "allowed");
@@ -203,7 +251,8 @@ public sealed class CommandPolicy
     {
         foreach (var name in names)
         {
-            entries.Add(new CommandCatalogEntry(name, classification, allowed, policyReason));
+            CommandDescriptions.TryGetValue(name, out var desc);
+            entries.Add(new CommandCatalogEntry(name, classification, allowed, policyReason, desc));
         }
     }
 

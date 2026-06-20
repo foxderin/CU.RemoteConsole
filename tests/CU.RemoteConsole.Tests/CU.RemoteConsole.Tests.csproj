@@ -9,14 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="../../src/CU.RemoteConsole/Console/CommandClassification.cs" Link="Source/Console/CommandClassification.cs" />
-    <Compile Include="../../src/CU.RemoteConsole/Console/CommandRequest.cs" Link="Source/Console/CommandRequest.cs" />
+   <Compile Include="../../src/CU.RemoteConsole/Console/CommandClassification.cs" Link="Source/Console/CommandClassification.cs" />
+   <Compile Include="../../src/CU.RemoteConsole/Console/CommandExecutionState.cs" Link="Source/Console/CommandExecutionState.cs" />
+   <Compile Include="../../src/CU.RemoteConsole/Console/ConsoleExecutionResult.cs" Link="Source/Console/ConsoleExecutionResult.cs" />
+   <Compile Include="../../src/CU.RemoteConsole/Console/CommandRequest.cs" Link="Source/Console/CommandRequest.cs" />
     <Compile Include="../../src/CU.RemoteConsole/Security/Authenticator.cs" Link="Source/Security/Authenticator.cs" />
     <Compile Include="../../src/CU.RemoteConsole/Security/CommandCatalogEntry.cs" Link="Source/Security/CommandCatalogEntry.cs" />
     <Compile Include="../../src/CU.RemoteConsole/Security/CommandPolicy.cs" Link="Source/Security/CommandPolicy.cs" />
     <Compile Include="../../src/CU.RemoteConsole/Security/CommandPolicySummary.cs" Link="Source/Security/CommandPolicySummary.cs" />
     <Compile Include="../../src/CU.RemoteConsole/Security/PolicyDecision.cs" Link="Source/Security/PolicyDecision.cs" />
     <Compile Include="../../src/CU.RemoteConsole/Security/RateLimiter.cs" Link="Source/Security/RateLimiter.cs" />
-    <Compile Include="../../src/CU.RemoteConsole/Threading/CommandQueue.cs" Link="Source/Threading/CommandQueue.cs" />
+   <Compile Include="../../src/CU.RemoteConsole/Threading/CommandQueue.cs" Link="Source/Threading/CommandQueue.cs" />
+
+    <Compile Include="../../src/CU.RemoteConsole/Diagnostics/CommandHistory.cs" Link="Source/Diagnostics/CommandHistory.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Diagnostics/CommandRecord.cs" Link="Source/Diagnostics/CommandRecord.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Diagnostics/HealthSnapshot.cs" Link="Source/Diagnostics/HealthSnapshot.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Diagnostics/StatusSnapshot.cs" Link="Source/Diagnostics/StatusSnapshot.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Diagnostics/AuditLogger.cs" Link="Source/Diagnostics/AuditLogger.cs" />
+    <Compile Include="../../src/CU.RemoteConsole/Web/SerializationHelper.cs" Link="Source/Web/SerializationHelper.cs" />
   </ItemGroup>
 </Project>

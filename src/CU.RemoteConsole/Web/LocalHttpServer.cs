@@ -412,13 +412,8 @@ public sealed class LocalHttpServer : IDisposable
             + "\"service\":\"CU.RemoteConsole\","
             + "\"pluginVersion\":\"" + Escape(snapshot.PluginVersion) + "\","
             + "\"httpListening\":" + Bool(snapshot.HttpListening) + ","
-            + "\"patchApplied\":" + Bool(snapshot.PatchApplied) + ","
-            + "\"authRequired\":" + Bool(snapshot.AuthRequired) + ","
-            + "\"bindAddress\":\"" + Escape(snapshot.BindAddress) + "\","
             + "\"port\":" + snapshot.Port + ","
-            + "\"queueDepth\":" + snapshot.QueueDepth + ","
-            + "\"bridgeLastStatus\":\"" + Escape(snapshot.BridgeLastStatus) + "\","
-            + "\"lastExecutionAt\":" + NullableDate(snapshot.LastExecutionAt)
+            + "\"queueDepth\":" + snapshot.QueueDepth
             + "}";
     }
 
@@ -469,11 +464,13 @@ public sealed class LocalHttpServer : IDisposable
             }
 
             var entry = entries[i];
+            var hasDesc = !string.IsNullOrEmpty(entry.Description);
             builder.Append('{')
                 .Append("\"name\":\"").Append(Escape(entry.Name)).Append("\",")
                 .Append("\"classification\":\"").Append(entry.Classification).Append("\",")
                 .Append("\"allowed\":").Append(Bool(entry.Allowed)).Append(',')
                 .Append("\"policyReason\":\"").Append(Escape(entry.PolicyReason)).Append("\"")
+                .Append(hasDesc ? ",\"description\":\"" + Escape(entry.Description) + "\"" : ",\"description\":\"\"")
                 .Append('}');
         }
 
@@ -536,6 +533,8 @@ public sealed class LocalHttpServer : IDisposable
     private static string SerializeStringArray(IReadOnlyList<string> values)
     {
         var builder = new StringBuilder();
+        var totalChars = 0;
+        const int maxTotalChars = 500000;
         builder.Append('[');
         for (var i = 0; i < values.Count; i++)
         {
@@ -544,7 +543,20 @@ public sealed class LocalHttpServer : IDisposable
                 builder.Append(',');
             }
 
-            builder.Append('"').Append(Escape(LimitOutput(values[i]))).Append('"');
+            var limited = LimitOutput(values[i]);
+            var remaining = maxTotalChars - totalChars;
+            if (remaining <= 0)
+            {
+                builder.Append('"').Append("...").Append('"');
+                break;
+            }
+            if (limited.Length > remaining)
+            {
+                limited = limited.Substring(0, remaining) + "...";
+            }
+
+            builder.Append('"').Append(Escape(limited)).Append('"');
+            totalChars += limited.Length;
         }
 
         builder.Append(']');
@@ -553,23 +565,23 @@ public sealed class LocalHttpServer : IDisposable
 
     private static string LimitOutput(string value)
     {
-        if (value.Length <= 1000)
+        if (value.Length <= 50000)
         {
             return value;
         }
 
-        return value.Substring(0, 1000) + "...";
+        return value.Substring(0, 50000) + "...";
     }
 
     private static bool IsOutputTruncated(IReadOnlyList<string> values)
     {
         for (var i = 0; i < values.Count; i++)
         {
-            if (values[i].Length > 1000)
+            if (values[i].Length > 50000)
             {
                 return true;
             }
-        }
+    }
 
         return false;
     }

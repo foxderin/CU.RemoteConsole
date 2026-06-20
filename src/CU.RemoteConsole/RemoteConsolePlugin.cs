@@ -8,7 +8,7 @@ public sealed class RemoteConsolePlugin : BaseUnityPlugin
 {
     public const string PluginGuid = "cu.remoteconsole";
     public const string PluginName = "CU.RemoteConsole";
-    public const string PluginVersion = "1.1.0";
+    public const string PluginVersion = "1.2.0";
 
     internal ManualLogSource PluginLogger => Logger;
 

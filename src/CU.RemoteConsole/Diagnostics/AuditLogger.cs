@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+#if !CU_REMOTE_CONSOLE_PURE_TESTS
 using BepInEx;
+#endif
 using CU.RemoteConsole.Console;
 
 namespace CU.RemoteConsole.Diagnostics;
@@ -11,10 +13,18 @@ public sealed class AuditLogger
     private bool enabled;
     private readonly string path;
 
+#if !CU_REMOTE_CONSOLE_PURE_TESTS
     public AuditLogger(bool enabled)
     {
         this.enabled = enabled;
         path = Path.Combine(Paths.ConfigPath, "cu.remoteconsole.audit.log");
+    }
+#endif
+
+    public AuditLogger(bool enabled, string path)
+    {
+        this.enabled = enabled;
+        this.path = path;
     }
 
     public void SetEnabled(bool enabled)

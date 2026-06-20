@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using CU.RemoteConsole.Config;
 using UnityEngine;
 
@@ -208,15 +209,30 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         {
             status = T("Invalid numeric value.", "数值无效。");
             return;
-        }
+       }
 
-        var config = host.Config;
-        var restartHttp = !string.Equals(config.BindAddress.Value, bindAddress.Trim(), StringComparison.Ordinal)
+       var config = host.Config;
+
+        var trimmedBind = bindAddress.Trim();
+        var restartHttp = !string.Equals(config.BindAddress.Value, trimmedBind, StringComparison.Ordinal)
             || config.Port.Value != parsedPort
             || config.AllowLan.Value != allowLan
             || config.AllowPublic.Value != allowPublic;
 
-        config.BindAddress.Value = bindAddress.Trim();
+        // 预验证网络策略，避免部分写入
+        if (!IsLoopback(trimmedBind) && !allowLan && !allowPublic)
+        {
+            status = T("Non-loopback bind address requires AllowLan or AllowPublic.", "非回环监听地址需要启用局域网或公网选项。");
+            return;
+        }
+
+        if ((trimmedBind == "0.0.0.0" || trimmedBind == "::") && !allowPublic)
+        {
+            status = T("Wildcard bind address requires AllowPublic.", "通配监听地址需要启用公网选项。");
+            return;
+        }
+
+        config.BindAddress.Value = trimmedBind;
         config.Port.Value = parsedPort;
         config.RequireAuth.Value = requireAuth;
         config.AllowLan.Value = allowLan;
@@ -292,5 +308,15 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         }
 
         return parsed >= min && parsed <= max;
+    }
+
+    private static bool IsLoopback(string value)
+    {
+        if (string.Equals(value, "localhost", StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        return IPAddress.TryParse(value, out var address) && IPAddress.IsLoopback(address);
     }
 }

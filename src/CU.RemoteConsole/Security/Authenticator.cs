@@ -54,7 +54,11 @@ public sealed class Authenticator
 
         using (var sha256 = SHA256.Create())
         {
-            var hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(authorizationHeader));
+            const string prefix = "Bearer ";
+            var tokenOnly = authorizationHeader.StartsWith(prefix, StringComparison.Ordinal)
+                ? authorizationHeader.Substring(prefix.Length).Trim()
+                : authorizationHeader;
+            var hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(tokenOnly));
             return BitConverter.ToString(hash, 0, 6).Replace("-", "").ToLowerInvariant();
         }
     }

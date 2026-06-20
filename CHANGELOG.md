@@ -32,3 +32,31 @@ Initial stable source release for CU.RemoteConsole.
 ### Notes
 
 - BepInEx is not bundled and must be installed separately.
+## 1.2.0 - 2026-06-20
+
+### Added
+
+- Vercel-style redesigned web UI with dark zinc theme and compact layout.
+- Sidebar tab system: Status, Commands, History, and Manual panels.
+- Command manual tab with localized English/Chinese reference and search.
+- Command snippet save and quick-execute feature (localStorage, up to 30 items).
+- Command history arrow-key navigation (↑/↓).
+- Catalog hover tooltip and click-to-expand command descriptions.
+- Command descriptions from the original game manual embedded in the backend API.
+- Chinese localization for frontend UI and command reference data.
+
+### Changed
+
+- Output truncation limits raised: per-line 1000→50000 chars, total 500000 chars max.
+- Bridge status indicators: "not_started" and "bridge_ready" now show as green (ok) instead of yellow (warn).
+- Health endpoint response slimmed down to essential fields only.
+- Token fingerprint now strips the "Bearer " prefix before hashing.
+
+### Fixed
+
+- CommandResponse.Complete() now respects capacity eviction.
+- ConsoleBridge retries reflection lookup on failure with 30-second backoff.
+- InGameConfigOverlay pre-validates network policy before writing config values.
+- All JS event listeners wrapped in null-safety checks.
+
+## 1.1.0 - 2026-06-12

@@ -7,207 +7,133 @@ internal static class EmbeddedWebConsole
 <html lang=""en"">
 <head>
   <meta charset=""utf-8"">
-  <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
+  <meta name=""viewport"" content=""width=device-width,initial-scale=1"">
+  <meta name=""color-scheme"" content=""dark"">
   <title>CU.RemoteConsole</title>
   <style>/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */
-@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-border-style:solid;--tw-leading:initial;--tw-font-weight:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000}}}@layer theme{:root,:host{--font-sans:system-ui, -apple-system, BlinkMacSystemFont, ""Segoe UI"", sans-serif;--font-mono:ui-monospace, SFMono-Regular, Consolas, ""Liberation Mono"", monospace;--color-red-200:oklch(88.5% .062 18.334);--color-red-300:oklch(80.8% .114 19.571);--color-red-500:oklch(63.7% .237 25.331);--color-amber-200:oklch(92.4% .12 95.746);--color-amber-300:oklch(87.9% .169 91.605);--color-amber-500:oklch(76.9% .188 70.08);--color-emerald-200:oklch(90.5% .093 164.15);--color-emerald-300:oklch(84.5% .143 164.978);--color-emerald-500:oklch(69.6% .17 162.48);--color-teal-300:oklch(85.5% .138 181.071);--color-teal-400:oklch(77.7% .152 181.912);--color-teal-500:oklch(70.4% .14 182.503);--color-slate-100:oklch(96.8% .007 247.896);--color-slate-200:oklch(92.9% .013 255.508);--color-slate-300:oklch(86.9% .022 252.894);--color-slate-400:oklch(70.4% .04 256.788);--color-slate-500:oklch(55.4% .046 257.417);--color-slate-600:oklch(44.6% .043 257.281);--color-slate-700:oklch(37.2% .044 257.287);--color-slate-800:oklch(27.9% .041 260.031);--color-slate-900:oklch(20.8% .042 265.755);--color-slate-950:oklch(12.9% .042 264.695);--color-black:#000;--spacing:.25rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--text-xl:1.25rem;--text-xl--line-height:calc(1.75 / 1.25);--font-weight-semibold:600;--leading-relaxed:1.625;--radius-md:.375rem;--radius-lg:.5rem;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif, system-ui, sans-serif, ""Apple Color Emoji"", ""Segoe UI Emoji"", ""Segoe UI Symbol"", ""Noto Color Emoji"");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, ""Liberation Mono"", ""Courier New"", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}body{letter-spacing:0}}@layer components;@layer utilities{.mx-auto{margin-inline:auto}.mt-1{margin-top:calc(var(--spacing) * 1)}.mb-1{margin-bottom:calc(var(--spacing) * 1)}.block{display:block}.flex{display:flex}.grid{display:grid}.inline-flex{display:inline-flex}.h-8{height:calc(var(--spacing) * 8)}.h-9{height:calc(var(--spacing) * 9)}.h-10{height:calc(var(--spacing) * 10)}.max-h-72{max-height:calc(var(--spacing) * 72)}.max-h-80{max-height:calc(var(--spacing) * 80)}.max-h-\[430px\]{max-height:430px}.max-h-\[640px\]{max-height:640px}.min-h-7{min-height:calc(var(--spacing) * 7)}.min-h-24{min-height:calc(var(--spacing) * 24)}.min-h-\[420px\]{min-height:420px}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-\[1600px\]{max-width:1600px}.min-w-0{min-width:calc(var(--spacing) * 0)}.cursor-not-allowed{cursor:not-allowed}.resize-y{resize:vertical}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.content-start{align-content:flex-start}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.gap-1{gap:calc(var(--spacing) * 1)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-y-1{row-gap:calc(var(--spacing) * 1)}.truncate{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.overflow-auto{overflow:auto}.rounded-lg{border-radius:var(--radius-lg)}.rounded-md{border-radius:var(--radius-md)}.border{border-style:var(--tw-border-style);border-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-amber-500\/30{border-color:#f99c004d}@supports (color:color-mix(in lab, red, red)){.border-amber-500\/30{border-color:color-mix(in oklab, var(--color-amber-500) 30%, transparent)}}.border-emerald-500\/30{border-color:#00bb7f4d}@supports (color:color-mix(in lab, red, red)){.border-emerald-500\/30{border-color:color-mix(in oklab, var(--color-emerald-500) 30%, transparent)}}.border-red-500\/30{border-color:#fb2c364d}@supports (color:color-mix(in lab, red, red)){.border-red-500\/30{border-color:color-mix(in oklab, var(--color-red-500) 30%, transparent)}}.border-slate-700{border-color:var(--color-slate-700)}.border-slate-800{border-color:var(--color-slate-800)}.bg-\[\#0b1118\]{background-color:#0b1118}.bg-\[\#0d141d\]{background-color:#0d141d}.bg-\[\#070b10\]{background-color:#070b10}.bg-\[\#121b25\]{background-color:#121b25}.bg-\[\#111922\]{background-color:#111922}.bg-amber-500\/10{background-color:#f99c001a}@supports (color:color-mix(in lab, red, red)){.bg-amber-500\/10{background-color:color-mix(in oklab, var(--color-amber-500) 10%, transparent)}}.bg-emerald-500\/10{background-color:#00bb7f1a}@supports (color:color-mix(in lab, red, red)){.bg-emerald-500\/10{background-color:color-mix(in oklab, var(--color-emerald-500) 10%, transparent)}}.bg-red-500\/10{background-color:#fb2c361a}@supports (color:color-mix(in lab, red, red)){.bg-red-500\/10{background-color:color-mix(in oklab, var(--color-red-500) 10%, transparent)}}.bg-slate-900{background-color:var(--color-slate-900)}.bg-slate-950{background-color:var(--color-slate-950)}.bg-slate-950\/70{background-color:#020618b3}@supports (color:color-mix(in lab, red, red)){.bg-slate-950\/70{background-color:color-mix(in oklab, var(--color-slate-950) 70%, transparent)}}.bg-teal-500{background-color:var(--color-teal-500)}.p-2{padding:calc(var(--spacing) * 2)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.px-1{padding-inline:calc(var(--spacing) * 1)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-4{padding-block:calc(var(--spacing) * 4)}.pt-1{padding-top:calc(var(--spacing) * 1)}.pr-1{padding-right:calc(var(--spacing) * 1)}.text-left{text-align:left}.font-mono{font-family:var(--font-mono)}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xl{font-size:var(--text-xl);line-height:var(--tw-leading,var(--text-xl--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.text-\[11px\]{font-size:11px}.leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.whitespace-pre-wrap{white-space:pre-wrap}.text-amber-200{color:var(--color-amber-200)}.text-amber-300{color:var(--color-amber-300)}.text-emerald-200{color:var(--color-emerald-200)}.text-emerald-300{color:var(--color-emerald-300)}.text-red-200{color:var(--color-red-200)}.text-red-300{color:var(--color-red-300)}.text-slate-100{color:var(--color-slate-100)}.text-slate-200{color:var(--color-slate-200)}.text-slate-300{color:var(--color-slate-300)}.text-slate-400{color:var(--color-slate-400)}.text-slate-500{color:var(--color-slate-500)}.text-slate-950{color:var(--color-slate-950)}.text-teal-300{color:var(--color-teal-300)}.uppercase{text-transform:uppercase}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-60{opacity:.6}.shadow-2xl{--tw-shadow:0 25px 50px -12px var(--tw-shadow-color,#00000040);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px var(--tw-shadow-color,#0000001a), 0 8px 10px -6px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.shadow-black\/20{--tw-shadow-color:#0003}@supports (color:color-mix(in lab, red, red)){.shadow-black\/20{--tw-shadow-color:color-mix(in oklab, color-mix(in oklab, var(--color-black) 20%, transparent) var(--tw-shadow-alpha), transparent)}}.outline-none{--tw-outline-style:none;outline-style:none}.placeholder\:text-slate-600::placeholder{color:var(--color-slate-600)}@media (hover:hover){.hover\:border-teal-400:hover{border-color:var(--color-teal-400)}.hover\:border-teal-500:hover{border-color:var(--color-teal-500)}.hover\:bg-slate-800:hover{background-color:var(--color-slate-800)}.hover\:bg-teal-400:hover{background-color:var(--color-teal-400)}}.focus\:border-teal-400:focus{border-color:var(--color-teal-400)}.focus\:ring-2:focus{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.focus\:ring-teal-500\/20:focus{--tw-ring-color:#00baa733}@supports (color:color-mix(in lab, red, red)){.focus\:ring-teal-500\/20:focus{--tw-ring-color:color-mix(in oklab, var(--color-teal-500) 20%, transparent)}}@media (min-width:48rem){.md\:grid-cols-\[minmax\(0\,1fr\)_auto\]{grid-template-columns:minmax(0,1fr) auto}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:items-end{align-items:flex-end}.md\:justify-between{justify-content:space-between}}@media (min-width:64rem){.lg\:grid-cols-\[minmax\(0\,1fr\)_420px\]{grid-template-columns:minmax(0,1fr) 420px}}}@property --tw-border-style{syntax:""*"";inherits:false;initial-value:solid}@property --tw-leading{syntax:""*"";inherits:false}@property --tw-font-weight{syntax:""*"";inherits:false}@property --tw-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:""*"";inherits:false}@property --tw-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:""*"";inherits:false}@property --tw-inset-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:""*"";inherits:false}@property --tw-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:""*"";inherits:false}@property --tw-inset-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:""*"";inherits:false}@property --tw-ring-offset-width{syntax:""<length>"";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:""*"";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}</style>
+@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-border-style:solid;--tw-leading:initial;--tw-font-weight:initial;--tw-tracking:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000}}}@layer theme{:root,:host{--font-sans:system-ui, -apple-system, BlinkMacSystemFont, ""Segoe UI"", sans-serif;--font-mono:ui-monospace, SFMono-Regular, Consolas, ""Liberation Mono"", monospace;--color-red-400:oklch(70.4% .191 22.216);--color-red-500:oklch(63.7% .237 25.331);--color-red-800:oklch(44.4% .177 26.899);--color-amber-400:oklch(82.8% .189 84.429);--color-amber-500:oklch(76.9% .188 70.08);--color-emerald-400:oklch(76.5% .177 163.223);--color-emerald-500:oklch(69.6% .17 162.48);--color-zinc-100:oklch(96.7% .001 286.375);--color-zinc-200:oklch(92% .004 286.32);--color-zinc-300:oklch(87.1% .006 286.286);--color-zinc-400:oklch(70.5% .015 286.067);--color-zinc-500:oklch(55.2% .016 285.938);--color-zinc-600:oklch(44.2% .017 285.786);--color-zinc-700:oklch(37% .013 285.805);--color-zinc-800:oklch(27.4% .006 286.033);--color-zinc-900:oklch(21% .006 285.885);--color-zinc-950:oklch(14.1% .005 285.823);--spacing:.25rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--font-weight-medium:500;--font-weight-semibold:600;--tracking-tight:-.025em;--tracking-wider:.05em;--leading-relaxed:1.625;--radius-md:.375rem;--radius-lg:.5rem;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif, system-ui, sans-serif, ""Apple Color Emoji"", ""Segoe UI Emoji"", ""Segoe UI Symbol"", ""Noto Color Emoji"");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, ""Liberation Mono"", ""Courier New"", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}body{letter-spacing:0}}@layer components;@layer utilities{.container{width:100%}@media (min-width:40rem){.container{max-width:40rem}}@media (min-width:48rem){.container{max-width:48rem}}@media (min-width:64rem){.container{max-width:64rem}}@media (min-width:80rem){.container{max-width:80rem}}@media (min-width:96rem){.container{max-width:96rem}}.mx-auto{margin-inline:auto}.mt-1{margin-top:calc(var(--spacing) * 1)}.mt-1\.5{margin-top:calc(var(--spacing) * 1.5)}.mt-3{margin-top:calc(var(--spacing) * 3)}.mb-1{margin-bottom:calc(var(--spacing) * 1)}.mb-1\.5{margin-bottom:calc(var(--spacing) * 1.5)}.mb-3{margin-bottom:calc(var(--spacing) * 3)}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline-flex{display:inline-flex}.h-2{height:calc(var(--spacing) * 2)}.h-6{height:calc(var(--spacing) * 6)}.h-7{height:calc(var(--spacing) * 7)}.h-8{height:calc(var(--spacing) * 8)}.max-h-72{max-height:calc(var(--spacing) * 72)}.max-h-\[200px\]{max-height:200px}.max-h-\[480px\]{max-height:480px}.max-h-\[500px\]{max-height:500px}.max-h-\[600px\]{max-height:600px}.min-h-24{min-height:calc(var(--spacing) * 24)}.min-h-\[360px\]{min-height:360px}.min-h-screen{min-height:100vh}.w-2{width:calc(var(--spacing) * 2)}.w-36{width:calc(var(--spacing) * 36)}.w-44{width:calc(var(--spacing) * 44)}.w-full{width:100%}.max-w-\[1600px\]{max-width:1600px}.min-w-0{min-width:calc(var(--spacing) * 0)}.flex-1{flex:1}.shrink-0{flex-shrink:0}.cursor-not-allowed{cursor:not-allowed}.resize-y{resize:vertical}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-wrap{flex-wrap:wrap}.content-start{align-content:flex-start}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.gap-0\.5{gap:calc(var(--spacing) * .5)}.gap-1{gap:calc(var(--spacing) * 1)}.gap-1\.5{gap:calc(var(--spacing) * 1.5)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-5{gap:calc(var(--spacing) * 5)}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-y-0\.5{row-gap:calc(var(--spacing) * .5)}.truncate{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.rounded{border-radius:.25rem}.rounded-full{border-radius:3.40282e38px}.rounded-lg{border-radius:var(--radius-lg)}.rounded-md{border-radius:var(--radius-md)}.border{border-style:var(--tw-border-style);border-width:1px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-amber-500\/20{border-color:#f99c0033}@supports (color:color-mix(in lab, red, red)){.border-amber-500\/20{border-color:color-mix(in oklab, var(--color-amber-500) 20%, transparent)}}.border-emerald-500\/20{border-color:#00bb7f33}@supports (color:color-mix(in lab, red, red)){.border-emerald-500\/20{border-color:color-mix(in oklab, var(--color-emerald-500) 20%, transparent)}}.border-red-500\/20{border-color:#fb2c3633}@supports (color:color-mix(in lab, red, red)){.border-red-500\/20{border-color:color-mix(in oklab, var(--color-red-500) 20%, transparent)}}.border-zinc-700{border-color:var(--color-zinc-700)}.border-zinc-800{border-color:var(--color-zinc-800)}.border-zinc-800\/30{border-color:#27272a4d}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/30{border-color:color-mix(in oklab, var(--color-zinc-800) 30%, transparent)}}.border-zinc-800\/50{border-color:#27272a80}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/50{border-color:color-mix(in oklab, var(--color-zinc-800) 50%, transparent)}}.border-zinc-800\/60{border-color:#27272a99}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/60{border-color:color-mix(in oklab, var(--color-zinc-800) 60%, transparent)}}.bg-\[\#0a0a0a\]{background-color:#0a0a0a}.bg-\[\#050505\]{background-color:#050505}.bg-amber-500\/10{background-color:#f99c001a}@supports (color:color-mix(in lab, red, red)){.bg-amber-500\/10{background-color:color-mix(in oklab, var(--color-amber-500) 10%, transparent)}}.bg-emerald-500\/10{background-color:#00bb7f1a}@supports (color:color-mix(in lab, red, red)){.bg-emerald-500\/10{background-color:color-mix(in oklab, var(--color-emerald-500) 10%, transparent)}}.bg-red-500\/10{background-color:#fb2c361a}@supports (color:color-mix(in lab, red, red)){.bg-red-500\/10{background-color:color-mix(in oklab, var(--color-red-500) 10%, transparent)}}.bg-transparent{background-color:#0000}.bg-zinc-100{background-color:var(--color-zinc-100)}.bg-zinc-900{background-color:var(--color-zinc-900)}.bg-zinc-950{background-color:var(--color-zinc-950)}.bg-zinc-950\/30{background-color:#09090b4d}@supports (color:color-mix(in lab, red, red)){.bg-zinc-950\/30{background-color:color-mix(in oklab, var(--color-zinc-950) 30%, transparent)}}.bg-zinc-950\/50{background-color:#09090b80}@supports (color:color-mix(in lab, red, red)){.bg-zinc-950\/50{background-color:color-mix(in oklab, var(--color-zinc-950) 50%, transparent)}}.p-1\.5{padding:calc(var(--spacing) * 1.5)}.p-2{padding:calc(var(--spacing) * 2)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.px-6{padding-inline:calc(var(--spacing) * 6)}.py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-3{padding-block:calc(var(--spacing) * 3)}.py-5{padding-block:calc(var(--spacing) * 5)}.pt-0\.5{padding-top:calc(var(--spacing) * .5)}.pt-1\.5{padding-top:calc(var(--spacing) * 1.5)}.text-left{text-align:left}.font-mono{font-family:var(--font-mono)}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-tight{--tw-tracking:var(--tracking-tight);letter-spacing:var(--tracking-tight)}.tracking-wider{--tw-tracking:var(--tracking-wider);letter-spacing:var(--tracking-wider)}.whitespace-pre-wrap{white-space:pre-wrap}.text-amber-400{color:var(--color-amber-400)}.text-emerald-400{color:var(--color-emerald-400)}.text-red-400{color:var(--color-red-400)}.text-zinc-100{color:var(--color-zinc-100)}.text-zinc-200{color:var(--color-zinc-200)}.text-zinc-300{color:var(--color-zinc-300)}.text-zinc-400{color:var(--color-zinc-400)}.text-zinc-500{color:var(--color-zinc-500)}.text-zinc-600{color:var(--color-zinc-600)}.text-zinc-700{color:var(--color-zinc-700)}.text-zinc-950{color:var(--color-zinc-950)}.uppercase{text-transform:uppercase}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-50{opacity:.5}.outline-none{--tw-outline-style:none;outline-style:none}.placeholder\:text-zinc-700::placeholder{color:var(--color-zinc-700)}@media (hover:hover){.hover\:border-red-800:hover{border-color:var(--color-red-800)}.hover\:border-zinc-600:hover{border-color:var(--color-zinc-600)}.hover\:border-zinc-700:hover{border-color:var(--color-zinc-700)}.hover\:bg-zinc-200:hover{background-color:var(--color-zinc-200)}.hover\:text-red-400:hover{color:var(--color-red-400)}.hover\:text-zinc-200:hover{color:var(--color-zinc-200)}.hover\:text-zinc-300:hover{color:var(--color-zinc-300)}}.focus\:border-zinc-700:focus{border-color:var(--color-zinc-700)}.focus\:ring-1:focus{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.focus\:ring-zinc-700\/30:focus{--tw-ring-color:#3f3f464d}@supports (color:color-mix(in lab, red, red)){.focus\:ring-zinc-700\/30:focus{--tw-ring-color:color-mix(in oklab, var(--color-zinc-700) 30%, transparent)}}.data-\[active\=true\]\:border-b-2[data-active=true]{border-bottom-style:var(--tw-border-style);border-bottom-width:2px}.data-\[active\=true\]\:border-zinc-400[data-active=true]{border-color:var(--color-zinc-400)}.data-\[active\=true\]\:text-zinc-100[data-active=true]{color:var(--color-zinc-100)}@media (min-width:40rem){.sm\:flex{display:flex}.sm\:inline{display:inline}}@media (min-width:64rem){.lg\:grid-cols-\[1fr_380px\]{grid-template-columns:1fr 380px}}}@property --tw-border-style{syntax:""*"";inherits:false;initial-value:solid}@property --tw-leading{syntax:""*"";inherits:false}@property --tw-font-weight{syntax:""*"";inherits:false}@property --tw-tracking{syntax:""*"";inherits:false}@property --tw-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:""*"";inherits:false}@property --tw-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:""*"";inherits:false}@property --tw-inset-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:""*"";inherits:false}@property --tw-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:""*"";inherits:false}@property --tw-inset-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:""*"";inherits:false}@property --tw-ring-offset-width{syntax:""<length>"";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:""*"";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}</style>
 </head>
-<body class=""min-h-screen bg-[#0b1118] text-slate-100 antialiased"">
-  <header class=""border-b border-slate-800 bg-[#111922]"">
-    <div class=""mx-auto flex max-w-[1600px] flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between"">
-      <div>
-        <h1 class=""text-xl font-semibold text-teal-300"">CU.RemoteConsole</h1>
-        <p class=""text-sm text-slate-400"" data-i18n=""subtitle"">Local command panel for Casualties: Unknown</p>
+<body class=""min-h-screen bg-[#050505] text-zinc-100 antialiased"">
+  <header class=""border-b border-zinc-800/60 bg-[#0a0a0a]"">
+    <div class=""mx-auto flex max-w-[1600px] items-center justify-between px-6 py-3"">
+      <div class=""flex items-center gap-4"">
+        <div class=""flex items-center gap-2""><span class=""h-2 w-2 rounded-full bg-zinc-100""></span>
+          <h1 class=""text-sm font-semibold tracking-tight text-zinc-100"">CU.RemoteConsole</h1></div>
+        <span class=""hidden text-xs text-zinc-600 sm:inline"">v1.2.0</span></div>
+      <div class=""flex items-center gap-3"">
+        <select id=""language"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs text-zinc-400 outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700/30"">
+          <option value=""auto"">Auto</option><option value=""en"">English</option><option value=""zh"">中文</option></select>
+        <div id=""healthPills"" class=""flex items-center gap-1.5""></div></div></div></header>
+  <main class=""mx-auto grid max-w-[1600px] grid-cols-1 items-start gap-5 px-6 py-5 lg:grid-cols-[1fr_380px]"">
+    <div class=""grid gap-5"">
+      <div class=""flex items-center gap-3 rounded-lg border border-zinc-800/50 bg-[#0a0a0a] px-4 py-3"">
+        <div class=""flex flex-1 items-center gap-2"">
+          <span class=""text-xs font-medium text-zinc-500"" data-i18n=""token"">Token</span>
+          <input id=""token"" type=""password"" autocomplete=""off"" data-i18n-placeholder=""tokenPlaceholder"" class=""h-8 flex-1 rounded-md border border-zinc-800 bg-zinc-950/50 px-3 font-mono text-xs text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+        </div>
+        <div class=""hidden items-center gap-2 sm:flex"">
+          <span class=""text-xs font-medium text-zinc-500"" data-i18n=""endpoint"">Endpoint</span>
+          <input id=""endpoint"" autocomplete=""off"" inputmode=""url"" data-i18n-placeholder=""endpointPlaceholder"" class=""h-8 w-44 rounded-md border border-zinc-800 bg-zinc-950/50 px-3 font-mono text-xs text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+        </div>
+        <button id=""refresh"" class=""h-8 shrink-0 rounded-md border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"" data-i18n=""refresh"">Refresh</button>
       </div>
-      <div class=""flex flex-wrap items-center gap-2"">
-        <select id=""language"" class=""h-9 rounded-md border border-slate-700 bg-slate-950 px-2 text-sm text-slate-100 outline-none focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">
-          <option value=""auto"">Auto</option>
-          <option value=""en"">English</option>
-          <option value=""zh"">中文</option>
-        </select>
-        <div id=""healthPills"" class=""flex flex-wrap gap-2""></div>
-      </div>
-    </div>
-  </header>
-
-  <main class=""mx-auto grid max-w-[1600px] grid-cols-1 items-start gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_420px]"">
-    <div class=""grid content-start gap-4"">
-      <section class=""grid gap-4 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-2xl shadow-black/20"">
-        <div class=""grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-end"">
-          <div>
-            <label class=""mb-1 block text-sm font-semibold text-slate-300"" for=""token"" data-i18n=""token"">Token</label>
-            <input id=""token"" type=""password"" autocomplete=""off"" data-i18n-placeholder=""tokenPlaceholder"" class=""h-10 w-full rounded-md border border-slate-700 bg-slate-950 px-3 text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">
-          </div>
-          <button id=""refresh"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""refresh"">Refresh</button>
+      <div class=""overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]"">
+        <div class=""border-b border-zinc-800/30 px-4 py-2""><span class=""text-xs font-medium text-zinc-500"" data-i18n=""command"">Command</span></div>
+        <textarea id=""command"" spellcheck=""false"" data-i18n-placeholder=""commandPlaceholder"" class=""min-h-24 w-full resize-y bg-transparent px-4 py-3 font-mono text-sm leading-relaxed text-zinc-200 outline-none placeholder:text-zinc-700"">help</textarea>
+        <div class=""flex items-center justify-between border-t border-zinc-800/30 px-4 py-2"">
+          <kbd class=""hidden text-xs text-zinc-700 sm:inline"">Ctrl+Enter</kbd>
+          <div class=""flex gap-2"">
+            <button id=""clear"" class=""h-8 rounded-md border border-zinc-800 bg-zinc-950 px-4 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""clearOutput"">Clear</button>
+            <button id=""send"" class=""h-8 rounded-md bg-zinc-100 px-4 text-xs font-semibold text-zinc-950 hover:bg-zinc-200"" data-i18n=""submit"">Run</button>
+            <button id=""saveSnippet"" class=""h-8 rounded-md border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""saveSnippet"">Save</button></div></div></div>
+      <div class=""overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]"">
+        <div class=""flex items-center justify-between border-b border-zinc-800/30 px-4 py-2"">
+          <div class=""flex items-center gap-2"">
+            <span class=""text-xs font-medium text-zinc-500"" data-i18n=""outputTitle"">Output</span>
+            <span id=""lastResult"" class=""text-xs text-zinc-700""></span></div>
+          <div class=""flex items-center gap-2"">
+            <input id=""queueId"" autocomplete=""off"" data-i18n-placeholder=""queuePlaceholder"" class=""h-7 w-36 rounded-md border border-zinc-800 bg-zinc-950/50 px-2 font-mono text-xs text-zinc-400 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+            <button id=""lookup"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""lookup"">Lookup</button></div></div>
+        <div id=""output"" class=""grid min-h-[360px] max-h-[600px] content-start gap-2 overflow-auto p-4""></div></div></div>
+    <aside class=""grid gap-5 content-start"">
+      <div class=""overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]"">
+        <div class=""flex border-b border-zinc-800/30"">
+          <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""status"" data-i18n=""statusPanel"">Status</button>
+          <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""catalog"" data-i18n=""commandCatalog"">Commands</button>
+          <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""history"" data-i18n=""recent"">History</button>
+          <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""manual"" data-i18n=""manual"">Manual</button>
         </div>
-        <div>
-          <label class=""mb-1 block text-sm font-semibold text-slate-300"" for=""endpoint"" data-i18n=""endpoint"">Connection endpoint</label>
-          <input id=""endpoint"" autocomplete=""off"" inputmode=""url"" data-i18n-placeholder=""endpointPlaceholder"" class=""h-10 w-full rounded-md border border-slate-700 bg-slate-950 px-3 font-mono text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">
-        </div>
-        <div>
-          <label class=""mb-1 block text-sm font-semibold text-slate-300"" for=""command"" data-i18n=""command"">Command</label>
-          <textarea id=""command"" spellcheck=""false"" data-i18n-placeholder=""commandPlaceholder"" class=""min-h-24 w-full resize-y rounded-md border border-slate-700 bg-slate-950 px-3 py-2 font-mono text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">help</textarea>
-        </div>
-        <div class=""grid grid-cols-2 gap-2"">
-          <button id=""send"" class=""h-10 rounded-md bg-teal-500 px-4 text-sm font-semibold text-slate-950 hover:bg-teal-400"" data-i18n=""submit"">Submit</button>
-          <button id=""clear"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:bg-slate-800"" data-i18n=""clearOutput"">Clear Output</button>
-        </div>
-      </section>
-
-      <section class=""grid gap-2 rounded-lg border border-slate-800 bg-[#121b25] p-3 shadow-2xl shadow-black/20"">
-        <div class=""flex flex-wrap items-center justify-between gap-2 px-1"">
-          <h2 class=""text-sm font-semibold text-slate-300"" data-i18n=""outputTitle"">Command Output</h2>
-          <div id=""lastResult"" class=""text-xs text-slate-500""></div>
-        </div>
-        <div id=""output"" class=""grid min-h-[420px] max-h-[640px] content-start gap-3 overflow-auto rounded-md border border-slate-800 bg-[#070b10] p-3 text-sm text-slate-200""></div>
-      </section>
-    </div>
-
-    <aside class=""grid content-start gap-4"">
-      <section class=""grid gap-3 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-xl shadow-black/20"">
-        <div class=""flex items-center justify-between gap-2"">
-          <h2 class=""text-sm font-semibold text-slate-300"" data-i18n=""statusPanel"">Status</h2>
-          <button id=""status"" class=""h-8 rounded-md border border-slate-700 bg-slate-900 px-3 text-xs font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""reload"">Reload</button>
-        </div>
-        <div id=""statusPanel"" class=""grid max-h-80 gap-2 overflow-auto pr-1 text-sm""></div>
-      </section>
-
-      <section class=""grid gap-3 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-xl shadow-black/20"">
-        <label class=""block text-sm font-semibold text-slate-300"" for=""queueId"" data-i18n=""queueId"">Queue ID</label>
-        <input id=""queueId"" autocomplete=""off"" data-i18n-placeholder=""queuePlaceholder"" class=""h-10 w-full rounded-md border border-slate-700 bg-slate-950 px-3 font-mono text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/20"">
-        <button id=""lookup"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""lookup"">Lookup</button>
-      </section>
-
-      <section class=""grid gap-3 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-xl shadow-black/20"">
-        <div class=""flex items-center justify-between gap-2"">
-          <h2 class=""text-sm font-semibold text-slate-300"" data-i18n=""commandCatalog"">Commands</h2>
-          <button id=""catalog"" class=""h-8 rounded-md border border-slate-700 bg-slate-900 px-3 text-xs font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""reload"">Reload</button>
-        </div>
-        <div id=""catalogList"" class=""grid max-h-[430px] gap-3 overflow-auto""></div>
-      </section>
-
-      <section class=""grid gap-3 rounded-lg border border-slate-800 bg-[#121b25] p-4 shadow-xl shadow-black/20"">
-        <h2 class=""text-sm font-semibold text-slate-300"" data-i18n=""apiTools"">API Tools</h2>
-        <div class=""grid grid-cols-2 gap-2"">
-          <button id=""history"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""recent"">Recent</button>
-          <button id=""health"" class=""h-10 rounded-md border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-slate-100 hover:border-teal-500 hover:bg-slate-800"" data-i18n=""health"">Health</button>
-        </div>
-        <div id=""recent"" class=""grid max-h-[430px] gap-2 overflow-auto""></div>
-      </section>
-    </aside>
-  </main>
-
-  <script>
-    const dict = {
+        <div id=""tab-status"" class=""tab-panel p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600"" data-i18n=""reload"">Refresh on connect</span><button id=""status"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"">Reload</button></div><div id=""statusPanel"" class=""grid gap-2""></div></div>
+        <div id=""tab-catalog"" class=""tab-panel hidden p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600"">Click to fill command</span><button id=""catalog"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""reload"">Reload</button></div><div id=""catalogList"" class=""grid max-h-[480px] gap-3 overflow-auto""></div></div>
+        <div id=""tab-history"" class=""tab-panel hidden p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600""><span data-i18n=""apiTools"">API</span> <span data-i18n=""health"">Health</span></span><div class=""flex gap-2""><button id=""health"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""health"">Health</button><button id=""history"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""recent"">Recent</button></div></div><div id=""recent"" class=""grid max-h-[480px] gap-2 overflow-auto""></div><div class=""flex items-center justify-between mt-3 mb-1.5""><span class=""text-xs font-medium text-zinc-500"" data-i18n=""snippets"">Saved</span></div><div id=""snippetList"" class=""grid max-h-[200px] gap-1.5 overflow-auto""></div></div>
+        <div id=""tab-manual"" class=""tab-panel hidden p-4""><div class=""mb-3""><input id=""manualSearch"" autocomplete=""off"" placeholder=""Search commands&hellip;"" class=""h-8 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-3 text-xs text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700""></div><div id=""manualList"" class=""grid max-h-[500px] gap-4 overflow-auto""></div></div>
+      </div></aside></main>
+  <script>    const dict = {
       en: {
         subtitle: 'Local command panel for Casualties: Unknown',
-        token: 'Token',
-        endpoint: 'Connection endpoint',
-        refresh: 'Refresh',
-        command: 'Command',
-        submit: 'Submit',
-        clearOutput: 'Clear Output',
-        queueId: 'Queue ID',
-        lookup: 'Lookup',
-        recent: 'Recent',
-        health: 'Health',
-        accepted: 'accepted',
-        output: 'output',
-        outputTitle: 'Command Output',
-        apiTools: 'API Tools',
-        tokenPlaceholder: 'Paste bearer token for this browser session',
-        endpointPlaceholder: 'Same origin, or http://127.0.0.1:8848',
-        commandPlaceholder: 'Type a console command',
-        queuePlaceholder: 'Queue id from POST /api/commands',
-        bridge: 'bridge',
-        latency: 'latency',
-        noOutput: 'No output returned.',
-        noHistory: 'No recent commands.',
-        commandCatalog: 'Commands',
-        reload: 'Reload',
-        safeCommands: 'Safe',
-        stateChangingCommands: 'State-changing',
-        dangerousCommands: 'Dangerous',
-        unknownCommands: 'Unknown',
+        token: 'Token', endpoint: 'Endpt', refresh: 'Refresh',
+        command: 'Command', submit: 'Run', clearOutput: 'Clear',
+        queueId: 'Queue ID', lookup: 'Lookup',
+        recent: 'History', health: 'Health',
+        accepted: 'accepted', output: 'output', outputTitle: 'Output',
+        apiTools: 'API',
+        tokenPlaceholder: 'Paste bearer token', endpointPlaceholder: 'http://127.0.0.1:8848',
+        commandPlaceholder: 'Type a command\u2026', queuePlaceholder: 'Queue ID',
+        bridge: 'bridge', latency: 'latency',
+        noOutput: 'No output returned.', noHistory: 'No recent commands.',
+        commandCatalog: 'Commands', reload: 'Reload',
+        safeCommands: 'Safe', stateChangingCommands: 'State-changing',
+        dangerousCommands: 'Dangerous', unknownCommands: 'Unknown',
         noCatalog: 'Command catalog unavailable.',
-        allowed: 'allowed',
-        denied: 'denied',
+        allowed: 'allowed', denied: 'denied',
         allowedReason: 'Allowed by safe allowlist',
         stateChangingReason: 'Requires explicit future opt-in',
         dangerousReason: 'Denied by default',
         commandNotAllowlistedReason: 'Not allowlisted',
         extraAllowlistedReason: 'Allowed by local config',
-        statusPanel: 'Status',
-        network: 'Network',
-        security: 'Security',
-        limits: 'Limits',
-        runtime: 'Runtime',
-        policy: 'Policy',
+        statusPanel: 'Status', network: 'Network', security: 'Security',
+        limits: 'Limits', runtime: 'Runtime', policy: 'Policy',
         noStatus: 'Status unavailable.',
-        enabled: 'enabled',
-        disabled: 'disabled',
-        yes: 'yes',
-        no: 'no',
-        copyOutput: 'Copy output',
-        copied: 'copied',
-        outputLines: 'lines',
-        truncated: 'truncated',
-        commandAccepted: 'accepted'
+        enabled: 'enabled', disabled: 'disabled', yes: 'yes', no: 'no',
+        copyOutput: 'Copy', copied: 'copied',
+        outputLines: 'lines', truncated: 'truncated', commandAccepted: 'accepted',
+        manual: 'Manual', saveSnippet: 'Save',
+        snippetName: 'Snippet name:', snippets: 'Saved',
+        noSnippets: 'No saved snippets.', noManualData: 'No results.',
+        delete: 'Del'
       },
       zh: {
-        subtitle: 'Casualties: Unknown 本地命令面板',
-        token: '令牌',
-        endpoint: '连接端点',
-        refresh: '刷新',
-        command: '命令',
-        submit: '提交',
-        clearOutput: '清空输出',
-        queueId: '队列 ID',
-        lookup: '查询',
-        recent: '最近记录',
-        health: '健康状态',
-        accepted: '已接收',
-        output: '输出',
-        outputTitle: '命令输出',
-        apiTools: 'API 工具',
-        tokenPlaceholder: '粘贴本浏览器会话使用的 Bearer token',
-        endpointPlaceholder: '默认同源，或 http://127.0.0.1:8848',
-        commandPlaceholder: '输入控制台命令',
-        queuePlaceholder: 'POST /api/commands 返回的队列 ID',
-        bridge: '桥接',
-        latency: '延迟',
-        noOutput: '没有返回输出。',
-        noHistory: '暂无最近命令。',
-        commandCatalog: '命令目录',
-        reload: '重新加载',
-        safeCommands: '安全',
-        stateChangingCommands: '会修改状态',
-        dangerousCommands: '危险',
-        unknownCommands: '未知',
-        noCatalog: '命令目录不可用。',
-        allowed: '允许',
-        denied: '禁止',
-        allowedReason: '安全白名单允许',
-        stateChangingReason: '需要后续显式启用',
-        dangerousReason: '默认禁止',
-        commandNotAllowlistedReason: '未在白名单中',
-        extraAllowlistedReason: '本地配置允许',
-        statusPanel: '状态',
-        network: '网络',
-        security: '安全',
-        limits: '限制',
-        runtime: '运行时',
-        policy: '策略',
-        noStatus: '状态不可用。',
-        enabled: '启用',
-        disabled: '禁用',
-        yes: '是',
-        no: '否',
-        copyOutput: '复制输出',
-        copied: '已复制',
-        outputLines: '行',
-        truncated: '已截断',
-        commandAccepted: '已接收'
+        subtitle: 'Casualties: Unknown \u672c\u5730\u547d\u4ee4\u9762\u677f',
+        token: '\u4ee4\u724c', endpoint: '\u7aef\u70b9', refresh: '\u5237\u65b0',
+        command: '\u547d\u4ee4', submit: '\u6267\u884c', clearOutput: '\u6e05\u7a7a',
+        queueId: '\u961f\u5217 ID', lookup: '\u67e5\u8be2',
+        recent: '\u5386\u53f2', health: '\u5065\u5eb7',
+        accepted: '\u5df2\u63a5\u6536', output: '\u8f93\u51fa', outputTitle: '\u8f93\u51fa',
+        apiTools: 'API',
+        tokenPlaceholder: '\u7c98\u8d34 Bearer token', endpointPlaceholder: 'http://127.0.0.1:8848',
+        commandPlaceholder: '\u8f93\u5165\u547d\u4ee4\u2026', queuePlaceholder: '\u961f\u5217 ID',
+        bridge: '\u6865\u63a5', latency: '\u5ef6\u8fdf',
+        noOutput: '\u6ca1\u6709\u8fd4\u56de\u8f93\u51fa\u3002', noHistory: '\u6682\u65e0\u6700\u8fd1\u547d\u4ee4\u3002',
+        commandCatalog: '\u547d\u4ee4\u76ee\u5f55', reload: '\u91cd\u65b0\u52a0\u8f7d',
+        safeCommands: '\u5b89\u5168', stateChangingCommands: '\u4f1a\u4fee\u6539\u72b6\u6001',
+        dangerousCommands: '\u5371\u9669', unknownCommands: '\u672a\u77e5',
+        noCatalog: '\u547d\u4ee4\u76ee\u5f55\u4e0d\u53ef\u7528\u3002',
+        allowed: '\u5141\u8bb8', denied: '\u7981\u6b62',
+        allowedReason: '\u5b89\u5168\u767d\u540d\u5355\u5141\u8bb8',
+        stateChangingReason: '\u9700\u8981\u540e\u7eed\u663e\u5f0f\u542f\u7528',
+        dangerousReason: '\u9ed8\u8ba4\u7981\u6b62',
+        commandNotAllowlistedReason: '\u672a\u5728\u767d\u540d\u5355\u4e2d',
+        extraAllowlistedReason: '\u672c\u5730\u914d\u7f6e\u5141\u8bb8',
+        statusPanel: '\u72b6\u6001', network: '\u7f51\u7edc', security: '\u5b89\u5168',
+        limits: '\u9650\u5236', runtime: '\u8fd0\u884c\u65f6', policy: '\u7b56\u7565',
+        noStatus: '\u72b6\u6001\u4e0d\u53ef\u7528\u3002',
+        enabled: '\u542f\u7528', disabled: '\u7981\u7528', yes: '\u662f', no: '\u5426',
+        copyOutput: '\u590d\u5236', copied: '\u5df2\u590d\u5236',
+        outputLines: '\u884c', truncated: '\u5df2\u622a\u65ad', commandAccepted: '\u5df2\u63a5\u6536',
+        manual: '\u624b\u518c', saveSnippet: '\u4fdd\u5b58',
+        snippetName: '\u7247\u6bb5\u540d\u79f0\uff1a', snippets: '\u5df2\u4fdd\u5b58',
+        noSnippets: '\u6ca1\u6709\u5df2\u4fdd\u5b58\u7684\u547d\u4ee4\u7247\u6bb5\u3002', noManualData: '\u6ca1\u6709\u5339\u914d\u7ed3\u679c\u3002',
+        delete: '\u5220\u9664'
       }
     };
     const el = id => document.getElementById(id);
@@ -224,122 +150,100 @@ internal static class EmbeddedWebConsole
     const language = el('language');
     let lastCatalogItems = null;
     let lastStatus = null;
+    let activeTab = 'status';
+    let commandHistory = [];
+    let historyIndex = -1;
+    let savedInput = '';
     token.value = sessionStorage.getItem('cu.remoteconsole.token') || '';
     endpoint.value = localStorage.getItem('cu.remoteconsole.endpoint') || '';
     language.value = localStorage.getItem('cu.remoteconsole.language') || 'auto';
     token.addEventListener('input', () => sessionStorage.setItem('cu.remoteconsole.token', token.value));
     endpoint.addEventListener('input', () => localStorage.setItem('cu.remoteconsole.endpoint', endpoint.value.trim()));
-    language.addEventListener('change', () => {
-      localStorage.setItem('cu.remoteconsole.language', language.value);
-      applyLanguage();
-    });
+    language.addEventListener('change', () => { localStorage.setItem('cu.remoteconsole.language', language.value); applyLanguage(); });
     function lang() {
-      const selected = language.value;
-      if (selected !== 'auto') return selected;
+      const s = language.value;
+      if (s !== 'auto') return s;
       return navigator.language && navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
     }
-    function t(key) {
-      return dict[lang()][key] || dict.en[key] || key;
-    }
+    function t(k) { return dict[lang()][k] || dict.en[k] || k; }
     function applyLanguage() {
       document.documentElement.lang = lang();
-      document.querySelectorAll('[data-i18n]').forEach(node => {
-        node.textContent = t(node.getAttribute('data-i18n'));
+      document.querySelectorAll('[data-i18n]').forEach(n => {
+        if (n.tagName === 'INPUT' || n.tagName === 'TEXTAREA') return;
+        n.textContent = t(n.getAttribute('data-i18n'));
       });
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(node => {
-        node.setAttribute('placeholder', t(node.getAttribute('data-i18n-placeholder')));
-      });
-      if (lastCatalogItems) {
-        renderCatalog(lastCatalogItems);
-      }
-      if (lastStatus) {
-        renderStatus(lastStatus);
-      }
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(n => n.setAttribute('placeholder', t(n.getAttribute('data-i18n-placeholder'))));
+      if (lastCatalogItems) renderCatalog(lastCatalogItems);
+      if (lastStatus) renderStatus(lastStatus);
+      if (typeof commandReference !== 'undefined') renderManual(commandReference);
     }
-    function authHeaders(extra = {}) {
-      return Object.assign({ 'Authorization': 'Bearer ' + token.value }, extra);
+    function switchTab(tab) {
+      activeTab = tab;
+      document.querySelectorAll('.tab-btn').forEach(b => { b.dataset.active = b.dataset.tab === tab ? 'true' : 'false'; });
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('hidden', p.id !== 'tab-' + tab));
+      if (tab === 'manual') loadManual();
     }
+    document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+    function authHeaders(e) { return Object.assign({ 'Authorization': 'Bearer ' + token.value }, e || {}); }
     function endpointBase() {
-      const raw = endpoint.value.trim().replace(/\/+$/, '');
-      if (!raw) return '';
-      if (/^https?:\/\//i.test(raw)) return raw;
-      return 'http://' + raw;
+      const r = endpoint.value.trim().replace(/\/+$/, '');
+      if (!r) return '';
+      if (/^https?:\/\//i.test(r)) return r;
+      return 'http://' + r;
     }
-    function apiUrl(path) {
-      return endpointBase() + path;
+    function apiUrl(p) { return endpointBase() + p; }
+    function clean(t) { return String(t || '').replace(/<[^>]*>/g, ''); }
+    function logLine(line, tone) {
+      const n = document.createElement('div');
+      n.className = 'rounded-md border border-zinc-800/50 bg-zinc-950/50 px-3 py-2 font-mono text-xs ' + (tone === 'ok' ? 'text-emerald-400' : tone === 'err' ? 'text-red-400' : 'text-zinc-500');
+      n.textContent = line; output.prepend(n); output.scrollTop = output.scrollHeight;
     }
-    function clean(text) {
-      return String(text || '').replace(/<[^>]*>/g, '');
-    }
-    function logLine(line, tone = '') {
-      const node = document.createElement('div');
-      node.className = 'rounded-md border border-slate-800 bg-slate-950 px-3 py-2 font-mono text-xs ' + (tone === 'ok' ? 'text-emerald-300' : tone === 'err' ? 'text-red-300' : 'text-slate-400');
-      node.textContent = line;
-      output.prepend(node);
-      output.scrollTop = output.scrollHeight;
-    }
-    async function readJson(response) {
-      const text = await response.text();
-      try { return { text, json: JSON.parse(text) }; } catch { return { text, json: null }; }
+    async function readJson(r) {
+      const t = await r.text();
+      try { return { text: t, json: JSON.parse(t) }; } catch { return { text: t, json: null }; }
     }
     function pill(text, tone) {
-      const classes = {
-        ok: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
-        warn: 'border-amber-500/30 bg-amber-500/10 text-amber-300',
-        err: 'border-red-500/30 bg-red-500/10 text-red-300'
-      };
-      const node = document.createElement('span');
-      node.className = 'inline-flex min-h-7 items-center rounded-md border px-2 text-xs font-semibold ' + classes[tone];
-      node.textContent = text;
-      return node;
+      const c = { ok: 'border-emerald-500/20 bg-emerald-500/10 text-emerald-400', warn: 'border-amber-500/20 bg-amber-500/10 text-amber-400', err: 'border-red-500/20 bg-red-500/10 text-red-400' };
+      const n = document.createElement('span');
+      n.className = 'inline-flex h-6 items-center rounded-md border px-2 text-[11px] font-medium ' + (c[tone] || '');
+      n.textContent = text; return n;
     }
-    function reasonText(reason) {
-      if (reason === 'allowed') return t('allowedReason');
-      if (reason === 'state_changing_not_enabled') return t('stateChangingReason');
-      if (reason === 'dangerous_command_denied') return t('dangerousReason');
-      if (reason === 'command_not_allowlisted') return t('commandNotAllowlistedReason');
-      if (reason === 'extra_allowlisted') return t('extraAllowlistedReason');
-      return reason;
+    function reasonText(r) {
+      if (r === 'allowed') return t('allowedReason');
+      if (r === 'state_changing_not_enabled') return t('stateChangingReason');
+      if (r === 'dangerous_command_denied') return t('dangerousReason');
+      if (r === 'command_not_allowlisted') return t('commandNotAllowlistedReason');
+      if (r === 'extra_allowlisted') return t('extraAllowlistedReason');
+      return r;
     }
-    function classificationTitle(classification) {
-      if (classification === 'Safe') return t('safeCommands');
-      if (classification === 'StateChanging') return t('stateChangingCommands');
-      if (classification === 'Dangerous') return t('dangerousCommands');
+    function classificationTitle(c) {
+      if (c === 'Safe') return t('safeCommands');
+      if (c === 'StateChanging') return t('stateChangingCommands');
+      if (c === 'Dangerous') return t('dangerousCommands');
       return t('unknownCommands');
     }
-    function classificationTone(classification) {
-      if (classification === 'Safe') return 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200';
-      if (classification === 'StateChanging') return 'border-amber-500/30 bg-amber-500/10 text-amber-200';
-      if (classification === 'Dangerous') return 'border-red-500/30 bg-red-500/10 text-red-200';
-      return 'border-slate-700 bg-slate-900 text-slate-300';
+    function classificationTone(c) {
+      if (c === 'Safe') return 'border-emerald-500/20 bg-emerald-500/10 text-emerald-400';
+      if (c === 'StateChanging') return 'border-amber-500/20 bg-amber-500/10 text-amber-400';
+      if (c === 'Dangerous') return 'border-red-500/20 bg-red-500/10 text-red-400';
+      return 'border-zinc-700 bg-zinc-900 text-zinc-400';
     }
-    function boolText(value) {
-      return value ? t('yes') : t('no');
-    }
+    function boolText(v) { return v ? t('yes') : t('no'); }
     function renderStatusGroup(title, rows) {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'rounded-md border border-slate-800 bg-slate-950/70 p-2';
-      const heading = document.createElement('h3');
-      heading.className = 'mb-1 text-[11px] font-semibold uppercase text-slate-500';
-      heading.textContent = title;
-      wrapper.appendChild(heading);
-      const grid = document.createElement('div');
-      grid.className = 'grid grid-cols-2 gap-x-3 gap-y-1';
+      const w = document.createElement('div');
+      w.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2';
+      const h = document.createElement('h3');
+      h.className = 'mb-1 text-[10px] font-semibold uppercase tracking-wider text-zinc-600';
+      h.textContent = title; w.appendChild(h);
+      const g = document.createElement('div');
+      g.className = 'grid grid-cols-2 gap-x-3 gap-y-0.5';
       for (const rowData of rows) {
-        const row = document.createElement('div');
-        row.className = 'min-w-0';
-        const key = document.createElement('span');
-        key.className = 'block truncate text-[11px] text-slate-500';
-        key.textContent = rowData[0];
-        const val = document.createElement('span');
-        val.className = 'block truncate font-mono text-xs text-slate-200';
-        val.textContent = String(rowData[1]);
-        row.appendChild(key);
-        row.appendChild(val);
-        grid.appendChild(row);
+        const r = document.createElement('div'); r.className = 'min-w-0';
+        const k = document.createElement('span'); k.className = 'block truncate text-[10px] text-zinc-600'; k.textContent = rowData[0];
+        const v = document.createElement('span'); v.className = 'block truncate font-mono text-[11px] text-zinc-300'; v.textContent = String(rowData[1]);
+        r.appendChild(k); r.appendChild(v); g.appendChild(r);
       }
-      wrapper.appendChild(grid);
-      return wrapper;
+      w.appendChild(g); return w;
     }
     function renderStatus(data) {
       statusPanel.textContent = '';
@@ -378,236 +282,255 @@ internal static class EmbeddedWebConsole
       healthPills.textContent = '';
       healthPills.appendChild(pill('v' + data.pluginVersion, 'ok'));
       healthPills.appendChild(pill(data.httpListening ? 'HTTP' : 'HTTP off', data.httpListening ? 'ok' : 'err'));
-      healthPills.appendChild(pill(data.patchApplied ? 'Patch' : 'Patch off', data.patchApplied ? 'ok' : 'err'));
       healthPills.appendChild(pill('Queue ' + data.queueDepth, data.queueDepth ? 'warn' : 'ok'));
-      healthPills.appendChild(pill(data.bridgeLastStatus, data.bridgeLastStatus === 'executed' ? 'ok' : 'warn'));
+      healthPills.appendChild(pill(data.bridgeLastStatus, ['executed','not_started','bridge_ready'].includes(data.bridgeLastStatus) ? 'ok' : 'warn'));
     }
     function renderRecord(record) {
       queueId.value = record.queueId;
-      lastResult.textContent = record.state + ' · ' + record.bridgeStatus + ' · ' + record.queueLatencyMs + 'ms';
+      lastResult.textContent = record.state + ' \u00b7 ' + record.bridgeStatus + ' \u00b7 ' + record.queueLatencyMs + 'ms';
       const block = document.createElement('article');
-      block.className = 'grid gap-2 rounded-md border border-slate-800 bg-[#0d141d] p-3';
+      block.className = 'grid gap-2 rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3';
       const header = document.createElement('div');
       header.className = 'flex flex-wrap items-start justify-between gap-2';
-      const titleWrap = document.createElement('div');
-      titleWrap.className = 'min-w-0';
+      const titleWrap = document.createElement('div'); titleWrap.className = 'min-w-0';
       const title = document.createElement('div');
-      title.className = 'truncate font-mono text-sm font-semibold text-slate-100';
+      title.className = 'truncate font-mono text-sm font-semibold text-zinc-200';
       title.textContent = record.commandName + ' #' + record.queueId.slice(0, 8);
-      const meta = document.createElement('div');
-      meta.className = 'mt-1 flex flex-wrap gap-2 text-xs text-slate-400';
-      const lineCount = record.outputLineCount ?? (record.output ? record.output.length : 0);
-      meta.textContent = record.state + ' · ' + record.classification + ' · ' + t('bridge') + '=' + record.bridgeStatus + ' · ' + t('latency') + '=' + record.queueLatencyMs + 'ms · ' + lineCount + ' ' + t('outputLines') + (record.outputTruncated ? ' · ' + t('truncated') : '');
-      titleWrap.appendChild(title);
-      titleWrap.appendChild(meta);
-      header.appendChild(titleWrap);
-
+      const meta = document.createElement('div'); meta.className = 'mt-1 flex flex-wrap gap-2 text-xs text-zinc-500';
+      const lc = record.outputLineCount ?? (record.output ? record.output.length : 0);
+      meta.textContent = record.state + ' \u00b7 ' + record.classification + ' \u00b7 ' + t('bridge') + '=' + record.bridgeStatus + ' \u00b7 ' + t('latency') + '=' + record.queueLatencyMs + 'ms \u00b7 ' + lc + ' ' + t('outputLines') + (record.outputTruncated ? ' \u00b7 ' + t('truncated') : '');
+      titleWrap.appendChild(title); titleWrap.appendChild(meta); header.appendChild(titleWrap);
       const copy = document.createElement('button');
-      copy.type = 'button';
-      copy.className = 'h-8 rounded-md border border-slate-700 bg-slate-900 px-3 text-xs font-semibold text-slate-200 hover:border-teal-500 hover:bg-slate-800';
+      copy.type = 'button'; copy.className = 'h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300';
       copy.disabled = !record.output || !record.output.length;
       copy.textContent = t('copyOutput');
       copy.addEventListener('click', async () => {
         const text = (record.output || []).map(clean).join('\n');
-        try {
-          await navigator.clipboard.writeText(text);
-          copy.textContent = t('copied');
-          setTimeout(() => copy.textContent = t('copyOutput'), 1200);
-        } catch {
-          logLine('clipboard unavailable', 'err');
-        }
+        try { await navigator.clipboard.writeText(text); copy.textContent = t('copied'); setTimeout(() => copy.textContent = t('copyOutput'), 1200); }
+        catch { logLine('clipboard unavailable', 'err'); }
       });
-      header.appendChild(copy);
-      block.appendChild(header);
-
+      header.appendChild(copy); block.appendChild(header);
       const body = document.createElement('pre');
-      body.className = 'max-h-72 overflow-auto rounded-md border border-slate-800 bg-[#070b10] p-3 font-mono text-xs leading-relaxed whitespace-pre-wrap text-slate-200';
-      if (record.output && record.output.length) {
-        body.textContent = record.output.map(clean).join('\n');
-      } else {
-        body.textContent = t('noOutput');
-      }
-      block.appendChild(body);
-      output.prepend(block);
-      output.scrollTop = 0;
+      body.className = 'max-h-72 overflow-auto rounded-md border border-zinc-800/30 bg-[#050505] p-3 font-mono text-xs leading-relaxed whitespace-pre-wrap text-zinc-400';
+      if (record.output && record.output.length) body.textContent = record.output.map(clean).join('\n');
+      else body.textContent = t('noOutput');
+      block.appendChild(body); output.prepend(block); output.scrollTop = 0;
     }
     async function refreshHealth() {
-      const response = await fetch(apiUrl('/health'));
-      const result = await readJson(response);
-      if (response.ok && result.json) {
-        renderHealth(result.json);
-        return result.json;
-      }
-      throw new Error(result.text || response.status);
+      const r = await fetch(apiUrl('/health')); const d = await readJson(r);
+      if (r.ok && d.json) { renderHealth(d.json); return d.json; }
+      throw new Error(d.text || r.status);
     }
     async function loadStatus() {
       if (!token.value) return;
-      const response = await fetch(apiUrl('/api/status'), { headers: authHeaders() });
-      const result = await readJson(response);
-      if (!response.ok || !result.json) {
-        lastStatus = null;
-        statusPanel.textContent = '';
-        const node = document.createElement('div');
-        node.className = 'rounded-md border border-slate-800 bg-slate-950/70 p-3 text-sm text-slate-500';
-        node.textContent = t('noStatus');
-        statusPanel.appendChild(node);
-        return;
-      }
-      lastStatus = result.json;
-      renderStatus(lastStatus);
+      const r = await fetch(apiUrl('/api/status'), { headers: authHeaders() });
+      const d = await readJson(r);
+      if (!r.ok || !d.json) { lastStatus = null; statusPanel.textContent = '';
+        const n = document.createElement('div'); n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600'; n.textContent = t('noStatus'); statusPanel.appendChild(n); return; }
+      lastStatus = d.json; renderStatus(lastStatus);
     }
     async function submitCommand() {
+      const cmd = command.value.trim();
+      if (cmd) { commandHistory = [cmd, ...commandHistory.filter(c => c !== cmd)].slice(0, 50); historyIndex = -1; savedInput = ''; }
       logLine('> ' + command.value, 'muted');
-      const response = await fetch(apiUrl('/api/commands'), {
-        method: 'POST',
-        headers: authHeaders({ 'Content-Type': 'application/json' }),
-        body: JSON.stringify({ command: command.value })
-      });
-      const result = await readJson(response);
-      if (!response.ok) {
-        logLine(response.status + ' ' + result.text, 'err');
-        return;
-      }
-      logLine(response.status + ' ' + t('commandAccepted') + ' #' + result.json.queueId.slice(0, 8), 'ok');
-      queueId.value = result.json.queueId;
-      await pollStatus(result.json.queueId);
-      await loadRecent();
-      await refreshHealth();
+      const r = await fetch(apiUrl('/api/commands'), { method: 'POST', headers: authHeaders({ 'Content-Type': 'application/json' }), body: JSON.stringify({ command: command.value }) });
+      const d = await readJson(r);
+      if (!r.ok) { logLine(r.status + ' ' + d.text, 'err'); return; }
+      logLine(r.status + ' ' + t('commandAccepted') + ' #' + d.json.queueId.slice(0, 8), 'ok');
+      queueId.value = d.json.queueId; await pollStatus(d.json.queueId); await loadRecent(); await refreshHealth();
     }
     async function fetchStatus(id) {
-      const response = await fetch(apiUrl('/api/commands/' + encodeURIComponent(id)), { headers: authHeaders() });
-      const result = await readJson(response);
-      if (!response.ok) throw new Error(response.status + ' ' + result.text);
-      return result.json;
+      const r = await fetch(apiUrl('/api/commands/' + encodeURIComponent(id)), { headers: authHeaders() });
+      const d = await readJson(r);
+      if (!r.ok) throw new Error(r.status + ' ' + d.text);
+      return d.json;
     }
     async function pollStatus(id) {
-      for (let i = 0; i < 16; i++) {
-        const record = await fetchStatus(id);
-        if (record.state !== 'Queued') {
-          renderRecord(record);
-          return record;
-        }
-        await new Promise(resolve => setTimeout(resolve, 200));
-      }
-      logLine('Queued #' + id, 'muted');
-      return null;
+      for (let i = 0; i < 16; i++) { const rec = await fetchStatus(id); if (rec.state !== 'Queued') { renderRecord(rec); return rec; } await new Promise(r => setTimeout(r, 200)); }
+      logLine('Queued #' + id, 'muted'); return null;
     }
-    async function lookupStatus() {
-      if (!queueId.value.trim()) return;
-      renderRecord(await fetchStatus(queueId.value.trim()));
-    }
+    async function lookupStatus() { if (!queueId.value.trim()) return; renderRecord(await fetchStatus(queueId.value.trim())); }
     async function loadRecent() {
       if (!token.value) return;
-      const response = await fetch(apiUrl('/api/commands'), { headers: authHeaders() });
-      const result = await readJson(response);
-      if (!response.ok || !result.json) return;
+      const r = await fetch(apiUrl('/api/commands'), { headers: authHeaders() });
+      const d = await readJson(r);
+      if (!r.ok || !d.json) return;
       recent.textContent = '';
-      if (!result.json.items || !result.json.items.length) {
-        const node = document.createElement('div');
-        node.className = 'rounded-md border border-slate-800 bg-slate-950/70 p-3 text-sm text-slate-500';
-        node.textContent = t('noHistory');
-        recent.appendChild(node);
-        return;
-      }
-      for (const item of result.json.items) {
-        const node = document.createElement('button');
-        node.type = 'button';
-        node.className = 'grid gap-1 rounded-md border border-slate-800 bg-slate-950/70 p-2 text-left hover:border-teal-500';
-        const title = document.createElement('strong');
-        title.className = 'text-sm text-slate-200';
-        title.textContent = item.commandName + ' · ' + item.state;
-        const meta = document.createElement('span');
-        meta.className = 'text-xs text-slate-500';
-        meta.textContent = item.queueLatencyMs + 'ms · ' + item.bridgeStatus + ' · ' + item.queueId.slice(0, 8);
-        node.appendChild(title);
-        node.appendChild(meta);
-        node.addEventListener('click', () => renderRecord(item));
-        recent.appendChild(node);
+      if (!d.json.items || !d.json.items.length) { const n = document.createElement('div'); n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600'; n.textContent = t('noHistory'); recent.appendChild(n); return; }
+      for (const item of d.json.items) {
+        const n = document.createElement('button'); n.type = 'button'; n.className = 'grid gap-0.5 rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2 text-left hover:border-zinc-700';
+        const title = document.createElement('strong'); title.className = 'text-sm text-zinc-300'; title.textContent = item.commandName + ' \u00b7 ' + item.state;
+        const meta = document.createElement('span'); meta.className = 'text-xs text-zinc-600'; meta.textContent = item.queueLatencyMs + 'ms \u00b7 ' + item.bridgeStatus + ' \u00b7 ' + item.queueId.slice(0, 8);
+        n.appendChild(title); n.appendChild(meta); n.addEventListener('click', () => renderRecord(item)); recent.appendChild(n);
       }
     }
     function renderCatalog(items) {
       catalogList.textContent = '';
-      const groups = ['Safe', 'StateChanging', 'Dangerous', 'Unknown'];
-      for (const group of groups) {
-        const groupItems = items.filter(item => item.classification === group);
-        if (!groupItems.length) continue;
-
-        const wrapper = document.createElement('div');
-        wrapper.className = 'grid gap-2';
-        const heading = document.createElement('div');
-        heading.className = 'flex items-center justify-between gap-2';
-        const title = document.createElement('h3');
-        title.className = 'text-xs font-semibold uppercase text-slate-500';
-        title.textContent = classificationTitle(group);
-        const count = document.createElement('span');
-        count.className = 'text-xs text-slate-400';
-        count.textContent = String(groupItems.length);
-        heading.appendChild(title);
-        heading.appendChild(count);
-        wrapper.appendChild(heading);
-
-        const grid = document.createElement('div');
-        grid.className = 'grid grid-cols-2 gap-2';
-        for (const item of groupItems) {
-          const node = document.createElement('button');
-          node.type = 'button';
-          node.disabled = !item.allowed;
-          node.className = 'rounded-md border px-2 py-2 text-left text-xs ' + classificationTone(item.classification) + (item.allowed ? ' hover:border-teal-400' : ' cursor-not-allowed opacity-60');
-          const name = document.createElement('strong');
-          name.className = 'block font-mono text-sm';
-          name.textContent = item.name;
-          const meta = document.createElement('span');
-          meta.className = 'block pt-1 text-[11px]';
-          meta.textContent = (item.allowed ? t('allowed') : t('denied')) + ' · ' + reasonText(item.policyReason);
-          node.appendChild(name);
-          node.appendChild(meta);
-          if (item.allowed) {
-            node.addEventListener('click', () => {
-              command.value = item.name;
-              command.focus();
-            });
-          }
-          grid.appendChild(node);
+      for (const group of ['Safe', 'StateChanging', 'Dangerous', 'Unknown']) {
+        const g = items.filter(i => i.classification === group);
+        if (!g.length) continue;
+        const w = document.createElement('div'); w.className = 'grid gap-2';
+        const h = document.createElement('div'); h.className = 'flex items-center justify-between gap-2';
+        const t2 = document.createElement('h3'); t2.className = 'text-[10px] font-semibold uppercase tracking-wider text-zinc-600'; t2.textContent = classificationTitle(group);
+        const c = document.createElement('span'); c.className = 'text-xs text-zinc-600'; c.textContent = String(g.length);
+        h.appendChild(t2); h.appendChild(c); w.appendChild(h);
+        const grid = document.createElement('div'); grid.className = 'grid grid-cols-2 gap-1.5';
+        for (const item of g) {
+          const n = document.createElement('button'); n.type = 'button'; n.disabled = !item.allowed;
+          n.className = 'rounded-md border px-2 py-1.5 text-left text-xs ' + classificationTone(item.classification) + (item.allowed ? ' hover:border-zinc-600' : ' cursor-not-allowed opacity-50');
+          const name = document.createElement('strong'); name.className = 'block font-mono text-sm'; name.textContent = item.name;
+          const meta = document.createElement('span'); meta.className = 'block pt-0.5 text-[10px]';
+          meta.textContent = (item.allowed ? t('allowed') : t('denied')) + ' \u00b7 ' + reasonText(item.policyReason);
+          n.appendChild(name); n.appendChild(meta);
+          const desc = document.createElement('div'); desc.className = 'hidden pt-1.5 text-[10px] leading-relaxed text-zinc-500 border-t border-zinc-800/30 mt-1.5';
+          desc.textContent = item.description || '';
+          n.appendChild(desc);
+          n.addEventListener('click', (e) => { if (desc.textContent) desc.classList.toggle('hidden'); });
+          if (item.allowed) n.addEventListener('click', () => { command.value = item.name; command.focus(); });
+          grid.appendChild(n);
         }
-        wrapper.appendChild(grid);
-        catalogList.appendChild(wrapper);
+        w.appendChild(grid); catalogList.appendChild(w);
       }
     }
     async function loadCatalog() {
       if (!token.value) return;
-      const response = await fetch(apiUrl('/api/commands/catalog'), { headers: authHeaders() });
-      const result = await readJson(response);
-      if (!response.ok || !result.json || !Array.isArray(result.json.items)) {
-        lastCatalogItems = null;
-        catalogList.textContent = '';
-        const node = document.createElement('div');
-        node.className = 'rounded-md border border-slate-800 bg-slate-950/70 p-3 text-sm text-slate-500';
-        node.textContent = t('noCatalog');
-        catalogList.appendChild(node);
-        return;
+      const r = await fetch(apiUrl('/api/commands/catalog'), { headers: authHeaders() });
+      const d = await readJson(r);
+      if (!r.ok || !d.json || !Array.isArray(d.json.items)) {
+        lastCatalogItems = null; catalogList.textContent = '';
+        const n = document.createElement('div'); n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600'; n.textContent = t('noCatalog'); catalogList.appendChild(n); return;
       }
-
-      lastCatalogItems = result.json.items;
-      renderCatalog(lastCatalogItems);
+      lastCatalogItems = d.json.items; renderCatalog(lastCatalogItems);
     }
-    el('send').addEventListener('click', () => submitCommand().catch(error => logLine(String(error), 'err')));
-    el('lookup').addEventListener('click', () => lookupStatus().catch(error => logLine(String(error), 'err')));
-    el('refresh').addEventListener('click', () => Promise.all([refreshHealth(), loadStatus(), loadRecent(), loadCatalog()]).catch(error => logLine(String(error), 'err')));
-    el('history').addEventListener('click', () => loadRecent().catch(error => logLine(String(error), 'err')));
-    el('catalog').addEventListener('click', () => loadCatalog().catch(error => logLine(String(error), 'err')));
-    el('status').addEventListener('click', () => loadStatus().catch(error => logLine(String(error), 'err')));
-    el('health').addEventListener('click', () => refreshHealth().then(data => logLine(JSON.stringify(data, null, 2), 'muted')).catch(error => logLine(String(error), 'err')));
-    el('clear').addEventListener('click', () => output.textContent = '');
-    command.addEventListener('keydown', event => {
-      if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) submitCommand().catch(error => logLine(String(error), 'err'));
+    const commandReference = [
+  {cat:'Items & Environment',catZh:'物品与环境',cmds:[
+    {n:'addliquid',p:'<id> <amount>',d:'Add a dose of liquid to the held liquid container (mL).',dz:'向手持的液体容器中添加指定剂量液体（毫升/mL）。'},
+    {n:'spawn',p:'<id> [cursor] [cond=1] [amt=1]',d:'Spawn items, enemies, or objects at a position. Auto-corrects invalid IDs.',dz:'在指定位置生成物品/敌人/物体，无效ID自动纠正。'},
+    {n:'spawncategory',p:'<id> [position]',d:'Spawn all items from a category drop pool without gravity.',dz:'从掉落池生成该类别下所有物品，无重力状态。'},
+    {n:'starterkit',p:'',d:'Add a semi-random basic survival kit: bags, meds, tools, food, water.',dz:'放入半随机基础生存套装。'},
+    {n:'explode',p:'[pos] [...opts]',d:'Generate a fully customizable explosion with configurable parameters.',dz:'生成完全可自定义的爆炸。'},
+    {n:'locate',p:'<id> [index=0]',d:'Teleport to a specified object in the current level.',dz:'传送到当前层级中指定对象位置。'},
+    {n:'plushies',p:'',d:'Spawn all 15 plushie types in a horizontal line.',dz:'生成全部15种玩偶。'},
+  ]},
+  {cat:'Player Status & Medical',catZh:'玩家状态与医疗',cmds:[
+    {n:'tp',p:'<position>',d:'Teleport the player to a specified position.',dz:'将玩家传送到指定位置。'},
+    {n:'noclip',p:'',d:'Toggle collision-free flight mode through walls.',dz:'禁用碰撞体积与物理重力，自由穿墙飞行。'},
+    {n:'heal',p:'',d:'Fully reset player health and medical state.',dz:'完全重置玩家医疗与健康状态。'},
+    {n:'coagulate',p:'',d:'Set all limb bleed rates to 0.',dz:'将所有肢体流血速度设为0。'},
+    {n:'kill',p:'',d:'Instantly kill the player.',dz:'立刻击杀角色。'},
+    {n:'amputate',p:'<limb>',d:'Instantly remove a specified limb.',dz:'立刻切除指定肢体。'},
+    {n:'setbodyfield',p:'<field> <value>',d:'Modify a player-wide body state data field.',dz:'修改玩家整体身体状态数据。'},
+    {n:'setlimbfield',p:'<limb> <field> <value>',d:'Modify a specific limb health state field.',dz:'修改选定肢体健康状态数据。'},
+    {n:'addxp',p:'<type> <amount>',d:'Grant experience to a skill (Strength/Resilience/Intelligence).',dz:'向技能发放经验值。'},
+    {n:'resetskills',p:'',d:'Reset all skill levels and experience to zero.',dz:'清空所有技能等级与经验值。'},
+  ]},
+  {cat:'Console System',catZh:'控制台系统',cmds:[
+    {n:'log',p:'<text>',d:'Add a custom text log event to the console.',dz:'在控制台中添加自定义日志事件。'},
+    {n:'copylog',p:'',d:'Copy all console log text to the clipboard.',dz:'将控制台日志复制到剪贴板。'},
+    {n:'clear',p:'',d:'Clear all text from the console log.',dz:'清空控制台日志内容。'},
+    {n:'addcustomcommand',p:'<name> <desc> <action>',d:'Create a custom macro command from existing commands.',dz:'组合一系列指令为自定义宏指令。'},
+    {n:'removecustomcommand',p:'<name>',d:'Remove a previously created custom command.',dz:'移除已创建的自定义指令。'},
+    {n:'echo',p:'<bool>',d:'Toggle printing command echo in the console.',dz:'切换是否打印指令执行日志。'},
+    {n:'alert',p:'<important> <text>',d:'Show a notification box on screen.',dz:'在屏幕上生成提示信息框。'},
+    {n:'repeat',p:'<times> <delay> <cmd>',d:'Repeatedly execute a command with delay.',dz:'多次自动化执行指令。'},
+    {n:'setconsoleheight',p:'<height>',d:'Change the console height ratio on screen.',dz:'更改控制台在屏幕上的高度比例。'},
+    {n:'setconsolecolor',p:'<element> <color>',d:'Change console text or background color.',dz:'改变控制台文字或背景颜色。'},
+    {n:'loglocale',p:'<type> <key>',d:'Return the localized display name of an object.',dz:'返回对象的本地化显示名称。'},
+    {n:'openfolder',p:'<type>',d:'Open a game folder in the file manager.',dz:'在文件管理器中打开游戏目录文件夹。'},
+    {n:'errorlogging',p:'',d:'Toggle real-time error log printing.',dz:'切换实时错误日志打印。'},
+    {n:'bind',p:'<action> <key> [cmd]',d:'Bind a console command to a keyboard key.',dz:'将控制台指令绑定到快捷键。'},
+  ]},
+  {cat:'Game Environment & General',catZh:'游戏环境与通用',cmds:[
+    {n:'skiplayer',p:'[index]',d:'Switch to a different level index.',dz:'切换当前地图层级。'},
+    {n:'talk',p:'<text>',d:'Make the player character speak specified text.',dz:'使玩家角色说出指定文字。'},
+    {n:'music',p:'<action> [time]',d:'Control background music playback.',dz:'控制游戏背景音乐播放。'},
+    {n:'framerate',p:'<fps>',d:'Cap the game maximum frame rate (FPS).',dz:'限制游戏最大帧率。'},
+    {n:'fucklore',p:'',d:'Skip the opening story sequence on game start.',dz:'启动时跳过开头剧情。'},
+    {n:'timescale',p:'<scale>',d:'Control in-game time passage speed.',dz:'控制游戏内时间流逝速度。'},
+    {n:'unchipped',p:'<bool>',d:'Toggle Unchipped mode on or off.',dz:'切换Unchipped模式。'},
+    {n:'pixelate',p:'<bool>',d:'Toggle the pixelation visual filter.',dz:'切换像素化滤镜。'},
+    {n:'volume',p:'<vol>',d:'Set game music/SFX volume (0 to 1).',dz:'设置游戏音量（0到1）。'},
+    {n:'saveandquit',p:'',d:'Save player data and exit to main menu.',dz:'保存玩家数据并退出至主菜单。'},
+    {n:'playsound',p:'<id>',d:'Play a game sound effect by ID.',dz:'播放指定ID的游戏音效。'},
+    {n:'fullbright',p:'',d:'Toggle debug fullbright lighting mode.',dz:'开关调试照明模式。'},
+    {n:'freecam',p:'',d:'Toggle free camera mode.',dz:'切换自由摄像机模式。'},
+  ]},
+];
+    function renderManual(items) {
+      const list = el('manualList'); if (!list) return;
+      list.textContent = '';
+      const q = (el('manualSearch') ? el('manualSearch').value : '').toLowerCase();
+      for (const group of items) {
+        const f = q ? group.cmds.filter(c => { const txt = lang()==='zh' ? (c.dz||c.d) : c.d; return c.n.toLowerCase().includes(q) || txt.toLowerCase().includes(q); }) : group.cmds;
+        if (!f.length) continue;
+        const w = document.createElement('div'); w.className = 'grid gap-2';
+        const h = document.createElement('div'); h.className = 'text-[10px] font-semibold uppercase tracking-wider text-zinc-600';
+        h.textContent = lang() === 'zh' ? group.catZh : group.cat; w.appendChild(h);
+        for (const cmd of f) {
+          const c = document.createElement('button'); c.type = 'button'; c.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2 text-left hover:border-zinc-700';
+          c.addEventListener('click', () => { command.value = cmd.n; command.focus(); });
+          const n = document.createElement('div'); n.className = 'font-mono text-sm text-zinc-200'; n.textContent = cmd.n + (cmd.p ? ' ' + cmd.p : '');
+          const d = document.createElement('div'); d.className = 'pt-0.5 text-[10px] text-zinc-500'; d.textContent = lang()==='zh' ? (cmd.dz||cmd.d) : cmd.d;
+          c.appendChild(n); c.appendChild(d); w.appendChild(c);
+        }
+        list.appendChild(w);
+      }
+      if (!list.children.length) list.innerHTML = '<div class=""text-xs text-zinc-600 p-2"">' + t('noManualData') + '</div>';
+    }
+    function loadManual() { renderManual(commandReference); }
+    function saveSnippet() {
+      const cmd = command.value.trim(); if (!cmd) return;
+      const name = prompt(t('snippetName'), cmd.split(' ')[0]); if (!name) return;
+      const s = JSON.parse(localStorage.getItem('cu.remoteconsole.snippets') || '[]');
+      s.unshift({ id: Date.now().toString(36), name: name.trim(), command: cmd, createdAt: Date.now() });
+      localStorage.setItem('cu.remoteconsole.snippets', JSON.stringify(s.slice(0, 30)));
+      renderSnippets();
+    }
+    function renderSnippets() {
+      const list = el('snippetList'); if (!list) return;
+      list.textContent = '';
+      const s = JSON.parse(localStorage.getItem('cu.remoteconsole.snippets') || '[]');
+      if (!s.length) { list.innerHTML = '<div class=""text-xs text-zinc-600 p-2"">' + t('noSnippets') + '</div>'; return; }
+      for (const item of s) {
+        const row = document.createElement('div'); row.className = 'flex items-center gap-1 rounded-md border border-zinc-800/30 bg-zinc-950/30 p-1.5';
+        const info = document.createElement('button'); info.type = 'button'; info.className = 'flex-1 min-w-0 text-left';
+        info.addEventListener('click', () => { command.value = item.command; command.focus(); });
+        const name = document.createElement('div'); name.className = 'truncate text-xs text-zinc-300'; name.textContent = item.name;
+        const cmdTxt = document.createElement('div'); cmdTxt.className = 'truncate text-[10px] font-mono text-zinc-600'; cmdTxt.textContent = item.command;
+        info.appendChild(name); info.appendChild(cmdTxt);
+        const del = document.createElement('button'); del.type = 'button'; del.className = 'shrink-0 h-6 rounded border border-zinc-800 bg-zinc-950 px-2 text-[10px] text-zinc-500 hover:border-red-800 hover:text-red-400';
+        del.textContent = t('delete');
+        del.addEventListener('click', (e) => { e.stopPropagation();
+          const s2 = JSON.parse(localStorage.getItem('cu.remoteconsole.snippets') || '[]').filter(x => x.id !== item.id);
+          localStorage.setItem('cu.remoteconsole.snippets', JSON.stringify(s2)); renderSnippets();
+        });
+        row.appendChild(info); row.appendChild(del); list.appendChild(row);
+      }
+    }
+    if (el('send')) el('send').addEventListener('click', () => submitCommand().catch(e => logLine(String(e), 'err')));
+    if (el('lookup')) el('lookup').addEventListener('click', () => lookupStatus().catch(e => logLine(String(e), 'err')));
+    if (el('refresh')) el('refresh').addEventListener('click', () => Promise.all([refreshHealth(), loadStatus(), loadRecent(), loadCatalog()]).catch(e => logLine(String(e), 'err')));
+    if (el('history')) el('history').addEventListener('click', () => loadRecent().catch(e => logLine(String(e), 'err')));
+    if (el('catalog')) el('catalog').addEventListener('click', () => loadCatalog().catch(e => logLine(String(e), 'err')));
+    if (el('status')) el('status').addEventListener('click', () => loadStatus().catch(e => logLine(String(e), 'err')));
+    if (el('health')) el('health').addEventListener('click', () => refreshHealth().then(d => logLine(JSON.stringify(d, null, 2), 'muted')).catch(e => logLine(String(e), 'err')));
+    if (el('clear')) el('clear').addEventListener('click', () => output.textContent = '');
+    if (el('saveSnippet')) el('saveSnippet').addEventListener('click', () => saveSnippet());
+    if (el('manualSearch')) el('manualSearch').addEventListener('input', () => loadManual());
+    const cmdEl = el('command');
+    if (cmdEl) cmdEl.addEventListener('keydown', event => {
+      if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { submitCommand().catch(e => logLine(String(e), 'err')); return; }
+      if (event.key === 'ArrowUp') { event.preventDefault(); if (commandHistory.length === 0) return; if (historyIndex === -1) savedInput = command.value; if (historyIndex < commandHistory.length - 1) historyIndex++; command.value = commandHistory[historyIndex]; return; }
+      if (event.key === 'ArrowDown') { event.preventDefault(); if (historyIndex === -1) return; if (historyIndex > 0) { historyIndex--; command.value = commandHistory[historyIndex]; } else { historyIndex = -1; command.value = savedInput; } return; }
     });
     applyLanguage();
-    refreshHealth().catch(error => logLine(String(error), 'err'));
+    switchTab('status');
+    if (el('snippetList')) renderSnippets();
+    refreshHealth().catch(e => logLine(String(e), 'err'));
     loadStatus().catch(() => {});
     loadRecent().catch(() => {});
     loadCatalog().catch(() => {});
-  </script>
+</script>
 </body>
-</html>
-";
+</html>";
 }
