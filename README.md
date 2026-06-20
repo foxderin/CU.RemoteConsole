@@ -9,17 +9,20 @@ A BepInEx 5 mod for [Casualties: Unknown](https://store.steampowered.com/app/457
 
 ## Features
 
-- Local web console at `http://127.0.0.1:8848/`.
+- **Terminal-style web console** at `http://127.0.0.1:8848/` with dark theme and prompt input.
+- **Login / connect screen** — enter bearer token and optional endpoint before accessing the console.
+- **Host/key switcher** — change endpoint and token on the fly without restarting the page.
+- **Command snippets** — save, edit, search, and quick-execute frequently used commands (localStorage, up to 50).
+- **Command history** — recent commands, receipt lookup, and rendered output.
+- **Command catalog** grouped by risk, with hover tooltips for command descriptions.
+- **In-game config overlay** — toggle via the Web UI **Overlay** button (no F8 hotkey).
 - Bearer-token authentication.
 - Safe command allowlist and dangerous-command denial by default.
 - Basic rate limiting and command audit logging.
 - Thread-safe command queue consumed from the Unity main thread.
-- Command receipt lookup, recent history, and captured output rendering.
-- Read-only status/config/policy panel.
-- Browser-side connection endpoint override for custom local/LAN/tunnel addresses.
-- In-game config overlay opened with `F8`, with English/Chinese toggle.
-- Command catalog grouped by risk.
-- English/Chinese web UI.
+- Read-only status/config/policy panel with sidebar tabs.
+- Command manual with English/Chinese searchable reference.
+- English/Chinese web UI with live language switch.
 - Static OpenAPI contract in [`docs/api/openapi.yaml`](./docs/api/openapi.yaml).
 
 ## How It Works
@@ -71,6 +74,8 @@ http://127.0.0.1:8848/
 <GameDir>\BepInEx\config\cu.remoteconsole.cfg
 ```
 
+8. Paste the token into the login screen and click **Connect**.
+
 Do not share or commit the token.
 
 Proton / Steam Deck note:
@@ -87,26 +92,30 @@ This is not needed for normal Windows installs.
 1. Start the game and enter a scene.
 2. Open `http://127.0.0.1:8848/`.
 3. Paste the bearer token from the generated config file.
-4. Run `help`.
-5. Check the output block and recent history.
-6. Use the command catalog to see which commands are allowed or denied.
+4. Click **Connect** — the console verifies the connection showing a loading overlay.
+5. Run `help` in the terminal prompt.
+6. Browse the command catalog, history, and manual via the sidebar tabs.
+7. Click **Overlay** in the title bar to open the in-game config window.
 
 ## Web Console
 
-The browser console includes:
+The browser console includes a terminal-style main panel and a sidebar with tabbed panels:
 
 | Area | Purpose |
 | --- | --- |
-| Command | Submit a command and render its output block |
-| Connection endpoint | Override the API base URL when the browser should connect to another local/LAN/tunnel address |
-| Receipt lookup | Query one queued/executed command by id |
-| Recent history | Review recent command receipts |
-| Catalog | Show safe, state-changing, dangerous, and unknown command policy |
-| Status | Show read-only listener, auth, queue, rate limit, patch, and policy metadata |
+| **Terminal** | Submit commands at the `>` prompt (Ctrl+Enter), view output and history |
+| **Queue ID / Lookup** | Query a command receipt by its queue ID |
+| **Status tab** | Read-only listener, auth, queue, rate limit, patch, and policy metadata |
+| **Commands tab** | Catalog grouped by Safe / State-changing / Dangerous / Unknown; hover for descriptions |
+| **History tab** | Recent command receipts and saved snippets with search |
+| **Snippets tab** | Full snippet manager with quick-execute, edit, and delete |
+| **Manual tab** | Searchable command reference with English/Chinese descriptions |
 
 State-changing and dangerous commands are visible for transparency but denied by default.
 
-The connection endpoint field is stored in browser local storage. Leave it empty to use the same origin as the page. Set it to a full endpoint such as `http://127.0.0.1:8848` only when the web page needs to talk to a different allowed address.
+The **gear icon ⚙** in the title bar opens an inline settings panel to change the host endpoint and bearer token. Click **Disconnect** to return to the login screen.
+
+Saved snippets, endpoint preference, and language preference are persisted in browser local storage.
 
 ## API
 
@@ -126,6 +135,7 @@ Endpoints:
 | `GET` | `/api/commands` | recent command receipts |
 | `GET` | `/api/commands/catalog` | command policy catalog |
 | `GET` | `/api/commands/{queueId}` | command receipt lookup |
+| `POST` | `/api/toggle-overlay` | toggle the in-game config overlay |
 
 Submit a command:
 
@@ -134,6 +144,13 @@ curl -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{"command":"help"}' \
   http://127.0.0.1:8848/api/commands
+```
+
+Toggle the in-game config overlay:
+
+```bash
+curl -X POST -H 'Authorization: Bearer <token>' \
+  http://127.0.0.1:8848/api/toggle-overlay
 ```
 
 See the static OpenAPI contract:
@@ -146,7 +163,7 @@ docs/api/openapi.yaml
 
 BepInEx generates the config file automatically after the first launch.
 
-Press `F8` in game to open the CU.RemoteConsole config window. The window defaults to the system language and includes an English/Chinese toggle. A local player using this window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
+Click **Overlay** in the web console title bar (or send `POST /api/toggle-overlay`) to open the CU.RemoteConsole config window. The window defaults to the system language and includes an English/Chinese toggle. A local player using this window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
 
 Remote API users cannot change config through HTTP.
 
@@ -178,6 +195,8 @@ npm run build:web
 dotnet build src/CU.RemoteConsole/CU.RemoteConsole.csproj -c Release
 ```
 
+The `build:web` step assembles the modular JavaScript sources (`web/src/js/`) into a single HTML file via `web/build.mjs`, then compiles Tailwind CSS and embeds everything into the C# plugin as a verbatim string.
+
 Useful scripts:
 
 | Script | Purpose |
@@ -202,6 +221,22 @@ CHECKSUMS.txt
 ```
 
 The release package does not include BepInEx, game files, third-party mods, token/config files, `node_modules`, source code, tests, or build intermediates.
+
+## Web Source Structure
+
+```
+web/
+  build.mjs                # JS assembly script (template → index.html)
+  src/
+    index.html.template    # HTML template with <!--INCLUDE js/...--> markers
+    index.html             # assembled output (generated)
+    input.css              # Tailwind CSS input
+    js/
+      i18n.js              # i18n dictionary and language helpers
+      snippets.js          # command snippet CRUD (localStorage)
+      manual.js            # command reference data and render
+      app.js               # main application logic
+```
 
 ## Credits
 

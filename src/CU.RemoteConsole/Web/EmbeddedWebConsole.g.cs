@@ -11,7 +11,7 @@ internal static class EmbeddedWebConsole
   <meta name=""color-scheme"" content=""dark"">
   <title>CU.RemoteConsole</title>
   <style>/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */
-@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-border-style:solid;--tw-leading:initial;--tw-font-weight:initial;--tw-tracking:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000}}}@layer theme{:root,:host{--font-sans:system-ui, -apple-system, BlinkMacSystemFont, ""Segoe UI"", sans-serif;--font-mono:ui-monospace, SFMono-Regular, Consolas, ""Liberation Mono"", monospace;--color-red-400:oklch(70.4% .191 22.216);--color-red-500:oklch(63.7% .237 25.331);--color-red-800:oklch(44.4% .177 26.899);--color-amber-400:oklch(82.8% .189 84.429);--color-amber-500:oklch(76.9% .188 70.08);--color-emerald-400:oklch(76.5% .177 163.223);--color-emerald-500:oklch(69.6% .17 162.48);--color-zinc-100:oklch(96.7% .001 286.375);--color-zinc-200:oklch(92% .004 286.32);--color-zinc-300:oklch(87.1% .006 286.286);--color-zinc-400:oklch(70.5% .015 286.067);--color-zinc-500:oklch(55.2% .016 285.938);--color-zinc-600:oklch(44.2% .017 285.786);--color-zinc-700:oklch(37% .013 285.805);--color-zinc-800:oklch(27.4% .006 286.033);--color-zinc-900:oklch(21% .006 285.885);--color-zinc-950:oklch(14.1% .005 285.823);--spacing:.25rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--font-weight-medium:500;--font-weight-semibold:600;--tracking-tight:-.025em;--tracking-wider:.05em;--leading-relaxed:1.625;--radius-md:.375rem;--radius-lg:.5rem;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif, system-ui, sans-serif, ""Apple Color Emoji"", ""Segoe UI Emoji"", ""Segoe UI Symbol"", ""Noto Color Emoji"");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, ""Liberation Mono"", ""Courier New"", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}body{letter-spacing:0}}@layer components;@layer utilities{.container{width:100%}@media (min-width:40rem){.container{max-width:40rem}}@media (min-width:48rem){.container{max-width:48rem}}@media (min-width:64rem){.container{max-width:64rem}}@media (min-width:80rem){.container{max-width:80rem}}@media (min-width:96rem){.container{max-width:96rem}}.mx-auto{margin-inline:auto}.mt-1{margin-top:calc(var(--spacing) * 1)}.mt-1\.5{margin-top:calc(var(--spacing) * 1.5)}.mt-3{margin-top:calc(var(--spacing) * 3)}.mb-1{margin-bottom:calc(var(--spacing) * 1)}.mb-1\.5{margin-bottom:calc(var(--spacing) * 1.5)}.mb-3{margin-bottom:calc(var(--spacing) * 3)}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline-flex{display:inline-flex}.h-2{height:calc(var(--spacing) * 2)}.h-6{height:calc(var(--spacing) * 6)}.h-7{height:calc(var(--spacing) * 7)}.h-8{height:calc(var(--spacing) * 8)}.max-h-72{max-height:calc(var(--spacing) * 72)}.max-h-\[200px\]{max-height:200px}.max-h-\[480px\]{max-height:480px}.max-h-\[500px\]{max-height:500px}.max-h-\[600px\]{max-height:600px}.min-h-24{min-height:calc(var(--spacing) * 24)}.min-h-\[360px\]{min-height:360px}.min-h-screen{min-height:100vh}.w-2{width:calc(var(--spacing) * 2)}.w-36{width:calc(var(--spacing) * 36)}.w-44{width:calc(var(--spacing) * 44)}.w-full{width:100%}.max-w-\[1600px\]{max-width:1600px}.min-w-0{min-width:calc(var(--spacing) * 0)}.flex-1{flex:1}.shrink-0{flex-shrink:0}.cursor-not-allowed{cursor:not-allowed}.resize-y{resize:vertical}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-wrap{flex-wrap:wrap}.content-start{align-content:flex-start}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.gap-0\.5{gap:calc(var(--spacing) * .5)}.gap-1{gap:calc(var(--spacing) * 1)}.gap-1\.5{gap:calc(var(--spacing) * 1.5)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-5{gap:calc(var(--spacing) * 5)}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-y-0\.5{row-gap:calc(var(--spacing) * .5)}.truncate{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.rounded{border-radius:.25rem}.rounded-full{border-radius:3.40282e38px}.rounded-lg{border-radius:var(--radius-lg)}.rounded-md{border-radius:var(--radius-md)}.border{border-style:var(--tw-border-style);border-width:1px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-amber-500\/20{border-color:#f99c0033}@supports (color:color-mix(in lab, red, red)){.border-amber-500\/20{border-color:color-mix(in oklab, var(--color-amber-500) 20%, transparent)}}.border-emerald-500\/20{border-color:#00bb7f33}@supports (color:color-mix(in lab, red, red)){.border-emerald-500\/20{border-color:color-mix(in oklab, var(--color-emerald-500) 20%, transparent)}}.border-red-500\/20{border-color:#fb2c3633}@supports (color:color-mix(in lab, red, red)){.border-red-500\/20{border-color:color-mix(in oklab, var(--color-red-500) 20%, transparent)}}.border-zinc-700{border-color:var(--color-zinc-700)}.border-zinc-800{border-color:var(--color-zinc-800)}.border-zinc-800\/30{border-color:#27272a4d}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/30{border-color:color-mix(in oklab, var(--color-zinc-800) 30%, transparent)}}.border-zinc-800\/50{border-color:#27272a80}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/50{border-color:color-mix(in oklab, var(--color-zinc-800) 50%, transparent)}}.border-zinc-800\/60{border-color:#27272a99}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/60{border-color:color-mix(in oklab, var(--color-zinc-800) 60%, transparent)}}.bg-\[\#0a0a0a\]{background-color:#0a0a0a}.bg-\[\#050505\]{background-color:#050505}.bg-amber-500\/10{background-color:#f99c001a}@supports (color:color-mix(in lab, red, red)){.bg-amber-500\/10{background-color:color-mix(in oklab, var(--color-amber-500) 10%, transparent)}}.bg-emerald-500\/10{background-color:#00bb7f1a}@supports (color:color-mix(in lab, red, red)){.bg-emerald-500\/10{background-color:color-mix(in oklab, var(--color-emerald-500) 10%, transparent)}}.bg-red-500\/10{background-color:#fb2c361a}@supports (color:color-mix(in lab, red, red)){.bg-red-500\/10{background-color:color-mix(in oklab, var(--color-red-500) 10%, transparent)}}.bg-transparent{background-color:#0000}.bg-zinc-100{background-color:var(--color-zinc-100)}.bg-zinc-900{background-color:var(--color-zinc-900)}.bg-zinc-950{background-color:var(--color-zinc-950)}.bg-zinc-950\/30{background-color:#09090b4d}@supports (color:color-mix(in lab, red, red)){.bg-zinc-950\/30{background-color:color-mix(in oklab, var(--color-zinc-950) 30%, transparent)}}.bg-zinc-950\/50{background-color:#09090b80}@supports (color:color-mix(in lab, red, red)){.bg-zinc-950\/50{background-color:color-mix(in oklab, var(--color-zinc-950) 50%, transparent)}}.p-1\.5{padding:calc(var(--spacing) * 1.5)}.p-2{padding:calc(var(--spacing) * 2)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.px-6{padding-inline:calc(var(--spacing) * 6)}.py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-3{padding-block:calc(var(--spacing) * 3)}.py-5{padding-block:calc(var(--spacing) * 5)}.pt-0\.5{padding-top:calc(var(--spacing) * .5)}.pt-1\.5{padding-top:calc(var(--spacing) * 1.5)}.text-left{text-align:left}.font-mono{font-family:var(--font-mono)}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-tight{--tw-tracking:var(--tracking-tight);letter-spacing:var(--tracking-tight)}.tracking-wider{--tw-tracking:var(--tracking-wider);letter-spacing:var(--tracking-wider)}.whitespace-pre-wrap{white-space:pre-wrap}.text-amber-400{color:var(--color-amber-400)}.text-emerald-400{color:var(--color-emerald-400)}.text-red-400{color:var(--color-red-400)}.text-zinc-100{color:var(--color-zinc-100)}.text-zinc-200{color:var(--color-zinc-200)}.text-zinc-300{color:var(--color-zinc-300)}.text-zinc-400{color:var(--color-zinc-400)}.text-zinc-500{color:var(--color-zinc-500)}.text-zinc-600{color:var(--color-zinc-600)}.text-zinc-700{color:var(--color-zinc-700)}.text-zinc-950{color:var(--color-zinc-950)}.uppercase{text-transform:uppercase}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-50{opacity:.5}.outline-none{--tw-outline-style:none;outline-style:none}.placeholder\:text-zinc-700::placeholder{color:var(--color-zinc-700)}@media (hover:hover){.hover\:border-red-800:hover{border-color:var(--color-red-800)}.hover\:border-zinc-600:hover{border-color:var(--color-zinc-600)}.hover\:border-zinc-700:hover{border-color:var(--color-zinc-700)}.hover\:bg-zinc-200:hover{background-color:var(--color-zinc-200)}.hover\:text-red-400:hover{color:var(--color-red-400)}.hover\:text-zinc-200:hover{color:var(--color-zinc-200)}.hover\:text-zinc-300:hover{color:var(--color-zinc-300)}}.focus\:border-zinc-700:focus{border-color:var(--color-zinc-700)}.focus\:ring-1:focus{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.focus\:ring-zinc-700\/30:focus{--tw-ring-color:#3f3f464d}@supports (color:color-mix(in lab, red, red)){.focus\:ring-zinc-700\/30:focus{--tw-ring-color:color-mix(in oklab, var(--color-zinc-700) 30%, transparent)}}.data-\[active\=true\]\:border-b-2[data-active=true]{border-bottom-style:var(--tw-border-style);border-bottom-width:2px}.data-\[active\=true\]\:border-zinc-400[data-active=true]{border-color:var(--color-zinc-400)}.data-\[active\=true\]\:text-zinc-100[data-active=true]{color:var(--color-zinc-100)}@media (min-width:40rem){.sm\:flex{display:flex}.sm\:inline{display:inline}}@media (min-width:64rem){.lg\:grid-cols-\[1fr_380px\]{grid-template-columns:1fr 380px}}}@property --tw-border-style{syntax:""*"";inherits:false;initial-value:solid}@property --tw-leading{syntax:""*"";inherits:false}@property --tw-font-weight{syntax:""*"";inherits:false}@property --tw-tracking{syntax:""*"";inherits:false}@property --tw-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:""*"";inherits:false}@property --tw-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:""*"";inherits:false}@property --tw-inset-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:""*"";inherits:false}@property --tw-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:""*"";inherits:false}@property --tw-inset-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:""*"";inherits:false}@property --tw-ring-offset-width{syntax:""<length>"";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:""*"";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}</style>
+@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-border-style:solid;--tw-leading:initial;--tw-font-weight:initial;--tw-tracking:initial;--tw-blur:initial;--tw-brightness:initial;--tw-contrast:initial;--tw-grayscale:initial;--tw-hue-rotate:initial;--tw-invert:initial;--tw-opacity:initial;--tw-saturate:initial;--tw-sepia:initial;--tw-drop-shadow:initial;--tw-drop-shadow-color:initial;--tw-drop-shadow-alpha:100%;--tw-drop-shadow-size:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000}}}@layer theme{:root,:host{--font-sans:system-ui, -apple-system, BlinkMacSystemFont, ""Segoe UI"", sans-serif;--font-mono:ui-monospace, SFMono-Regular, Consolas, ""Liberation Mono"", monospace;--color-red-400:oklch(70.4% .191 22.216);--color-red-500:oklch(63.7% .237 25.331);--color-red-800:oklch(44.4% .177 26.899);--color-amber-400:oklch(82.8% .189 84.429);--color-amber-500:oklch(76.9% .188 70.08);--color-emerald-400:oklch(76.5% .177 163.223);--color-emerald-500:oklch(69.6% .17 162.48);--color-emerald-600:oklch(59.6% .145 163.225);--color-emerald-800:oklch(43.2% .095 166.913);--color-emerald-950:oklch(26.2% .051 172.552);--color-zinc-100:oklch(96.7% .001 286.375);--color-zinc-200:oklch(92% .004 286.32);--color-zinc-300:oklch(87.1% .006 286.286);--color-zinc-400:oklch(70.5% .015 286.067);--color-zinc-500:oklch(55.2% .016 285.938);--color-zinc-600:oklch(44.2% .017 285.786);--color-zinc-700:oklch(37% .013 285.805);--color-zinc-800:oklch(27.4% .006 286.033);--color-zinc-900:oklch(21% .006 285.885);--color-zinc-950:oklch(14.1% .005 285.823);--color-black:#000;--color-white:#fff;--spacing:.25rem;--container-sm:24rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--text-base:1rem;--text-base--line-height:calc(1.5 / 1);--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--tracking-tight:-.025em;--tracking-wider:.05em;--leading-relaxed:1.625;--radius-md:.375rem;--radius-lg:.5rem;--animate-spin:spin 1s linear infinite;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif, system-ui, sans-serif, ""Apple Color Emoji"", ""Segoe UI Emoji"", ""Segoe UI Symbol"", ""Noto Color Emoji"");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, ""Liberation Mono"", ""Courier New"", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}body{letter-spacing:0}}@layer components;@layer utilities{.fixed{position:fixed}.inset-0{inset:calc(var(--spacing) * 0)}.z-50{z-index:50}.container{width:100%}@media (min-width:40rem){.container{max-width:40rem}}@media (min-width:48rem){.container{max-width:48rem}}@media (min-width:64rem){.container{max-width:64rem}}@media (min-width:80rem){.container{max-width:80rem}}@media (min-width:96rem){.container{max-width:96rem}}.mx-auto{margin-inline:auto}.mt-0\.5{margin-top:calc(var(--spacing) * .5)}.mt-1{margin-top:calc(var(--spacing) * 1)}.mt-1\.5{margin-top:calc(var(--spacing) * 1.5)}.mt-2{margin-top:calc(var(--spacing) * 2)}.mt-3{margin-top:calc(var(--spacing) * 3)}.mb-1{margin-bottom:calc(var(--spacing) * 1)}.mb-1\.5{margin-bottom:calc(var(--spacing) * 1.5)}.mb-2{margin-bottom:calc(var(--spacing) * 2)}.mb-3{margin-bottom:calc(var(--spacing) * 3)}.mb-6{margin-bottom:calc(var(--spacing) * 6)}.ml-auto{margin-left:auto}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.h-2{height:calc(var(--spacing) * 2)}.h-3{height:calc(var(--spacing) * 3)}.h-4{height:calc(var(--spacing) * 4)}.h-6{height:calc(var(--spacing) * 6)}.h-7{height:calc(var(--spacing) * 7)}.h-8{height:calc(var(--spacing) * 8)}.h-9{height:calc(var(--spacing) * 9)}.max-h-72{max-height:calc(var(--spacing) * 72)}.max-h-\[240px\]{max-height:240px}.max-h-\[360px\]{max-height:360px}.max-h-\[460px\]{max-height:460px}.max-h-\[480px\]{max-height:480px}.max-h-\[500px\]{max-height:500px}.max-h-\[640px\]{max-height:640px}.min-h-\[22px\]{min-height:22px}.min-h-\[180px\]{min-height:180px}.min-h-\[360px\]{min-height:360px}.min-h-\[calc\(100vh-53px\)\]{min-height:calc(100vh - 53px)}.min-h-screen{min-height:100vh}.w-2{width:calc(var(--spacing) * 2)}.w-3{width:calc(var(--spacing) * 3)}.w-4{width:calc(var(--spacing) * 4)}.w-6{width:calc(var(--spacing) * 6)}.w-10{width:calc(var(--spacing) * 10)}.w-14{width:calc(var(--spacing) * 14)}.w-24{width:calc(var(--spacing) * 24)}.w-36{width:calc(var(--spacing) * 36)}.w-full{width:100%}.max-w-\[160px\]{max-width:160px}.max-w-\[1600px\]{max-width:1600px}.max-w-sm{max-width:var(--container-sm)}.min-w-0{min-width:calc(var(--spacing) * 0)}.min-w-\[100px\]{min-width:100px}.flex-1{flex:1}.shrink-0{flex-shrink:0}.animate-spin{animation:var(--animate-spin)}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-wrap{flex-wrap:wrap}.content-start{align-content:flex-start}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.gap-0\.5{gap:calc(var(--spacing) * .5)}.gap-1{gap:calc(var(--spacing) * 1)}.gap-1\.5{gap:calc(var(--spacing) * 1.5)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-5{gap:calc(var(--spacing) * 5)}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-y-0\.5{row-gap:calc(var(--spacing) * .5)}.truncate{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.rounded{border-radius:.25rem}.rounded-full{border-radius:3.40282e38px}.rounded-lg{border-radius:var(--radius-lg)}.rounded-md{border-radius:var(--radius-md)}.border{border-style:var(--tw-border-style);border-width:1px}.border-0{border-style:var(--tw-border-style);border-width:0}.border-2{border-style:var(--tw-border-style);border-width:2px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-amber-500\/20{border-color:#f99c0033}@supports (color:color-mix(in lab, red, red)){.border-amber-500\/20{border-color:color-mix(in oklab, var(--color-amber-500) 20%, transparent)}}.border-emerald-500\/20{border-color:#00bb7f33}@supports (color:color-mix(in lab, red, red)){.border-emerald-500\/20{border-color:color-mix(in oklab, var(--color-emerald-500) 20%, transparent)}}.border-red-500\/20{border-color:#fb2c3633}@supports (color:color-mix(in lab, red, red)){.border-red-500\/20{border-color:color-mix(in oklab, var(--color-red-500) 20%, transparent)}}.border-zinc-700{border-color:var(--color-zinc-700)}.border-zinc-800{border-color:var(--color-zinc-800)}.border-zinc-800\/30{border-color:#27272a4d}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/30{border-color:color-mix(in oklab, var(--color-zinc-800) 30%, transparent)}}.border-zinc-800\/50{border-color:#27272a80}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/50{border-color:color-mix(in oklab, var(--color-zinc-800) 50%, transparent)}}.border-zinc-800\/60{border-color:#27272a99}@supports (color:color-mix(in lab, red, red)){.border-zinc-800\/60{border-color:color-mix(in oklab, var(--color-zinc-800) 60%, transparent)}}.border-zinc-900{border-color:var(--color-zinc-900)}.border-zinc-900\/80{border-color:#18181bcc}@supports (color:color-mix(in lab, red, red)){.border-zinc-900\/80{border-color:color-mix(in oklab, var(--color-zinc-900) 80%, transparent)}}.border-t-zinc-300{border-top-color:var(--color-zinc-300)}.bg-\[\#0a0a0a\]{background-color:#0a0a0a}.bg-\[\#0d0d0d\]{background-color:#0d0d0d}.bg-\[\#000\]{background-color:#000}.bg-\[\#050505\]{background-color:#050505}.bg-amber-500\/10{background-color:#f99c001a}@supports (color:color-mix(in lab, red, red)){.bg-amber-500\/10{background-color:color-mix(in oklab, var(--color-amber-500) 10%, transparent)}}.bg-black\/60{background-color:#0009}@supports (color:color-mix(in lab, red, red)){.bg-black\/60{background-color:color-mix(in oklab, var(--color-black) 60%, transparent)}}.bg-emerald-500\/10{background-color:#00bb7f1a}@supports (color:color-mix(in lab, red, red)){.bg-emerald-500\/10{background-color:color-mix(in oklab, var(--color-emerald-500) 10%, transparent)}}.bg-emerald-600{background-color:var(--color-emerald-600)}.bg-red-500\/10{background-color:#fb2c361a}@supports (color:color-mix(in lab, red, red)){.bg-red-500\/10{background-color:color-mix(in oklab, var(--color-red-500) 10%, transparent)}}.bg-transparent{background-color:#0000}.bg-white{background-color:var(--color-white)}.bg-zinc-100{background-color:var(--color-zinc-100)}.bg-zinc-900{background-color:var(--color-zinc-900)}.bg-zinc-950{background-color:var(--color-zinc-950)}.bg-zinc-950\/30{background-color:#09090b4d}@supports (color:color-mix(in lab, red, red)){.bg-zinc-950\/30{background-color:color-mix(in oklab, var(--color-zinc-950) 30%, transparent)}}.bg-zinc-950\/50{background-color:#09090b80}@supports (color:color-mix(in lab, red, red)){.bg-zinc-950\/50{background-color:color-mix(in oklab, var(--color-zinc-950) 50%, transparent)}}.bg-zinc-950\/80{background-color:#09090bcc}@supports (color:color-mix(in lab, red, red)){.bg-zinc-950\/80{background-color:color-mix(in oklab, var(--color-zinc-950) 80%, transparent)}}.p-0{padding:calc(var(--spacing) * 0)}.p-1\.5{padding:calc(var(--spacing) * 1.5)}.p-2{padding:calc(var(--spacing) * 2)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.p-6{padding:calc(var(--spacing) * 6)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.px-6{padding-inline:calc(var(--spacing) * 6)}.py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-2\.5{padding-block:calc(var(--spacing) * 2.5)}.py-3{padding-block:calc(var(--spacing) * 3)}.py-4{padding-block:calc(var(--spacing) * 4)}.py-5{padding-block:calc(var(--spacing) * 5)}.pt-0\.5{padding-top:calc(var(--spacing) * .5)}.pt-1\.5{padding-top:calc(var(--spacing) * 1.5)}.pt-2{padding-top:calc(var(--spacing) * 2)}.pb-1{padding-bottom:calc(var(--spacing) * 1)}.text-center{text-align:center}.text-left{text-align:left}.font-mono{font-family:var(--font-mono)}.text-base{font-size:var(--text-base);line-height:var(--tw-leading,var(--text-base--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.text-\[9px\]{font-size:9px}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.leading-none{--tw-leading:1;line-height:1}.leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.font-bold{--tw-font-weight:var(--font-weight-bold);font-weight:var(--font-weight-bold)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-tight{--tw-tracking:var(--tracking-tight);letter-spacing:var(--tracking-tight)}.tracking-wider{--tw-tracking:var(--tracking-wider);letter-spacing:var(--tracking-wider)}.break-all{word-break:break-all}.whitespace-pre-wrap{white-space:pre-wrap}.text-amber-400{color:var(--color-amber-400)}.text-black{color:var(--color-black)}.text-emerald-400{color:var(--color-emerald-400)}.text-emerald-500{color:var(--color-emerald-500)}.text-red-400{color:var(--color-red-400)}.text-zinc-100{color:var(--color-zinc-100)}.text-zinc-200{color:var(--color-zinc-200)}.text-zinc-300{color:var(--color-zinc-300)}.text-zinc-400{color:var(--color-zinc-400)}.text-zinc-500{color:var(--color-zinc-500)}.text-zinc-600{color:var(--color-zinc-600)}.text-zinc-700{color:var(--color-zinc-700)}.text-zinc-950{color:var(--color-zinc-950)}.uppercase{text-transform:uppercase}.underline{text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.accent-zinc-500{accent-color:var(--color-zinc-500)}.opacity-50{opacity:.5}.filter{filter:var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,)}.outline-none{--tw-outline-style:none;outline-style:none}.select-none{-webkit-user-select:none;user-select:none}.placeholder\:text-zinc-700::placeholder{color:var(--color-zinc-700)}@media (hover:hover){.hover\:border-emerald-800:hover{border-color:var(--color-emerald-800)}.hover\:border-red-800:hover{border-color:var(--color-red-800)}.hover\:border-zinc-600:hover{border-color:var(--color-zinc-600)}.hover\:border-zinc-700:hover{border-color:var(--color-zinc-700)}.hover\:bg-emerald-500:hover{background-color:var(--color-emerald-500)}.hover\:bg-emerald-950\/30:hover{background-color:#002c224d}@supports (color:color-mix(in lab, red, red)){.hover\:bg-emerald-950\/30:hover{background-color:color-mix(in oklab, var(--color-emerald-950) 30%, transparent)}}.hover\:bg-zinc-200:hover{background-color:var(--color-zinc-200)}.hover\:text-red-400:hover{color:var(--color-red-400)}.hover\:text-zinc-200:hover{color:var(--color-zinc-200)}.hover\:text-zinc-300:hover{color:var(--color-zinc-300)}.hover\:text-zinc-400:hover{color:var(--color-zinc-400)}}.focus\:border-zinc-700:focus{border-color:var(--color-zinc-700)}.focus\:ring-1:focus{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.focus\:ring-zinc-700\/30:focus{--tw-ring-color:#3f3f464d}@supports (color:color-mix(in lab, red, red)){.focus\:ring-zinc-700\/30:focus{--tw-ring-color:color-mix(in oklab, var(--color-zinc-700) 30%, transparent)}}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-50:disabled{opacity:.5}.data-\[active\=true\]\:border-b-2[data-active=true]{border-bottom-style:var(--tw-border-style);border-bottom-width:2px}.data-\[active\=true\]\:border-zinc-400[data-active=true]{border-color:var(--color-zinc-400)}.data-\[active\=true\]\:text-zinc-100[data-active=true]{color:var(--color-zinc-100)}@media (min-width:40rem){.sm\:inline{display:inline}}@media (min-width:64rem){.lg\:grid-cols-\[1fr_380px\]{grid-template-columns:1fr 380px}}}@property --tw-border-style{syntax:""*"";inherits:false;initial-value:solid}@property --tw-leading{syntax:""*"";inherits:false}@property --tw-font-weight{syntax:""*"";inherits:false}@property --tw-tracking{syntax:""*"";inherits:false}@property --tw-blur{syntax:""*"";inherits:false}@property --tw-brightness{syntax:""*"";inherits:false}@property --tw-contrast{syntax:""*"";inherits:false}@property --tw-grayscale{syntax:""*"";inherits:false}@property --tw-hue-rotate{syntax:""*"";inherits:false}@property --tw-invert{syntax:""*"";inherits:false}@property --tw-opacity{syntax:""*"";inherits:false}@property --tw-saturate{syntax:""*"";inherits:false}@property --tw-sepia{syntax:""*"";inherits:false}@property --tw-drop-shadow{syntax:""*"";inherits:false}@property --tw-drop-shadow-color{syntax:""*"";inherits:false}@property --tw-drop-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-drop-shadow-size{syntax:""*"";inherits:false}@property --tw-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:""*"";inherits:false}@property --tw-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:""*"";inherits:false}@property --tw-inset-shadow-alpha{syntax:""<percentage>"";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:""*"";inherits:false}@property --tw-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:""*"";inherits:false}@property --tw-inset-ring-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:""*"";inherits:false}@property --tw-ring-offset-width{syntax:""<length>"";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:""*"";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:""*"";inherits:false;initial-value:0 0 #0000}@keyframes spin{to{transform:rotate(360deg)}}</style>
 </head>
 <body class=""min-h-screen bg-[#050505] text-zinc-100 antialiased"">
   <header class=""border-b border-zinc-800/60 bg-[#0a0a0a]"">
@@ -19,518 +19,1317 @@ internal static class EmbeddedWebConsole
       <div class=""flex items-center gap-4"">
         <div class=""flex items-center gap-2""><span class=""h-2 w-2 rounded-full bg-zinc-100""></span>
           <h1 class=""text-sm font-semibold tracking-tight text-zinc-100"">CU.RemoteConsole</h1></div>
-        <span class=""hidden text-xs text-zinc-600 sm:inline"">v1.2.0</span></div>
+        <span class=""hidden text-xs text-zinc-600 sm:inline"">v1.2.1</span></div>
       <div class=""flex items-center gap-3"">
         <select id=""language"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs text-zinc-400 outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700/30"">
           <option value=""auto"">Auto</option><option value=""en"">English</option><option value=""zh"">中文</option></select>
         <div id=""healthPills"" class=""flex items-center gap-1.5""></div></div></div></header>
-  <main class=""mx-auto grid max-w-[1600px] grid-cols-1 items-start gap-5 px-6 py-5 lg:grid-cols-[1fr_380px]"">
-    <div class=""grid gap-5"">
-      <div class=""flex items-center gap-3 rounded-lg border border-zinc-800/50 bg-[#0a0a0a] px-4 py-3"">
-        <div class=""flex flex-1 items-center gap-2"">
-          <span class=""text-xs font-medium text-zinc-500"" data-i18n=""token"">Token</span>
-          <input id=""token"" type=""password"" autocomplete=""off"" data-i18n-placeholder=""tokenPlaceholder"" class=""h-8 flex-1 rounded-md border border-zinc-800 bg-zinc-950/50 px-3 font-mono text-xs text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
-        </div>
-        <div class=""hidden items-center gap-2 sm:flex"">
-          <span class=""text-xs font-medium text-zinc-500"" data-i18n=""endpoint"">Endpoint</span>
-          <input id=""endpoint"" autocomplete=""off"" inputmode=""url"" data-i18n-placeholder=""endpointPlaceholder"" class=""h-8 w-44 rounded-md border border-zinc-800 bg-zinc-950/50 px-3 font-mono text-xs text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
-        </div>
-        <button id=""refresh"" class=""h-8 shrink-0 rounded-md border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"" data-i18n=""refresh"">Refresh</button>
+
+  <!-- Loading overlay (shown during reconnect / initial verify) -->
+  <div id=""loadingOverlay"" class=""hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60"">
+    <div class=""rounded-lg border border-zinc-800/50 bg-[#0a0a0a] px-6 py-4"">
+      <div class=""flex items-center gap-3"">
+        <span class=""inline-block h-4 w-4 animate-spin rounded-full border-2 border-zinc-700 border-t-zinc-300""></span>
+        <span class=""text-sm text-zinc-400"" id=""loadingText"">Verifying...</span>
       </div>
-      <div class=""overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]"">
-        <div class=""border-b border-zinc-800/30 px-4 py-2""><span class=""text-xs font-medium text-zinc-500"" data-i18n=""command"">Command</span></div>
-        <textarea id=""command"" spellcheck=""false"" data-i18n-placeholder=""commandPlaceholder"" class=""min-h-24 w-full resize-y bg-transparent px-4 py-3 font-mono text-sm leading-relaxed text-zinc-200 outline-none placeholder:text-zinc-700"">help</textarea>
-        <div class=""flex items-center justify-between border-t border-zinc-800/30 px-4 py-2"">
-          <kbd class=""hidden text-xs text-zinc-700 sm:inline"">Ctrl+Enter</kbd>
-          <div class=""flex gap-2"">
-            <button id=""clear"" class=""h-8 rounded-md border border-zinc-800 bg-zinc-950 px-4 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""clearOutput"">Clear</button>
-            <button id=""send"" class=""h-8 rounded-md bg-zinc-100 px-4 text-xs font-semibold text-zinc-950 hover:bg-zinc-200"" data-i18n=""submit"">Run</button>
-            <button id=""saveSnippet"" class=""h-8 rounded-md border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""saveSnippet"">Save</button></div></div></div>
-      <div class=""overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]"">
-        <div class=""flex items-center justify-between border-b border-zinc-800/30 px-4 py-2"">
-          <div class=""flex items-center gap-2"">
-            <span class=""text-xs font-medium text-zinc-500"" data-i18n=""outputTitle"">Output</span>
-            <span id=""lastResult"" class=""text-xs text-zinc-700""></span></div>
-          <div class=""flex items-center gap-2"">
-            <input id=""queueId"" autocomplete=""off"" data-i18n-placeholder=""queuePlaceholder"" class=""h-7 w-36 rounded-md border border-zinc-800 bg-zinc-950/50 px-2 font-mono text-xs text-zinc-400 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
-            <button id=""lookup"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""lookup"">Lookup</button></div></div>
-        <div id=""output"" class=""grid min-h-[360px] max-h-[600px] content-start gap-2 overflow-auto p-4""></div></div></div>
-    <aside class=""grid gap-5 content-start"">
-      <div class=""overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]"">
-        <div class=""flex border-b border-zinc-800/30"">
-          <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""status"" data-i18n=""statusPanel"">Status</button>
-          <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""catalog"" data-i18n=""commandCatalog"">Commands</button>
-          <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""history"" data-i18n=""recent"">History</button>
-          <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""manual"" data-i18n=""manual"">Manual</button>
+    </div>
+  </div>
+
+  <!-- Login screen -->
+  <div id=""loginScreen"" class=""flex items-center justify-center min-h-[calc(100vh-53px)] px-6"">
+    <div class=""w-full max-w-sm rounded-lg border border-zinc-800/50 bg-[#0a0a0a] p-6"">
+      <div class=""text-center mb-6"">
+        <div class=""flex items-center justify-center gap-2 mb-3"">
+          <span class=""h-3 w-3 rounded-full bg-zinc-100""></span>
+          <h2 class=""text-base font-semibold text-zinc-100"">CU.RemoteConsole</h2>
         </div>
-        <div id=""tab-status"" class=""tab-panel p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600"" data-i18n=""reload"">Refresh on connect</span><button id=""status"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"">Reload</button></div><div id=""statusPanel"" class=""grid gap-2""></div></div>
-        <div id=""tab-catalog"" class=""tab-panel hidden p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600"">Click to fill command</span><button id=""catalog"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""reload"">Reload</button></div><div id=""catalogList"" class=""grid max-h-[480px] gap-3 overflow-auto""></div></div>
-        <div id=""tab-history"" class=""tab-panel hidden p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600""><span data-i18n=""apiTools"">API</span> <span data-i18n=""health"">Health</span></span><div class=""flex gap-2""><button id=""health"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""health"">Health</button><button id=""history"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""recent"">Recent</button></div></div><div id=""recent"" class=""grid max-h-[480px] gap-2 overflow-auto""></div><div class=""flex items-center justify-between mt-3 mb-1.5""><span class=""text-xs font-medium text-zinc-500"" data-i18n=""snippets"">Saved</span></div><div id=""snippetList"" class=""grid max-h-[200px] gap-1.5 overflow-auto""></div></div>
-        <div id=""tab-manual"" class=""tab-panel hidden p-4""><div class=""mb-3""><input id=""manualSearch"" autocomplete=""off"" placeholder=""Search commands&hellip;"" class=""h-8 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-3 text-xs text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700""></div><div id=""manualList"" class=""grid max-h-[500px] gap-4 overflow-auto""></div></div>
-      </div></aside></main>
-  <script>    const dict = {
-      en: {
-        subtitle: 'Local command panel for Casualties: Unknown',
-        token: 'Token', endpoint: 'Endpt', refresh: 'Refresh',
-        command: 'Command', submit: 'Run', clearOutput: 'Clear',
-        queueId: 'Queue ID', lookup: 'Lookup',
-        recent: 'History', health: 'Health',
-        accepted: 'accepted', output: 'output', outputTitle: 'Output',
-        apiTools: 'API',
-        tokenPlaceholder: 'Paste bearer token', endpointPlaceholder: 'http://127.0.0.1:8848',
-        commandPlaceholder: 'Type a command\u2026', queuePlaceholder: 'Queue ID',
-        bridge: 'bridge', latency: 'latency',
-        noOutput: 'No output returned.', noHistory: 'No recent commands.',
-        commandCatalog: 'Commands', reload: 'Reload',
-        safeCommands: 'Safe', stateChangingCommands: 'State-changing',
-        dangerousCommands: 'Dangerous', unknownCommands: 'Unknown',
-        noCatalog: 'Command catalog unavailable.',
-        allowed: 'allowed', denied: 'denied',
-        allowedReason: 'Allowed by safe allowlist',
-        stateChangingReason: 'Requires explicit future opt-in',
-        dangerousReason: 'Denied by default',
-        commandNotAllowlistedReason: 'Not allowlisted',
-        extraAllowlistedReason: 'Allowed by local config',
-        statusPanel: 'Status', network: 'Network', security: 'Security',
-        limits: 'Limits', runtime: 'Runtime', policy: 'Policy',
-        noStatus: 'Status unavailable.',
-        enabled: 'enabled', disabled: 'disabled', yes: 'yes', no: 'no',
-        copyOutput: 'Copy', copied: 'copied',
-        outputLines: 'lines', truncated: 'truncated', commandAccepted: 'accepted',
-        manual: 'Manual', saveSnippet: 'Save',
-        snippetName: 'Snippet name:', snippets: 'Saved',
-        noSnippets: 'No saved snippets.', noManualData: 'No results.',
-        delete: 'Del'
-      },
-      zh: {
-        subtitle: 'Casualties: Unknown \u672c\u5730\u547d\u4ee4\u9762\u677f',
-        token: '\u4ee4\u724c', endpoint: '\u7aef\u70b9', refresh: '\u5237\u65b0',
-        command: '\u547d\u4ee4', submit: '\u6267\u884c', clearOutput: '\u6e05\u7a7a',
-        queueId: '\u961f\u5217 ID', lookup: '\u67e5\u8be2',
-        recent: '\u5386\u53f2', health: '\u5065\u5eb7',
-        accepted: '\u5df2\u63a5\u6536', output: '\u8f93\u51fa', outputTitle: '\u8f93\u51fa',
-        apiTools: 'API',
-        tokenPlaceholder: '\u7c98\u8d34 Bearer token', endpointPlaceholder: 'http://127.0.0.1:8848',
-        commandPlaceholder: '\u8f93\u5165\u547d\u4ee4\u2026', queuePlaceholder: '\u961f\u5217 ID',
-        bridge: '\u6865\u63a5', latency: '\u5ef6\u8fdf',
-        noOutput: '\u6ca1\u6709\u8fd4\u56de\u8f93\u51fa\u3002', noHistory: '\u6682\u65e0\u6700\u8fd1\u547d\u4ee4\u3002',
-        commandCatalog: '\u547d\u4ee4\u76ee\u5f55', reload: '\u91cd\u65b0\u52a0\u8f7d',
-        safeCommands: '\u5b89\u5168', stateChangingCommands: '\u4f1a\u4fee\u6539\u72b6\u6001',
-        dangerousCommands: '\u5371\u9669', unknownCommands: '\u672a\u77e5',
-        noCatalog: '\u547d\u4ee4\u76ee\u5f55\u4e0d\u53ef\u7528\u3002',
-        allowed: '\u5141\u8bb8', denied: '\u7981\u6b62',
-        allowedReason: '\u5b89\u5168\u767d\u540d\u5355\u5141\u8bb8',
-        stateChangingReason: '\u9700\u8981\u540e\u7eed\u663e\u5f0f\u542f\u7528',
-        dangerousReason: '\u9ed8\u8ba4\u7981\u6b62',
-        commandNotAllowlistedReason: '\u672a\u5728\u767d\u540d\u5355\u4e2d',
-        extraAllowlistedReason: '\u672c\u5730\u914d\u7f6e\u5141\u8bb8',
-        statusPanel: '\u72b6\u6001', network: '\u7f51\u7edc', security: '\u5b89\u5168',
-        limits: '\u9650\u5236', runtime: '\u8fd0\u884c\u65f6', policy: '\u7b56\u7565',
-        noStatus: '\u72b6\u6001\u4e0d\u53ef\u7528\u3002',
-        enabled: '\u542f\u7528', disabled: '\u7981\u7528', yes: '\u662f', no: '\u5426',
-        copyOutput: '\u590d\u5236', copied: '\u5df2\u590d\u5236',
-        outputLines: '\u884c', truncated: '\u5df2\u622a\u65ad', commandAccepted: '\u5df2\u63a5\u6536',
-        manual: '\u624b\u518c', saveSnippet: '\u4fdd\u5b58',
-        snippetName: '\u7247\u6bb5\u540d\u79f0\uff1a', snippets: '\u5df2\u4fdd\u5b58',
-        noSnippets: '\u6ca1\u6709\u5df2\u4fdd\u5b58\u7684\u547d\u4ee4\u7247\u6bb5\u3002', noManualData: '\u6ca1\u6709\u5339\u914d\u7ed3\u679c\u3002',
-        delete: '\u5220\u9664'
-      }
-    };
-    const el = id => document.getElementById(id);
-    const token = el('token');
-    const endpoint = el('endpoint');
-    const command = el('command');
-    const queueId = el('queueId');
-    const output = el('output');
-    const recent = el('recent');
-    const catalogList = el('catalogList');
-    const statusPanel = el('statusPanel');
-    const lastResult = el('lastResult');
-    const healthPills = el('healthPills');
-    const language = el('language');
-    let lastCatalogItems = null;
-    let lastStatus = null;
-    let activeTab = 'status';
-    let commandHistory = [];
-    let historyIndex = -1;
-    let savedInput = '';
-    token.value = sessionStorage.getItem('cu.remoteconsole.token') || '';
-    endpoint.value = localStorage.getItem('cu.remoteconsole.endpoint') || '';
-    language.value = localStorage.getItem('cu.remoteconsole.language') || 'auto';
-    token.addEventListener('input', () => sessionStorage.setItem('cu.remoteconsole.token', token.value));
-    endpoint.addEventListener('input', () => localStorage.setItem('cu.remoteconsole.endpoint', endpoint.value.trim()));
-    language.addEventListener('change', () => { localStorage.setItem('cu.remoteconsole.language', language.value); applyLanguage(); });
-    function lang() {
-      const s = language.value;
-      if (s !== 'auto') return s;
-      return navigator.language && navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+        <p class=""text-xs text-zinc-600"" data-i18n=""subtitle"">Local command panel for Casualties: Unknown</p>
+      </div>
+      <div class=""grid gap-3"">
+        <div>
+          <label class=""mb-1 block text-[11px] font-medium text-zinc-500"" data-i18n=""token"">Token</label>
+          <input id=""loginToken"" type=""password"" autocomplete=""off"" data-i18n-placeholder=""tokenPlaceholder"" class=""h-9 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-3 font-mono text-sm text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+        </div>
+        <div>
+          <label class=""mb-1 block text-[11px] font-medium text-zinc-500"" data-i18n=""endpoint"">Endpoint</label>
+          <input id=""loginEndpoint"" autocomplete=""off"" inputmode=""url"" data-i18n-placeholder=""endpointPlaceholder"" class=""h-9 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-3 font-mono text-sm text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+          <p class=""mt-1 text-[10px] text-zinc-700"" data-i18n=""endpointHint"">Leave empty for localhost:8848</p>
+        </div>
+        <div id=""loginError""></div>
+        <button id=""connectBtn"" class=""mt-2 h-9 w-full rounded-md bg-zinc-100 px-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 disabled:opacity-50 disabled:cursor-not-allowed"" data-i18n=""connect"">Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main UI (hidden until connected) -->
+  <div id=""mainUI"" class=""hidden"">
+    <main class=""mx-auto grid max-w-[1600px] grid-cols-1 items-start gap-5 px-6 py-5 lg:grid-cols-[1fr_380px]"">
+      <div class=""grid gap-5"">
+        <!-- Terminal panel -->
+        <div class=""overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]"">
+          <!-- Title bar -->
+          <div class=""flex items-center gap-3 border-b border-zinc-800/30 bg-[#0d0d0d] px-4 py-2.5"">
+            <span class=""text-xs font-medium text-zinc-500 terminal-title"" data-i18n=""subtitle"">CU.RemoteConsole Terminal</span>
+            <span id=""hostDisplay"" class=""ml-auto truncate text-[10px] font-mono text-zinc-600 max-w-[160px]"" title=""""></span>
+            <button id=""toggleSettings"" class=""h-6 w-6 rounded border border-zinc-800 bg-transparent text-xs text-zinc-600 hover:text-zinc-300 hover:border-zinc-700 leading-none"" data-i18n-title=""switchHost"" title=""Switch host / key"">&#9881;</button>
+            <button id=""disconnectBtn"" class=""h-6 rounded border border-zinc-800 bg-transparent px-2 text-[10px] font-mono text-zinc-700 hover:text-red-400 hover:border-red-800"" data-i18n=""disconnect"">Disconnect</button>
+          </div>
+          <!-- Settings bar (hidden, toggled by gear) -->
+          <div id=""settingsBar"" class=""hidden border-b border-zinc-900 px-4 py-2 bg-[#0d0d0d]"">
+            <div class=""flex items-center gap-2 flex-wrap"">
+              <span class=""text-[10px] text-zinc-600 w-10 shrink-0"" data-i18n=""token"">Token</span>
+              <input id=""settingsToken"" type=""password"" autocomplete=""off"" data-i18n-placeholder=""tokenPlaceholder"" class=""h-7 flex-1 min-w-[100px] rounded border border-zinc-800 bg-zinc-950/80 px-2 font-mono text-[11px] text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+              <span class=""text-[10px] text-zinc-600 w-14 shrink-0"" data-i18n=""endpoint"">Endpoint</span>
+              <input id=""settingsEndpoint"" autocomplete=""off"" inputmode=""url"" data-i18n-placeholder=""endpointPlaceholder"" class=""h-7 w-36 rounded border border-zinc-800 bg-zinc-950/80 px-2 font-mono text-[11px] text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+              <span id=""settingsError"" class=""text-[11px] text-red-400""></span>
+              <button id=""settingsApply"" class=""h-7 rounded bg-zinc-100 px-3 text-[11px] font-semibold text-zinc-950 hover:bg-zinc-200 disabled:opacity-50 disabled:cursor-not-allowed"" data-i18n=""apply"">Apply</button>
+            </div>
+          </div>
+          <!-- Terminal body -->
+          <div class=""bg-[#000] p-0"">
+            <div id=""output"" class=""grid min-h-[360px] max-h-[460px] content-start gap-2 overflow-auto p-3 font-mono text-sm leading-relaxed""></div>
+            <!-- Command input line -->
+            <div class=""flex items-start gap-2 border-t border-zinc-900 px-4 py-2.5 bg-[#050505]"">
+              <span class=""shrink-0 font-mono text-sm font-bold text-emerald-500 select-none"">&gt;</span>
+              <textarea id=""command"" spellcheck=""false"" data-i18n-placeholder=""commandPlaceholder"" class=""min-h-[22px] w-full resize-none bg-transparent p-0 font-mono text-sm text-zinc-200 outline-none placeholder:text-zinc-700 border-0"" rows=""1"">help</textarea>
+            </div>
+          </div>
+          <!-- Bottom toolbar -->
+          <div class=""flex items-center justify-between border-t border-zinc-800/30 bg-[#0d0d0d] px-4 py-2"">
+            <div class=""flex items-center gap-2"">
+              <input id=""queueId"" autocomplete=""off"" data-i18n-placeholder=""queuePlaceholder"" class=""h-6 w-24 rounded border border-zinc-800 bg-zinc-950/80 px-2 font-mono text-[11px] text-zinc-500 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+              <button id=""lookup"" class=""h-6 rounded border border-zinc-800 bg-zinc-950/80 px-2 text-[11px] font-medium text-zinc-600 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""lookup"">Lookup</button>
+            </div>
+            <div class=""flex items-center gap-2"">
+              <kbd class=""hidden text-[11px] text-zinc-700 sm:inline""><span class=""text-zinc-600"">Ctrl+</span>Enter</kbd>
+              <button id=""clear"" class=""h-7 rounded border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-600 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""clearOutput"">Clear</button>
+              <button id=""saveSnippet"" class=""h-7 rounded border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-600 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""saveSnippet"">Save</button>
+              <button id=""send"" class=""h-7 rounded bg-emerald-600 px-4 text-xs font-semibold text-black hover:bg-emerald-500"" data-i18n=""submit"">Run</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class=""grid gap-5 content-start"">
+        <div class=""overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]"">
+          <div class=""flex border-b border-zinc-800/30"">
+            <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""status"" data-i18n=""statusPanel"">Status</button>
+            <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""access"" data-i18n=""access"">Access</button>
+            <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""catalog"" data-i18n=""commandCatalog"">Commands</button>
+            <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""history"" data-i18n=""recent"">History</button>
+            <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""snippets"" data-i18n=""snippetsTab"">Snippets</button>
+            <button class=""tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100"" data-tab=""manual"" data-i18n=""manual"">Manual</button>
+          </div>
+          <div id=""tab-status"" class=""tab-panel p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600"" data-i18n=""reload"">Refresh on connect</span><button id=""status"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"">Reload</button></div><div id=""statusPanel"" class=""grid gap-2""></div></div>
+          <div id=""tab-access"" class=""tab-panel hidden p-4"">
+            <div class=""text-xs text-zinc-500 mb-3"" data-i18n=""accessTitle"">Remote Access</div>
+            <div id=""accessUrl"" class=""rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 mb-3"">
+              <div class=""text-[10px] text-zinc-700 mb-1"" data-i18n=""accessUrlLabel"">Console URL</div>
+              <div id=""accessUrlText"" class=""text-xs font-mono text-zinc-300 break-all""></div>
+            </div>
+            <label class=""flex items-center gap-2 mb-3 text-xs text-zinc-500 cursor-pointer"">
+              <input type=""checkbox"" id=""accessIncludeToken"" class=""accent-zinc-500"">
+              <span data-i18n=""includeToken"">Include token in URL</span>
+            </label>
+            <div class=""rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 mb-3"">
+              <div class=""text-[10px] text-zinc-700 mb-1"" data-i18n=""qrTitle"">QR Code</div>
+              <div id=""accessQR"" class=""flex items-center justify-center bg-white rounded-lg p-2 min-h-[180px]"">
+                <span class=""text-xs text-zinc-600"" id=""accessQRFallback""></span>
+              </div>
+            </div>
+            <button id=""refreshAccess"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""reload"">Reload</button>
+          </div>
+          <div id=""tab-catalog"" class=""tab-panel hidden p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600"">Click to fill command</span><button id=""catalog"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""reload"">Reload</button></div><div id=""catalogList"" class=""grid max-h-[480px] gap-3 overflow-auto""></div></div>
+          <div id=""tab-history"" class=""tab-panel hidden p-4""><div class=""mb-3 flex items-center justify-between""><span class=""text-xs text-zinc-600""><span data-i18n=""apiTools"">API</span> <span data-i18n=""health"">Health</span></span><div class=""flex gap-2""><button id=""health"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""health"">Health</button><button id=""history"" class=""h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"" data-i18n=""recent"">Recent</button></div></div><div id=""recent"" class=""grid max-h-[360px] gap-2 overflow-auto""></div><div class=""flex items-center justify-between mt-3 mb-1.5""><span class=""text-xs font-medium text-zinc-500"" data-i18n=""snippets"">Saved</span></div>
+            <input id=""snippetSearch"" autocomplete=""off"" data-i18n-placeholder=""snippetSearch"" class=""mb-2 h-7 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-2 text-xs text-zinc-400 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+            <div id=""snippetList"" class=""grid max-h-[240px] gap-1.5 overflow-auto""></div></div>
+          <div id=""tab-snippets"" class=""tab-panel hidden p-4"">
+            <div class=""mb-2"">
+              <input id=""snippetFullSearch"" autocomplete=""off"" data-i18n-placeholder=""snippetSearch"" class=""h-7 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-2 text-xs text-zinc-400 outline-none placeholder:text-zinc-700 focus:border-zinc-700"">
+            </div>
+            <div id=""snippetFullList"" class=""grid max-h-[640px] gap-2 overflow-auto""></div>
+          </div>
+          <div id=""tab-manual"" class=""tab-panel hidden p-4""><div class=""mb-3""><input id=""manualSearch"" autocomplete=""off"" placeholder=""Search commands&hellip;"" class=""h-8 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-3 text-xs text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700""></div><div id=""manualList"" class=""grid max-h-[500px] gap-4 overflow-auto""></div></div>
+        </div></aside></main></div>
+
+  <script>// ── i18n dictionary & language helpers ──
+const dict = {
+  en: {
+    subtitle: 'Local command panel for Casualties: Unknown',
+    token: 'Token', endpoint: 'Endpt', refresh: 'Refresh',
+    command: 'Command', submit: 'Run', clearOutput: 'Clear',
+    queueId: 'Queue ID', lookup: 'Lookup',
+    recent: 'History', health: 'Health',
+    accepted: 'accepted', output: 'output', outputTitle: 'Output',
+    apiTools: 'API',
+    tokenPlaceholder: 'Paste bearer token', endpointPlaceholder: 'localhost:8848',
+    commandPlaceholder: 'Type a command\u2026', queuePlaceholder: 'Queue ID',
+    bridge: 'bridge', latency: 'latency',
+    noOutput: 'No output returned.', noHistory: 'No recent commands.',
+    commandCatalog: 'Commands', reload: 'Reload',
+    safeCommands: 'Safe', stateChangingCommands: 'State-changing',
+    dangerousCommands: 'Dangerous', unknownCommands: 'Unknown',
+    noCatalog: 'Command catalog unavailable.',
+    allowed: 'allowed', denied: 'denied',
+    allowedReason: 'Allowed by safe allowlist',
+    stateChangingReason: 'Requires explicit future opt-in',
+    dangerousReason: 'Denied by default',
+    commandNotAllowlistedReason: 'Not allowlisted',
+    extraAllowlistedReason: 'Allowed by local config',
+    statusPanel: 'Status', network: 'Network', security: 'Security',
+    limits: 'Limits', runtime: 'Runtime', policy: 'Policy',
+    noStatus: 'Status unavailable.',
+    enabled: 'enabled', disabled: 'disabled', yes: 'yes', no: 'no',
+    copyOutput: 'Copy', copied: 'copied',
+    outputLines: 'lines', truncated: 'truncated', commandAccepted: 'accepted',
+    manual: 'Manual', saveSnippet: 'Save',
+    snippetName: 'Snippet name:', snippets: 'Saved',
+    noSnippets: 'No saved snippets.', noManualData: 'No results.',
+    delete: 'Del', edit: 'Edit', run: 'Run',
+    snippetsTab: 'Snippets',
+    editSnippetName: 'Edit snippet name:',
+    editSnippetCommand: 'Edit snippet command:',
+    snippetConfirmDelete: 'Delete this snippet?',
+    snippetSearch: 'Search snippets\u2026',
+    lastUsed: 'last used',
+    neverUsed: 'never used',
+    snippetCount: 'snippets',
+    apply: 'Apply',
+    switchHost: 'Switch host / key',
+    switchedTo: 'Switched to',
+    endpointHint: 'Leave empty for localhost:8848',
+    connect: 'Connect',
+    disconnect: 'Disconnect',
+    outputEmpty: 'No output yet.',
+    qrTitle: 'Scan to open console',
+    close: 'Close',
+    openConsole: 'Open',
+    access: 'Access',
+    accessTitle: 'Remote Access',
+    accessUrlLabel: 'Console URL',
+    includeToken: 'Include token in URL'
+  },
+  zh: {
+    subtitle: 'Casualties: Unknown \u672c\u5730\u547d\u4ee4\u9762\u677f',
+    token: '\u4ee4\u724c', endpoint: '\u7aef\u70b9', refresh: '\u5237\u65b0',
+    command: '\u547d\u4ee4', submit: '\u6267\u884c', clearOutput: '\u6e05\u7a7a',
+    queueId: '\u961f\u5217 ID', lookup: '\u67e5\u8be2',
+    recent: '\u5386\u53f2', health: '\u5065\u5eb7',
+    accepted: '\u5df2\u63a5\u6536', output: '\u8f93\u51fa', outputTitle: '\u8f93\u51fa',
+    apiTools: 'API',
+    tokenPlaceholder: '\u7c98\u8d34 Bearer token', endpointPlaceholder: 'localhost:8848',
+    commandPlaceholder: '\u8f93\u5165\u547d\u4ee4\u2026', queuePlaceholder: '\u961f\u5217 ID',
+    bridge: '\u6865\u63a5', latency: '\u5ef6\u8fdf',
+    noOutput: '\u6ca1\u6709\u8fd4\u56de\u8f93\u51fa\u3002', noHistory: '\u6682\u65e0\u6700\u8fd1\u547d\u4ee4\u3002',
+    commandCatalog: '\u547d\u4ee4\u76ee\u5f55', reload: '\u91cd\u65b0\u52a0\u8f7d',
+    safeCommands: '\u5b89\u5168', stateChangingCommands: '\u4f1a\u4fee\u6539\u72b6\u6001',
+    dangerousCommands: '\u5371\u9669', unknownCommands: '\u672a\u77e5',
+    noCatalog: '\u547d\u4ee4\u76ee\u5f55\u4e0d\u53ef\u7528\u3002',
+    allowed: '\u5141\u8bb8', denied: '\u7981\u6b62',
+    allowedReason: '\u5b89\u5168\u767d\u540d\u5355\u5141\u8bb8',
+    stateChangingReason: '\u9700\u8981\u540e\u7eed\u663e\u5f0f\u542f\u7528',
+    dangerousReason: '\u9ed8\u8ba4\u7981\u6b62',
+    commandNotAllowlistedReason: '\u672a\u5728\u767d\u540d\u5355\u4e2d',
+    extraAllowlistedReason: '\u672c\u5730\u914d\u7f6e\u5141\u8bb8',
+    statusPanel: '\u72b6\u6001', network: '\u7f51\u7edc', security: '\u5b89\u5168',
+    limits: '\u9650\u5236', runtime: '\u8fd0\u884c\u65f6', policy: '\u7b56\u7565',
+    noStatus: '\u72b6\u6001\u4e0d\u53ef\u7528\u3002',
+    enabled: '\u542f\u7528', disabled: '\u7981\u7528', yes: '\u662f', no: '\u5426',
+    copyOutput: '\u590d\u5236', copied: '\u5df2\u590d\u5236',
+    outputLines: '\u884c', truncated: '\u5df2\u622a\u65ad', commandAccepted: '\u5df2\u63a5\u6536',
+    manual: '\u624b\u518c', saveSnippet: '\u4fdd\u5b58',
+    snippetName: '\u7247\u6bb5\u540d\u79f0\uff1a', snippets: '\u5df2\u4fdd\u5b58',
+    noSnippets: '\u6ca1\u6709\u5df2\u4fdd\u5b58\u7684\u547d\u4ee4\u7247\u6bb5\u3002', noManualData: '\u6ca1\u6709\u5339\u914d\u7ed3\u679c\u3002',
+    delete: '\u5220\u9664', edit: '\u7f16\u8f91', run: '\u6267\u884c',
+    snippetsTab: '\u7247\u6bb5',
+    editSnippetName: '\u7f16\u8f91\u7247\u6bb5\u540d\u79f0\uff1a',
+    editSnippetCommand: '\u7f16\u8f91\u7247\u6bb5\u547d\u4ee4\uff1a',
+    snippetConfirmDelete: '\u786e\u5b9a\u5220\u9664\u6b64\u7247\u6bb5\uff1f',
+    snippetSearch: '\u641c\u7d22\u7247\u6bb5\u2026',
+    lastUsed: '\u6700\u8fd1\u4f7f\u7528',
+    neverUsed: '\u672a\u4f7f\u7528',
+    snippetCount: '\u4e2a\u7247\u6bb5',
+    apply: '\u5e94\u7528',
+    switchHost: '\u5207\u6362\u4e3b\u673a / Key',
+    switchedTo: '\u5df2\u5207\u6362\u5230',
+    endpointHint: '\u7559\u7a7a\u5219\u4f7f\u7528 localhost:8848',
+    connect: '\u8fde\u63a5',
+    disconnect: '\u65ad\u5f00\u8fde\u63a5',
+    outputEmpty: '\u5c1a\u65e0\u8f93\u51fa\u3002',
+    qrTitle: '\u626b\u7801\u6253\u5f00\u63a7\u5236\u53f0',
+    close: '\u5173\u95ed',
+    openConsole: '\u6253\u5f00',
+    access: '\u8bbf\u95ee',
+    accessTitle: '\u8fdc\u7a0b\u8bbf\u95ee',
+    accessUrlLabel: '\u63a7\u5236\u53f0\u5730\u5740',
+    includeToken: 'URL \u4e2d\u5305\u542b token'
+  }
+};
+
+function lang() {
+  const s = language ? language.value : 'auto';
+  if (s !== 'auto') return s;
+  return navigator.language && navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+}
+function t(k) { return dict[lang()][k] || dict.en[k] || k; }
+
+function applyLanguage() {
+  document.documentElement.lang = lang();
+  document.querySelectorAll('[data-i18n]').forEach(n => {
+    if (n.tagName === 'INPUT' || n.tagName === 'TEXTAREA') return;
+    n.textContent = t(n.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(n =>
+    n.setAttribute('placeholder', t(n.getAttribute('data-i18n-placeholder')))
+  );
+  document.querySelectorAll('[data-i18n-title]').forEach(n =>
+    n.setAttribute('title', t(n.getAttribute('data-i18n-title')))
+  );
+  if (typeof lastCatalogItems !== 'undefined' && lastCatalogItems) renderCatalog(lastCatalogItems);
+  if (typeof lastStatus !== 'undefined' && lastStatus) renderStatus(lastStatus);
+  if (typeof commandReference !== 'undefined') renderManual(commandReference);
+  if (typeof renderSnippets === 'function') renderSnippets();
+}
+var QRCode;!function(){function a(a){this.mode=c.MODE_8BIT_BYTE,this.data=a,this.parsedData=[];for(var b=[],d=0,e=this.data.length;e>d;d++){var f=this.data.charCodeAt(d);f>65536?(b[0]=240|(1835008&f)>>>18,b[1]=128|(258048&f)>>>12,b[2]=128|(4032&f)>>>6,b[3]=128|63&f):f>2048?(b[0]=224|(61440&f)>>>12,b[1]=128|(4032&f)>>>6,b[2]=128|63&f):f>128?(b[0]=192|(1984&f)>>>6,b[1]=128|63&f):b[0]=f,this.parsedData=this.parsedData.concat(b)}this.parsedData.length!=this.data.length&&(this.parsedData.unshift(191),this.parsedData.unshift(187),this.parsedData.unshift(239))}function b(a,b){this.typeNumber=a,this.errorCorrectLevel=b,this.modules=null,this.moduleCount=0,this.dataCache=null,this.dataList=[]}function i(a,b){if(void 0==a.length)throw new Error(a.length+""/""+b);for(var c=0;c<a.length&&0==a[c];)c++;this.num=new Array(a.length-c+b);for(var d=0;d<a.length-c;d++)this.num[d]=a[d+c]}function j(a,b){this.totalCount=a,this.dataCount=b}function k(){this.buffer=[],this.length=0}function m(){return""undefined""!=typeof CanvasRenderingContext2D}function n(){var a=!1,b=navigator.userAgent;return/android/i.test(b)&&(a=!0,aMat=b.toString().match(/android ([0-9]\.[0-9])/i),aMat&&aMat[1]&&(a=parseFloat(aMat[1]))),a}function r(a,b){for(var c=1,e=s(a),f=0,g=l.length;g>=f;f++){var h=0;switch(b){case d.L:h=l[f][0];break;case d.M:h=l[f][1];break;case d.Q:h=l[f][2];break;case d.H:h=l[f][3]}if(h>=e)break;c++}if(c>l.length)throw new Error(""Too long data"");return c}function s(a){var b=encodeURI(a).toString().replace(/\%[0-9a-fA-F]{2}/g,""a"");return b.length+(b.length!=a?3:0)}a.prototype={getLength:function(){return this.parsedData.length},write:function(a){for(var b=0,c=this.parsedData.length;c>b;b++)a.put(this.parsedData[b],8)}},b.prototype={addData:function(b){var c=new a(b);this.dataList.push(c),this.dataCache=null},isDark:function(a,b){if(0>a||this.moduleCount<=a||0>b||this.moduleCount<=b)throw new Error(a+"",""+b);return this.modules[a][b]},getModuleCount:function(){return this.moduleCount},make:function(){this.makeImpl(!1,this.getBestMaskPattern())},makeImpl:function(a,c){this.moduleCount=4*this.typeNumber+17,this.modules=new Array(this.moduleCount);for(var d=0;d<this.moduleCount;d++){this.modules[d]=new Array(this.moduleCount);for(var e=0;e<this.moduleCount;e++)this.modules[d][e]=null}this.setupPositionProbePattern(0,0),this.setupPositionProbePattern(this.moduleCount-7,0),this.setupPositionProbePattern(0,this.moduleCount-7),this.setupPositionAdjustPattern(),this.setupTimingPattern(),this.setupTypeInfo(a,c),this.typeNumber>=7&&this.setupTypeNumber(a),null==this.dataCache&&(this.dataCache=b.createData(this.typeNumber,this.errorCorrectLevel,this.dataList)),this.mapData(this.dataCache,c)},setupPositionProbePattern:function(a,b){for(var c=-1;7>=c;c++)if(!(-1>=a+c||this.moduleCount<=a+c))for(var d=-1;7>=d;d++)-1>=b+d||this.moduleCount<=b+d||(this.modules[a+c][b+d]=c>=0&&6>=c&&(0==d||6==d)||d>=0&&6>=d&&(0==c||6==c)||c>=2&&4>=c&&d>=2&&4>=d?!0:!1)},getBestMaskPattern:function(){for(var a=0,b=0,c=0;8>c;c++){this.makeImpl(!0,c);var d=f.getLostPoint(this);(0==c||a>d)&&(a=d,b=c)}return b},createMovieClip:function(a,b,c){var d=a.createEmptyMovieClip(b,c),e=1;this.make();for(var f=0;f<this.modules.length;f++)for(var g=f*e,h=0;h<this.modules[f].length;h++){var i=h*e,j=this.modules[f][h];j&&(d.beginFill(0,100),d.moveTo(i,g),d.lineTo(i+e,g),d.lineTo(i+e,g+e),d.lineTo(i,g+e),d.endFill())}return d},setupTimingPattern:function(){for(var a=8;a<this.moduleCount-8;a++)null==this.modules[a][6]&&(this.modules[a][6]=0==a%2);for(var b=8;b<this.moduleCount-8;b++)null==this.modules[6][b]&&(this.modules[6][b]=0==b%2)},setupPositionAdjustPattern:function(){for(var a=f.getPatternPosition(this.typeNumber),b=0;b<a.length;b++)for(var c=0;c<a.length;c++){var d=a[b],e=a[c];if(null==this.modules[d][e])for(var g=-2;2>=g;g++)for(var h=-2;2>=h;h++)this.modules[d+g][e+h]=-2==g||2==g||-2==h||2==h||0==g&&0==h?!0:!1}},setupTypeNumber:function(a){for(var b=f.getBCHTypeNumber(this.typeNumber),c=0;18>c;c++){var d=!a&&1==(1&b>>c);this.modules[Math.floor(c/3)][c%3+this.moduleCount-8-3]=d}for(var c=0;18>c;c++){var d=!a&&1==(1&b>>c);this.modules[c%3+this.moduleCount-8-3][Math.floor(c/3)]=d}},setupTypeInfo:function(a,b){for(var c=this.errorCorrectLevel<<3|b,d=f.getBCHTypeInfo(c),e=0;15>e;e++){var g=!a&&1==(1&d>>e);6>e?this.modules[e][8]=g:8>e?this.modules[e+1][8]=g:this.modules[this.moduleCount-15+e][8]=g}for(var e=0;15>e;e++){var g=!a&&1==(1&d>>e);8>e?this.modules[8][this.moduleCount-e-1]=g:9>e?this.modules[8][15-e-1+1]=g:this.modules[8][15-e-1]=g}this.modules[this.moduleCount-8][8]=!a},mapData:function(a,b){for(var c=-1,d=this.moduleCount-1,e=7,g=0,h=this.moduleCount-1;h>0;h-=2)for(6==h&&h--;;){for(var i=0;2>i;i++)if(null==this.modules[d][h-i]){var j=!1;g<a.length&&(j=1==(1&a[g]>>>e));var k=f.getMask(b,d,h-i);k&&(j=!j),this.modules[d][h-i]=j,e--,-1==e&&(g++,e=7)}if(d+=c,0>d||this.moduleCount<=d){d-=c,c=-c;break}}}},b.PAD0=236,b.PAD1=17,b.createData=function(a,c,d){for(var e=j.getRSBlocks(a,c),g=new k,h=0;h<d.length;h++){var i=d[h];g.put(i.mode,4),g.put(i.getLength(),f.getLengthInBits(i.mode,a)),i.write(g)}for(var l=0,h=0;h<e.length;h++)l+=e[h].dataCount;if(g.getLengthInBits()>8*l)throw new Error(""code length overflow. (""+g.getLengthInBits()+"">""+8*l+"")"");for(g.getLengthInBits()+4<=8*l&&g.put(0,4);0!=g.getLengthInBits()%8;)g.putBit(!1);for(;;){if(g.getLengthInBits()>=8*l)break;if(g.put(b.PAD0,8),g.getLengthInBits()>=8*l)break;g.put(b.PAD1,8)}return b.createBytes(g,e)},b.createBytes=function(a,b){for(var c=0,d=0,e=0,g=new Array(b.length),h=new Array(b.length),j=0;j<b.length;j++){var k=b[j].dataCount,l=b[j].totalCount-k;d=Math.max(d,k),e=Math.max(e,l),g[j]=new Array(k);for(var m=0;m<g[j].length;m++)g[j][m]=255&a.buffer[m+c];c+=k;var n=f.getErrorCorrectPolynomial(l),o=new i(g[j],n.getLength()-1),p=o.mod(n);h[j]=new Array(n.getLength()-1);for(var m=0;m<h[j].length;m++){var q=m+p.getLength()-h[j].length;h[j][m]=q>=0?p.get(q):0}}for(var r=0,m=0;m<b.length;m++)r+=b[m].totalCount;for(var s=new Array(r),t=0,m=0;d>m;m++)for(var j=0;j<b.length;j++)m<g[j].length&&(s[t++]=g[j][m]);for(var m=0;e>m;m++)for(var j=0;j<b.length;j++)m<h[j].length&&(s[t++]=h[j][m]);return s};for(var c={MODE_NUMBER:1,MODE_ALPHA_NUM:2,MODE_8BIT_BYTE:4,MODE_KANJI:8},d={L:1,M:0,Q:3,H:2},e={PATTERN000:0,PATTERN001:1,PATTERN010:2,PATTERN011:3,PATTERN100:4,PATTERN101:5,PATTERN110:6,PATTERN111:7},f={PATTERN_POSITION_TABLE:[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70],[6,26,50,74],[6,30,54,78],[6,30,56,82],[6,30,58,86],[6,34,62,90],[6,28,50,72,94],[6,26,50,74,98],[6,30,54,78,102],[6,28,54,80,106],[6,32,58,84,110],[6,30,58,86,114],[6,34,62,90,118],[6,26,50,74,98,122],[6,30,54,78,102,126],[6,26,52,78,104,130],[6,30,56,82,108,134],[6,34,60,86,112,138],[6,30,58,86,114,142],[6,34,62,90,118,146],[6,30,54,78,102,126,150],[6,24,50,76,102,128,154],[6,28,54,80,106,132,158],[6,32,58,84,110,136,162],[6,26,54,82,110,138,166],[6,30,58,86,114,142,170]],G15:1335,G18:7973,G15_MASK:21522,getBCHTypeInfo:function(a){for(var b=a<<10;f.getBCHDigit(b)-f.getBCHDigit(f.G15)>=0;)b^=f.G15<<f.getBCHDigit(b)-f.getBCHDigit(f.G15);return(a<<10|b)^f.G15_MASK},getBCHTypeNumber:function(a){for(var b=a<<12;f.getBCHDigit(b)-f.getBCHDigit(f.G18)>=0;)b^=f.G18<<f.getBCHDigit(b)-f.getBCHDigit(f.G18);return a<<12|b},getBCHDigit:function(a){for(var b=0;0!=a;)b++,a>>>=1;return b},getPatternPosition:function(a){return f.PATTERN_POSITION_TABLE[a-1]},getMask:function(a,b,c){switch(a){case e.PATTERN000:return 0==(b+c)%2;case e.PATTERN001:return 0==b%2;case e.PATTERN010:return 0==c%3;case e.PATTERN011:return 0==(b+c)%3;case e.PATTERN100:return 0==(Math.floor(b/2)+Math.floor(c/3))%2;case e.PATTERN101:return 0==b*c%2+b*c%3;case e.PATTERN110:return 0==(b*c%2+b*c%3)%2;case e.PATTERN111:return 0==(b*c%3+(b+c)%2)%2;default:throw new Error(""bad maskPattern:""+a)}},getErrorCorrectPolynomial:function(a){for(var b=new i([1],0),c=0;a>c;c++)b=b.multiply(new i([1,g.gexp(c)],0));return b},getLengthInBits:function(a,b){if(b>=1&&10>b)switch(a){case c.MODE_NUMBER:return 10;case c.MODE_ALPHA_NUM:return 9;case c.MODE_8BIT_BYTE:return 8;case c.MODE_KANJI:return 8;default:throw new Error(""mode:""+a)}else if(27>b)switch(a){case c.MODE_NUMBER:return 12;case c.MODE_ALPHA_NUM:return 11;case c.MODE_8BIT_BYTE:return 16;case c.MODE_KANJI:return 10;default:throw new Error(""mode:""+a)}else{if(!(41>b))throw new Error(""type:""+b);switch(a){case c.MODE_NUMBER:return 14;case c.MODE_ALPHA_NUM:return 13;case c.MODE_8BIT_BYTE:return 16;case c.MODE_KANJI:return 12;default:throw new Error(""mode:""+a)}}},getLostPoint:function(a){for(var b=a.getModuleCount(),c=0,d=0;b>d;d++)for(var e=0;b>e;e++){for(var f=0,g=a.isDark(d,e),h=-1;1>=h;h++)if(!(0>d+h||d+h>=b))for(var i=-1;1>=i;i++)0>e+i||e+i>=b||(0!=h||0!=i)&&g==a.isDark(d+h,e+i)&&f++;f>5&&(c+=3+f-5)}for(var d=0;b-1>d;d++)for(var e=0;b-1>e;e++){var j=0;a.isDark(d,e)&&j++,a.isDark(d+1,e)&&j++,a.isDark(d,e+1)&&j++,a.isDark(d+1,e+1)&&j++,(0==j||4==j)&&(c+=3)}for(var d=0;b>d;d++)for(var e=0;b-6>e;e++)a.isDark(d,e)&&!a.isDark(d,e+1)&&a.isDark(d,e+2)&&a.isDark(d,e+3)&&a.isDark(d,e+4)&&!a.isDark(d,e+5)&&a.isDark(d,e+6)&&(c+=40);for(var e=0;b>e;e++)for(var d=0;b-6>d;d++)a.isDark(d,e)&&!a.isDark(d+1,e)&&a.isDark(d+2,e)&&a.isDark(d+3,e)&&a.isDark(d+4,e)&&!a.isDark(d+5,e)&&a.isDark(d+6,e)&&(c+=40);for(var k=0,e=0;b>e;e++)for(var d=0;b>d;d++)a.isDark(d,e)&&k++;var l=Math.abs(100*k/b/b-50)/5;return c+=10*l}},g={glog:function(a){if(1>a)throw new Error(""glog(""+a+"")"");return g.LOG_TABLE[a]},gexp:function(a){for(;0>a;)a+=255;for(;a>=256;)a-=255;return g.EXP_TABLE[a]},EXP_TABLE:new Array(256),LOG_TABLE:new Array(256)},h=0;8>h;h++)g.EXP_TABLE[h]=1<<h;for(var h=8;256>h;h++)g.EXP_TABLE[h]=g.EXP_TABLE[h-4]^g.EXP_TABLE[h-5]^g.EXP_TABLE[h-6]^g.EXP_TABLE[h-8];for(var h=0;255>h;h++)g.LOG_TABLE[g.EXP_TABLE[h]]=h;i.prototype={get:function(a){return this.num[a]},getLength:function(){return this.num.length},multiply:function(a){for(var b=new Array(this.getLength()+a.getLength()-1),c=0;c<this.getLength();c++)for(var d=0;d<a.getLength();d++)b[c+d]^=g.gexp(g.glog(this.get(c))+g.glog(a.get(d)));return new i(b,0)},mod:function(a){if(this.getLength()-a.getLength()<0)return this;for(var b=g.glog(this.get(0))-g.glog(a.get(0)),c=new Array(this.getLength()),d=0;d<this.getLength();d++)c[d]=this.get(d);for(var d=0;d<a.getLength();d++)c[d]^=g.gexp(g.glog(a.get(d))+b);return new i(c,0).mod(a)}},j.RS_BLOCK_TABLE=[[1,26,19],[1,26,16],[1,26,13],[1,26,9],[1,44,34],[1,44,28],[1,44,22],[1,44,16],[1,70,55],[1,70,44],[2,35,17],[2,35,13],[1,100,80],[2,50,32],[2,50,24],[4,25,9],[1,134,108],[2,67,43],[2,33,15,2,34,16],[2,33,11,2,34,12],[2,86,68],[4,43,27],[4,43,19],[4,43,15],[2,98,78],[4,49,31],[2,32,14,4,33,15],[4,39,13,1,40,14],[2,121,97],[2,60,38,2,61,39],[4,40,18,2,41,19],[4,40,14,2,41,15],[2,146,116],[3,58,36,2,59,37],[4,36,16,4,37,17],[4,36,12,4,37,13],[2,86,68,2,87,69],[4,69,43,1,70,44],[6,43,19,2,44,20],[6,43,15,2,44,16],[4,101,81],[1,80,50,4,81,51],[4,50,22,4,51,23],[3,36,12,8,37,13],[2,116,92,2,117,93],[6,58,36,2,59,37],[4,46,20,6,47,21],[7,42,14,4,43,15],[4,133,107],[8,59,37,1,60,38],[8,44,20,4,45,21],[12,33,11,4,34,12],[3,145,115,1,146,116],[4,64,40,5,65,41],[11,36,16,5,37,17],[11,36,12,5,37,13],[5,109,87,1,110,88],[5,65,41,5,66,42],[5,54,24,7,55,25],[11,36,12],[5,122,98,1,123,99],[7,73,45,3,74,46],[15,43,19,2,44,20],[3,45,15,13,46,16],[1,135,107,5,136,108],[10,74,46,1,75,47],[1,50,22,15,51,23],[2,42,14,17,43,15],[5,150,120,1,151,121],[9,69,43,4,70,44],[17,50,22,1,51,23],[2,42,14,19,43,15],[3,141,113,4,142,114],[3,70,44,11,71,45],[17,47,21,4,48,22],[9,39,13,16,40,14],[3,135,107,5,136,108],[3,67,41,13,68,42],[15,54,24,5,55,25],[15,43,15,10,44,16],[4,144,116,4,145,117],[17,68,42],[17,50,22,6,51,23],[19,46,16,6,47,17],[2,139,111,7,140,112],[17,74,46],[7,54,24,16,55,25],[34,37,13],[4,151,121,5,152,122],[4,75,47,14,76,48],[11,54,24,14,55,25],[16,45,15,14,46,16],[6,147,117,4,148,118],[6,73,45,14,74,46],[11,54,24,16,55,25],[30,46,16,2,47,17],[8,132,106,4,133,107],[8,75,47,13,76,48],[7,54,24,22,55,25],[22,45,15,13,46,16],[10,142,114,2,143,115],[19,74,46,4,75,47],[28,50,22,6,51,23],[33,46,16,4,47,17],[8,152,122,4,153,123],[22,73,45,3,74,46],[8,53,23,26,54,24],[12,45,15,28,46,16],[3,147,117,10,148,118],[3,73,45,23,74,46],[4,54,24,31,55,25],[11,45,15,31,46,16],[7,146,116,7,147,117],[21,73,45,7,74,46],[1,53,23,37,54,24],[19,45,15,26,46,16],[5,145,115,10,146,116],[19,75,47,10,76,48],[15,54,24,25,55,25],[23,45,15,25,46,16],[13,145,115,3,146,116],[2,74,46,29,75,47],[42,54,24,1,55,25],[23,45,15,28,46,16],[17,145,115],[10,74,46,23,75,47],[10,54,24,35,55,25],[19,45,15,35,46,16],[17,145,115,1,146,116],[14,74,46,21,75,47],[29,54,24,19,55,25],[11,45,15,46,46,16],[13,145,115,6,146,116],[14,74,46,23,75,47],[44,54,24,7,55,25],[59,46,16,1,47,17],[12,151,121,7,152,122],[12,75,47,26,76,48],[39,54,24,14,55,25],[22,45,15,41,46,16],[6,151,121,14,152,122],[6,75,47,34,76,48],[46,54,24,10,55,25],[2,45,15,64,46,16],[17,152,122,4,153,123],[29,74,46,14,75,47],[49,54,24,10,55,25],[24,45,15,46,46,16],[4,152,122,18,153,123],[13,74,46,32,75,47],[48,54,24,14,55,25],[42,45,15,32,46,16],[20,147,117,4,148,118],[40,75,47,7,76,48],[43,54,24,22,55,25],[10,45,15,67,46,16],[19,148,118,6,149,119],[18,75,47,31,76,48],[34,54,24,34,55,25],[20,45,15,61,46,16]],j.getRSBlocks=function(a,b){var c=j.getRsBlockTable(a,b);if(void 0==c)throw new Error(""bad rs block @ typeNumber:""+a+""/errorCorrectLevel:""+b);for(var d=c.length/3,e=[],f=0;d>f;f++)for(var g=c[3*f+0],h=c[3*f+1],i=c[3*f+2],k=0;g>k;k++)e.push(new j(h,i));return e},j.getRsBlockTable=function(a,b){switch(b){case d.L:return j.RS_BLOCK_TABLE[4*(a-1)+0];case d.M:return j.RS_BLOCK_TABLE[4*(a-1)+1];case d.Q:return j.RS_BLOCK_TABLE[4*(a-1)+2];case d.H:return j.RS_BLOCK_TABLE[4*(a-1)+3];default:return void 0}},k.prototype={get:function(a){var b=Math.floor(a/8);return 1==(1&this.buffer[b]>>>7-a%8)},put:function(a,b){for(var c=0;b>c;c++)this.putBit(1==(1&a>>>b-c-1))},getLengthInBits:function(){return this.length},putBit:function(a){var b=Math.floor(this.length/8);this.buffer.length<=b&&this.buffer.push(0),a&&(this.buffer[b]|=128>>>this.length%8),this.length++}};var l=[[17,14,11,7],[32,26,20,14],[53,42,32,24],[78,62,46,34],[106,84,60,44],[134,106,74,58],[154,122,86,64],[192,152,108,84],[230,180,130,98],[271,213,151,119],[321,251,177,137],[367,287,203,155],[425,331,241,177],[458,362,258,194],[520,412,292,220],[586,450,322,250],[644,504,364,280],[718,560,394,310],[792,624,442,338],[858,666,482,382],[929,711,509,403],[1003,779,565,439],[1091,857,611,461],[1171,911,661,511],[1273,997,715,535],[1367,1059,751,593],[1465,1125,805,625],[1528,1190,868,658],[1628,1264,908,698],[1732,1370,982,742],[1840,1452,1030,790],[1952,1538,1112,842],[2068,1628,1168,898],[2188,1722,1228,958],[2303,1809,1283,983],[2431,1911,1351,1051],[2563,1989,1423,1093],[2699,2099,1499,1139],[2809,2213,1579,1219],[2953,2331,1663,1273]],o=function(){var a=function(a,b){this._el=a,this._htOption=b};return a.prototype.draw=function(a){function g(a,b){var c=document.createElementNS(""http://www.w3.org/2000/svg"",a);for(var d in b)b.hasOwnProperty(d)&&c.setAttribute(d,b[d]);return c}var b=this._htOption,c=this._el,d=a.getModuleCount();Math.floor(b.width/d),Math.floor(b.height/d),this.clear();var h=g(""svg"",{viewBox:""0 0 ""+String(d)+"" ""+String(d),width:""100%"",height:""100%"",fill:b.colorLight});h.setAttributeNS(""http://www.w3.org/2000/xmlns/"",""xmlns:xlink"",""http://www.w3.org/1999/xlink""),c.appendChild(h),h.appendChild(g(""rect"",{fill:b.colorDark,width:""1"",height:""1"",id:""template""}));for(var i=0;d>i;i++)for(var j=0;d>j;j++)if(a.isDark(i,j)){var k=g(""use"",{x:String(i),y:String(j)});k.setAttributeNS(""http://www.w3.org/1999/xlink"",""href"",""#template""),h.appendChild(k)}},a.prototype.clear=function(){for(;this._el.hasChildNodes();)this._el.removeChild(this._el.lastChild)},a}(),p=""svg""===document.documentElement.tagName.toLowerCase(),q=p?o:m()?function(){function a(){this._elImage.src=this._elCanvas.toDataURL(""image/png""),this._elImage.style.display=""block"",this._elCanvas.style.display=""none""}function d(a,b){var c=this;if(c._fFail=b,c._fSuccess=a,null===c._bSupportDataURI){var d=document.createElement(""img""),e=function(){c._bSupportDataURI=!1,c._fFail&&_fFail.call(c)},f=function(){c._bSupportDataURI=!0,c._fSuccess&&c._fSuccess.call(c)};return d.onabort=e,d.onerror=e,d.onload=f,d.src=""data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="",void 0}c._bSupportDataURI===!0&&c._fSuccess?c._fSuccess.call(c):c._bSupportDataURI===!1&&c._fFail&&c._fFail.call(c)}if(this._android&&this._android<=2.1){var b=1/window.devicePixelRatio,c=CanvasRenderingContext2D.prototype.drawImage;CanvasRenderingContext2D.prototype.drawImage=function(a,d,e,f,g,h,i,j){if(""nodeName""in a&&/img/i.test(a.nodeName))for(var l=arguments.length-1;l>=1;l--)arguments[l]=arguments[l]*b;else""undefined""==typeof j&&(arguments[1]*=b,arguments[2]*=b,arguments[3]*=b,arguments[4]*=b);c.apply(this,arguments)}}var e=function(a,b){this._bIsPainted=!1,this._android=n(),this._htOption=b,this._elCanvas=document.createElement(""canvas""),this._elCanvas.width=b.width,this._elCanvas.height=b.height,a.appendChild(this._elCanvas),this._el=a,this._oContext=this._elCanvas.getContext(""2d""),this._bIsPainted=!1,this._elImage=document.createElement(""img""),this._elImage.style.display=""none"",this._el.appendChild(this._elImage),this._bSupportDataURI=null};return e.prototype.draw=function(a){var b=this._elImage,c=this._oContext,d=this._htOption,e=a.getModuleCount(),f=d.width/e,g=d.height/e,h=Math.round(f),i=Math.round(g);b.style.display=""none"",this.clear();for(var j=0;e>j;j++)for(var k=0;e>k;k++){var l=a.isDark(j,k),m=k*f,n=j*g;c.strokeStyle=l?d.colorDark:d.colorLight,c.lineWidth=1,c.fillStyle=l?d.colorDark:d.colorLight,c.fillRect(m,n,f,g),c.strokeRect(Math.floor(m)+.5,Math.floor(n)+.5,h,i),c.strokeRect(Math.ceil(m)-.5,Math.ceil(n)-.5,h,i)}this._bIsPainted=!0},e.prototype.makeImage=function(){this._bIsPainted&&d.call(this,a)},e.prototype.isPainted=function(){return this._bIsPainted},e.prototype.clear=function(){this._oContext.clearRect(0,0,this._elCanvas.width,this._elCanvas.height),this._bIsPainted=!1},e.prototype.round=function(a){return a?Math.floor(1e3*a)/1e3:a},e}():function(){var a=function(a,b){this._el=a,this._htOption=b};return a.prototype.draw=function(a){for(var b=this._htOption,c=this._el,d=a.getModuleCount(),e=Math.floor(b.width/d),f=Math.floor(b.height/d),g=['<table style=""border:0;border-collapse:collapse;"">'],h=0;d>h;h++){g.push(""<tr>"");for(var i=0;d>i;i++)g.push('<td style=""border:0;border-collapse:collapse;padding:0;margin:0;width:'+e+""px;height:""+f+""px;background-color:""+(a.isDark(h,i)?b.colorDark:b.colorLight)+';""></td>');g.push(""</tr>"")}g.push(""</table>""),c.innerHTML=g.join("""");var j=c.childNodes[0],k=(b.width-j.offsetWidth)/2,l=(b.height-j.offsetHeight)/2;k>0&&l>0&&(j.style.margin=l+""px ""+k+""px"")},a.prototype.clear=function(){this._el.innerHTML=""""},a}();QRCode=function(a,b){if(this._htOption={width:256,height:256,typeNumber:4,colorDark:""#000000"",colorLight:""#ffffff"",correctLevel:d.H},""string""==typeof b&&(b={text:b}),b)for(var c in b)this._htOption[c]=b[c];""string""==typeof a&&(a=document.getElementById(a)),this._android=n(),this._el=a,this._oQRCode=null,this._oDrawing=new q(this._el,this._htOption),this._htOption.text&&this.makeCode(this._htOption.text)},QRCode.prototype.makeCode=function(a){this._oQRCode=new b(r(a,this._htOption.correctLevel),this._htOption.correctLevel),this._oQRCode.addData(a),this._oQRCode.make(),this._el.title=a,this._oDrawing.draw(this._oQRCode),this.makeImage()},QRCode.prototype.makeImage=function(){""function""==typeof this._oDrawing.makeImage&&(!this._android||this._android>=3)&&this._oDrawing.makeImage()},QRCode.prototype.clear=function(){this._oDrawing.clear()},QRCode.CorrectLevel=d}();// ── Command snippet management ──
+
+const SNIPPETS_KEY = 'cu.remoteconsole.snippets';
+
+function getSnippets() {
+  return JSON.parse(localStorage.getItem(SNIPPETS_KEY) || '[]');
+}
+
+function putSnippets(snippets) {
+  localStorage.setItem(SNIPPETS_KEY, JSON.stringify(snippets.slice(0, 50)));
+}
+
+function saveSnippet() {
+  const cmd = (document.getElementById('command')?.value || '').trim();
+  if (!cmd) return;
+  const name = prompt(t('snippetName'), cmd.split(' ')[0]);
+  if (!name) return;
+  const s = getSnippets();
+  s.unshift({
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+    name: name.trim(),
+    command: cmd,
+    createdAt: Date.now(),
+    useCount: 0,
+    lastUsedAt: null
+  });
+  putSnippets(s);
+  renderSnippets();
+}
+
+function deleteSnippet(id) {
+  if (!confirm(t('snippetConfirmDelete'))) return;
+  const s = getSnippets().filter(x => x.id !== id);
+  putSnippets(s);
+  renderSnippets();
+}
+
+function editSnippet(id) {
+  const s = getSnippets();
+  const item = s.find(x => x.id === id);
+  if (!item) return;
+  const newName = prompt(t('editSnippetName'), item.name);
+  if (!newName) return;
+  const newCmd = prompt(t('editSnippetCommand'), item.command);
+  if (!newCmd) return;
+  item.name = newName.trim();
+  item.command = newCmd.trim();
+  putSnippets(s);
+  renderSnippets();
+}
+
+function quickExecuteSnippet(cmd) {
+  const input = document.getElementById('command');
+  if (input) input.value = cmd;
+  if (typeof submitCommand === 'function') {
+    // Track usage
+    const s = getSnippets();
+    const match = s.find(x => x.command === cmd);
+    if (match) {
+      match.useCount = (match.useCount || 0) + 1;
+      match.lastUsedAt = Date.now();
+      putSnippets(s);
     }
-    function t(k) { return dict[lang()][k] || dict.en[k] || k; }
-    function applyLanguage() {
-      document.documentElement.lang = lang();
-      document.querySelectorAll('[data-i18n]').forEach(n => {
-        if (n.tagName === 'INPUT' || n.tagName === 'TEXTAREA') return;
-        n.textContent = t(n.getAttribute('data-i18n'));
-      });
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(n => n.setAttribute('placeholder', t(n.getAttribute('data-i18n-placeholder'))));
-      if (lastCatalogItems) renderCatalog(lastCatalogItems);
-      if (lastStatus) renderStatus(lastStatus);
-      if (typeof commandReference !== 'undefined') renderManual(commandReference);
-    }
-    function switchTab(tab) {
-      activeTab = tab;
-      document.querySelectorAll('.tab-btn').forEach(b => { b.dataset.active = b.dataset.tab === tab ? 'true' : 'false'; });
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('hidden', p.id !== 'tab-' + tab));
-      if (tab === 'manual') loadManual();
-    }
-    document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
-    function authHeaders(e) { return Object.assign({ 'Authorization': 'Bearer ' + token.value }, e || {}); }
-    function endpointBase() {
-      const r = endpoint.value.trim().replace(/\/+$/, '');
-      if (!r) return '';
-      if (/^https?:\/\//i.test(r)) return r;
-      return 'http://' + r;
-    }
-    function apiUrl(p) { return endpointBase() + p; }
-    function clean(t) { return String(t || '').replace(/<[^>]*>/g, ''); }
-    function logLine(line, tone) {
-      const n = document.createElement('div');
-      n.className = 'rounded-md border border-zinc-800/50 bg-zinc-950/50 px-3 py-2 font-mono text-xs ' + (tone === 'ok' ? 'text-emerald-400' : tone === 'err' ? 'text-red-400' : 'text-zinc-500');
-      n.textContent = line; output.prepend(n); output.scrollTop = output.scrollHeight;
-    }
-    async function readJson(r) {
-      const t = await r.text();
-      try { return { text: t, json: JSON.parse(t) }; } catch { return { text: t, json: null }; }
-    }
-    function pill(text, tone) {
-      const c = { ok: 'border-emerald-500/20 bg-emerald-500/10 text-emerald-400', warn: 'border-amber-500/20 bg-amber-500/10 text-amber-400', err: 'border-red-500/20 bg-red-500/10 text-red-400' };
-      const n = document.createElement('span');
-      n.className = 'inline-flex h-6 items-center rounded-md border px-2 text-[11px] font-medium ' + (c[tone] || '');
-      n.textContent = text; return n;
-    }
-    function reasonText(r) {
-      if (r === 'allowed') return t('allowedReason');
-      if (r === 'state_changing_not_enabled') return t('stateChangingReason');
-      if (r === 'dangerous_command_denied') return t('dangerousReason');
-      if (r === 'command_not_allowlisted') return t('commandNotAllowlistedReason');
-      if (r === 'extra_allowlisted') return t('extraAllowlistedReason');
-      return r;
-    }
-    function classificationTitle(c) {
-      if (c === 'Safe') return t('safeCommands');
-      if (c === 'StateChanging') return t('stateChangingCommands');
-      if (c === 'Dangerous') return t('dangerousCommands');
-      return t('unknownCommands');
-    }
-    function classificationTone(c) {
-      if (c === 'Safe') return 'border-emerald-500/20 bg-emerald-500/10 text-emerald-400';
-      if (c === 'StateChanging') return 'border-amber-500/20 bg-amber-500/10 text-amber-400';
-      if (c === 'Dangerous') return 'border-red-500/20 bg-red-500/10 text-red-400';
-      return 'border-zinc-700 bg-zinc-900 text-zinc-400';
-    }
-    function boolText(v) { return v ? t('yes') : t('no'); }
-    function renderStatusGroup(title, rows) {
-      const w = document.createElement('div');
-      w.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2';
-      const h = document.createElement('h3');
-      h.className = 'mb-1 text-[10px] font-semibold uppercase tracking-wider text-zinc-600';
-      h.textContent = title; w.appendChild(h);
-      const g = document.createElement('div');
-      g.className = 'grid grid-cols-2 gap-x-3 gap-y-0.5';
-      for (const rowData of rows) {
-        const r = document.createElement('div'); r.className = 'min-w-0';
-        const k = document.createElement('span'); k.className = 'block truncate text-[10px] text-zinc-600'; k.textContent = rowData[0];
-        const v = document.createElement('span'); v.className = 'block truncate font-mono text-[11px] text-zinc-300'; v.textContent = String(rowData[1]);
-        r.appendChild(k); r.appendChild(v); g.appendChild(r);
-      }
-      w.appendChild(g); return w;
-    }
-    function renderStatus(data) {
-      statusPanel.textContent = '';
-      statusPanel.appendChild(renderStatusGroup(t('network'), [
-        ['bind', data.network.bindAddress + ':' + data.network.port],
-        ['listening', boolText(data.network.httpListening)],
-        ['lan', boolText(data.network.allowLan)],
-        ['public', boolText(data.network.allowPublic)]
-      ]));
-      statusPanel.appendChild(renderStatusGroup(t('security'), [
-        ['auth', data.security.authRequired ? t('enabled') : t('disabled')],
-        ['allow state', boolText(data.security.allowStateChangingCommands)],
-        ['deny dangerous', boolText(data.security.denyDangerousCommands)],
-        ['audit', data.security.auditLogEnabled ? t('enabled') : t('disabled')]
-      ]));
-      statusPanel.appendChild(renderStatusGroup(t('limits'), [
-        ['command length', data.limits.maxCommandLength],
-        ['queue depth', data.limits.maxQueueDepth],
-        ['commands/sec', data.limits.maxCommandsPerSecond],
-        ['commands/frame', data.limits.maxCommandsPerFrame]
-      ]));
-      statusPanel.appendChild(renderStatusGroup(t('runtime'), [
-        ['version', data.pluginVersion],
-        ['patch', boolText(data.runtime.patchApplied)],
-        ['queue', data.runtime.queueDepth],
-        ['bridge', data.runtime.bridgeLastStatus]
-      ]));
-      statusPanel.appendChild(renderStatusGroup(t('policy'), [
-        ['safe', data.policy.safeCount],
-        ['state-changing', data.policy.stateChangingCount],
-        ['dangerous', data.policy.dangerousCount],
-        ['allowed', data.policy.allowedCount]
-      ]));
-    }
-    function renderHealth(data) {
-      healthPills.textContent = '';
-      healthPills.appendChild(pill('v' + data.pluginVersion, 'ok'));
-      healthPills.appendChild(pill(data.httpListening ? 'HTTP' : 'HTTP off', data.httpListening ? 'ok' : 'err'));
-      healthPills.appendChild(pill('Queue ' + data.queueDepth, data.queueDepth ? 'warn' : 'ok'));
-      healthPills.appendChild(pill(data.bridgeLastStatus, ['executed','not_started','bridge_ready'].includes(data.bridgeLastStatus) ? 'ok' : 'warn'));
-    }
-    function renderRecord(record) {
-      queueId.value = record.queueId;
-      lastResult.textContent = record.state + ' \u00b7 ' + record.bridgeStatus + ' \u00b7 ' + record.queueLatencyMs + 'ms';
-      const block = document.createElement('article');
-      block.className = 'grid gap-2 rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3';
-      const header = document.createElement('div');
-      header.className = 'flex flex-wrap items-start justify-between gap-2';
-      const titleWrap = document.createElement('div'); titleWrap.className = 'min-w-0';
-      const title = document.createElement('div');
-      title.className = 'truncate font-mono text-sm font-semibold text-zinc-200';
-      title.textContent = record.commandName + ' #' + record.queueId.slice(0, 8);
-      const meta = document.createElement('div'); meta.className = 'mt-1 flex flex-wrap gap-2 text-xs text-zinc-500';
-      const lc = record.outputLineCount ?? (record.output ? record.output.length : 0);
-      meta.textContent = record.state + ' \u00b7 ' + record.classification + ' \u00b7 ' + t('bridge') + '=' + record.bridgeStatus + ' \u00b7 ' + t('latency') + '=' + record.queueLatencyMs + 'ms \u00b7 ' + lc + ' ' + t('outputLines') + (record.outputTruncated ? ' \u00b7 ' + t('truncated') : '');
-      titleWrap.appendChild(title); titleWrap.appendChild(meta); header.appendChild(titleWrap);
-      const copy = document.createElement('button');
-      copy.type = 'button'; copy.className = 'h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300';
-      copy.disabled = !record.output || !record.output.length;
-      copy.textContent = t('copyOutput');
-      copy.addEventListener('click', async () => {
-        const text = (record.output || []).map(clean).join('\n');
-        try { await navigator.clipboard.writeText(text); copy.textContent = t('copied'); setTimeout(() => copy.textContent = t('copyOutput'), 1200); }
-        catch { logLine('clipboard unavailable', 'err'); }
-      });
-      header.appendChild(copy); block.appendChild(header);
-      const body = document.createElement('pre');
-      body.className = 'max-h-72 overflow-auto rounded-md border border-zinc-800/30 bg-[#050505] p-3 font-mono text-xs leading-relaxed whitespace-pre-wrap text-zinc-400';
-      if (record.output && record.output.length) body.textContent = record.output.map(clean).join('\n');
-      else body.textContent = t('noOutput');
-      block.appendChild(body); output.prepend(block); output.scrollTop = 0;
-    }
-    async function refreshHealth() {
-      const r = await fetch(apiUrl('/health')); const d = await readJson(r);
-      if (r.ok && d.json) { renderHealth(d.json); return d.json; }
-      throw new Error(d.text || r.status);
-    }
-    async function loadStatus() {
-      if (!token.value) return;
-      const r = await fetch(apiUrl('/api/status'), { headers: authHeaders() });
-      const d = await readJson(r);
-      if (!r.ok || !d.json) { lastStatus = null; statusPanel.textContent = '';
-        const n = document.createElement('div'); n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600'; n.textContent = t('noStatus'); statusPanel.appendChild(n); return; }
-      lastStatus = d.json; renderStatus(lastStatus);
-    }
-    async function submitCommand() {
-      const cmd = command.value.trim();
-      if (cmd) { commandHistory = [cmd, ...commandHistory.filter(c => c !== cmd)].slice(0, 50); historyIndex = -1; savedInput = ''; }
-      logLine('> ' + command.value, 'muted');
-      const r = await fetch(apiUrl('/api/commands'), { method: 'POST', headers: authHeaders({ 'Content-Type': 'application/json' }), body: JSON.stringify({ command: command.value }) });
-      const d = await readJson(r);
-      if (!r.ok) { logLine(r.status + ' ' + d.text, 'err'); return; }
-      logLine(r.status + ' ' + t('commandAccepted') + ' #' + d.json.queueId.slice(0, 8), 'ok');
-      queueId.value = d.json.queueId; await pollStatus(d.json.queueId); await loadRecent(); await refreshHealth();
-    }
-    async function fetchStatus(id) {
-      const r = await fetch(apiUrl('/api/commands/' + encodeURIComponent(id)), { headers: authHeaders() });
-      const d = await readJson(r);
-      if (!r.ok) throw new Error(r.status + ' ' + d.text);
-      return d.json;
-    }
-    async function pollStatus(id) {
-      for (let i = 0; i < 16; i++) { const rec = await fetchStatus(id); if (rec.state !== 'Queued') { renderRecord(rec); return rec; } await new Promise(r => setTimeout(r, 200)); }
-      logLine('Queued #' + id, 'muted'); return null;
-    }
-    async function lookupStatus() { if (!queueId.value.trim()) return; renderRecord(await fetchStatus(queueId.value.trim())); }
-    async function loadRecent() {
-      if (!token.value) return;
-      const r = await fetch(apiUrl('/api/commands'), { headers: authHeaders() });
-      const d = await readJson(r);
-      if (!r.ok || !d.json) return;
-      recent.textContent = '';
-      if (!d.json.items || !d.json.items.length) { const n = document.createElement('div'); n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600'; n.textContent = t('noHistory'); recent.appendChild(n); return; }
-      for (const item of d.json.items) {
-        const n = document.createElement('button'); n.type = 'button'; n.className = 'grid gap-0.5 rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2 text-left hover:border-zinc-700';
-        const title = document.createElement('strong'); title.className = 'text-sm text-zinc-300'; title.textContent = item.commandName + ' \u00b7 ' + item.state;
-        const meta = document.createElement('span'); meta.className = 'text-xs text-zinc-600'; meta.textContent = item.queueLatencyMs + 'ms \u00b7 ' + item.bridgeStatus + ' \u00b7 ' + item.queueId.slice(0, 8);
-        n.appendChild(title); n.appendChild(meta); n.addEventListener('click', () => renderRecord(item)); recent.appendChild(n);
-      }
-    }
-    function renderCatalog(items) {
-      catalogList.textContent = '';
-      for (const group of ['Safe', 'StateChanging', 'Dangerous', 'Unknown']) {
-        const g = items.filter(i => i.classification === group);
-        if (!g.length) continue;
-        const w = document.createElement('div'); w.className = 'grid gap-2';
-        const h = document.createElement('div'); h.className = 'flex items-center justify-between gap-2';
-        const t2 = document.createElement('h3'); t2.className = 'text-[10px] font-semibold uppercase tracking-wider text-zinc-600'; t2.textContent = classificationTitle(group);
-        const c = document.createElement('span'); c.className = 'text-xs text-zinc-600'; c.textContent = String(g.length);
-        h.appendChild(t2); h.appendChild(c); w.appendChild(h);
-        const grid = document.createElement('div'); grid.className = 'grid grid-cols-2 gap-1.5';
-        for (const item of g) {
-          const n = document.createElement('button'); n.type = 'button'; n.disabled = !item.allowed;
-          n.className = 'rounded-md border px-2 py-1.5 text-left text-xs ' + classificationTone(item.classification) + (item.allowed ? ' hover:border-zinc-600' : ' cursor-not-allowed opacity-50');
-          const name = document.createElement('strong'); name.className = 'block font-mono text-sm'; name.textContent = item.name;
-          const meta = document.createElement('span'); meta.className = 'block pt-0.5 text-[10px]';
-          meta.textContent = (item.allowed ? t('allowed') : t('denied')) + ' \u00b7 ' + reasonText(item.policyReason);
-          n.appendChild(name); n.appendChild(meta);
-          const desc = document.createElement('div'); desc.className = 'hidden pt-1.5 text-[10px] leading-relaxed text-zinc-500 border-t border-zinc-800/30 mt-1.5';
-          desc.textContent = item.description || '';
-          n.appendChild(desc);
-          n.addEventListener('click', (e) => { if (desc.textContent) desc.classList.toggle('hidden'); });
-          if (item.allowed) n.addEventListener('click', () => { command.value = item.name; command.focus(); });
-          grid.appendChild(n);
-        }
-        w.appendChild(grid); catalogList.appendChild(w);
-      }
-    }
-    async function loadCatalog() {
-      if (!token.value) return;
-      const r = await fetch(apiUrl('/api/commands/catalog'), { headers: authHeaders() });
-      const d = await readJson(r);
-      if (!r.ok || !d.json || !Array.isArray(d.json.items)) {
-        lastCatalogItems = null; catalogList.textContent = '';
-        const n = document.createElement('div'); n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600'; n.textContent = t('noCatalog'); catalogList.appendChild(n); return;
-      }
-      lastCatalogItems = d.json.items; renderCatalog(lastCatalogItems);
-    }
-    const commandReference = [
-  {cat:'Items & Environment',catZh:'物品与环境',cmds:[
-    {n:'addliquid',p:'<id> <amount>',d:'Add a dose of liquid to the held liquid container (mL).',dz:'向手持的液体容器中添加指定剂量液体（毫升/mL）。'},
-    {n:'spawn',p:'<id> [cursor] [cond=1] [amt=1]',d:'Spawn items, enemies, or objects at a position. Auto-corrects invalid IDs.',dz:'在指定位置生成物品/敌人/物体，无效ID自动纠正。'},
-    {n:'spawncategory',p:'<id> [position]',d:'Spawn all items from a category drop pool without gravity.',dz:'从掉落池生成该类别下所有物品，无重力状态。'},
-    {n:'starterkit',p:'',d:'Add a semi-random basic survival kit: bags, meds, tools, food, water.',dz:'放入半随机基础生存套装。'},
-    {n:'explode',p:'[pos] [...opts]',d:'Generate a fully customizable explosion with configurable parameters.',dz:'生成完全可自定义的爆炸。'},
-    {n:'locate',p:'<id> [index=0]',d:'Teleport to a specified object in the current level.',dz:'传送到当前层级中指定对象位置。'},
-    {n:'plushies',p:'',d:'Spawn all 15 plushie types in a horizontal line.',dz:'生成全部15种玩偶。'},
-  ]},
-  {cat:'Player Status & Medical',catZh:'玩家状态与医疗',cmds:[
-    {n:'tp',p:'<position>',d:'Teleport the player to a specified position.',dz:'将玩家传送到指定位置。'},
-    {n:'noclip',p:'',d:'Toggle collision-free flight mode through walls.',dz:'禁用碰撞体积与物理重力，自由穿墙飞行。'},
-    {n:'heal',p:'',d:'Fully reset player health and medical state.',dz:'完全重置玩家医疗与健康状态。'},
-    {n:'coagulate',p:'',d:'Set all limb bleed rates to 0.',dz:'将所有肢体流血速度设为0。'},
-    {n:'kill',p:'',d:'Instantly kill the player.',dz:'立刻击杀角色。'},
-    {n:'amputate',p:'<limb>',d:'Instantly remove a specified limb.',dz:'立刻切除指定肢体。'},
-    {n:'setbodyfield',p:'<field> <value>',d:'Modify a player-wide body state data field.',dz:'修改玩家整体身体状态数据。'},
-    {n:'setlimbfield',p:'<limb> <field> <value>',d:'Modify a specific limb health state field.',dz:'修改选定肢体健康状态数据。'},
-    {n:'addxp',p:'<type> <amount>',d:'Grant experience to a skill (Strength/Resilience/Intelligence).',dz:'向技能发放经验值。'},
-    {n:'resetskills',p:'',d:'Reset all skill levels and experience to zero.',dz:'清空所有技能等级与经验值。'},
-  ]},
-  {cat:'Console System',catZh:'控制台系统',cmds:[
-    {n:'log',p:'<text>',d:'Add a custom text log event to the console.',dz:'在控制台中添加自定义日志事件。'},
-    {n:'copylog',p:'',d:'Copy all console log text to the clipboard.',dz:'将控制台日志复制到剪贴板。'},
-    {n:'clear',p:'',d:'Clear all text from the console log.',dz:'清空控制台日志内容。'},
-    {n:'addcustomcommand',p:'<name> <desc> <action>',d:'Create a custom macro command from existing commands.',dz:'组合一系列指令为自定义宏指令。'},
-    {n:'removecustomcommand',p:'<name>',d:'Remove a previously created custom command.',dz:'移除已创建的自定义指令。'},
-    {n:'echo',p:'<bool>',d:'Toggle printing command echo in the console.',dz:'切换是否打印指令执行日志。'},
-    {n:'alert',p:'<important> <text>',d:'Show a notification box on screen.',dz:'在屏幕上生成提示信息框。'},
-    {n:'repeat',p:'<times> <delay> <cmd>',d:'Repeatedly execute a command with delay.',dz:'多次自动化执行指令。'},
-    {n:'setconsoleheight',p:'<height>',d:'Change the console height ratio on screen.',dz:'更改控制台在屏幕上的高度比例。'},
-    {n:'setconsolecolor',p:'<element> <color>',d:'Change console text or background color.',dz:'改变控制台文字或背景颜色。'},
-    {n:'loglocale',p:'<type> <key>',d:'Return the localized display name of an object.',dz:'返回对象的本地化显示名称。'},
-    {n:'openfolder',p:'<type>',d:'Open a game folder in the file manager.',dz:'在文件管理器中打开游戏目录文件夹。'},
-    {n:'errorlogging',p:'',d:'Toggle real-time error log printing.',dz:'切换实时错误日志打印。'},
-    {n:'bind',p:'<action> <key> [cmd]',d:'Bind a console command to a keyboard key.',dz:'将控制台指令绑定到快捷键。'},
-  ]},
-  {cat:'Game Environment & General',catZh:'游戏环境与通用',cmds:[
-    {n:'skiplayer',p:'[index]',d:'Switch to a different level index.',dz:'切换当前地图层级。'},
-    {n:'talk',p:'<text>',d:'Make the player character speak specified text.',dz:'使玩家角色说出指定文字。'},
-    {n:'music',p:'<action> [time]',d:'Control background music playback.',dz:'控制游戏背景音乐播放。'},
-    {n:'framerate',p:'<fps>',d:'Cap the game maximum frame rate (FPS).',dz:'限制游戏最大帧率。'},
-    {n:'fucklore',p:'',d:'Skip the opening story sequence on game start.',dz:'启动时跳过开头剧情。'},
-    {n:'timescale',p:'<scale>',d:'Control in-game time passage speed.',dz:'控制游戏内时间流逝速度。'},
-    {n:'unchipped',p:'<bool>',d:'Toggle Unchipped mode on or off.',dz:'切换Unchipped模式。'},
-    {n:'pixelate',p:'<bool>',d:'Toggle the pixelation visual filter.',dz:'切换像素化滤镜。'},
-    {n:'volume',p:'<vol>',d:'Set game music/SFX volume (0 to 1).',dz:'设置游戏音量（0到1）。'},
-    {n:'saveandquit',p:'',d:'Save player data and exit to main menu.',dz:'保存玩家数据并退出至主菜单。'},
-    {n:'playsound',p:'<id>',d:'Play a game sound effect by ID.',dz:'播放指定ID的游戏音效。'},
-    {n:'fullbright',p:'',d:'Toggle debug fullbright lighting mode.',dz:'开关调试照明模式。'},
-    {n:'freecam',p:'',d:'Toggle free camera mode.',dz:'切换自由摄像机模式。'},
-  ]},
-];
-    function renderManual(items) {
-      const list = el('manualList'); if (!list) return;
-      list.textContent = '';
-      const q = (el('manualSearch') ? el('manualSearch').value : '').toLowerCase();
-      for (const group of items) {
-        const f = q ? group.cmds.filter(c => { const txt = lang()==='zh' ? (c.dz||c.d) : c.d; return c.n.toLowerCase().includes(q) || txt.toLowerCase().includes(q); }) : group.cmds;
-        if (!f.length) continue;
-        const w = document.createElement('div'); w.className = 'grid gap-2';
-        const h = document.createElement('div'); h.className = 'text-[10px] font-semibold uppercase tracking-wider text-zinc-600';
-        h.textContent = lang() === 'zh' ? group.catZh : group.cat; w.appendChild(h);
-        for (const cmd of f) {
-          const c = document.createElement('button'); c.type = 'button'; c.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2 text-left hover:border-zinc-700';
-          c.addEventListener('click', () => { command.value = cmd.n; command.focus(); });
-          const n = document.createElement('div'); n.className = 'font-mono text-sm text-zinc-200'; n.textContent = cmd.n + (cmd.p ? ' ' + cmd.p : '');
-          const d = document.createElement('div'); d.className = 'pt-0.5 text-[10px] text-zinc-500'; d.textContent = lang()==='zh' ? (cmd.dz||cmd.d) : cmd.d;
-          c.appendChild(n); c.appendChild(d); w.appendChild(c);
-        }
-        list.appendChild(w);
-      }
-      if (!list.children.length) list.innerHTML = '<div class=""text-xs text-zinc-600 p-2"">' + t('noManualData') + '</div>';
-    }
-    function loadManual() { renderManual(commandReference); }
-    function saveSnippet() {
-      const cmd = command.value.trim(); if (!cmd) return;
-      const name = prompt(t('snippetName'), cmd.split(' ')[0]); if (!name) return;
-      const s = JSON.parse(localStorage.getItem('cu.remoteconsole.snippets') || '[]');
-      s.unshift({ id: Date.now().toString(36), name: name.trim(), command: cmd, createdAt: Date.now() });
-      localStorage.setItem('cu.remoteconsole.snippets', JSON.stringify(s.slice(0, 30)));
-      renderSnippets();
-    }
-    function renderSnippets() {
-      const list = el('snippetList'); if (!list) return;
-      list.textContent = '';
-      const s = JSON.parse(localStorage.getItem('cu.remoteconsole.snippets') || '[]');
-      if (!s.length) { list.innerHTML = '<div class=""text-xs text-zinc-600 p-2"">' + t('noSnippets') + '</div>'; return; }
-      for (const item of s) {
-        const row = document.createElement('div'); row.className = 'flex items-center gap-1 rounded-md border border-zinc-800/30 bg-zinc-950/30 p-1.5';
-        const info = document.createElement('button'); info.type = 'button'; info.className = 'flex-1 min-w-0 text-left';
-        info.addEventListener('click', () => { command.value = item.command; command.focus(); });
-        const name = document.createElement('div'); name.className = 'truncate text-xs text-zinc-300'; name.textContent = item.name;
-        const cmdTxt = document.createElement('div'); cmdTxt.className = 'truncate text-[10px] font-mono text-zinc-600'; cmdTxt.textContent = item.command;
-        info.appendChild(name); info.appendChild(cmdTxt);
-        const del = document.createElement('button'); del.type = 'button'; del.className = 'shrink-0 h-6 rounded border border-zinc-800 bg-zinc-950 px-2 text-[10px] text-zinc-500 hover:border-red-800 hover:text-red-400';
-        del.textContent = t('delete');
-        del.addEventListener('click', (e) => { e.stopPropagation();
-          const s2 = JSON.parse(localStorage.getItem('cu.remoteconsole.snippets') || '[]').filter(x => x.id !== item.id);
-          localStorage.setItem('cu.remoteconsole.snippets', JSON.stringify(s2)); renderSnippets();
-        });
-        row.appendChild(info); row.appendChild(del); list.appendChild(row);
-      }
-    }
-    if (el('send')) el('send').addEventListener('click', () => submitCommand().catch(e => logLine(String(e), 'err')));
-    if (el('lookup')) el('lookup').addEventListener('click', () => lookupStatus().catch(e => logLine(String(e), 'err')));
-    if (el('refresh')) el('refresh').addEventListener('click', () => Promise.all([refreshHealth(), loadStatus(), loadRecent(), loadCatalog()]).catch(e => logLine(String(e), 'err')));
-    if (el('history')) el('history').addEventListener('click', () => loadRecent().catch(e => logLine(String(e), 'err')));
-    if (el('catalog')) el('catalog').addEventListener('click', () => loadCatalog().catch(e => logLine(String(e), 'err')));
-    if (el('status')) el('status').addEventListener('click', () => loadStatus().catch(e => logLine(String(e), 'err')));
-    if (el('health')) el('health').addEventListener('click', () => refreshHealth().then(d => logLine(JSON.stringify(d, null, 2), 'muted')).catch(e => logLine(String(e), 'err')));
-    if (el('clear')) el('clear').addEventListener('click', () => output.textContent = '');
-    if (el('saveSnippet')) el('saveSnippet').addEventListener('click', () => saveSnippet());
-    if (el('manualSearch')) el('manualSearch').addEventListener('input', () => loadManual());
-    const cmdEl = el('command');
-    if (cmdEl) cmdEl.addEventListener('keydown', event => {
-      if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { submitCommand().catch(e => logLine(String(e), 'err')); return; }
-      if (event.key === 'ArrowUp') { event.preventDefault(); if (commandHistory.length === 0) return; if (historyIndex === -1) savedInput = command.value; if (historyIndex < commandHistory.length - 1) historyIndex++; command.value = commandHistory[historyIndex]; return; }
-      if (event.key === 'ArrowDown') { event.preventDefault(); if (historyIndex === -1) return; if (historyIndex > 0) { historyIndex--; command.value = commandHistory[historyIndex]; } else { historyIndex = -1; command.value = savedInput; } return; }
+    submitCommand().catch(e => {
+      if (typeof logLine === 'function') logLine(String(e), 'err');
     });
-    applyLanguage();
-    switchTab('status');
-    if (el('snippetList')) renderSnippets();
+  }
+}
+
+function renderSnippets() {
+  const list = document.getElementById('snippetList');
+  if (!list) return;
+  list.textContent = '';
+  const s = getSnippets();
+
+  // Search filter
+  const q = (document.getElementById('snippetSearch')?.value || '').toLowerCase();
+
+  if (!s.length) {
+    list.innerHTML = '<div class=""text-xs text-zinc-600 p-2"">' + t('noSnippets') + '</div>';
+    return;
+  }
+
+  const filtered = q ? s.filter(x =>
+    x.name.toLowerCase().includes(q) || x.command.toLowerCase().includes(q)
+  ) : s;
+
+  if (!filtered.length) {
+    list.innerHTML = '<div class=""text-xs text-zinc-600 p-2"">' + t('noManualData') + '</div>';
+    return;
+  }
+
+  for (const item of filtered) {
+    const row = document.createElement('div');
+    row.className = 'flex items-center gap-1 rounded-md border border-zinc-800/30 bg-zinc-950/30 p-1.5';
+
+    // Click to fill command
+    const info = document.createElement('button');
+    info.type = 'button';
+    info.className = 'flex-1 min-w-0 text-left';
+    info.title = item.command;
+    info.addEventListener('click', () => {
+      const input = document.getElementById('command');
+      if (input) { input.value = item.command; input.focus(); }
+    });
+
+    const nameSpan = document.createElement('div');
+    nameSpan.className = 'truncate text-xs text-zinc-300';
+    nameSpan.textContent = item.name;
+
+    const cmdTxt = document.createElement('div');
+    cmdTxt.className = 'truncate text-[10px] font-mono text-zinc-600';
+    cmdTxt.textContent = item.command;
+
+    // Timestamp
+    const meta = document.createElement('div');
+    meta.className = 'text-[9px] text-zinc-700 mt-0.5';
+    if (item.lastUsedAt) {
+      meta.textContent = t('lastUsed') + ' ' + new Date(item.lastUsedAt).toLocaleString();
+    } else {
+      meta.textContent = t('neverUsed');
+    }
+
+    info.appendChild(nameSpan);
+    info.appendChild(cmdTxt);
+    info.appendChild(meta);
+
+    // Quick execute button
+    const runBtn = document.createElement('button');
+    runBtn.type = 'button';
+    runBtn.className = 'shrink-0 h-6 rounded border border-zinc-800 bg-zinc-950 px-2 text-[10px] font-medium text-emerald-500 hover:border-emerald-800 hover:bg-emerald-950/30';
+    runBtn.textContent = t('run');
+    runBtn.title = item.command;
+    runBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      quickExecuteSnippet(item.command);
+    });
+
+    // Edit button
+    const editBtn = document.createElement('button');
+    editBtn.type = 'button';
+    editBtn.className = 'shrink-0 h-6 rounded border border-zinc-800 bg-zinc-950 px-2 text-[10px] text-zinc-500 hover:border-zinc-700 hover:text-zinc-300';
+    editBtn.textContent = t('edit');
+    editBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      editSnippet(item.id);
+    });
+
+    // Delete button
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'shrink-0 h-6 rounded border border-zinc-800 bg-zinc-950 px-2 text-[10px] text-zinc-500 hover:border-red-800 hover:text-red-400';
+    delBtn.textContent = t('delete');
+    delBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      deleteSnippet(item.id);
+    });
+
+    row.appendChild(info);
+    row.appendChild(runBtn);
+    row.appendChild(editBtn);
+    row.appendChild(delBtn);
+    list.appendChild(row);
+  }
+}
+
+function renderSnippetsFull() {
+  // Full-page snippet view for the snippets tab panel
+  const panel = document.getElementById('snippetFullList');
+  if (!panel) return;
+  panel.textContent = '';
+  const s = getSnippets();
+  const q = (document.getElementById('snippetFullSearch')?.value || '').toLowerCase();
+
+  if (!s.length) {
+    panel.innerHTML = '<div class=""rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600"">' + t('noSnippets') + '</div>';
+    return;
+  }
+
+  const filtered = q ? s.filter(x =>
+    x.name.toLowerCase().includes(q) || x.command.toLowerCase().includes(q)
+  ) : s;
+
+  if (!filtered.length) {
+    panel.innerHTML = '<div class=""text-xs text-zinc-600 p-2"">' + t('noManualData') + '</div>';
+    return;
+  }
+
+  for (const item of filtered) {
+    const card = document.createElement('div');
+    card.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 hover:border-zinc-700';
+
+    const topRow = document.createElement('div');
+    topRow.className = 'flex items-start justify-between gap-2';
+
+    const left = document.createElement('div');
+    left.className = 'min-w-0 flex-1';
+
+    const nameEl = document.createElement('div');
+    nameEl.className = 'text-sm font-medium text-zinc-200 truncate';
+    nameEl.textContent = item.name;
+
+    const cmdEl = document.createElement('div');
+    cmdEl.className = 'font-mono text-xs text-zinc-400 truncate mt-0.5';
+    cmdEl.textContent = '$ ' + item.command;
+
+    const metaEl = document.createElement('div');
+    metaEl.className = 'text-[10px] text-zinc-700 mt-1';
+    const parts = [];
+    if (item.useCount) parts.push(item.useCount + 'x');
+    if (item.lastUsedAt) parts.push(t('lastUsed') + ' ' + new Date(item.lastUsedAt).toLocaleString());
+    else parts.push(t('neverUsed'));
+    metaEl.textContent = parts.join(' \u00b7 ');
+
+    left.appendChild(nameEl);
+    left.appendChild(cmdEl);
+    left.appendChild(metaEl);
+
+    const actions = document.createElement('div');
+    actions.className = 'flex items-center gap-1 shrink-0';
+
+    const runBtn = document.createElement('button');
+    runBtn.type = 'button';
+    runBtn.className = 'h-7 rounded-md bg-zinc-100 px-3 text-xs font-semibold text-zinc-950 hover:bg-zinc-200';
+    runBtn.textContent = t('run');
+    runBtn.addEventListener('click', () => quickExecuteSnippet(item.command));
+
+    const editBtn = document.createElement('button');
+    editBtn.type = 'button';
+    editBtn.className = 'h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs text-zinc-500 hover:border-zinc-700 hover:text-zinc-300';
+    editBtn.textContent = t('edit');
+    editBtn.addEventListener('click', () => editSnippet(item.id));
+
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs text-zinc-500 hover:border-red-800 hover:text-red-400';
+    delBtn.textContent = t('delete');
+    delBtn.addEventListener('click', () => deleteSnippet(item.id));
+
+    actions.appendChild(runBtn);
+    actions.appendChild(editBtn);
+    actions.appendChild(delBtn);
+
+    topRow.appendChild(left);
+    topRow.appendChild(actions);
+    card.appendChild(topRow);
+    panel.appendChild(card);
+  }
+}
+// ── Command reference data & render ──
+const commandReference = [
+{cat:'Items & Environment',catZh:'物品与环境',cmds:[
+  {n:'addliquid',p:'<id> <amount>',d:'Add a dose of liquid to the held liquid container (mL).',dz:'向手持的液体容器中添加指定剂量液体（毫升/mL）。'},
+  {n:'spawn',p:'<id> [cursor] [cond=1] [amt=1]',d:'Spawn items, enemies, or objects at a position. Auto-corrects invalid IDs.',dz:'在指定位置生成物品/敌人/物体，无效ID自动纠正。'},
+  {n:'spawncategory',p:'<id> [position]',d:'Spawn all items from a category drop pool without gravity.',dz:'从掉落池生成该类别下所有物品，无重力状态。'},
+  {n:'starterkit',p:'',d:'Add a semi-random basic survival kit: bags, meds, tools, food, water.',dz:'放入半随机基础生存套装。'},
+  {n:'explode',p:'[pos] [...opts]',d:'Generate a fully customizable explosion with configurable parameters.',dz:'生成完全可自定义的爆炸。'},
+  {n:'locate',p:'<id> [index=0]',d:'Teleport to a specified object in the current level.',dz:'传送到当前层级中指定对象位置。'},
+  {n:'plushies',p:'',d:'Spawn all 15 plushie types in a horizontal line.',dz:'生成全部15种玩偶。'},
+]},
+{cat:'Player Status & Medical',catZh:'玩家状态与医疗',cmds:[
+  {n:'tp',p:'<position>',d:'Teleport the player to a specified position.',dz:'将玩家传送到指定位置。'},
+  {n:'noclip',p:'',d:'Toggle collision-free flight mode through walls.',dz:'禁用碰撞体积与物理重力，自由穿墙飞行。'},
+  {n:'heal',p:'',d:'Fully reset player health and medical state.',dz:'完全重置玩家医疗与健康状态。'},
+  {n:'coagulate',p:'',d:'Set all limb bleed rates to 0.',dz:'将所有肢体流血速度设为0。'},
+  {n:'kill',p:'',d:'Instantly kill the player.',dz:'立刻击杀角色。'},
+  {n:'amputate',p:'<limb>',d:'Instantly remove a specified limb.',dz:'立刻切除指定肢体。'},
+  {n:'setbodyfield',p:'<field> <value>',d:'Modify a player-wide body state data field.',dz:'修改玩家整体身体状态数据。'},
+  {n:'setlimbfield',p:'<limb> <field> <value>',d:'Modify a specific limb health state field.',dz:'修改选定肢体健康状态数据。'},
+  {n:'addxp',p:'<type> <amount>',d:'Grant experience to a skill (Strength/Resilience/Intelligence).',dz:'向技能发放经验值。'},
+  {n:'resetskills',p:'',d:'Reset all skill levels and experience to zero.',dz:'清空所有技能等级与经验值。'},
+]},
+{cat:'Console System',catZh:'控制台系统',cmds:[
+  {n:'log',p:'<text>',d:'Add a custom text log event to the console.',dz:'在控制台中添加自定义日志事件。'},
+  {n:'copylog',p:'',d:'Copy all console log text to the clipboard.',dz:'将控制台日志复制到剪贴板。'},
+  {n:'clear',p:'',d:'Clear all text from the console log.',dz:'清空控制台日志内容。'},
+  {n:'addcustomcommand',p:'<name> <desc> <action>',d:'Create a custom macro command from existing commands.',dz:'组合一系列指令为自定义宏指令。'},
+  {n:'removecustomcommand',p:'<name>',d:'Remove a previously created custom command.',dz:'移除已创建的自定义指令。'},
+  {n:'echo',p:'<bool>',d:'Toggle printing command echo in the console.',dz:'切换是否打印指令执行日志。'},
+  {n:'alert',p:'<important> <text>',d:'Show a notification box on screen.',dz:'在屏幕上生成提示信息框。'},
+  {n:'repeat',p:'<times> <delay> <cmd>',d:'Repeatedly execute a command with delay.',dz:'多次自动化执行指令。'},
+  {n:'setconsoleheight',p:'<height>',d:'Change the console height ratio on screen.',dz:'更改控制台在屏幕上的高度比例。'},
+  {n:'setconsolecolor',p:'<element> <color>',d:'Change console text or background color.',dz:'改变控制台文字或背景颜色。'},
+  {n:'loglocale',p:'<type> <key>',d:'Return the localized display name of an object.',dz:'返回对象的本地化显示名称。'},
+  {n:'openfolder',p:'<type>',d:'Open a game folder in the file manager.',dz:'在文件管理器中打开游戏目录文件夹。'},
+  {n:'errorlogging',p:'',d:'Toggle real-time error log printing.',dz:'切换实时错误日志打印。'},
+  {n:'bind',p:'<action> <key> [cmd]',d:'Bind a console command to a keyboard key.',dz:'将控制台指令绑定到快捷键。'},
+]},
+{cat:'Game Environment & General',catZh:'游戏环境与通用',cmds:[
+  {n:'skiplayer',p:'[index]',d:'Switch to a different level index.',dz:'切换当前地图层级。'},
+  {n:'talk',p:'<text>',d:'Make the player character speak specified text.',dz:'使玩家角色说出指定文字。'},
+  {n:'music',p:'<action> [time]',d:'Control background music playback.',dz:'控制游戏背景音乐播放。'},
+  {n:'framerate',p:'<fps>',d:'Cap the game maximum frame rate (FPS).',dz:'限制游戏最大帧率。'},
+  {n:'fucklore',p:'',d:'Skip the opening story sequence on game start.',dz:'启动时跳过开头剧情。'},
+  {n:'timescale',p:'<scale>',d:'Control in-game time passage speed.',dz:'控制游戏内时间流逝速度。'},
+  {n:'unchipped',p:'<bool>',d:'Toggle Unchipped mode on or off.',dz:'切换Unchipped模式。'},
+  {n:'pixelate',p:'<bool>',d:'Toggle the pixelation visual filter.',dz:'切换像素化滤镜。'},
+  {n:'volume',p:'<vol>',d:'Set game music/SFX volume (0 to 1).',dz:'设置游戏音量（0到1）。'},
+  {n:'saveandquit',p:'',d:'Save player data and exit to main menu.',dz:'保存玩家数据并退出至主菜单。'},
+  {n:'playsound',p:'<id>',d:'Play a game sound effect by ID.',dz:'播放指定ID的游戏音效。'},
+  {n:'fullbright',p:'',d:'Toggle debug fullbright lighting mode.',dz:'开关调试照明模式。'},
+  {n:'freecam',p:'',d:'Toggle free camera mode.',dz:'切换自由摄像机模式。'},
+]},
+];
+
+function renderManual(items) {
+  const list = document.getElementById('manualList');
+  if (!list) return;
+  list.textContent = '';
+  const q = (document.getElementById('manualSearch') ? document.getElementById('manualSearch').value : '').toLowerCase();
+  for (const group of items) {
+    const f = q ? group.cmds.filter(c => { const txt = lang()==='zh' ? (c.dz||c.d) : c.d; return c.n.toLowerCase().includes(q) || txt.toLowerCase().includes(q); }) : group.cmds;
+    if (!f.length) continue;
+    const w = document.createElement('div'); w.className = 'grid gap-2';
+    const h = document.createElement('div'); h.className = 'text-[10px] font-semibold uppercase tracking-wider text-zinc-600';
+    h.textContent = lang() === 'zh' ? group.catZh : group.cat; w.appendChild(h);
+    for (const cmd of f) {
+      const c = document.createElement('button'); c.type = 'button'; c.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2 text-left hover:border-zinc-700';
+      c.addEventListener('click', () => { const input = document.getElementById('command'); if (input) { input.value = cmd.n; input.focus(); } });
+      const n = document.createElement('div'); n.className = 'font-mono text-sm text-zinc-200'; n.textContent = cmd.n + (cmd.p ? ' ' + cmd.p : '');
+      const d = document.createElement('div'); d.className = 'pt-0.5 text-[10px] text-zinc-500'; d.textContent = lang()==='zh' ? (cmd.dz||cmd.d) : cmd.d;
+      c.appendChild(n); c.appendChild(d); w.appendChild(c);
+    }
+    list.appendChild(w);
+  }
+  if (!list.children.length) list.innerHTML = '<div class=""text-xs text-zinc-600 p-2"">' + t('noManualData') + '</div>';
+}
+
+function loadManual() { renderManual(commandReference); }
+// ── Main application logic ──
+
+// DOM references
+const el = id => document.getElementById(id);
+const command = el('command');
+const queueId = el('queueId');
+const output = el('output');
+const recent = el('recent');
+const catalogList = el('catalogList');
+const statusPanel = el('statusPanel');
+const healthPills = el('healthPills');
+const language = el('language');
+const loginScreen = el('loginScreen');
+const mainUI = el('mainUI');
+const loginToken = el('loginToken');
+const loginEndpoint = el('loginEndpoint');
+const connectBtn = el('connectBtn');
+const disconnectBtn = el('disconnectBtn');
+const toggleSettings = el('toggleSettings');
+const settingsBar = el('settingsBar');
+const settingsToken = el('settingsToken');
+const settingsEndpoint = el('settingsEndpoint');
+const settingsApply = el('settingsApply');
+const hostDisplay = el('hostDisplay');
+
+// Token & endpoint values (synced from storage, not DOM)
+let tokenValue = '';
+let endpointValue = '';
+
+// State
+let lastCatalogItems = null;
+let lastStatus = null;
+let activeTab = 'status';
+let commandHistory = [];
+let historyIndex = -1;
+let savedInput = '';
+
+// Restore saved language
+language.value = localStorage.getItem('cu.remoteconsole.language') || 'auto';
+language.addEventListener('change', () => {
+  localStorage.setItem('cu.remoteconsole.language', language.value);
+  applyLanguage();
+});
+
+// ── Login / Connect ──
+
+async function verifyConnection() {
+  console.log('[VERIFY] Starting verification to', apiUrl('/api/status'));
+  const r = await fetch(apiUrl('/api/status'), { headers: authHeaders() });
+  console.log('[VERIFY] Response status:', r.status);
+  if (r.status !== 200) {
+    const body = await r.text().catch(() => '');
+    console.log('[VERIFY] Failed:', r.status, body);
+    throw new Error('HTTP ' + r.status + (body ? ': ' + body.slice(0, 100) : ''));
+  }
+  console.log('[VERIFY] OK');
+  return r.json();
+}
+
+function showOverlay(msg) {
+  const overlay = document.getElementById('loadingOverlay');
+  const text = document.getElementById('loadingText');
+  if (overlay) overlay.classList.remove('hidden');
+  if (text) text.textContent = msg;
+}
+function hideOverlay() {
+  const overlay = document.getElementById('loadingOverlay');
+  if (overlay) overlay.classList.add('hidden');
+}
+
+async function connect() {
+  console.log('[CONNECT] Starting connect...');
+  try {
+    tokenValue = (loginToken.value || '').trim();
+    endpointValue = (loginEndpoint.value || '').trim();
+    if (!tokenValue) { console.log('[CONNECT] Empty token'); loginToken.focus(); return; }
+    console.log('[CONNECT] Token set, verifying...');
+    // Clear any previous error
+    const errDiv = document.getElementById('loginError');
+    if (errDiv) errDiv.textContent = '';
+    // Show loading overlay
+    showOverlay(t('health') + '…');
+    // Verify before switching UI
+    await verifyConnection();
+    // Save and switch
+    sessionStorage.setItem('cu.remoteconsole.token', tokenValue);
+    localStorage.setItem('cu.remoteconsole.endpoint', endpointValue);
+    hideOverlay();
+    loginScreen.classList.add('hidden');
+    mainUI.classList.remove('hidden');
+    updateHostDisplay();
     refreshHealth().catch(e => logLine(String(e), 'err'));
     loadStatus().catch(() => {});
     loadRecent().catch(() => {});
     loadCatalog().catch(() => {});
+  } catch (e) {
+    hideOverlay();
+    // Show error on login screen, stay on login
+    tokenValue = '';
+    endpointValue = '';
+    const errDiv = document.getElementById('loginError');
+    if (errDiv) {
+      errDiv.textContent = String(e);
+      errDiv.className = 'text-[11px] text-red-400 text-center';
+    }
+  }
+}
+
+function disconnect() {
+  tokenValue = '';
+  endpointValue = '';
+  sessionStorage.removeItem('cu.remoteconsole.token');
+  // Keep endpoint in localStorage so it's remembered
+  loginScreen.classList.remove('hidden');
+  mainUI.classList.add('hidden');
+  healthPills.textContent = '';
+  output.textContent = '';
+  statusPanel.textContent = '';
+  catalogList.textContent = '';
+  recent.textContent = '';
+  lastCatalogItems = null;
+  lastStatus = null;
+  // Pre-fill endpoint on login screen
+  loginToken.value = '';
+  loginEndpoint.value = endpointValue;
+  loginToken.focus();
+}
+
+// Connect on button click or Enter key
+if (connectBtn) connectBtn.addEventListener('click', connect);
+if (loginToken) loginToken.addEventListener('keydown', e => { if (e.key === 'Enter') connect(); });
+if (loginEndpoint) loginEndpoint.addEventListener('keydown', e => { if (e.key === 'Enter') connect(); });
+if (disconnectBtn) disconnectBtn.addEventListener('click', disconnect);
+
+// Settings bar: toggle, populate, apply
+function updateHostDisplay() {
+  if (!hostDisplay) return;
+  hostDisplay.textContent = endpointBase().replace(/^https?:\/\//, '') || 'localhost:8848';
+  const ep = endpointBase().replace(/^https?:\/\//, '') || 'localhost:8848';
+  hostDisplay.title = 'Token: ' + tokenValue + '\nEndpoint: ' + endpointBase();
+}
+function toggleSettingsBar() {
+  if (!settingsBar) return;
+  const isHidden = settingsBar.classList.contains('hidden');
+  settingsBar.classList.toggle('hidden');
+  if (isHidden) {
+    settingsToken.value = tokenValue;
+    settingsEndpoint.value = endpointValue;
+    settingsToken.focus();
+  }
+}
+async function applySettings() {
+  const newToken = (settingsToken.value || '').trim();
+  const newEndpoint = (settingsEndpoint.value || '').trim();
+  if (!newToken) { settingsToken.focus(); return; }
+  const oldToken = tokenValue;
+  const oldEndpoint = endpointValue;
+  tokenValue = newToken;
+  endpointValue = newEndpoint;
+  // Clear settings error
+  const errSpan = document.getElementById('settingsError');
+  if (errSpan) errSpan.textContent = '';
+  // Verify before switching
+  try {
+    showOverlay(t('health') + '…');
+    await verifyConnection();
+    hideOverlay();
+    // Apply
+    sessionStorage.setItem('cu.remoteconsole.token', tokenValue);
+    localStorage.setItem('cu.remoteconsole.endpoint', endpointValue);
+    updateHostDisplay();
+    settingsBar.classList.add('hidden');
+    // Refresh all data
+    output.textContent = '';
+    statusPanel.textContent = '';
+    catalogList.textContent = '';
+    recent.textContent = '';
+    lastCatalogItems = null;
+    lastStatus = null;
+    refreshHealth().catch(e => logLine(String(e), 'err'));
+    loadStatus().catch(() => {});
+    loadRecent().catch(() => {});
+    loadCatalog().catch(() => {});
+    logLine('> ' + t('switchedTo') + ' ' + (endpointBase().replace(/^https?:\/\//, '') || 'localhost:8848'), 'ok');
+  } catch (e) {
+    hideOverlay();
+    // Restore old values, show error
+    tokenValue = oldToken;
+    endpointValue = oldEndpoint;
+    const errSpan = document.getElementById('settingsError');
+    if (errSpan) {
+      errSpan.textContent = String(e);
+    }
+  }
+}
+if (toggleSettings) toggleSettings.addEventListener('click', toggleSettingsBar);
+if (settingsApply) settingsApply.addEventListener('click', applySettings);
+if (settingsEndpoint) settingsEndpoint.addEventListener('keydown', e => { if (e.key === 'Enter') applySettings(); });
+
+// ── API / HTTP helpers ──
+
+function authHeaders(e) {
+  return Object.assign({ 'Authorization': 'Bearer ' + tokenValue }, e || {});
+}
+function endpointBase() {
+  const r = endpointValue.replace(/\/+$/, '');
+  if (!r) return '';
+  if (/^https?:\/\//i.test(r)) return r;
+  return 'http://' + r;
+}
+function apiUrl(p) { return endpointBase() + p; }
+function clean(t) { return String(t || '').replace(/<[^>]*>/g, ''); }
+
+// ── DOM rendering helpers ──
+
+function logLine(line, tone) {
+  const n = document.createElement('div');
+  n.className = 'px-3 py-1.5 font-mono text-sm leading-relaxed ' +
+    (tone === 'ok' ? 'text-emerald-400' : tone === 'err' ? 'text-red-400' : 'text-zinc-500');
+  n.textContent = line;
+  output.appendChild(n);
+  output.scrollTop = output.scrollHeight;
+}
+
+async function readJson(r) {
+  const t = await r.text();
+  try { return { text: t, json: JSON.parse(t) }; }
+  catch { return { text: t, json: null }; }
+}
+
+function pill(text, tone) {
+  const c = {
+    ok: 'border-emerald-500/20 bg-emerald-500/10 text-emerald-400',
+    warn: 'border-amber-500/20 bg-amber-500/10 text-amber-400',
+    err: 'border-red-500/20 bg-red-500/10 text-red-400'
+  };
+  const n = document.createElement('span');
+  n.className = 'inline-flex h-6 items-center rounded-md border px-2 text-[11px] font-medium ' + (c[tone] || '');
+  n.textContent = text;
+  return n;
+}
+
+function reasonText(r) {
+  if (r === 'allowed') return t('allowedReason');
+  if (r === 'state_changing_not_enabled') return t('stateChangingReason');
+  if (r === 'dangerous_command_denied') return t('dangerousReason');
+  if (r === 'command_not_allowlisted') return t('commandNotAllowlistedReason');
+  if (r === 'extra_allowlisted') return t('extraAllowlistedReason');
+  return r;
+}
+
+function classificationTitle(c) {
+  if (c === 'Safe') return t('safeCommands');
+  if (c === 'StateChanging') return t('stateChangingCommands');
+  if (c === 'Dangerous') return t('dangerousCommands');
+  return t('unknownCommands');
+}
+
+function classificationTone(c) {
+  if (c === 'Safe') return 'border-emerald-500/20 bg-emerald-500/10 text-emerald-400';
+  if (c === 'StateChanging') return 'border-amber-500/20 bg-amber-500/10 text-amber-400';
+  if (c === 'Dangerous') return 'border-red-500/20 bg-red-500/10 text-red-400';
+  return 'border-zinc-700 bg-zinc-900 text-zinc-400';
+}
+
+function boolText(v) { return v ? t('yes') : t('no'); }
+
+// ── Status panel ──
+
+function renderStatusGroup(title, rows) {
+  const w = document.createElement('div');
+  w.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2';
+  const h = document.createElement('h3');
+  h.className = 'mb-1 text-[10px] font-semibold uppercase tracking-wider text-zinc-600';
+  h.textContent = title;
+  w.appendChild(h);
+  const g = document.createElement('div');
+  g.className = 'grid grid-cols-2 gap-x-3 gap-y-0.5';
+  for (const rowData of rows) {
+    const r = document.createElement('div');
+    r.className = 'min-w-0';
+    const k = document.createElement('span');
+    k.className = 'block truncate text-[10px] text-zinc-600';
+    k.textContent = rowData[0];
+    const v = document.createElement('span');
+    v.className = 'block truncate font-mono text-[11px] text-zinc-300';
+    v.textContent = String(rowData[1]);
+    r.appendChild(k);
+    r.appendChild(v);
+    g.appendChild(r);
+  }
+  w.appendChild(g);
+  return w;
+}
+
+function renderStatus(data) {
+  lastStatus = data;
+  statusPanel.textContent = '';
+  statusPanel.appendChild(renderStatusGroup(t('network'), [
+    ['bind', data.network.bindAddress + ':' + data.network.port],
+    ['listening', boolText(data.network.httpListening)],
+    ['lan', boolText(data.network.allowLan)],
+    ['public', boolText(data.network.allowPublic)]
+  ]));
+  statusPanel.appendChild(renderStatusGroup(t('security'), [
+    ['auth', data.security.authRequired ? t('enabled') : t('disabled')],
+    ['allow state', boolText(data.security.allowStateChangingCommands)],
+    ['deny dangerous', boolText(data.security.denyDangerousCommands)],
+    ['audit', data.security.auditLogEnabled ? t('enabled') : t('disabled')]
+  ]));
+  statusPanel.appendChild(renderStatusGroup(t('limits'), [
+    ['command length', data.limits.maxCommandLength],
+    ['queue depth', data.limits.maxQueueDepth],
+    ['commands/sec', data.limits.maxCommandsPerSecond],
+    ['commands/frame', data.limits.maxCommandsPerFrame]
+  ]));
+  statusPanel.appendChild(renderStatusGroup(t('runtime'), [
+    ['version', data.pluginVersion],
+    ['patch', boolText(data.runtime.patchApplied)],
+    ['queue', data.runtime.queueDepth],
+    ['bridge', data.runtime.bridgeLastStatus]
+  ]));
+  statusPanel.appendChild(renderStatusGroup(t('policy'), [
+    ['safe', data.policy.safeCount],
+    ['state-changing', data.policy.stateChangingCount],
+    ['dangerous', data.policy.dangerousCount],
+    ['allowed', data.policy.allowedCount]
+  ]));
+}
+
+// ── Health pills ──
+
+function renderHealth(data) {
+  healthPills.textContent = '';
+  healthPills.appendChild(pill('v' + data.pluginVersion, 'ok'));
+  healthPills.appendChild(pill(data.httpListening ? 'HTTP' : 'HTTP off', data.httpListening ? 'ok' : 'err'));
+}
+
+// ── Command output / record rendering ──
+
+function renderRecord(record) {
+  queueId.value = record.queueId;
+  const block = document.createElement('div');
+  block.className = 'border-t border-zinc-900/80 pt-2 pb-1';
+  const header = document.createElement('div');
+  header.className = 'flex items-start justify-between gap-2';
+  const titleWrap = document.createElement('div');
+  titleWrap.className = 'min-w-0 flex-1';
+  const title = document.createElement('div');
+  title.className = 'truncate font-mono text-sm font-semibold text-emerald-400';
+  title.textContent = '> ' + record.commandName;
+  const meta = document.createElement('div');
+  meta.className = 'mt-0.5 text-[11px] text-zinc-600 font-mono';
+  const lc = record.outputLineCount ?? (record.output ? record.output.length : 0);
+  meta.textContent = '#' + record.queueId.slice(0, 8) + ' \u00b7 ' + record.state + ' \u00b7 ' + record.classification + ' \u00b7 ' + t('bridge') + '=' + record.bridgeStatus + ' \u00b7 ' + lc + ' ' + t('outputLines') + (record.outputTruncated ? ' \u00b7 ' + t('truncated') : '');
+  titleWrap.appendChild(title);
+  titleWrap.appendChild(meta);
+  header.appendChild(titleWrap);
+  const copy = document.createElement('button');
+  copy.type = 'button';
+  copy.className = 'shrink-0 h-6 rounded border border-zinc-800 bg-transparent px-2 text-[11px] font-mono text-zinc-700 hover:text-zinc-400 hover:border-zinc-700';
+  copy.disabled = !record.output || !record.output.length;
+  copy.textContent = '[' + t('copyOutput') + ']';
+  copy.addEventListener('click', async () => {
+    const text = (record.output || []).map(clean).join('\n');
+    try {
+      await navigator.clipboard.writeText(text);
+      copy.textContent = '[' + t('copied') + ']';
+      setTimeout(() => copy.textContent = '[' + t('copyOutput') + ']', 1200);
+    } catch { logLine('clipboard unavailable', 'err'); }
+  });
+  header.appendChild(copy);
+  block.appendChild(header);
+  const body = document.createElement('pre');
+  body.className = 'mt-1 max-h-72 overflow-auto font-mono text-sm leading-relaxed whitespace-pre-wrap text-zinc-300';
+  if (record.output && record.output.length) body.textContent = record.output.map(clean).join('\n');
+  else body.textContent = t('noOutput');
+  block.appendChild(body);
+  output.appendChild(block);
+  output.scrollTop = output.scrollHeight;
+}
+
+// ── API data fetchers ──
+
+async function refreshHealth() {
+  const r = await fetch(apiUrl('/health'));
+  const d = await readJson(r);
+  if (r.ok && d.json) { renderHealth(d.json); return d.json; }
+  throw new Error(d.text || r.status);
+}
+
+async function loadStatus() {
+  if (!tokenValue) return;
+  const r = await fetch(apiUrl('/api/status'), { headers: authHeaders() });
+  const d = await readJson(r);
+  if (!r.ok || !d.json) {
+    lastStatus = null;
+    statusPanel.textContent = '';
+    const n = document.createElement('div');
+    n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600';
+    n.textContent = t('noStatus');
+    statusPanel.appendChild(n);
+    return;
+  }
+  renderStatus(d.json);
+}
+
+async function submitCommand() {
+  const cmd = command.value.trim();
+  if (cmd) {
+    commandHistory = [cmd, ...commandHistory.filter(c => c !== cmd)].slice(0, 50);
+    historyIndex = -1;
+    savedInput = '';
+  }
+  logLine('> ' + command.value, 'muted');
+  const r = await fetch(apiUrl('/api/commands'), {
+    method: 'POST',
+    headers: authHeaders({ 'Content-Type': 'application/json' }),
+    body: JSON.stringify({ command: command.value })
+  });
+  const d = await readJson(r);
+  if (!r.ok) { logLine(r.status + ' ' + d.text, 'err'); return; }
+  logLine(r.status + ' ' + t('commandAccepted') + ' #' + d.json.queueId.slice(0, 8), 'ok');
+  queueId.value = d.json.queueId;
+  await pollStatus(d.json.queueId);
+  await loadRecent();
+  await refreshHealth();
+}
+
+async function fetchStatus(id) {
+  const r = await fetch(apiUrl('/api/commands/' + encodeURIComponent(id)), { headers: authHeaders() });
+  const d = await readJson(r);
+  if (!r.ok) throw new Error(r.status + ' ' + d.text);
+  return d.json;
+}
+
+async function pollStatus(id) {
+  for (let i = 0; i < 16; i++) {
+    const rec = await fetchStatus(id);
+    if (rec.state !== 'Queued') { renderRecord(rec); return rec; }
+    await new Promise(r => setTimeout(r, 200));
+  }
+  logLine('Queued #' + id, 'muted');
+  return null;
+}
+
+async function lookupStatus() {
+  if (!queueId.value.trim()) return;
+  renderRecord(await fetchStatus(queueId.value.trim()));
+}
+
+async function loadRecent() {
+  if (!tokenValue) return;
+  const r = await fetch(apiUrl('/api/commands'), { headers: authHeaders() });
+  const d = await readJson(r);
+  if (!r.ok || !d.json) return;
+  recent.textContent = '';
+  if (!d.json.items || !d.json.items.length) {
+    const n = document.createElement('div');
+    n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600';
+    n.textContent = t('noHistory');
+    recent.appendChild(n);
+    return;
+  }
+  for (const item of d.json.items) {
+    const n = document.createElement('button');
+    n.type = 'button';
+    n.className = 'grid gap-0.5 rounded-md border border-zinc-800/30 bg-zinc-950/30 p-2 text-left hover:border-zinc-700';
+    const title = document.createElement('strong');
+    title.className = 'text-sm text-zinc-300';
+    title.textContent = item.commandName + ' \u00b7 ' + item.state;
+    const meta = document.createElement('span');
+    meta.className = 'text-xs text-zinc-600';
+    meta.textContent = item.queueLatencyMs + 'ms \u00b7 ' + item.bridgeStatus + ' \u00b7 ' + item.queueId.slice(0, 8);
+    n.appendChild(title);
+    n.appendChild(meta);
+    n.addEventListener('click', () => renderRecord(item));
+    recent.appendChild(n);
+  }
+}
+
+// ── Command catalog ──
+
+function renderCatalog(items) {
+  lastCatalogItems = items;
+  catalogList.textContent = '';
+  for (const group of ['Safe', 'StateChanging', 'Dangerous', 'Unknown']) {
+    const g = items.filter(i => i.classification === group);
+    if (!g.length) continue;
+    const w = document.createElement('div');
+    w.className = 'grid gap-2';
+    const h = document.createElement('div');
+    h.className = 'flex items-center justify-between gap-2';
+    const t2 = document.createElement('h3');
+    t2.className = 'text-[10px] font-semibold uppercase tracking-wider text-zinc-600';
+    t2.textContent = classificationTitle(group);
+    const c = document.createElement('span');
+    c.className = 'text-xs text-zinc-600';
+    c.textContent = String(g.length);
+    h.appendChild(t2);
+    h.appendChild(c);
+    w.appendChild(h);
+    const grid = document.createElement('div');
+    grid.className = 'grid grid-cols-2 gap-1.5';
+    for (const item of g) {
+      const n = document.createElement('button');
+      n.type = 'button';
+      n.disabled = !item.allowed;
+      n.className = 'rounded-md border px-2 py-1.5 text-left text-xs ' +
+        classificationTone(item.classification) +
+        (item.allowed ? ' hover:border-zinc-600' : ' cursor-not-allowed opacity-50');
+      const name = document.createElement('strong');
+      name.className = 'block font-mono text-sm';
+      name.textContent = item.name;
+      const meta = document.createElement('span');
+      meta.className = 'block pt-0.5 text-[10px]';
+      meta.textContent = (item.allowed ? t('allowed') : t('denied')) + ' \u00b7 ' + reasonText(item.policyReason);
+      n.appendChild(name);
+      n.appendChild(meta);
+      const desc = document.createElement('div');
+      desc.className = 'hidden pt-1.5 text-[10px] leading-relaxed text-zinc-500 border-t border-zinc-800/30 mt-1.5';
+      desc.textContent = item.description || '';
+      n.appendChild(desc);
+      // Show description on hover
+      if (desc.textContent) {
+        n.addEventListener('mouseenter', () => desc.classList.remove('hidden'));
+        n.addEventListener('mouseleave', () => desc.classList.add('hidden'));
+      }
+      if (item.allowed) {
+        n.addEventListener('click', () => {
+          command.value = item.name;
+          command.focus();
+        });
+      }
+      grid.appendChild(n);
+    }
+    w.appendChild(grid);
+    catalogList.appendChild(w);
+  }
+}
+
+async function loadCatalog() {
+  if (!tokenValue) return;
+  const r = await fetch(apiUrl('/api/commands/catalog'), { headers: authHeaders() });
+  const d = await readJson(r);
+  if (!r.ok || !d.json || !Array.isArray(d.json.items)) {
+    lastCatalogItems = null;
+    catalogList.textContent = '';
+    const n = document.createElement('div');
+    n.className = 'rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 text-sm text-zinc-600';
+    n.textContent = t('noCatalog');
+    catalogList.appendChild(n);
+    return;
+  }
+  renderCatalog(d.json.items);
+}
+
+// ── Access / Share tab ──
+
+function renderAccess() {
+  const urlText = document.getElementById('accessUrlText');
+  const qrContainer = document.getElementById('accessQR');
+  const qrFallback = document.getElementById('accessQRFallback');
+  const includeCb = document.getElementById('accessIncludeToken');
+  if (!urlText || !qrContainer) return;
+  // Use the connected backend endpoint (not browser URL, as web & backend may be separate)
+  const baseUrl = (endpointBase().replace(/\/+$/, '') || 'http://' + (window.location.host || 'localhost:8848'));
+  const showToken = includeCb ? includeCb.checked : false;
+  const displayUrl = baseUrl + '/' + (showToken ? '?token=' + encodeURIComponent(tokenValue) : '');
+  const qrUrl = baseUrl + '/' + (showToken ? '?token=' + encodeURIComponent(tokenValue) : '');
+  // Show base URL only (no token exposed by default)
+  urlText.textContent = displayUrl;
+  urlText.title = showToken ? '' : t('openConsole') + ' → ' + baseUrl + '/?token=***';
+  if (qrFallback) qrFallback.textContent = qrUrl;
+  qrContainer.innerHTML = '';
+  try {
+    new QRCode(qrContainer, { text: qrUrl, width: 160, height: 160 });
+  } catch(e) {
+    qrContainer.innerHTML = '';
+    const txt = document.createElement('span');
+    txt.className = 'text-xs text-zinc-600 font-mono break-all';
+    txt.textContent = qrUrl;
+    qrContainer.appendChild(txt);
+  }
+  // Make URL text clickable
+  urlText.style.cursor = 'pointer';
+  urlText.style.textDecoration = 'underline';
+  urlText.onclick = function () { window.open(displayUrl || baseUrl + '/', '_blank'); };
+}
+if (el('refreshAccess')) el('refreshAccess').addEventListener('click', renderAccess);
+if (el('accessIncludeToken')) el('accessIncludeToken').addEventListener('change', renderAccess);
+
+// ── Tab switching ──
+
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.dataset.active = b.dataset.tab === tab ? 'true' : 'false';
+  });
+  document.querySelectorAll('.tab-panel').forEach(p =>
+    p.classList.toggle('hidden', p.id !== 'tab-' + tab)
+  );
+  if (tab === 'manual') loadManual();
+  if (tab === 'snippets') { renderSnippets(); renderSnippetsFull(); }
+  if (tab === 'access') { renderAccess(); }
+}
+
+// ── Event listeners ──
+
+document.querySelectorAll('.tab-btn').forEach(b =>
+  b.addEventListener('click', () => switchTab(b.dataset.tab))
+);
+
+if (el('send')) el('send').addEventListener('click', () =>
+  submitCommand().catch(e => logLine(String(e), 'err'))
+);
+if (el('lookup')) el('lookup').addEventListener('click', () =>
+  lookupStatus().catch(e => logLine(String(e), 'err'))
+);
+if (el('history')) el('history').addEventListener('click', () =>
+  loadRecent().catch(e => logLine(String(e), 'err'))
+);
+if (el('catalog')) el('catalog').addEventListener('click', () =>
+  loadCatalog().catch(e => logLine(String(e), 'err'))
+);
+if (el('status')) el('status').addEventListener('click', () =>
+  loadStatus().catch(e => logLine(String(e), 'err'))
+);
+if (el('health')) el('health').addEventListener('click', () =>
+  refreshHealth().then(d => logLine(JSON.stringify(d, null, 2), 'muted'))
+    .catch(e => logLine(String(e), 'err'))
+);
+if (el('clear')) el('clear').addEventListener('click', () => output.textContent = '');
+if (el('saveSnippet')) el('saveSnippet').addEventListener('click', () => saveSnippet());
+
+// ── Load initial data ──
+if (el('manualSearch')) el('manualSearch').addEventListener('input', () => loadManual());
+if (el('snippetSearch')) el('snippetSearch').addEventListener('input', () => renderSnippets());
+if (el('snippetFullSearch')) el('snippetFullSearch').addEventListener('input', () => renderSnippetsFull());
+
+// Command textarea keyboard navigation & auto-resize
+const cmdEl = el('command');
+if (cmdEl) {
+  function autoResize() {
+    cmdEl.style.height = 'auto';
+    const newHeight = Math.min(cmdEl.scrollHeight, 22 * 8);
+    cmdEl.style.height = Math.max(22, newHeight) + 'px';
+  }
+  cmdEl.addEventListener('input', autoResize);
+  setTimeout(autoResize, 0);
+
+  cmdEl.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+      submitCommand().catch(e => logLine(String(e), 'err'));
+      return;
+    }
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (commandHistory.length === 0) return;
+      if (historyIndex === -1) savedInput = command.value;
+      if (historyIndex < commandHistory.length - 1) historyIndex++;
+      command.value = commandHistory[historyIndex];
+      return;
+    }
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      if (historyIndex === -1) return;
+      if (historyIndex > 0) {
+        historyIndex--;
+        command.value = commandHistory[historyIndex];
+      } else {
+        historyIndex = -1;
+        command.value = savedInput;
+      }
+      return;
+    }
+  });
+}
+
+// ── Bootstrap ──
+console.log('[BOOT] CU.RemoteConsole WebUI build 2026-06-20');
+applyLanguage();
+
+// Always start at login screen.
+// Pre-fill saved credentials so the user can just click Connect.
+tokenValue = '';
+endpointValue = localStorage.getItem('cu.remoteconsole.endpoint') || window.location.host || '';
+const savedToken = sessionStorage.getItem('cu.remoteconsole.token') || '';
+
+if (loginToken) loginToken.value = savedToken;
+if (loginEndpoint) loginEndpoint.value = endpointValue;
+switchTab('status');
+if (el('snippetList')) renderSnippets();
+if (el('snippetFullList')) renderSnippetsFull();
+
+// If there's a saved token, focus the Connect button for quick re-connect
+if (savedToken && connectBtn) setTimeout(() => connectBtn.focus(), 200);
+
+// Check for ?token=xxx URL parameter (from QR code scan)
+const urlParams = new URLSearchParams(window.location.search);
+const qrToken = urlParams.get('token');
+if (qrToken && loginToken) {
+  loginToken.value = qrToken;
+  // Auto-fill endpoint from the current URL's host
+  endpointValue = window.location.host || 'localhost:8848';
+  if (loginEndpoint) loginEndpoint.value = endpointValue;
+  localStorage.setItem('cu.remoteconsole.endpoint', endpointValue);
+  // Auto-connect after a brief delay so the page is ready
+  setTimeout(() => { if (connectBtn) connectBtn.click(); }, 300);
+}
 </script>
 </body>
-</html>";
+</html>
+";
 }

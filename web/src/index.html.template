@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>CU.RemoteConsole</title>
+  <style>/*__CU_REMOTE_CONSOLE_CSS__*/</style>
+</head>
+<body class="min-h-screen bg-[#050505] text-zinc-100 antialiased">
+  <header class="border-b border-zinc-800/60 bg-[#0a0a0a]">
+    <div class="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-3">
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-zinc-100"></span>
+          <h1 class="text-sm font-semibold tracking-tight text-zinc-100">CU.RemoteConsole</h1></div>
+        <span class="hidden text-xs text-zinc-600 sm:inline">v1.2.1</span></div>
+      <div class="flex items-center gap-3">
+        <select id="language" class="h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs text-zinc-400 outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700/30">
+          <option value="auto">Auto</option><option value="en">English</option><option value="zh">中文</option></select>
+        <div id="healthPills" class="flex items-center gap-1.5"></div></div></div></header>
+
+  <!-- Loading overlay (shown during reconnect / initial verify) -->
+  <div id="loadingOverlay" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+    <div class="rounded-lg border border-zinc-800/50 bg-[#0a0a0a] px-6 py-4">
+      <div class="flex items-center gap-3">
+        <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-zinc-700 border-t-zinc-300"></span>
+        <span class="text-sm text-zinc-400" id="loadingText">Verifying...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login screen -->
+  <div id="loginScreen" class="flex items-center justify-center min-h-[calc(100vh-53px)] px-6">
+    <div class="w-full max-w-sm rounded-lg border border-zinc-800/50 bg-[#0a0a0a] p-6">
+      <div class="text-center mb-6">
+        <div class="flex items-center justify-center gap-2 mb-3">
+          <span class="h-3 w-3 rounded-full bg-zinc-100"></span>
+          <h2 class="text-base font-semibold text-zinc-100">CU.RemoteConsole</h2>
+        </div>
+        <p class="text-xs text-zinc-600" data-i18n="subtitle">Local command panel for Casualties: Unknown</p>
+      </div>
+      <div class="grid gap-3">
+        <div>
+          <label class="mb-1 block text-[11px] font-medium text-zinc-500" data-i18n="token">Token</label>
+          <input id="loginToken" type="password" autocomplete="off" data-i18n-placeholder="tokenPlaceholder" class="h-9 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-3 font-mono text-sm text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700">
+        </div>
+        <div>
+          <label class="mb-1 block text-[11px] font-medium text-zinc-500" data-i18n="endpoint">Endpoint</label>
+          <input id="loginEndpoint" autocomplete="off" inputmode="url" data-i18n-placeholder="endpointPlaceholder" class="h-9 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-3 font-mono text-sm text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700">
+          <p class="mt-1 text-[10px] text-zinc-700" data-i18n="endpointHint">Leave empty for localhost:8848</p>
+        </div>
+        <div id="loginError"></div>
+        <button id="connectBtn" class="mt-2 h-9 w-full rounded-md bg-zinc-100 px-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 disabled:opacity-50 disabled:cursor-not-allowed" data-i18n="connect">Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main UI (hidden until connected) -->
+  <div id="mainUI" class="hidden">
+    <main class="mx-auto grid max-w-[1600px] grid-cols-1 items-start gap-5 px-6 py-5 lg:grid-cols-[1fr_380px]">
+      <div class="grid gap-5">
+        <!-- Terminal panel -->
+        <div class="overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]">
+          <!-- Title bar -->
+          <div class="flex items-center gap-3 border-b border-zinc-800/30 bg-[#0d0d0d] px-4 py-2.5">
+            <span class="text-xs font-medium text-zinc-500 terminal-title" data-i18n="subtitle">CU.RemoteConsole Terminal</span>
+            <span id="hostDisplay" class="ml-auto truncate text-[10px] font-mono text-zinc-600 max-w-[160px]" title=""></span>
+            <button id="toggleSettings" class="h-6 w-6 rounded border border-zinc-800 bg-transparent text-xs text-zinc-600 hover:text-zinc-300 hover:border-zinc-700 leading-none" data-i18n-title="switchHost" title="Switch host / key">&#9881;</button>
+            <button id="disconnectBtn" class="h-6 rounded border border-zinc-800 bg-transparent px-2 text-[10px] font-mono text-zinc-700 hover:text-red-400 hover:border-red-800" data-i18n="disconnect">Disconnect</button>
+          </div>
+          <!-- Settings bar (hidden, toggled by gear) -->
+          <div id="settingsBar" class="hidden border-b border-zinc-900 px-4 py-2 bg-[#0d0d0d]">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-[10px] text-zinc-600 w-10 shrink-0" data-i18n="token">Token</span>
+              <input id="settingsToken" type="password" autocomplete="off" data-i18n-placeholder="tokenPlaceholder" class="h-7 flex-1 min-w-[100px] rounded border border-zinc-800 bg-zinc-950/80 px-2 font-mono text-[11px] text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700">
+              <span class="text-[10px] text-zinc-600 w-14 shrink-0" data-i18n="endpoint">Endpoint</span>
+              <input id="settingsEndpoint" autocomplete="off" inputmode="url" data-i18n-placeholder="endpointPlaceholder" class="h-7 w-36 rounded border border-zinc-800 bg-zinc-950/80 px-2 font-mono text-[11px] text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700">
+              <span id="settingsError" class="text-[11px] text-red-400"></span>
+              <button id="settingsApply" class="h-7 rounded bg-zinc-100 px-3 text-[11px] font-semibold text-zinc-950 hover:bg-zinc-200 disabled:opacity-50 disabled:cursor-not-allowed" data-i18n="apply">Apply</button>
+            </div>
+          </div>
+          <!-- Terminal body -->
+          <div class="bg-[#000] p-0">
+            <div id="output" class="grid min-h-[360px] max-h-[460px] content-start gap-2 overflow-auto p-3 font-mono text-sm leading-relaxed"></div>
+            <!-- Command input line -->
+            <div class="flex items-start gap-2 border-t border-zinc-900 px-4 py-2.5 bg-[#050505]">
+              <span class="shrink-0 font-mono text-sm font-bold text-emerald-500 select-none">&gt;</span>
+              <textarea id="command" spellcheck="false" data-i18n-placeholder="commandPlaceholder" class="min-h-[22px] w-full resize-none bg-transparent p-0 font-mono text-sm text-zinc-200 outline-none placeholder:text-zinc-700 border-0" rows="1">help</textarea>
+            </div>
+          </div>
+          <!-- Bottom toolbar -->
+          <div class="flex items-center justify-between border-t border-zinc-800/30 bg-[#0d0d0d] px-4 py-2">
+            <div class="flex items-center gap-2">
+              <input id="queueId" autocomplete="off" data-i18n-placeholder="queuePlaceholder" class="h-6 w-24 rounded border border-zinc-800 bg-zinc-950/80 px-2 font-mono text-[11px] text-zinc-500 outline-none placeholder:text-zinc-700 focus:border-zinc-700">
+              <button id="lookup" class="h-6 rounded border border-zinc-800 bg-zinc-950/80 px-2 text-[11px] font-medium text-zinc-600 hover:border-zinc-700 hover:text-zinc-300" data-i18n="lookup">Lookup</button>
+            </div>
+            <div class="flex items-center gap-2">
+              <kbd class="hidden text-[11px] text-zinc-700 sm:inline"><span class="text-zinc-600">Ctrl+</span>Enter</kbd>
+              <button id="clear" class="h-7 rounded border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-600 hover:border-zinc-700 hover:text-zinc-300" data-i18n="clearOutput">Clear</button>
+              <button id="saveSnippet" class="h-7 rounded border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-600 hover:border-zinc-700 hover:text-zinc-300" data-i18n="saveSnippet">Save</button>
+              <button id="send" class="h-7 rounded bg-emerald-600 px-4 text-xs font-semibold text-black hover:bg-emerald-500" data-i18n="submit">Run</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="grid gap-5 content-start">
+        <div class="overflow-hidden rounded-lg border border-zinc-800/50 bg-[#0a0a0a]">
+          <div class="flex border-b border-zinc-800/30">
+            <button class="tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100" data-tab="status" data-i18n="statusPanel">Status</button>
+            <button class="tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100" data-tab="access" data-i18n="access">Access</button>
+            <button class="tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100" data-tab="catalog" data-i18n="commandCatalog">Commands</button>
+            <button class="tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100" data-tab="history" data-i18n="recent">History</button>
+            <button class="tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100" data-tab="snippets" data-i18n="snippetsTab">Snippets</button>
+            <button class="tab-btn flex-1 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 data-[active=true]:border-b-2 data-[active=true]:border-zinc-400 data-[active=true]:text-zinc-100" data-tab="manual" data-i18n="manual">Manual</button>
+          </div>
+          <div id="tab-status" class="tab-panel p-4"><div class="mb-3 flex items-center justify-between"><span class="text-xs text-zinc-600" data-i18n="reload">Refresh on connect</span><button id="status" class="h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300">Reload</button></div><div id="statusPanel" class="grid gap-2"></div></div>
+          <div id="tab-access" class="tab-panel hidden p-4">
+            <div class="text-xs text-zinc-500 mb-3" data-i18n="accessTitle">Remote Access</div>
+            <div id="accessUrl" class="rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 mb-3">
+              <div class="text-[10px] text-zinc-700 mb-1" data-i18n="accessUrlLabel">Console URL</div>
+              <div id="accessUrlText" class="text-xs font-mono text-zinc-300 break-all"></div>
+            </div>
+            <label class="flex items-center gap-2 mb-3 text-xs text-zinc-500 cursor-pointer">
+              <input type="checkbox" id="accessIncludeToken" class="accent-zinc-500">
+              <span data-i18n="includeToken">Include token in URL</span>
+            </label>
+            <div class="rounded-md border border-zinc-800/30 bg-zinc-950/30 p-3 mb-3">
+              <div class="text-[10px] text-zinc-700 mb-1" data-i18n="qrTitle">QR Code</div>
+              <div id="accessQR" class="flex items-center justify-center bg-white rounded-lg p-2 min-h-[180px]">
+                <span class="text-xs text-zinc-600" id="accessQRFallback"></span>
+              </div>
+            </div>
+            <button id="refreshAccess" class="h-7 rounded-md border border-zinc-800 bg-zinc-950 px-3 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300" data-i18n="reload">Reload</button>
+          </div>
+          <div id="tab-catalog" class="tab-panel hidden p-4"><div class="mb-3 flex items-center justify-between"><span class="text-xs text-zinc-600">Click to fill command</span><button id="catalog" class="h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300" data-i18n="reload">Reload</button></div><div id="catalogList" class="grid max-h-[480px] gap-3 overflow-auto"></div></div>
+          <div id="tab-history" class="tab-panel hidden p-4"><div class="mb-3 flex items-center justify-between"><span class="text-xs text-zinc-600"><span data-i18n="apiTools">API</span> <span data-i18n="health">Health</span></span><div class="flex gap-2"><button id="health" class="h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300" data-i18n="health">Health</button><button id="history" class="h-7 rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs font-medium text-zinc-500 hover:border-zinc-700 hover:text-zinc-300" data-i18n="recent">Recent</button></div></div><div id="recent" class="grid max-h-[360px] gap-2 overflow-auto"></div><div class="flex items-center justify-between mt-3 mb-1.5"><span class="text-xs font-medium text-zinc-500" data-i18n="snippets">Saved</span></div>
+            <input id="snippetSearch" autocomplete="off" data-i18n-placeholder="snippetSearch" class="mb-2 h-7 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-2 text-xs text-zinc-400 outline-none placeholder:text-zinc-700 focus:border-zinc-700">
+            <div id="snippetList" class="grid max-h-[240px] gap-1.5 overflow-auto"></div></div>
+          <div id="tab-snippets" class="tab-panel hidden p-4">
+            <div class="mb-2">
+              <input id="snippetFullSearch" autocomplete="off" data-i18n-placeholder="snippetSearch" class="h-7 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-2 text-xs text-zinc-400 outline-none placeholder:text-zinc-700 focus:border-zinc-700">
+            </div>
+            <div id="snippetFullList" class="grid max-h-[640px] gap-2 overflow-auto"></div>
+          </div>
+          <div id="tab-manual" class="tab-panel hidden p-4"><div class="mb-3"><input id="manualSearch" autocomplete="off" placeholder="Search commands&hellip;" class="h-8 w-full rounded-md border border-zinc-800 bg-zinc-950/50 px-3 text-xs text-zinc-300 outline-none placeholder:text-zinc-700 focus:border-zinc-700"></div><div id="manualList" class="grid max-h-[500px] gap-4 overflow-auto"></div></div>
+        </div></aside></main></div>
+
+  <script><!--INCLUDE js/i18n.js--><!--INCLUDE js/qrcode.min.js--><!--INCLUDE js/snippets.js--><!--INCLUDE js/manual.js--><!--INCLUDE js/app.js--></script>
+</body>
+</html>

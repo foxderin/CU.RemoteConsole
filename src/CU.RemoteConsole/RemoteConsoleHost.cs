@@ -54,11 +54,11 @@ public sealed class RemoteConsoleHost
         harmony = new Harmony(RemoteConsolePlugin.PluginGuid);
         PatchConsoleUpdate();
         EnsureConfigOverlay();
+        // Main menu button is injected by InGameConfigOverlay.Update()
 
         Application.quitting += Shutdown;
         logger.LogInfo($"CU.RemoteConsole listening on {httpServer.Prefix}");
         logger.LogInfo("Authentication token is stored in the BepInEx config file and is not printed to logs.");
-        logger.LogInfo($"Press {remoteConfig.ConfigWindowKey.Value} in game to open CU.RemoteConsole config.");
 
         if (remoteConfig.AllowLan.Value)
         {
@@ -72,6 +72,8 @@ public sealed class RemoteConsoleHost
     }
 
     internal RemoteConsoleConfig Config => remoteConfig;
+
+    internal void Log(string message) => logger.LogInfo(message);
 
     public static bool EnsureCreated(RemoteConsolePlugin plugin)
     {
@@ -181,7 +183,15 @@ public sealed class RemoteConsoleHost
 
     private LocalHttpServer CreateHttpServer()
     {
-        return new LocalHttpServer(remoteConfig, authenticator, policy, rateLimiter, commandQueue, commandHistory, auditLogger, CreateHealthSnapshot, CreateStatusSnapshot);
+        return new LocalHttpServer(remoteConfig, authenticator, policy, rateLimiter, commandQueue, commandHistory, auditLogger, CreateHealthSnapshot, CreateStatusSnapshot, ToggleConfigOverlay);
+    }
+
+    public void ToggleConfigOverlay()
+    {
+        if (configOverlay != null)
+        {
+            configOverlay.Toggle();
+        }
     }
 
     private void RestartHttpServer()

@@ -9,17 +9,20 @@
 
 ## 功能
 
-- 本地网页控制台：`http://127.0.0.1:8848/`。
+- **终端风格网页控制台**：`http://127.0.0.1:8848/`，深色主题 + 提示符输入。
+- **登录/连接页**：先输入 bearer token 和可选端点，验证通过后进入主界面。
+- **主机/Key 切换**：通过齿轮图标 ⚙ 即时修改端点和 token，无需刷新页面。
+- **命令片段**：保存、编辑、搜索、快速执行常用命令（localStorage，最多 50 条）。
+- **命令历史**：最近命令、回执查询、输出渲染。
+- **命令目录**：按风险分组，悬停显示命令描述。
+- **游戏内配置面板**：通过网页标题栏的 **Overlay** 按钮触发（不再使用 F8 快捷键）。
 - Bearer token 鉴权。
 - 安全命令白名单，危险命令默认拒绝。
 - 基础速率限制和命令审计日志。
 - 线程安全命令队列，由 Unity 主线程消费。
-- 命令回执查询、最近历史和命令输出渲染。
-- 只读状态、配置和策略面板。
-- 网页端连接端点覆盖，可连接自定义本地、局域网或隧道地址。
-- 按 `F8` 打开的游戏内配置窗口，支持中英文切换。
-- 按风险分组的命令目录。
-- 中英文网页 UI。
+- 只读状态、配置和策略面板（侧边栏标签页）。
+- 中英文命令手册，支持搜索。
+- 中英文网页 UI，实时切换语言。
 - 静态 OpenAPI 契约：[`docs/api/openapi.yaml`](./docs/api/openapi.yaml)。
 
 ## 工作方式
@@ -71,6 +74,8 @@ http://127.0.0.1:8848/
 <GameDir>\BepInEx\config\cu.remoteconsole.cfg
 ```
 
+8. 粘贴 token 到登录页，点击 **Connect**。
+
 不要分享或提交这个 token。
 
 Proton / Steam Deck 备注：
@@ -87,24 +92,30 @@ WINEDLLOVERRIDES=winhttp=n,b %command%
 1. 启动游戏并进入场景。
 2. 打开 `http://127.0.0.1:8848/`。
 3. 粘贴配置文件里的 bearer token。
-4. 执行 `help`。
-5. 查看输出块和最近历史。
-6. 用命令目录查看哪些命令允许或拒绝。
+4. 点击 **Connect**——控制台会验证连接并显示加载遮罩。
+5. 在 `>` 提示符后输入 `help` 执行。
+6. 通过侧边栏标签页浏览命令目录、历史和手册。
+7. 点击标题栏的 **Overlay** 按钮打开游戏内配置窗口。
 
 ## 网页控制台
 
+主面板采用终端风格，侧边栏为多标签页面板：
+
 | 区域 | 用途 |
 | --- | --- |
-| Command | 提交命令并渲染输出块 |
-| Connection endpoint | 当网页需要连接到另一个本地、局域网或隧道地址时，覆盖 API 基础地址 |
-| Receipt lookup | 按 id 查询单条命令回执 |
-| Recent history | 查看最近命令回执 |
-| Catalog | 展示安全、会修改状态、危险、未知命令的策略 |
-| Status | 展示监听器、鉴权、队列、速率限制、补丁和策略的只读状态 |
+| **终端** | 在 `>` 提示符后输入命令（Ctrl+Enter 执行），查看输出和历史 |
+| **Queue ID / Lookup** | 按队列 ID 查询命令回执 |
+| **Status 标签页** | 监听器、鉴权、队列、速率限制、补丁和策略的只读状态 |
+| **Commands 标签页** | 按安全/状态修改/危险/未知分组的命令目录，悬停显示描述 |
+| **History 标签页** | 最近命令回执 + 已保存的片段（带搜索） |
+| **Snippets 标签页** | 完整片段管理，支持快速执行、编辑、删除 |
+| **Manual 标签页** | 可搜索的命令手册，中英文描述 |
 
 会修改状态的命令和危险命令会展示出来，但默认拒绝执行。
 
-连接端点字段保存在浏览器 local storage。留空表示使用当前页面同源地址。只有当网页需要连接到另一个允许的地址时，才填写完整端点，例如 `http://127.0.0.1:8848`。
+标题栏的**齿轮图标 ⚙** 打开内联设置面板，可修改端点地址和 bearer token。点击 **Disconnect** 返回登录页。
+
+已保存的片段、端点和语言偏好保存在浏览器 local storage。
 
 ## API
 
@@ -124,6 +135,7 @@ http://127.0.0.1:8848
 | `GET` | `/api/commands` | 最近命令回执 |
 | `GET` | `/api/commands/catalog` | 命令策略目录 |
 | `GET` | `/api/commands/{queueId}` | 查询命令回执 |
+| `POST` | `/api/toggle-overlay` | 开关游戏内配置面板 |
 
 提交命令：
 
@@ -132,6 +144,13 @@ curl -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{"command":"help"}' \
   http://127.0.0.1:8848/api/commands
+```
+
+开关游戏内配置面板：
+
+```bash
+curl -X POST -H 'Authorization: Bearer <token>' \
+  http://127.0.0.1:8848/api/toggle-overlay
 ```
 
 静态 OpenAPI 契约：
@@ -144,7 +163,7 @@ docs/api/openapi.yaml
 
 BepInEx 会在首次启动后自动生成配置文件。
 
-在游戏内按 `F8` 可以打开 CU.RemoteConsole 配置窗口。窗口默认跟随系统语言，并提供中英文切换。本地玩家可以在这个窗口修改网络、鉴权、命令策略、命令允许列表、限制和审计设置。公网/局域网暴露、关闭鉴权、允许状态修改/危险命令、添加额外允许命令等高风险修改需要再次点击确认保存。
+点击网页标题栏的 **Overlay** 按钮（或发送 `POST /api/toggle-overlay`）可以打开 CU.RemoteConsole 配置窗口。窗口默认跟随系统语言，并提供中英文切换。本地玩家可以在这个窗口修改网络、鉴权、命令策略、命令允许列表、限制和审计设置。公网/局域网暴露、关闭鉴权、允许状态修改/危险命令、添加额外允许命令等高风险修改需要再次点击确认保存。
 
 远程 API 用户不能通过 HTTP 修改配置。
 
@@ -176,6 +195,8 @@ npm run build:web
 dotnet build src/CU.RemoteConsole/CU.RemoteConsole.csproj -c Release
 ```
 
+`build:web` 步骤会把模块化的 JavaScript 源文件（`web/src/js/`）通过 `web/build.mjs` 组装成单个 HTML，然后编译 Tailwind CSS，最后把全部内容嵌入 C# 插件的逐字字符串中。
+
 常用脚本：
 
 | 脚本 | 用途 |
@@ -188,18 +209,21 @@ dotnet build src/CU.RemoteConsole/CU.RemoteConsole.csproj -c Release
 
 `scripts/smoke-test-local.sh` 会在脚本内部读取 token，但不会打印 token。
 
-## 发布包内容
+## 网页源码结构
 
-发布包包含：
-
-```text
-BepInEx/plugins/CU.RemoteConsole/CU.RemoteConsole.dll
-README-INSTALL.txt
-VERSION
-CHECKSUMS.txt
 ```
-
-发布包不包含 BepInEx、游戏文件、第三方 mod、token/config 文件、`node_modules`、源码、测试或构建中间产物。
+web/
+  build.mjs                # JS 组装脚本（模板 → index.html）
+  src/
+    index.html.template    # HTML 模板，含 <!--INCLUDE js/...--> 标记
+    index.html             # 组装产物（自动生成）
+    input.css              # Tailwind CSS 入口
+    js/
+      i18n.js              # 国际化字典和语言辅助函数
+      snippets.js          # 命令片段 CRUD（localStorage）
+      manual.js            # 命令参考数据和渲染
+      app.js               # 主应用逻辑
+```
 
 ## 鸣谢
 

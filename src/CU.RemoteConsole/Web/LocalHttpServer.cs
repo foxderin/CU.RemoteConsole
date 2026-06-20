@@ -24,6 +24,7 @@ public sealed class LocalHttpServer : IDisposable
     private readonly AuditLogger auditLogger;
     private readonly Func<HealthSnapshot> healthSnapshot;
     private readonly Func<StatusSnapshot> statusSnapshot;
+    private readonly Action toggleOverlay;
     private readonly HttpListener listener;
     private Thread? worker;
     private volatile bool stopping;
@@ -37,7 +38,8 @@ public sealed class LocalHttpServer : IDisposable
         CommandHistory commandHistory,
         AuditLogger auditLogger,
         Func<HealthSnapshot> healthSnapshot,
-        Func<StatusSnapshot> statusSnapshot)
+        Func<StatusSnapshot> statusSnapshot,
+        Action toggleOverlay)
     {
         this.config = config;
         this.authenticator = authenticator;
@@ -48,8 +50,10 @@ public sealed class LocalHttpServer : IDisposable
         this.auditLogger = auditLogger;
         this.healthSnapshot = healthSnapshot;
         this.statusSnapshot = statusSnapshot;
+        this.toggleOverlay = toggleOverlay;
         listener = new HttpListener();
-        listener.Prefixes.Add($"http://{config.BindAddress.Value}:{config.Port.Value}/");
+        // Use "*" (wildcard) so HttpListener accepts requests on all interfaces
+        listener.Prefixes.Add($"http://*:{config.Port.Value}/");
     }
 
     public string Prefix => $"http://{config.BindAddress.Value}:{config.Port.Value}/";
@@ -182,12 +186,34 @@ public sealed class LocalHttpServer : IDisposable
                 return;
             }
 
+            if (request.HttpMethod == "POST" && request.Url != null && request.Url.AbsolutePath == "/api/toggle-overlay")
+            {
+                HandleToggleOverlay(context);
+                return;
+            }
+
             WriteJson(response, 404, "{\"error\":\"not_found\"}");
         }
         finally
         {
             response.Close();
         }
+    }
+
+    private void HandleToggleOverlay(HttpListenerContext context)
+    {
+        var request = context.Request;
+        var response = context.Response;
+        var authorization = request.Headers["Authorization"];
+
+        if (config.RequireAuth.Value && !authenticator.Validate(authorization))
+        {
+            WriteJson(response, 401, "{\"error\":\"invalid_auth\"}");
+            return;
+        }
+
+        toggleOverlay();
+        WriteJson(response, 200, "{\"ok\":true}");
     }
 
     private void HandleCommand(HttpListenerContext context)
@@ -379,8 +405,9 @@ public sealed class LocalHttpServer : IDisposable
             return true;
         }
 
-        return origin.StartsWith("http://127.0.0.1:", StringComparison.OrdinalIgnoreCase)
-            || origin.StartsWith("http://localhost:", StringComparison.OrdinalIgnoreCase);
+        // Allow same-host requests from any IP (server listens on wildcard)
+        return origin.StartsWith("http://", StringComparison.OrdinalIgnoreCase)
+            || origin.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
     }
 
     private static void ApplyCorsHeaders(HttpListenerRequest request, HttpListenerResponse response)

@@ -1,13 +1,17 @@
 {
   "name": "cu.remoteconsole",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:web": "tailwindcss -i ./web/src/input.css -o ./web/dist/output.css --minify && node ./scripts/embed-web-console.mjs"
+    "build:web": "node web/build.mjs && tailwindcss -i ./web/src/input.css -o ./web/dist/output.css --minify && node ./scripts/embed-web-console.mjs",
+    "build:web:js": "node web/build.mjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "4.3.0",
     "tailwindcss": "4.3.0"
+  },
+  "dependencies": {
+    "qrcodejs": "^1.0.0"
   }
 }

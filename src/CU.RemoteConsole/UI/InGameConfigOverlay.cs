@@ -8,7 +8,7 @@ namespace CU.RemoteConsole.UI;
 public sealed class InGameConfigOverlay : MonoBehaviour
 {
     private RemoteConsoleHost? host;
-    private Rect windowRect = new Rect(80, 80, 520, 690);
+    private Rect windowRect = new Rect(80, 80, 520, 800);
     private Vector2 scroll;
     private bool visible;
     private bool? forceChinese;
@@ -16,7 +16,7 @@ public sealed class InGameConfigOverlay : MonoBehaviour
     private bool regenerateToken;
     private string status = "Ready";
 
-    private string bindAddress = "127.0.0.1";
+    private string bindAddress = "0.0.0.0";
     private string port = "8848";
     private bool requireAuth = true;
     private bool allowLan;
@@ -40,21 +40,92 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         return overlay;
     }
 
+    public void Toggle()
+    {
+        visible = !visible;
+        confirmDangerousSave = false;
+        if (visible)
+        {
+            ResetFromConfig();
+        }
+    }
+
+    private bool mainMenuButtonInjected;
+    private float nextInjectionCheck;
+
     private void Update()
     {
-        if (host == null)
-        {
-            return;
-        }
+        if (mainMenuButtonInjected) return;
+        if (host == null) return;
+        // Throttle to once per second
+        if (Time.unscaledTime < nextInjectionCheck) return;
+        nextInjectionCheck = Time.unscaledTime + 1f;
 
-        if (Input.GetKeyDown(host.Config.ConfigWindowKey.Value))
+        try
         {
-            visible = !visible;
-            confirmDangerousSave = false;
-            if (visible)
+            if (GameObject.Find("CU_WebConsoleBtn") != null)
             {
-                ResetFromConfig();
+                mainMenuButtonInjected = true;
+                host.Log("[CU.RemoteConsole] Main menu button already exists.");
+                return;
             }
+            var canvas = GameObject.Find("Canvas");
+            if (canvas == null)
+            {
+                host.Log("[CU.RemoteConsole] Canvas not found yet, retrying...");
+                return;
+            }
+
+            // Create button from scratch so no external mod dependency
+            var btnObj = new GameObject("CU_WebConsoleBtn", typeof(UnityEngine.UI.Button), typeof(UnityEngine.UI.Image));
+            btnObj.transform.SetParent(canvas.transform, false);
+
+            // Add text child
+            var textObj = new GameObject("Text", typeof(UnityEngine.UI.Text));
+            textObj.transform.SetParent(btnObj.transform, false);
+            var text = textObj.GetComponent<UnityEngine.UI.Text>();
+            text.text = "Web Console";
+            text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            text.fontSize = 24;
+            text.alignment = TextAnchor.MiddleCenter;
+            text.color = Color.white;
+
+            // Style the button
+            var btn = btnObj.GetComponent<UnityEngine.UI.Button>();
+            var img = btnObj.GetComponent<UnityEngine.UI.Image>();
+            img.color = new Color(0.2f, 0.2f, 0.2f, 0.9f);
+
+            // Position at bottom-right corner
+            var rt = btnObj.GetComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(200, 40);
+            rt.anchorMin = new Vector2(1f, 0f);
+            rt.anchorMax = new Vector2(1f, 0f);
+            rt.pivot = new Vector2(1f, 0f);
+            rt.anchoredPosition = new Vector2(-10, 10);
+
+            // Style text
+            var textRt = textObj.GetComponent<RectTransform>();
+            textRt.sizeDelta = rt.sizeDelta;
+            textRt.anchorMin = Vector2.zero;
+            textRt.anchorMax = Vector2.one;
+            textRt.offsetMin = Vector2.zero;
+            textRt.offsetMax = Vector2.zero;
+
+            // Wire click — open in-game config overlay
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(() => {
+                try { host.ToggleConfigOverlay(); }
+                catch (System.Exception ex) {
+                    host.Log("[CU.RemoteConsole] Toggle overlay error: " + ex.Message);
+                }
+            });
+
+            mainMenuButtonInjected = true;
+            host.Log("[CU.RemoteConsole] Web Console main menu button injected.");
+        }
+        catch (System.Exception ex)
+        {
+            host.Log("[CU.RemoteConsole] Injection error: " + ex.GetType().Name + ": " + ex.Message);
         }
     }
 
@@ -112,8 +183,63 @@ public sealed class InGameConfigOverlay : MonoBehaviour
         GUILayout.Label(T("Audit", "审计"));
         auditLogEnabled = ToggleRow(T("Audit log enabled", "启用审计日志"), auditLogEnabled);
 
+        // Access info section
+        GUILayout.Space(12);
+        GUILayout.Label(T("Remote Access (click to open)", "远程访问（点击打开）"));
+
+        var portStr = port.Trim();
+        var token = host.Config.Token;
+        var showToken = true; // Always include token in URLs for convenience
+
+        // Collect all local IP addresses
+        var addresses = new System.Collections.Generic.List<string>();
+        addresses.Add("127.0.0.1");
+        try
+        {
+            var hostEntry = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+            foreach (var addr in hostEntry.AddressList)
+            {
+                var s = addr.ToString();
+                if (s.Contains('.') && !s.StartsWith("127.") && !s.StartsWith("169.254."))
+                    addresses.Add(s);
+            }
+        }
+        catch { }
+
+        foreach (var ip in addresses)
+        {
+            var label = ip == "127.0.0.1" ? T("Local", "本机") : ip;
+            var baseUrl = $"http://{ip}:{portStr}/";
+            var fullUrl = baseUrl + (showToken ? $"?token={token}" : "");
+            GUILayout.BeginHorizontal();
+            GUILayout.Label(label, GUILayout.Width(120));
+            if (GUILayout.Button(baseUrl, GUILayout.Width(360)))
+            {
+                Application.OpenURL(fullUrl);
+            }
+            GUILayout.EndHorizontal();
+        }
+
+        // WAN IP detection (best-effort via DNS)
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(T("WAN", "公网"), GUILayout.Width(120));
+        if (allowPublic)
+        {
+            var publicIp = bindAddress.Trim();
+            if (publicIp == "0.0.0.0" || publicIp == "::")
+                publicIp = "*";
+            var baseUrl = $"http://{publicIp}:{portStr}/";
+            var fullUrl = baseUrl + (showToken ? $"?token={token}" : "");
+            if (GUILayout.Button(baseUrl, GUILayout.Width(360)))
+                Application.OpenURL(fullUrl);
+        }
+        else
+        {
+            GUILayout.Label(T("Enable AllowPublic above", "启用上方公网选项"), GUILayout.Width(360));
+        }
+        GUILayout.EndHorizontal();
+
         GUILayout.Space(8);
-        GUILayout.Label(T("Hotkey: ", "快捷键：") + host.Config.ConfigWindowKey.Value);
         GUILayout.Label(status);
 
         if (IsDangerous())

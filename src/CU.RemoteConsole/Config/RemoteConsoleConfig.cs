@@ -93,7 +93,7 @@ public sealed class RemoteConsoleConfig
     {
         var loaded = new RemoteConsoleConfig(
             configFile,
-            configFile.Bind("Network", "BindAddress", "127.0.0.1", "Address to bind the local control server to. Keep 127.0.0.1 unless explicitly reviewed."),
+            configFile.Bind("Network", "BindAddress", "0.0.0.0", "Address to bind the local control server to. Use 0.0.0.0 for all interfaces."),
             configFile.Bind("Network", "Port", 8848, "Local control server port."),
             configFile.Bind("Security", "RequireAuth", true, "Require bearer token authentication."),
             configFile.Bind("Security", "Token", "", "Bearer token. Generated automatically when empty. Do not share this value."),
