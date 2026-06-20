@@ -7,7 +7,7 @@
 > [!WARNING]
 > CU.RemoteConsole 可以执行游戏控制台命令。请保持监听 `127.0.0.1`，保持鉴权开启，不要分享自动生成的 bearer token，也不要把服务直接暴露到公网。
 
-![主菜单按钮](screenshots/main-menu.jpg)
+![网页控制台](screenshots/web-console.jpg)
 
 ## 功能
 
