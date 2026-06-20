@@ -7,6 +7,8 @@ A BepInEx 5 mod for [Casualties: Unknown](https://store.steampowered.com/app/457
 > [!WARNING]
 > CU.RemoteConsole can execute game console commands. Keep it bound to `127.0.0.1`, keep authentication enabled, do not share the generated bearer token, and do not expose the service directly to the public internet.
 
+![Main menu button](screenshots/main-menu.jpg)
+
 ## Features
 
 - **Terminal-style web console** at `http://127.0.0.1:8848/` with dark theme and prompt input.
