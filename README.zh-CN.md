@@ -5,19 +5,21 @@
 面向 [Casualties: Unknown](https://store.steampowered.com/app/4576490/) 的 BepInEx 5 模组，提供本地带鉴权的浏览器/API 命令控制台。
 
 > [!WARNING]
-> CU.RemoteConsole 可以执行游戏控制台命令。请保持监听 `127.0.0.1`，保持鉴权开启，不要分享自动生成的 bearer token，也不要把服务直接暴露到公网。
+> CU.RemoteConsole 可以执行游戏控制台命令。请保持鉴权开启，不要分享自动生成的 bearer token，也不要把服务直接暴露到公网。
 
 ![网页控制台](screenshots/web-console.jpg)
 
 ## 功能
 
-- **终端风格网页控制台**：`http://127.0.0.1:8848/`，深色主题 + 提示符输入。
-- **登录/连接页**：先输入 bearer token 和可选端点，验证通过后进入主界面。
+- **登录验证** — 先输入 bearer token 和可选端点，验证通过后进入主界面。
+- **终端风格网页控制台**：`http://localhost:8848/`，深色主题 + 提示符输入。
+- **Access 标签页**：显示控制台地址（可附加 token），二维码（本地用 qrcodejs 生成，无需外部 API）。
 - **主机/Key 切换**：通过齿轮图标 ⚙ 即时修改端点和 token，无需刷新页面。
 - **命令片段**：保存、编辑、搜索、快速执行常用命令（localStorage，最多 50 条）。
 - **命令历史**：最近命令、回执查询、输出渲染。
 - **命令目录**：按风险分组，悬停显示命令描述。
-- **游戏内配置面板**：通过网页标题栏的 **Overlay** 按钮触发（不再使用 F8 快捷键）。
+- **游戏内配置面板**：通过游戏主菜单的 **Web Console** 按钮触发，或 `POST /api/toggle-overlay`。
+- **远程访问列表**：游戏内配置面板列出所有网卡地址（本机、局域网、公网），点击直接打开（不暴露 token）。
 - Bearer token 鉴权。
 - 安全命令白名单，危险命令默认拒绝。
 - 基础速率限制和命令审计日志。
@@ -55,7 +57,7 @@ Casualties: Unknown 可能支持部分自定义内容，但 CU.RemoteConsole 是
 ## 安装
 
 1. 为游戏安装 BepInEx 5.4.x。
-2. 从 Release 页面下载 `CU.RemoteConsole-v1.2.0.zip`。
+2. 从 Release 页面下载 `CU.RemoteConsole-v1.2.1.zip`。
 3. 把发布包里的整个 `BepInEx` 文件夹复制到游戏安装目录。
 4. 确认最终插件路径类似：
 
@@ -67,7 +69,7 @@ Casualties: Unknown 可能支持部分自定义内容，但 CU.RemoteConsole 是
 6. 打开：
 
 ```text
-http://127.0.0.1:8848/
+http://localhost:8848/
 ```
 
 7. 从以下文件复制自动生成的 bearer token：
@@ -92,12 +94,12 @@ WINEDLLOVERRIDES=winhttp=n,b %command%
 ## 快速开始
 
 1. 启动游戏并进入场景。
-2. 打开 `http://127.0.0.1:8848/`。
+2. 打开 `http://localhost:8848/`。
 3. 粘贴配置文件里的 bearer token。
-4. 点击 **Connect**——控制台会验证连接并显示加载遮罩。
+4. 点击 **Connect** — 控制台会验证连接并显示加载遮罩。
 5. 在 `>` 提示符后输入 `help` 执行。
 6. 通过侧边栏标签页浏览命令目录、历史和手册。
-7. 点击标题栏的 **Overlay** 按钮打开游戏内配置窗口。
+7. 点击游戏主菜单的 **Web Console** 按钮打开游戏内配置面板。
 
 ## 网页控制台
 
@@ -108,6 +110,7 @@ WINEDLLOVERRIDES=winhttp=n,b %command%
 | **终端** | 在 `>` 提示符后输入命令（Ctrl+Enter 执行），查看输出和历史 |
 | **Queue ID / Lookup** | 按队列 ID 查询命令回执 |
 | **Status 标签页** | 监听器、鉴权、队列、速率限制、补丁和策略的只读状态 |
+| **Access 标签页** | 控制台地址（可选附带 token）、二维码生成（离线可用） |
 | **Commands 标签页** | 按安全/状态修改/危险/未知分组的命令目录，悬停显示描述 |
 | **History 标签页** | 最近命令回执 + 已保存的片段（带搜索） |
 | **Snippets 标签页** | 完整片段管理，支持快速执行、编辑、删除 |
@@ -124,7 +127,7 @@ WINEDLLOVERRIDES=winhttp=n,b %command%
 默认本地服务：
 
 ```text
-http://127.0.0.1:8848
+http://localhost:8848
 ```
 
 端点：
@@ -145,14 +148,14 @@ http://127.0.0.1:8848
 curl -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{"command":"help"}' \
-  http://127.0.0.1:8848/api/commands
+  http://localhost:8848/api/commands
 ```
 
 开关游戏内配置面板：
 
 ```bash
 curl -X POST -H 'Authorization: Bearer <token>' \
-  http://127.0.0.1:8848/api/toggle-overlay
+  http://localhost:8848/api/toggle-overlay
 ```
 
 静态 OpenAPI 契约：
@@ -165,7 +168,7 @@ docs/api/openapi.yaml
 
 BepInEx 会在首次启动后自动生成配置文件。
 
-点击网页标题栏的 **Overlay** 按钮（或发送 `POST /api/toggle-overlay`）可以打开 CU.RemoteConsole 配置窗口。窗口默认跟随系统语言，并提供中英文切换。本地玩家可以在这个窗口修改网络、鉴权、命令策略、命令允许列表、限制和审计设置。公网/局域网暴露、关闭鉴权、允许状态修改/危险命令、添加额外允许命令等高风险修改需要再次点击确认保存。
+点击游戏主菜单的 **Web Console** 按钮（或发送 `POST /api/toggle-overlay`）可以打开 CU.RemoteConsole 配置窗口。窗口默认跟随系统语言，并提供中英文切换。本地玩家可以在这个窗口修改网络、鉴权、命令策略、命令允许列表、限制和审计设置。公网/局域网暴露、关闭鉴权、允许状态修改/危险命令、添加额外允许命令等高风险修改需要再次点击确认保存。
 
 远程 API 用户不能通过 HTTP 修改配置。
 
@@ -178,7 +181,7 @@ BepInEx 会在首次启动后自动生成配置文件。
 
 | 配置项 | 默认值 |
 | --- | --- |
-| `Network/BindAddress` | `127.0.0.1` |
+| `Network/BindAddress` | `0.0.0.0` |
 | `Network/Port` | `8848` |
 | `Security/RequireAuth` | `true` |
 | `Security/AllowLan` | `false` |
@@ -222,6 +225,7 @@ web/
     input.css              # Tailwind CSS 入口
     js/
       i18n.js              # 国际化字典和语言辅助函数
+      qrcode.min.js        # 本地二维码生成（qrcodejs）
       snippets.js          # 命令片段 CRUD（localStorage）
       manual.js            # 命令参考数据和渲染
       app.js               # 主应用逻辑
@@ -232,6 +236,7 @@ web/
 - [BepInEx](https://github.com/BepInEx/BepInEx) / [HarmonyX](https://github.com/BepInEx/HarmonyX)
 - [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
+- [qrcodejs](https://github.com/davidshimjs/qrcodejs)
 - [Casualties: Unknown](https://store.steampowered.com/app/4576490/)
 
 ## 许可证

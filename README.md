@@ -5,19 +5,21 @@ English | [简体中文](./README.zh-CN.md)
 A BepInEx 5 mod for [Casualties: Unknown](https://store.steampowered.com/app/4576490/) that exposes a local authenticated browser/API command console.
 
 > [!WARNING]
-> CU.RemoteConsole can execute game console commands. Keep it bound to `127.0.0.1`, keep authentication enabled, do not share the generated bearer token, and do not expose the service directly to the public internet.
+> CU.RemoteConsole can execute game console commands. Keep authentication enabled, do not share the generated bearer token, and do not expose the service directly to the public internet.
 
 ![Web Console](screenshots/web-console.jpg)
 
 ## Features
 
-- **Terminal-style web console** at `http://127.0.0.1:8848/` with dark theme and prompt input.
-- **Login / connect screen** — enter bearer token and optional endpoint before accessing the console.
-- **Host/key switcher** — change endpoint and token on the fly without restarting the page.
+- **Login verification** — bearer token + optional endpoint entry before accessing the console.
+- **Terminal-style web console** at `http://localhost:8848/` with dark theme and prompt input.
+- **Access tab** — shows the console URL with optional token inclusion, QR code (generated locally via qrcodejs, no external API).
+- **Host/key switcher** — change endpoint and token on the fly via the gear icon ⚙.
 - **Command snippets** — save, edit, search, and quick-execute frequently used commands (localStorage, up to 50).
 - **Command history** — recent commands, receipt lookup, and rendered output.
 - **Command catalog** grouped by risk, with hover tooltips for command descriptions.
-- **In-game config overlay** — toggle via the Web UI **Overlay** button (no F8 hotkey).
+- **In-game config overlay** — toggle from the main menu "Web Console" button, or via `POST /api/toggle-overlay`.
+- **Remote Access panel in-game** — lists all NIC addresses (localhost, LAN, WAN) as clickable URLs (token never displayed).
 - Bearer-token authentication.
 - Safe command allowlist and dangerous-command denial by default.
 - Basic rate limiting and command audit logging.
@@ -55,7 +57,7 @@ Casualties: Unknown may support some custom content, but CU.RemoteConsole is a C
 ## Installation
 
 1. Install BepInEx 5.4.x for the game.
-2. Download `CU.RemoteConsole-v1.2.0.zip` from the release page.
+2. Download `CU.RemoteConsole-v1.2.1.zip` from the release page.
 3. Copy the whole `BepInEx` folder from the release package into the game install directory.
 4. Confirm the final plugin path looks like:
 
@@ -67,7 +69,7 @@ Casualties: Unknown may support some custom content, but CU.RemoteConsole is a C
 6. Open:
 
 ```text
-http://127.0.0.1:8848/
+http://localhost:8848/
 ```
 
 7. Copy the generated bearer token from:
@@ -92,12 +94,12 @@ This is not needed for normal Windows installs.
 ## Quick Start
 
 1. Start the game and enter a scene.
-2. Open `http://127.0.0.1:8848/`.
+2. Open `http://localhost:8848/`.
 3. Paste the bearer token from the generated config file.
 4. Click **Connect** — the console verifies the connection showing a loading overlay.
 5. Run `help` in the terminal prompt.
 6. Browse the command catalog, history, and manual via the sidebar tabs.
-7. Click **Overlay** in the title bar to open the in-game config window.
+7. Click **Web Console** on the game's main menu to open the in-game config overlay.
 
 ## Web Console
 
@@ -108,6 +110,7 @@ The browser console includes a terminal-style main panel and a sidebar with tabb
 | **Terminal** | Submit commands at the `>` prompt (Ctrl+Enter), view output and history |
 | **Queue ID / Lookup** | Query a command receipt by its queue ID |
 | **Status tab** | Read-only listener, auth, queue, rate limit, patch, and policy metadata |
+| **Access tab** | Console URL display (token optional), QR code generation (offline) |
 | **Commands tab** | Catalog grouped by Safe / State-changing / Dangerous / Unknown; hover for descriptions |
 | **History tab** | Recent command receipts and saved snippets with search |
 | **Snippets tab** | Full snippet manager with quick-execute, edit, and delete |
@@ -124,7 +127,7 @@ Saved snippets, endpoint preference, and language preference are persisted in br
 Default local server:
 
 ```text
-http://127.0.0.1:8848
+http://localhost:8848
 ```
 
 Endpoints:
@@ -145,14 +148,14 @@ Submit a command:
 curl -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{"command":"help"}' \
-  http://127.0.0.1:8848/api/commands
+  http://localhost:8848/api/commands
 ```
 
 Toggle the in-game config overlay:
 
 ```bash
 curl -X POST -H 'Authorization: Bearer <token>' \
-  http://127.0.0.1:8848/api/toggle-overlay
+  http://localhost:8848/api/toggle-overlay
 ```
 
 See the static OpenAPI contract:
@@ -165,7 +168,7 @@ docs/api/openapi.yaml
 
 BepInEx generates the config file automatically after the first launch.
 
-Click **Overlay** in the web console title bar (or send `POST /api/toggle-overlay`) to open the CU.RemoteConsole config window. The window defaults to the system language and includes an English/Chinese toggle. A local player using this window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
+Click **Web Console** on the game's main menu (or send `POST /api/toggle-overlay`) to open the in-game config window. The window defaults to the system language and includes an English/Chinese toggle. A local player using this window can edit network, authentication, command-policy, command allow-list, limit, and audit settings. Risky changes such as public/LAN exposure, disabling auth, allowing state-changing/dangerous commands, or adding extra allowed commands require a second confirmation click.
 
 Remote API users cannot change config through HTTP.
 
@@ -178,7 +181,7 @@ Important defaults:
 
 | Entry | Default |
 | --- | --- |
-| `Network/BindAddress` | `127.0.0.1` |
+| `Network/BindAddress` | `0.0.0.0` |
 | `Network/Port` | `8848` |
 | `Security/RequireAuth` | `true` |
 | `Security/AllowLan` | `false` |
@@ -235,6 +238,7 @@ web/
     input.css              # Tailwind CSS input
     js/
       i18n.js              # i18n dictionary and language helpers
+      qrcode.min.js        # local QR code generation (qrcodejs)
       snippets.js          # command snippet CRUD (localStorage)
       manual.js            # command reference data and render
       app.js               # main application logic
@@ -245,6 +249,7 @@ web/
 - [BepInEx](https://github.com/BepInEx/BepInEx) / [HarmonyX](https://github.com/BepInEx/HarmonyX)
 - [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
+- [qrcodejs](https://github.com/davidshimjs/qrcodejs)
 - [Casualties: Unknown](https://store.steampowered.com/app/4576490/)
 
 ## License
